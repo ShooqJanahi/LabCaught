@@ -16,19 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Py0-Jm-5kI">
-                                <rect key="frame" x="20" y="103" width="353" height="715"/>
-                                <color key="backgroundColor" red="1" green="0.78525828200000003" blue="0.97022189430000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </stackView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="btp-rY-mlb">
+                                <rect key="frame" x="16" y="103" width="361" height="715"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HUk-H9-fVF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Py0-Jm-5kI" firstAttribute="leading" secondItem="HUk-H9-fVF" secondAttribute="leading" constant="20" id="D77-N8-Esk"/>
-                            <constraint firstItem="Py0-Jm-5kI" firstAttribute="top" secondItem="HUk-H9-fVF" secondAttribute="top" id="ZeS-RN-Pu9"/>
-                            <constraint firstItem="HUk-H9-fVF" firstAttribute="trailing" secondItem="Py0-Jm-5kI" secondAttribute="trailing" constant="20" id="d9f-A0-vE7"/>
-                            <constraint firstItem="Py0-Jm-5kI" firstAttribute="bottom" secondItem="HUk-H9-fVF" secondAttribute="bottom" id="w56-kk-aFw"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="c8q-tE-cL6"/>
                 </viewController>
