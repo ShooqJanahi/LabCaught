@@ -56,6 +56,7 @@
 		F07483A32B1F100C003B67D8 /* LabCaught */ = {
 			isa = PBXGroup;
 			children = (
+				F07483B82B1F102B003B67D8 /* Models */,
 				F07483A42B1F100C003B67D8 /* AppDelegate.swift */,
 				F07483A62B1F100C003B67D8 /* SceneDelegate.swift */,
 				F07483A82B1F100C003B67D8 /* ViewController.swift */,
@@ -65,6 +66,13 @@
 				F07483B22B1F100E003B67D8 /* Info.plist */,
 			);
 			path = LabCaught;
+			sourceTree = "<group>";
+		};
+		F07483B82B1F102B003B67D8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
