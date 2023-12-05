@@ -17,6 +17,11 @@
 		F07483BE2B1F1112003B67D8 /* Modelsz.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07483BD2B1F1112003B67D8 /* Modelsz.swift */; };
 		F07483C02B1F1206003B67D8 /* fole.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07483BF2B1F1206003B67D8 /* fole.swift */; };
 		F0E033BD2B1F175A0090D7BB /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E033BC2B1F175A0090D7BB /* Test.swift */; };
+		F0E033BF2B1F18A80090D7BB /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0E033BE2B1F18A80090D7BB /* Admin.storyboard */; };
+		F0E033C12B1F18C40090D7BB /* Lab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0E033C02B1F18C40090D7BB /* Lab.storyboard */; };
+		F0E033C32B1F18ED0090D7BB /* Paitent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0E033C22B1F18ED0090D7BB /* Paitent.storyboard */; };
+		F0E033C82B1F19320090D7BB /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E033C72B1F19320090D7BB /* test.swift */; };
+		F0E033CA2B1F19390090D7BB /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E033C92B1F19390090D7BB /* test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,11 @@
 		F07483BD2B1F1112003B67D8 /* Modelsz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modelsz.swift; sourceTree = "<group>"; };
 		F07483BF2B1F1206003B67D8 /* fole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fole.swift; sourceTree = "<group>"; };
 		F0E033BC2B1F175A0090D7BB /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		F0E033BE2B1F18A80090D7BB /* Admin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
+		F0E033C02B1F18C40090D7BB /* Lab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lab.storyboard; sourceTree = "<group>"; };
+		F0E033C22B1F18ED0090D7BB /* Paitent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Paitent.storyboard; sourceTree = "<group>"; };
+		F0E033C72B1F19320090D7BB /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		F0E033C92B1F19390090D7BB /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +74,8 @@
 		F07483A32B1F100C003B67D8 /* LabCaught */ = {
 			isa = PBXGroup;
 			children = (
+				F0E033C62B1F19180090D7BB /* Controllers */,
+				F0E033C52B1F190C0090D7BB /* Helpers */,
 				F0E033BB2B1F174D0090D7BB /* Views */,
 				F07483B82B1F102B003B67D8 /* Models */,
 				F07483A42B1F100C003B67D8 /* AppDelegate.swift */,
@@ -73,6 +85,9 @@
 				F07483AD2B1F100E003B67D8 /* Assets.xcassets */,
 				F07483AF2B1F100E003B67D8 /* LaunchScreen.storyboard */,
 				F07483B22B1F100E003B67D8 /* Info.plist */,
+				F0E033BE2B1F18A80090D7BB /* Admin.storyboard */,
+				F0E033C02B1F18C40090D7BB /* Lab.storyboard */,
+				F0E033C22B1F18ED0090D7BB /* Paitent.storyboard */,
 			);
 			path = LabCaught;
 			sourceTree = "<group>";
@@ -93,6 +108,22 @@
 				F0E033BC2B1F175A0090D7BB /* Test.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F0E033C52B1F190C0090D7BB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F0E033C92B1F19390090D7BB /* test.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F0E033C62B1F19180090D7BB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F0E033C72B1F19320090D7BB /* test.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,8 +184,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0E033BF2B1F18A80090D7BB /* Admin.storyboard in Resources */,
 				F07483B12B1F100E003B67D8 /* LaunchScreen.storyboard in Resources */,
+				F0E033C32B1F18ED0090D7BB /* Paitent.storyboard in Resources */,
 				F07483AE2B1F100E003B67D8 /* Assets.xcassets in Resources */,
+				F0E033C12B1F18C40090D7BB /* Lab.storyboard in Resources */,
 				F07483AC2B1F100C003B67D8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,7 +204,9 @@
 				F07483BE2B1F1112003B67D8 /* Modelsz.swift in Sources */,
 				F07483BA2B1F1087003B67D8 /* File.swift in Sources */,
 				F0E033BD2B1F175A0090D7BB /* Test.swift in Sources */,
+				F0E033CA2B1F19390090D7BB /* test.swift in Sources */,
 				F07483A52B1F100C003B67D8 /* AppDelegate.swift in Sources */,
+				F0E033C82B1F19320090D7BB /* test.swift in Sources */,
 				F07483A72B1F100C003B67D8 /* SceneDelegate.swift in Sources */,
 				F07483C02B1F1206003B67D8 /* fole.swift in Sources */,
 			);
