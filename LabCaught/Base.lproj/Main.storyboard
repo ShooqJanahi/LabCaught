@@ -349,6 +349,9 @@
                                                     <rect key="frame" x="76.000000000000014" y="0.0" width="184.33333333333337" height="18"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="terms and conditions"/>
+                                                    <connections>
+                                                        <segue destination="bxV-KA-47v" kind="show" id="ZQ8-t3-l0d"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -590,6 +593,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pw4-Hu-upc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2188.5496183206105" y="17.605633802816904"/>
+        </scene>
+        <!--Terms and Conditions-->
+        <scene sceneID="WYd-k7-n6k">
+            <objects>
+                <tableViewController id="bxV-KA-47v" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="2xT-P9-tVr">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="N13-IE-g8r">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="595" id="DGl-0q-l4Z">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="595"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DGl-0q-l4Z" id="asb-9B-SyD">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="595"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMy-6a-KaU">
+                                                    <rect key="frame" x="36" y="11" width="320" height="429"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="bxV-KA-47v" id="IM2-ac-U8h"/>
+                            <outlet property="delegate" destination="bxV-KA-47v" id="mya-4b-2lx"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Terms and Conditions" id="E69-qJ-sQ5"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qke-Lg-Xv5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3006.8702290076335" y="21.83098591549296"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Zk-um-uvh">
