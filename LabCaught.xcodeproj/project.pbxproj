@@ -18,6 +18,8 @@
 		F0DBA5212B25D53800EE7B28 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DBA5202B25D53800EE7B28 /* Admin.swift */; };
 		F0DBA5232B25D55400EE7B28 /* UsersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DBA5222B25D55400EE7B28 /* UsersData.swift */; };
 		F0DBA5252B25D59700EE7B28 /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DBA5242B25D59700EE7B28 /* LoginTableViewController.swift */; };
+		F0DBA5272B25D7A500EE7B28 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DBA5262B25D7A500EE7B28 /* Alerts.swift */; };
+		F0DBA5292B25D82400EE7B28 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DBA5282B25D82400EE7B28 /* Keys.swift */; };
 		F0E033BF2B1F18A80090D7BB /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0E033BE2B1F18A80090D7BB /* Admin.storyboard */; };
 		F0E033C12B1F18C40090D7BB /* Lab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0E033C02B1F18C40090D7BB /* Lab.storyboard */; };
 		F0E033C32B1F18ED0090D7BB /* Paitent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0E033C22B1F18ED0090D7BB /* Paitent.storyboard */; };
@@ -37,6 +39,8 @@
 		F0DBA5202B25D53800EE7B28 /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
 		F0DBA5222B25D55400EE7B28 /* UsersData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UsersData.swift; path = LabCaught/Models/UsersData.swift; sourceTree = SOURCE_ROOT; };
 		F0DBA5242B25D59700EE7B28 /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginTableViewController.swift; path = LabCaught/Models/LoginTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		F0DBA5262B25D7A500EE7B28 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Alerts.swift; path = LabCaught/Models/Alerts.swift; sourceTree = SOURCE_ROOT; };
+		F0DBA5282B25D82400EE7B28 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Keys.swift; path = LabCaught/Models/Keys.swift; sourceTree = SOURCE_ROOT; };
 		F0E033BE2B1F18A80090D7BB /* Admin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
 		F0E033C02B1F18C40090D7BB /* Lab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lab.storyboard; sourceTree = "<group>"; };
 		F0E033C22B1F18ED0090D7BB /* Paitent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Paitent.storyboard; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				F0DBA5222B25D55400EE7B28 /* UsersData.swift */,
+				F0DBA5262B25D7A500EE7B28 /* Alerts.swift */,
+				F0DBA5282B25D82400EE7B28 /* Keys.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -204,7 +210,9 @@
 				F0DBA51D2B25D51B00EE7B28 /* Patient.swift in Sources */,
 				F0DBA51B2B25D51000EE7B28 /* Users.swift in Sources */,
 				F07483A72B1F100C003B67D8 /* SceneDelegate.swift in Sources */,
+				F0DBA5272B25D7A500EE7B28 /* Alerts.swift in Sources */,
 				F0DBA5232B25D55400EE7B28 /* UsersData.swift in Sources */,
+				F0DBA5292B25D82400EE7B28 /* Keys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
