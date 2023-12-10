@@ -72,6 +72,7 @@
 		F07483A32B1F100C003B67D8 /* LabCaught */ = {
 			isa = PBXGroup;
 			children = (
+				F0DBA5362B25DBAB00EE7B28 /* Helpers */,
 				F0E033C62B1F19180090D7BB /* Controllers */,
 				F0E033C52B1F190C0090D7BB /* Helpers */,
 				F0E033BB2B1F174D0090D7BB /* Views */,
@@ -98,6 +99,13 @@
 				F0DBA5302B25DB3100EE7B28 /* Admin.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F0DBA5362B25DBAB00EE7B28 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		F0E033BB2B1F174D0090D7BB /* Views */ = {
