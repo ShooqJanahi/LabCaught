@@ -1,14 +1,13 @@
 //
-//  Labs.swift
+//  hospital.swift
 //  LabCaught
 //
-//  Created by mobileProg on 10/12/2023.
+//  Created by Maryam Salah Hashem Adnan Saleh on 12/12/2023.
 //
 
 import Foundation
-
-struct Lab {
-    //add the property here
+class hospital{
+    
     var Location: String //Example
     var labName :String
     var phone: Int
