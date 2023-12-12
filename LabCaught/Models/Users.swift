@@ -27,8 +27,7 @@ struct User {  //defining a structure named User
         
         self.firstName = firstName
         self.lastName = lastName
-        self.DOB = DOB
-        self.CPR = CPR
+      
         self.PhoneNumber = PhoneNumber
         self.username = username //this line assigns the value passed as the username parametter to the username propertyof the structure
         

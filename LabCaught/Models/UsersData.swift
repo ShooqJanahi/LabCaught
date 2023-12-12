@@ -10,4 +10,4 @@ import Foundation
 
 
 //creating a user instance for admin
-let adminUser = User(username: "admin", passwordHash: "admin123", confirmPasswordpasswordHashconfirmPassword: "admin123", userType: .admin)
+let adminUser = User(firstName: "John", lastName: "Doe", PhoneNumber: 39874679, username: "admin", passwordHash: "admin123", confirmPassword: "admin123", userType: .admin)
