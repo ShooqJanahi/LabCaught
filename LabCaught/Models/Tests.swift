@@ -12,14 +12,12 @@ class test{
     var cost:String
     var describtion:String
     var insrtuctions:String
-    var test_includes:String
     
-    init(TestName: String, cost: String, describtion: String, insrtuctions: String, test_includes: String) {
+    init(TestName: String, cost: String, describtion: String, insrtuctions: String) {
         self.TestName = TestName
         self.cost = cost
         self.describtion = describtion
         self.insrtuctions = insrtuctions
-        self.test_includes = test_includes
     }
     
 }

@@ -30,6 +30,13 @@ class PatientBookingTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 1
     }
+    // var uType = UserType
+
+    
+
+                     
+    var book = booking(booking_date:
+                        DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:22), patient: Patient(firstName: "Maryam", lastName: "Salah", CPR: 123456789, DOB: DateComponents(calendar: Calendar.current, year: 2003, month: 11, day:22), user: User(firstName: "Maryam", lastName: "Salah", PhoneNumber: 12345678, username: "marym", password: "1234", confirmPassword: "1234", userType: .patient)), test: test(TestName: "Vitamin B12 Test", cost: "3 BHD", describtion: "Blood test for Vitamin B12", insrtuctions: "fasting for 8 to 10 hours is required"))
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
