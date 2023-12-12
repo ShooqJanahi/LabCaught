@@ -8,12 +8,13 @@
 import Foundation
 
 struct Patient {
-    var DOB: String //Date of birth
     var CPR: Int
+    var DOB: String
     
     
-    init(DOB: String, CPR: Int) {
-        self.DOB = DOB
+    init(CPR: Int, DOB: String) {
         self.CPR = CPR
+        self.DOB = DOB
     }
+    
 }
