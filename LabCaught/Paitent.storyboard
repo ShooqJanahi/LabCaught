@@ -70,7 +70,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="3lm-Og-gAR">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="L80-I4-wnC">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="L80-I4-wnC">
                             <rect key="frame" x="66.666666666666686" y="5.6666666666666679" width="260" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
@@ -85,7 +85,7 @@
             </objects>
             <point key="canvasLocation" x="1612.9770992366412" y="795.77464788732402"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Booking History-->
         <scene sceneID="smH-XH-Waw">
             <objects>
                 <tableViewController id="rQf-2k-zgl" sceneMemberID="viewController">
@@ -108,7 +108,9 @@
                             <outlet property="delegate" destination="rQf-2k-zgl" id="pGS-Sc-KBj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="yLx-yI-Yhk"/>
+                    <navigationItem key="navigationItem" title="Booking History" id="qYM-Tg-fcv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="tj6-7n-hXc"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZMp-8T-ce7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -140,7 +142,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4QK-s8-niX">
-                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <rect key="frame" x="-2" y="59" width="393" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Booking History" id="KTh-gh-53P"/>
@@ -275,7 +277,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7hI-Ib-sJl">
-                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <rect key="frame" x="-2" y="59" width="393" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Book Package" id="y8Q-lK-0MZ">
@@ -291,7 +293,7 @@
                                 </items>
                             </navigationBar>
                             <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B2l-hz-ult">
-                                <rect key="frame" x="0.0" y="769" width="393" height="49"/>
+                                <rect key="frame" x="-2" y="768" width="393" height="48"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
@@ -402,7 +404,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gVU-02-Dhq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="muO-ud-uLn">
-                    <rect key="frame" x="0.0" y="0.0" width="361" height="32"/>
+                    <rect key="frame" x="0.0" y="-1" width="361" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="Upcoming"/>
