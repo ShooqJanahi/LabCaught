@@ -6,3 +6,12 @@
 //
 
 import Foundation
+struct User {
+    var username: String
+    var passwordHash: String
+    
+    init(username: String, passwordHash: String) {
+        self.username = username
+        self.passwordHash = passwordHash
+    }
+}
