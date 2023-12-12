@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+struct Patient {
+    var DOB: String //Date of birth
+    var CPR: Int
+    
+    
+    init(DOB: String, CPR: Int) {
+        self.DOB = DOB
+        self.CPR = CPR
+    }
+}

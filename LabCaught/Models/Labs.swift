@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+struct Lab {
+    //add the property here
+    var Location: String //Example
+    
+    
+    init(Location: String){
+        self.Location = Location
+    }
+}

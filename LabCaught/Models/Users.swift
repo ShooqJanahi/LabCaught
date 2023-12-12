@@ -17,8 +17,6 @@ enum UserType {
 struct User {  //defining a structure named User
     var firstName:String
     var lastName: String
-    var DOB: String //Date of birth
-    var CPR: Int
     var PhoneNumber: Int
     var username: String //declaring a property named username
     var passwordHash: String //passwordHash is used to store hashed version of the users password for security
