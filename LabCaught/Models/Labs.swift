@@ -9,20 +9,15 @@ import Foundation
 
 struct Lab {
     //add the property here
-    var Location: String //Example
+    var Username: String
+    var Password: String
     var labName :String
-    var phone: Int
+    var Specialization :String
+    var Location: String
+    var ContactInfo :Int
     var alwaysOpen: Bool
     var openingTime: DateComponents
     var closingTime: DateComponents
     
     
-    init(Location: String, labName: String, phone: Int, alwaysOpen: Bool, openingTime: DateComponents, closingTime: DateComponents){
-        self.Location = Location
-        self.labName = labName
-        self.phone = phone
-        self.alwaysOpen = alwaysOpen
-        self.closingTime = closingTime
-        self.openingTime = openingTime
-    }
 }
