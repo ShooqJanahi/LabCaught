@@ -18,7 +18,7 @@ class packages{
     //var tests: [test]
     
     
-    init(package: String, cost: String, describtion: String, insrtuctions: String, package_includes: [test], package_expiry: DateComponents,lab:Lab) {
+    init(package: String, cost: String, describtion: String, insrtuctions: String, package_includes: [test], package_expiry: DateComponents,lab:Labs) {
         self.package = package
         self.cost = cost
         self.describtion = describtion
