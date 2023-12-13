@@ -14,7 +14,7 @@ class packages{
     var package_includes:[test]
     var package_expiry:DateComponents
     //var isLab: Bool
-    var lab: Lab!
+    var lab: Labs!
     //var tests: [test]
     
     
