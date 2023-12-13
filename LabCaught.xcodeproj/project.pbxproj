@@ -9,39 +9,43 @@
 /* Begin PBXBuildFile section */
 		F07483A52B1F100C003B67D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07483A42B1F100C003B67D8 /* AppDelegate.swift */; };
 		F07483A72B1F100C003B67D8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07483A62B1F100C003B67D8 /* SceneDelegate.swift */; };
-		F07483A92B1F100C003B67D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07483A82B1F100C003B67D8 /* ViewController.swift */; };
 		F07483AC2B1F100C003B67D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F07483AA2B1F100C003B67D8 /* Main.storyboard */; };
 		F07483AE2B1F100E003B67D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F07483AD2B1F100E003B67D8 /* Assets.xcassets */; };
 		F07483B12B1F100E003B67D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F07483AF2B1F100E003B67D8 /* LaunchScreen.storyboard */; };
-		F07483BA2B1F1087003B67D8 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07483B92B1F1087003B67D8 /* File.swift */; };
-		F07483BE2B1F1112003B67D8 /* Modelsz.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07483BD2B1F1112003B67D8 /* Modelsz.swift */; };
-		F07483C02B1F1206003B67D8 /* fole.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07483BF2B1F1206003B67D8 /* fole.swift */; };
-		F0E033BD2B1F175A0090D7BB /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E033BC2B1F175A0090D7BB /* Test.swift */; };
+		F0C7CE392B2992AA003355CE /* RegistrationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C7CE382B2992AA003355CE /* RegistrationTableViewController.swift */; };
+		F0C7CE3B2B299CDE003355CE /* Terms&ConditionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C7CE3A2B299CDE003355CE /* Terms&ConditionsTableViewController.swift */; };
+		F0DBA52B2B25DB0900EE7B28 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DBA52A2B25DB0900EE7B28 /* Users.swift */; };
+		F0DBA52D2B25DB1700EE7B28 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DBA52C2B25DB1700EE7B28 /* Patient.swift */; };
+		F0DBA52F2B25DB2300EE7B28 /* Labs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DBA52E2B25DB2300EE7B28 /* Labs.swift */; };
+		F0DBA5312B25DB3100EE7B28 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DBA5302B25DB3100EE7B28 /* Admin.swift */; };
+		F0DBA5382B25DC1300EE7B28 /* UsersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DBA5372B25DC1300EE7B28 /* UsersData.swift */; };
+		F0DBA53A2B25DC2100EE7B28 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DBA5392B25DC2100EE7B28 /* Alerts.swift */; };
+		F0DBA53C2B25DC5200EE7B28 /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DBA53B2B25DC5200EE7B28 /* LoginTableViewController.swift */; };
 		F0E033BF2B1F18A80090D7BB /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0E033BE2B1F18A80090D7BB /* Admin.storyboard */; };
 		F0E033C12B1F18C40090D7BB /* Lab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0E033C02B1F18C40090D7BB /* Lab.storyboard */; };
 		F0E033C32B1F18ED0090D7BB /* Paitent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0E033C22B1F18ED0090D7BB /* Paitent.storyboard */; };
-		F0E033C82B1F19320090D7BB /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E033C72B1F19320090D7BB /* test.swift */; };
-		F0E033CA2B1F19390090D7BB /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E033C92B1F19390090D7BB /* test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F07483A12B1F100C003B67D8 /* LabCaught.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LabCaught.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F07483A42B1F100C003B67D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F07483A62B1F100C003B67D8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F07483A82B1F100C003B67D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F07483AB2B1F100C003B67D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F07483AD2B1F100E003B67D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F07483B02B1F100E003B67D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F07483B22B1F100E003B67D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F07483B92B1F1087003B67D8 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		F07483BD2B1F1112003B67D8 /* Modelsz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modelsz.swift; sourceTree = "<group>"; };
-		F07483BF2B1F1206003B67D8 /* fole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fole.swift; sourceTree = "<group>"; };
-		F0E033BC2B1F175A0090D7BB /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		F0C7CE382B2992AA003355CE /* RegistrationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationTableViewController.swift; sourceTree = "<group>"; };
+		F0C7CE3A2B299CDE003355CE /* Terms&ConditionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Terms&ConditionsTableViewController.swift"; sourceTree = "<group>"; };
+		F0DBA52A2B25DB0900EE7B28 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		F0DBA52C2B25DB1700EE7B28 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
+		F0DBA52E2B25DB2300EE7B28 /* Labs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labs.swift; sourceTree = "<group>"; };
+		F0DBA5302B25DB3100EE7B28 /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
+		F0DBA5372B25DC1300EE7B28 /* UsersData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UsersData.swift; path = LabCaught/Models/UsersData.swift; sourceTree = SOURCE_ROOT; };
+		F0DBA5392B25DC2100EE7B28 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Alerts.swift; path = LabCaught/Models/Alerts.swift; sourceTree = SOURCE_ROOT; };
+		F0DBA53B2B25DC5200EE7B28 /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
 		F0E033BE2B1F18A80090D7BB /* Admin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
 		F0E033C02B1F18C40090D7BB /* Lab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lab.storyboard; sourceTree = "<group>"; };
 		F0E033C22B1F18ED0090D7BB /* Paitent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Paitent.storyboard; sourceTree = "<group>"; };
-		F0E033C72B1F19320090D7BB /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
-		F0E033C92B1F19390090D7BB /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,13 +78,12 @@
 		F07483A32B1F100C003B67D8 /* LabCaught */ = {
 			isa = PBXGroup;
 			children = (
+				F0DBA5362B25DBAB00EE7B28 /* Helpers */,
 				F0E033C62B1F19180090D7BB /* Controllers */,
-				F0E033C52B1F190C0090D7BB /* Helpers */,
 				F0E033BB2B1F174D0090D7BB /* Views */,
 				F07483B82B1F102B003B67D8 /* Models */,
 				F07483A42B1F100C003B67D8 /* AppDelegate.swift */,
 				F07483A62B1F100C003B67D8 /* SceneDelegate.swift */,
-				F07483A82B1F100C003B67D8 /* ViewController.swift */,
 				F07483AA2B1F100C003B67D8 /* Main.storyboard */,
 				F07483AD2B1F100E003B67D8 /* Assets.xcassets */,
 				F07483AF2B1F100E003B67D8 /* LaunchScreen.storyboard */,
@@ -95,33 +98,36 @@
 		F07483B82B1F102B003B67D8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F07483B92B1F1087003B67D8 /* File.swift */,
-				F07483BD2B1F1112003B67D8 /* Modelsz.swift */,
-				F07483BF2B1F1206003B67D8 /* fole.swift */,
+				F0DBA52A2B25DB0900EE7B28 /* Users.swift */,
+				F0DBA52C2B25DB1700EE7B28 /* Patient.swift */,
+				F0DBA52E2B25DB2300EE7B28 /* Labs.swift */,
+				F0DBA5302B25DB3100EE7B28 /* Admin.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F0DBA5362B25DBAB00EE7B28 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F0DBA5372B25DC1300EE7B28 /* UsersData.swift */,
+				F0DBA5392B25DC2100EE7B28 /* Alerts.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		F0E033BB2B1F174D0090D7BB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F0E033BC2B1F175A0090D7BB /* Test.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		F0E033C52B1F190C0090D7BB /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				F0E033C92B1F19390090D7BB /* test.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		F0E033C62B1F19180090D7BB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F0E033C72B1F19320090D7BB /* test.swift */,
+				F0DBA53B2B25DC5200EE7B28 /* LoginTableViewController.swift */,
+				F0C7CE382B2992AA003355CE /* RegistrationTableViewController.swift */,
+				F0C7CE3A2B299CDE003355CE /* Terms&ConditionsTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -200,15 +206,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F07483A92B1F100C003B67D8 /* ViewController.swift in Sources */,
-				F07483BE2B1F1112003B67D8 /* Modelsz.swift in Sources */,
-				F07483BA2B1F1087003B67D8 /* File.swift in Sources */,
-				F0E033BD2B1F175A0090D7BB /* Test.swift in Sources */,
-				F0E033CA2B1F19390090D7BB /* test.swift in Sources */,
+				F0DBA52F2B25DB2300EE7B28 /* Labs.swift in Sources */,
+				F0DBA5312B25DB3100EE7B28 /* Admin.swift in Sources */,
+				F0DBA53C2B25DC5200EE7B28 /* LoginTableViewController.swift in Sources */,
+				F0DBA53A2B25DC2100EE7B28 /* Alerts.swift in Sources */,
 				F07483A52B1F100C003B67D8 /* AppDelegate.swift in Sources */,
-				F0E033C82B1F19320090D7BB /* test.swift in Sources */,
+				F0DBA52D2B25DB1700EE7B28 /* Patient.swift in Sources */,
+				F0DBA52B2B25DB0900EE7B28 /* Users.swift in Sources */,
 				F07483A72B1F100C003B67D8 /* SceneDelegate.swift in Sources */,
-				F07483C02B1F1206003B67D8 /* fole.swift in Sources */,
+				F0C7CE392B2992AA003355CE /* RegistrationTableViewController.swift in Sources */,
+				F0C7CE3B2B299CDE003355CE /* Terms&ConditionsTableViewController.swift in Sources */,
+				F0DBA5382B25DC1300EE7B28 /* UsersData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +366,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LabCaught/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -385,7 +393,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LabCaught/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
