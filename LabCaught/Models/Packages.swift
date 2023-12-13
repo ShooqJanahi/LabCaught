@@ -1,12 +1,11 @@
 //
-//  Packages.swift
+//  packages.swift
 //  LabCaught
 //
-//  Created by Maryam Salah Hashem Adnan Saleh on 12/12/2023.
+//  Created by Maryam Salah Hashem Adnan Saleh on 13/12/2023.
 //
 
 import Foundation
-
 class packages{
     var package:String
     var cost:String
