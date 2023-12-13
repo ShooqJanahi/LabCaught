@@ -24,12 +24,29 @@ class RegistrationTableViewController: UITableViewController {
         super.viewDidLoad()
 
     
+        
     }
 
     //this action is called when the save button is tapped
-    @IBAction func saveButtonTapped(_sender: UIButton)
+    @IBAction func saveButtonTapped(_sender: UIBarButtonItem)
     {
+        //validate that none of the text field are empty
+        guard let FirstName = FirstNameTextField.text, !FirstName.isEmpty,
+              let LastName = LastNameTextField.text, !LastName.isEmpty,
+              let DOB = DOBTextField.text, !DOB.isEmpty,
+              let CPR = CPRTextField.text, !CPR.isEmpty,
+              let PhoneNumber = PhoneNumberTextField.text, !PhoneNumber.isEmpty,
+            let UserName = UserNameTextField.text, !UserName.isEmpty,
+              let Password = PasswordTextField.text, !Password.isEmpty,
+              let ConfirmPassword = ConfirmPasswordTextField.text, !ConfirmPassword.isEmpty
+        else {
+            Alerts.showBasicAlert(on: self, title: "Registration Error", message: "Please fill in all fields.", completion)
+            
+        }
         
+        guard password 
+        
+              
     }
     
 

@@ -681,7 +681,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="TG8-wz-2qe">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="3AH-8X-4tP"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="3AH-8X-4tP">
+                            <connections>
+                                <action selector="saveButtonTappedWith_sender:" destination="lbU-3b-Gxl" id="RCm-xw-VLw"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="CPRTextField" destination="h7T-GS-Rtj" id="wk8-Xr-k9b"/>
