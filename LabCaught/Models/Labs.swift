@@ -17,7 +17,7 @@ struct Lab {
     var ContactInfo :Int
     var alwaysOpen: Bool
     var openingTime: DateComponents
-    var closingTime: DateComponent
+    var closingTime: DateComponents
     
     
 }
