@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+//Registration table view controller to allow new patients to register in the app
 class RegistrationTableViewController: UITableViewController {
 
     override func viewDidLoad() {
