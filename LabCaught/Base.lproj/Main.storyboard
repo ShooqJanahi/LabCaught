@@ -683,6 +683,16 @@
                     <navigationItem key="navigationItem" id="TG8-wz-2qe">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="3AH-8X-4tP"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="CPRTextField" destination="h7T-GS-Rtj" id="wk8-Xr-k9b"/>
+                        <outlet property="ConfirmPasswordTextField" destination="Tgw-4O-Utq" id="dNC-JF-VNt"/>
+                        <outlet property="DOBTextField" destination="Jif-ye-Aac" id="Bo0-Ri-7sr"/>
+                        <outlet property="FirstNameTextField" destination="omu-DD-t8P" id="ZGQ-UA-e6X"/>
+                        <outlet property="LastNameTextField" destination="MMi-p0-aaA" id="QSY-gY-4Ho"/>
+                        <outlet property="PasswordTextField" destination="etp-nC-nPJ" id="Bwj-hl-p3p"/>
+                        <outlet property="PhoneNumberTextField" destination="fOK-RQ-Myd" id="tW2-am-adC"/>
+                        <outlet property="UserNameTextField" destination="pOc-WV-s8W" id="ikL-Ss-OD3"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z3F-6S-xYQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

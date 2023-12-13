@@ -11,28 +11,27 @@ import UIKit
 //Registration table view controller to allow new patients to register in the app
 class RegistrationTableViewController: UITableViewController {
 
+    @IBOutlet weak var FirstNameTextField: UITextField!
+    @IBOutlet weak var LastNameTextField: UITextField!
+    @IBOutlet weak var DOBTextField: UITextField!
+    @IBOutlet weak var CPRTextField: UITextField!
+    @IBOutlet weak var PhoneNumberTextField: UITextField!
+    @IBOutlet weak var UserNameTextField: UITextField!
+    @IBOutlet weak var PasswordTextField: UITextField!
+    @IBOutlet weak var ConfirmPasswordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    
     }
 
-    // MARK: - Table view data source
-
-   
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    //this action is called when the save button is tapped
+    @IBAction func saveButtonTapped(_sender: UIButton)
+    {
+        
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
