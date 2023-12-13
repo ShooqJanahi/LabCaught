@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C6D4F2822B29A4AC00798CE4 /* LabData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D4F2812B29A4AC00798CE4 /* LabData.swift */; };
+		C6D4F2852B29AB3E00798CE4 /* HospitalLabTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D4F2842B29AB3E00798CE4 /* HospitalLabTableViewCell.m */; };
 		F07483A52B1F100C003B67D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07483A42B1F100C003B67D8 /* AppDelegate.swift */; };
 		F07483A72B1F100C003B67D8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07483A62B1F100C003B67D8 /* SceneDelegate.swift */; };
 		F07483AC2B1F100C003B67D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F07483AA2B1F100C003B67D8 /* Main.storyboard */; };
@@ -26,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C6D4F2812B29A4AC00798CE4 /* LabData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabData.swift; sourceTree = "<group>"; };
+		C6D4F2832B29AB3E00798CE4 /* HospitalLabTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HospitalLabTableViewCell.h; path = LabCaught/Helpers/HospitalLabTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		C6D4F2842B29AB3E00798CE4 /* HospitalLabTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HospitalLabTableViewCell.m; path = LabCaught/Helpers/HospitalLabTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		F07483A12B1F100C003B67D8 /* LabCaught.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LabCaught.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F07483A42B1F100C003B67D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F07483A62B1F100C003B67D8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,8 +81,8 @@
 		F07483A32B1F100C003B67D8 /* LabCaught */ = {
 			isa = PBXGroup;
 			children = (
-				F0DBA5362B25DBAB00EE7B28 /* Helpers */,
 				F0E033C62B1F19180090D7BB /* Controllers */,
+				F0DBA5362B25DBAB00EE7B28 /* Helpers */,
 				F0E033BB2B1F174D0090D7BB /* Views */,
 				F07483B82B1F102B003B67D8 /* Models */,
 				F07483A42B1F100C003B67D8 /* AppDelegate.swift */,
@@ -109,6 +114,7 @@
 			children = (
 				F0DBA5372B25DC1300EE7B28 /* UsersData.swift */,
 				F0DBA5392B25DC2100EE7B28 /* Alerts.swift */,
+				C6D4F2812B29A4AC00798CE4 /* LabData.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -116,6 +122,8 @@
 		F0E033BB2B1F174D0090D7BB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C6D4F2832B29AB3E00798CE4 /* HospitalLabTableViewCell.h */,
+				C6D4F2842B29AB3E00798CE4 /* HospitalLabTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -161,6 +169,7 @@
 				TargetAttributes = {
 					F07483A02B1F100C003B67D8 = {
 						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1430;
 					};
 				};
 			};
@@ -203,11 +212,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6D4F2852B29AB3E00798CE4 /* HospitalLabTableViewCell.m in Sources */,
 				F0DBA52F2B25DB2300EE7B28 /* Labs.swift in Sources */,
 				F0DBA5312B25DB3100EE7B28 /* Admin.swift in Sources */,
 				F0DBA53C2B25DC5200EE7B28 /* LoginTableViewController.swift in Sources */,
 				F0DBA53A2B25DC2100EE7B28 /* Alerts.swift in Sources */,
 				F07483A52B1F100C003B67D8 /* AppDelegate.swift in Sources */,
+				C6D4F2822B29A4AC00798CE4 /* LabData.swift in Sources */,
 				F0DBA52D2B25DB1700EE7B28 /* Patient.swift in Sources */,
 				F0DBA52B2B25DB0900EE7B28 /* Users.swift in Sources */,
 				F07483A72B1F100C003B67D8 /* SceneDelegate.swift in Sources */,
@@ -357,6 +368,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -374,6 +386,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = bh.polytechnic.LabCaught;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -384,6 +397,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;

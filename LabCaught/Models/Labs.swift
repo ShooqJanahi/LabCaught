@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Lab {
+class Labs {
     //add the property here
     var Username: String
     var Password: String
@@ -16,8 +16,18 @@ struct Lab {
     var Location: String
     var ContactInfo :Int
     var alwaysOpen: Bool
-    var openingTime: DateComponents
-    var closingTime: DateComponents
+    //var openingTime: DateComponents
+    //var closingTime: DateComponents
     
-    
+    init(Username: String, Password: String, labName: String, Specialization: String, Location: String, ContactInfo: Int, alwaysOpen: Bool) {
+        self.Username = Username
+        self.Password = Password
+        self.labName = labName
+        self.Specialization = Specialization
+        self.Location = Location
+        self.ContactInfo = ContactInfo
+        self.alwaysOpen = alwaysOpen
+        //self.openingTime = openingTime
+        //self.closingTime = closingTime
+    }
 }
