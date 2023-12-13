@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AE79DCC2B29D8CD00889BB7 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE79DCB2B29D8CD00889BB7 /* Test.swift */; };
+		3AE79DCE2B29D8E200889BB7 /* hospital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE79DCD2B29D8E200889BB7 /* hospital.swift */; };
+		3AE79DD02B29D91600889BB7 /* booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE79DCF2B29D91600889BB7 /* booking.swift */; };
+		3AE79DD22B29D94900889BB7 /* packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE79DD12B29D94900889BB7 /* packages.swift */; };
 		C6D4F2822B29A4AC00798CE4 /* LabData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D4F2812B29A4AC00798CE4 /* LabData.swift */; };
 		C6D4F2852B29AB3E00798CE4 /* HospitalLabTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6D4F2842B29AB3E00798CE4 /* HospitalLabTableViewCell.m */; };
 		F07483A52B1F100C003B67D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07483A42B1F100C003B67D8 /* AppDelegate.swift */; };
@@ -28,6 +32,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3AE79DCB2B29D8CD00889BB7 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		3AE79DCD2B29D8E200889BB7 /* hospital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hospital.swift; sourceTree = "<group>"; };
+		3AE79DCF2B29D91600889BB7 /* booking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = booking.swift; sourceTree = "<group>"; };
+		3AE79DD12B29D94900889BB7 /* packages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = packages.swift; sourceTree = "<group>"; };
 		C6D4F2812B29A4AC00798CE4 /* LabData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabData.swift; sourceTree = "<group>"; };
 		C6D4F2832B29AB3E00798CE4 /* HospitalLabTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HospitalLabTableViewCell.h; path = LabCaught/Helpers/HospitalLabTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		C6D4F2842B29AB3E00798CE4 /* HospitalLabTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HospitalLabTableViewCell.m; path = LabCaught/Helpers/HospitalLabTableViewCell.m; sourceTree = SOURCE_ROOT; };
@@ -104,6 +112,10 @@
 				F0DBA52A2B25DB0900EE7B28 /* Users.swift */,
 				F0DBA52C2B25DB1700EE7B28 /* Patient.swift */,
 				F0DBA52E2B25DB2300EE7B28 /* Labs.swift */,
+				3AE79DCB2B29D8CD00889BB7 /* Test.swift */,
+				3AE79DCD2B29D8E200889BB7 /* hospital.swift */,
+				3AE79DCF2B29D91600889BB7 /* booking.swift */,
+				3AE79DD12B29D94900889BB7 /* packages.swift */,
 				F0DBA5302B25DB3100EE7B28 /* Admin.swift */,
 			);
 			path = Models;
@@ -213,11 +225,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6D4F2852B29AB3E00798CE4 /* HospitalLabTableViewCell.m in Sources */,
+				3AE79DCE2B29D8E200889BB7 /* hospital.swift in Sources */,
 				F0DBA52F2B25DB2300EE7B28 /* Labs.swift in Sources */,
 				F0DBA5312B25DB3100EE7B28 /* Admin.swift in Sources */,
 				F0DBA53C2B25DC5200EE7B28 /* LoginTableViewController.swift in Sources */,
+				3AE79DD02B29D91600889BB7 /* booking.swift in Sources */,
 				F0DBA53A2B25DC2100EE7B28 /* Alerts.swift in Sources */,
 				F07483A52B1F100C003B67D8 /* AppDelegate.swift in Sources */,
+				3AE79DD22B29D94900889BB7 /* packages.swift in Sources */,
+				3AE79DCC2B29D8CD00889BB7 /* Test.swift in Sources */,
 				C6D4F2822B29A4AC00798CE4 /* LabData.swift in Sources */,
 				F0DBA52D2B25DB1700EE7B28 /* Patient.swift in Sources */,
 				F0DBA52B2B25DB0900EE7B28 /* Users.swift in Sources */,

@@ -11,4 +11,7 @@ struct Admin {
     //add the properties
     var department: String //example
     
+    init(department: String){
+        self.department = department
+    }
 }

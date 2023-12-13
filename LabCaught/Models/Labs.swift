@@ -7,27 +7,22 @@
 
 import Foundation
 
-class Labs {
+struct Lab {
     //add the property here
-    var Username: String
-    var Password: String
+    var Location: String //Example
     var labName :String
-    var Specialization :String
-    var Location: String
-    var ContactInfo :Int
+    var phone: Int
     var alwaysOpen: Bool
-    //var openingTime: DateComponents
-    //var closingTime: DateComponents
+    var openingTime: DateComponents
+    var closingTime: DateComponents
     
-    init(Username: String, Password: String, labName: String, Specialization: String, Location: String, ContactInfo: Int, alwaysOpen: Bool) {
-        self.Username = Username
-        self.Password = Password
-        self.labName = labName
-        self.Specialization = Specialization
+    
+    init(Location: String, labName: String, phone: Int, alwaysOpen: Bool, openingTime: DateComponents, closingTime: DateComponents){
         self.Location = Location
-        self.ContactInfo = ContactInfo
+        self.labName = labName
+        self.phone = phone
         self.alwaysOpen = alwaysOpen
-        //self.openingTime = openingTime
-        //self.closingTime = closingTime
+        self.closingTime = closingTime
+        self.openingTime = openingTime
     }
 }
