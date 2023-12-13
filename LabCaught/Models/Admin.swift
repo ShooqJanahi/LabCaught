@@ -7,11 +7,13 @@
 
 import Foundation
 
-struct Admin {
+class Admin: User {
     //add the properties
     var department: String //example
     
-    init(department: String){
+    init(department: String) {
         self.department = department
+        
+        super.init(firstName: firstName, lastName: lastName, PhoneNumber: PhoneNumber, username: username, password: password, confirmPassword: confirmPassword, userType: .Admin)
     }
 }

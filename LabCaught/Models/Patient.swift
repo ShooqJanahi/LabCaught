@@ -12,7 +12,7 @@ struct Patient {
     var LastName:String
     var DOB:DateComponents
     var CPR: Int
-    var user: User
+    
     
     
     init(firstName:String, lastName: String,CPR: Int, DOB: DateComponents, user: User) {
@@ -20,11 +20,8 @@ struct Patient {
         self.DOB = DOB
         self.LastName = lastName
         self.firstlName = firstName
-        self.user = user
-        self.user.userType = .patient
         
     }
-    
-    
+
     
 }

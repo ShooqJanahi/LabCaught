@@ -40,7 +40,7 @@ class RegistrationTableViewController: UITableViewController {
               let Password = PasswordTextField.text, !Password.isEmpty,
               let ConfirmPassword = ConfirmPasswordTextField.text, !ConfirmPassword.isEmpty
         else {
-            Alerts.showAlertWithRetry(on: self, title: "Registration Error", message: "Please fill in all fields.", completion)
+            Alerts.showAlertWithRetry(on: self, title: "Registration Error", message: "Please fill in all fields.", retryHandler: completion)
             
         }
         
