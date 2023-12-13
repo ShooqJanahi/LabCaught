@@ -15,8 +15,7 @@ enum UserType {
 
 
 class User {  //defining a structure named User
-    var firstName:String
-    var lastName: String
+    
     var PhoneNumber: Int
     var username: String //declaring a property named username
     var password: String //passwordHash is used to store hashed version of the users password for security
@@ -24,9 +23,8 @@ class User {  //defining a structure named User
     var userType: UserType
     
     
-    init(firstName: String, lastName: String, PhoneNumber: Int, username: String, password: String, confirmPassword: String, userType: UserType) {
-        self.firstName = firstName
-        self.lastName = lastName
+    init(PhoneNumber: Int, username: String, password: String, confirmPassword: String, userType: UserType) {
+     
         self.PhoneNumber = PhoneNumber
         self.username = username
         self.password = password

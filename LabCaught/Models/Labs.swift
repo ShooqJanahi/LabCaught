@@ -11,18 +11,19 @@ class Labs: User {
     //add the property here
     var Location: String //Example
     var labName :String
-    var phone: Int
+    
     var alwaysOpen: Bool
     var openingTime: DateComponents
     var closingTime: DateComponents
     
-    
-    init(Location: String, labName: String, phone: Int, alwaysOpen: Bool, openingTime: DateComponents, closingTime: DateComponents){
+    init(PhoneNumber: Int, username: String, password: String, confirmPassword: String, userType: UserType, Location: String, labName: String, alwaysOpen: Bool, openingTime: DateComponents, closingTime: DateComponents) {
         self.Location = Location
         self.labName = labName
-        self.phone = phone
         self.alwaysOpen = alwaysOpen
-        self.closingTime = closingTime
         self.openingTime = openingTime
+        self.closingTime = closingTime
+        
+        super.init(PhoneNumber: PhoneNumber, username: username, password: password, confirmPassword: confirmPassword, userType: .lab)
     }
+        
 }

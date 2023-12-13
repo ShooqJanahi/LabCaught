@@ -10,10 +10,17 @@ import Foundation
 class Admin: User {
     //add the properties
     var department: String //example
+    var firstName:String
+    var lastName: String
     
-    init(department: String) {
+    init(PhoneNumber: Int, username: String, password: String, confirmPassword: String, userType: UserType, department: String, firstName: String, lastName: String) {
         self.department = department
+        self.firstName = firstName
+        self.lastName = lastName
         
-        super.init(firstName: firstName, lastName: lastName, PhoneNumber: PhoneNumber, username: username, password: password, confirmPassword: confirmPassword, userType: .Admin)
+        super.init(PhoneNumber: PhoneNumber, username: username, password: password, confirmPassword: confirmPassword, userType: .Admin)
     }
+    
+   
+    
 }
