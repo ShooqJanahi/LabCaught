@@ -7,19 +7,16 @@
 
 import Foundation
 
-struct Patient {
-    var firstlName:String
-    var LastName:String
+class Patient {
     var DOB:DateComponents
     var CPR: Int
     
     
     
-    init(firstName:String, lastName: String,CPR: Int, DOB: DateComponents, user: User) {
+    init(CPR: Int, DOB: DateComponents) {
         self.CPR = CPR
         self.DOB = DOB
-        self.LastName = lastName
-        self.firstlName = firstName
+
         
     }
 

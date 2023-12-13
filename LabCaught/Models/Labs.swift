@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Lab {
+class Lab {
     //add the property here
     var Location: String //Example
     var labName :String
