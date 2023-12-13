@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Lab {
+class Labs: User {
     //add the property here
     var Location: String //Example
     var labName :String

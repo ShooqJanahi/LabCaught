@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Patient {
+class Patient: User {
     var DOB:DateComponents
     var CPR: Int
     
