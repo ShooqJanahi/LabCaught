@@ -28,23 +28,33 @@ class RegistrationTableViewController: UITableViewController {
     }
 
     //this action is called when the save button is tapped
-    @IBAction func saveButtonTapped(_sender: UIBarButtonItem)
-    {
-        //validate that none of the text field are empty
-        guard let FirstName = FirstNameTextField.text, !FirstName.isEmpty,
-              let LastName = LastNameTextField.text, !LastName.isEmpty,
-              let DOB = DOBTextField.text, !DOB.isEmpty,
-              let CPR = CPRTextField.text, !CPR.isEmpty,
-              let PhoneNumber = PhoneNumberTextField.text, !PhoneNumber.isEmpty,
-            let UserName = UserNameTextField.text, !UserName.isEmpty,
-              let Password = PasswordTextField.text, !Password.isEmpty,
-              let ConfirmPassword = ConfirmPasswordTextField.text, !ConfirmPassword.isEmpty
-        else {
-            Alerts.showBasicAlert(on: self, title: "Registration Error", message: "Please fill in all fields.", completion)
-            
+    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        // Validate that none of the text fields are empty
+        guard let firstName = FirstNameTextField.text, !firstName.isEmpty,
+              let lastName = LastNameTextField.text, !lastName.isEmpty,
+              let dob = DOBTextField.text, !dob.isEmpty,
+              let cpr = CPRTextField.text, !cpr.isEmpty,
+              let phoneNumber = PhoneNumberTextField.text, !phoneNumber.isEmpty,
+              let userName = UserNameTextField.text, !userName.isEmpty,
+              let password = PasswordTextField.text, !password.isEmpty,
+              let confirmPassword = ConfirmPasswordTextField.text, !confirmPassword.isEmpty else {
+            Alerts.showAlertWithRetry(on: self, title: "Registration Error", message: "Please fill in all fields.", retryHandler: {
+                // Add code here for retry logic, such as clearing fields or refocusing
+            })
+            return
         }
         
-        guard password 
+        // Additional validation for password match
+        guard password == confirmPassword else {
+            Alerts.showAlertWithRetry(on: self, title: "Password Error", message: "Passwords do not match.", retryHandler: {
+                // Add code here for retry logic, such as clearing the password fields
+            })
+            return
+        }
+        
+        
+    }
+
         
               
     }
@@ -94,5 +104,3 @@ class RegistrationTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
-}

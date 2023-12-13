@@ -7,24 +7,18 @@
 
 import Foundation
 
-struct Patient {
-    var firstlName:String
-    var LastName:String
+class Patient: User {
     var DOB:DateComponents
     var CPR: Int
-    var user: User
     
     
-    init(firstName:String, lastName: String,CPR: Int, DOB: DateComponents, user: User) {
+    
+    init(CPR: Int, DOB: DateComponents) {
         self.CPR = CPR
         self.DOB = DOB
-        self.LastName = lastName
-        self.firstlName = firstName
-        self.user = user
-        self.user.userType = .patient
+
         
     }
-    
-    
+
     
 }

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bhr-aL-orK">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -172,16 +173,16 @@
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mSP-Us-b9T">
                                                     <rect key="frame" x="69" y="7.6666666666666679" width="255" height="34"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="255" id="1ci-Ud-iV8"/>
-                                                        <constraint firstAttribute="height" constant="34" id="XhM-jm-MrJ"/>
+                                                        <constraint firstAttribute="width" constant="255" id="QiN-93-wSP"/>
+                                                        <constraint firstAttribute="height" constant="34" id="ojP-hj-YAe"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="mSP-Us-b9T" firstAttribute="centerX" secondItem="4B0-DS-1mm" secondAttribute="centerX" id="Lyc-Il-9fZ"/>
-                                                <constraint firstItem="mSP-Us-b9T" firstAttribute="centerY" secondItem="4B0-DS-1mm" secondAttribute="centerY" id="Zwo-et-Ec4"/>
+                                                <constraint firstItem="mSP-Us-b9T" firstAttribute="centerY" secondItem="4B0-DS-1mm" secondAttribute="centerY" id="Pu8-xg-L8v"/>
+                                                <constraint firstItem="mSP-Us-b9T" firstAttribute="centerX" secondItem="4B0-DS-1mm" secondAttribute="centerX" id="f1h-xj-6Ps"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

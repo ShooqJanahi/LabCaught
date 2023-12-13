@@ -8,13 +8,13 @@
 import Foundation
 
 enum UserType {
-    case admin
+    case Admin
     case patient
     case lab
 }
 
 
-struct User {  //defining a structure named User
+class User {  //defining a structure named User
     var firstName:String
     var lastName: String
     var PhoneNumber: Int
@@ -22,5 +22,17 @@ struct User {  //defining a structure named User
     var password: String //passwordHash is used to store hashed version of the users password for security
     var confirmPassword: String
     var userType: UserType
+    
+    
+    init(firstName: String, lastName: String, PhoneNumber: Int, username: String, password: String, confirmPassword: String, userType: UserType) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.PhoneNumber = PhoneNumber
+        self.username = username
+        self.password = password
+        self.confirmPassword = confirmPassword
+        self.userType = userType
+        
+    }
     }
 
