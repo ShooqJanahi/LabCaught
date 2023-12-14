@@ -5,11 +5,30 @@
 //  Created by mobileProg on 05/12/2023.
 //
 
+// AppDelegate.swift
 import UIKit
 
-@main
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var window: UIWindow?
+    let usersData = UsersData()
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Other setup code
+        
+        
+        //Lab user
+        usersData.addLabUser(PhoneNumber: 1234567890, username: "labUser1", password: "password123", confirmPassword: "password123", Location: "123 Lab Street", labName: "Central Lab", alwaysOpen: false, openingTime: DateComponents(hour: 9, minute: 0), closingTime: DateComponents(hour: 17, minute: 0))
+        
+        
+        
+        usersData.addAdminUser(PhoneNumber: 1234567890, username: "adminUser", password: "securePass123", confirmPassword: "securePass123", department: "IT", firstName: "John", lastName: "Doe")
+        
+        
+        return true
+    }
+}
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -33,5 +52,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
-}
+
 
