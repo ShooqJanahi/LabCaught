@@ -14,6 +14,8 @@ import Foundation
 class UsersData {
     var users: [User] = []
 
+    
+    //lab user
     func addLabUser(PhoneNumber: Int, username: String, password: String, confirmPassword: String, Location: String, labName: String, alwaysOpen: Bool, openingTime: DateComponents, closingTime: DateComponents) {
         
         let newLabUser = Labs(PhoneNumber: PhoneNumber, username: username, password: password, confirmPassword: confirmPassword, userType: .lab, Location: Location, labName: labName, alwaysOpen: alwaysOpen, openingTime: openingTime, closingTime: closingTime)
@@ -25,7 +27,7 @@ class UsersData {
     
     
    
-
+//admin user
     func addAdminUser(PhoneNumber: Int, username: String, password: String, confirmPassword: String, department: String, firstName: String, lastName: String) {
         
         let newAdminUser = Admin(PhoneNumber: PhoneNumber, username: username, password: password, confirmPassword: confirmPassword, userType: .Admin, department: department, firstName: firstName, lastName: lastName)
