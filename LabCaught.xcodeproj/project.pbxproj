@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A81C1FA2B2B5A2300ADF51B /* viewBookingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A81C1F92B2B5A2300ADF51B /* viewBookingTableViewController.swift */; };
 		3AE79DCC2B29D8CD00889BB7 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE79DCB2B29D8CD00889BB7 /* Test.swift */; };
 		3AE79DCE2B29D8E200889BB7 /* hospital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE79DCD2B29D8E200889BB7 /* hospital.swift */; };
 		3AE79DD02B29D91600889BB7 /* booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE79DCF2B29D91600889BB7 /* booking.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A81C1F92B2B5A2300ADF51B /* viewBookingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewBookingTableViewController.swift; sourceTree = "<group>"; };
 		3AE79DCB2B29D8CD00889BB7 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		3AE79DCD2B29D8E200889BB7 /* hospital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hospital.swift; sourceTree = "<group>"; };
 		3AE79DCF2B29D91600889BB7 /* booking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = booking.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				F0DBA53B2B25DC5200EE7B28 /* LoginTableViewController.swift */,
 				F0C7CE382B2992AA003355CE /* RegistrationTableViewController.swift */,
 				3AE79DD52B29DCA200889BB7 /* patientBookingTableViewController.swift */,
+				3A81C1F92B2B5A2300ADF51B /* viewBookingTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				3AE79DDA2B29E04000889BB7 /* PatientHistoryTableViewCell.swift in Sources */,
 				F0DBA53A2B25DC2100EE7B28 /* Alerts.swift in Sources */,
 				F07483A52B1F100C003B67D8 /* AppDelegate.swift in Sources */,
+				3A81C1FA2B2B5A2300ADF51B /* viewBookingTableViewController.swift in Sources */,
 				3AE79DD22B29D94900889BB7 /* packages.swift in Sources */,
 				3AE79DCC2B29D8CD00889BB7 /* Test.swift in Sources */,
 				C6D4F2822B29A4AC00798CE4 /* LabData.swift in Sources */,
