@@ -12,7 +12,7 @@
         <!--Patient Booking Table View Controller-->
         <scene sceneID="Ymc-g2-wFq">
             <objects>
-                <tableViewController id="VMt-OS-IjR" customClass="patientBookingTableViewController" customModule="LabCaught" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="bookHistory" id="VMt-OS-IjR" customClass="patientBookingTableViewController" customModule="LabCaught" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="x8Q-Ev-0p0">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -954,7 +954,22 @@
                             <outlet property="delegate" destination="Ecd-Jc-dDe" id="iPs-Ww-Cfc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Book Test/Package" id="cMu-St-6AW"/>
+                    <navigationItem key="navigationItem" title="Book Test/Package" id="cMu-St-6AW">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="ksp-DL-1xi">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="fEM-Kl-PB0">
+                                <rect key="frame" x="290" y="3" width="87" height="38.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Book"/>
+                                <connections>
+                                    <action selector="bookBtn:" destination="Ecd-Jc-dDe" eventType="touchUpInside" id="BrK-30-vFd"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <action selector="bookBtn:" destination="Ecd-Jc-dDe" id="ywO-00-7Sq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="DatePicker" destination="nz6-Mh-2FD" id="KvR-WZ-JIR"/>
                     </connections>

@@ -9,6 +9,32 @@ import UIKit
 
 class bookableViewController: UITableViewController {
     
+    //declare elements
+    
+    @IBAction func bookBtn(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Confirm Booking", message: "Are you sure you want to proceed with the booking?", preferredStyle: .alert)
+        
+        let bookAction = UIAlertAction(title: "Book", style: .default) { _ in
+            self.handleBookingConfirmed()
+        }
+        alert.addAction(bookAction)
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+
+        present(alert, animated: true, completion: nil)
+    }
+
+    private func handleBookingConfirmed() {
+        // Add your booking confirmation logic here
+    }
+
+    // Call this method when the user initiates the booking process
+        
+
+
+
+
     var isEditingDate = false {
         didSet {
             tableView.beginUpdates()
