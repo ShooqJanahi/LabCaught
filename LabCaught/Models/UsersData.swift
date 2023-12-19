@@ -7,7 +7,9 @@
 
 import Foundation
 
-
+class UserData{
+    
+}
 
 
 //creating a user instance for admin
