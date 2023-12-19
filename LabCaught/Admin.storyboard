@@ -31,17 +31,17 @@
                                                 <constraint firstAttribute="height" constant="88" id="Hz3-zF-FGE"/>
                                             </constraints>
                                         </imageView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="8wi-NV-Puk">
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="8wi-NV-Puk">
                                             <rect key="frame" x="125.99999999999999" y="11" width="220.66666666666663" height="88"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mW-7B-7oU">
-                                                    <rect key="frame" x="0.0" y="0.0" width="42.666666666666664" height="46"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="45" height="27.333333333333332"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIX-GV-Ryu">
-                                                    <rect key="frame" x="0.0" y="49" width="37" height="18"/>
+                                                    <rect key="frame" x="0.0" y="30.333333333333336" width="37" height="27.333333333333336"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="VrZ-zE-otd"/>
                                                     </constraints>
@@ -50,7 +50,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1X-Ok-lmR">
-                                                    <rect key="frame" x="0.0" y="70" width="37" height="18"/>
+                                                    <rect key="frame" x="0.0" y="60.666666666666679" width="37" height="27.333333333333336"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="jXM-Fu-trt"/>
                                                     </constraints>
@@ -116,7 +116,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aPU-cv-iii" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-141.22137404580153" y="84.507042253521135"/>
+            <point key="canvasLocation" x="-163" y="85"/>
         </scene>
         <!--Add Edit Hospital Lab Table View Controller-->
         <scene sceneID="3v4-1L-aID">
@@ -331,7 +331,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="S2u-GV-ChZ">
-                                                            <rect key="frame" x="188" y="0.0" width="165" height="31"/>
+                                                            <rect key="frame" x="188.66666666666663" y="0.0" width="164.33333333333337" height="31"/>
                                                         </datePicker>
                                                     </subviews>
                                                 </stackView>
