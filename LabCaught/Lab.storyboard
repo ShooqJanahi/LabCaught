@@ -10,13 +10,13 @@
         <!--Services-->
         <scene sceneID="Ydy-uc-dZS">
             <objects>
-                <tableViewController id="Nd8-l2-fKw" sceneMemberID="viewController">
+                <tableViewController id="Nd8-l2-fKw" customClass="ServicesTableViewController" customModule="LabCaught" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="7My-n4-Lwl">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="72" id="cns-Jq-1Gz">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="serviceCell" rowHeight="72" id="cns-Jq-1Gz" customClass="ServiceTableViewCell" customModule="LabCaught" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cns-Jq-1Gz" id="9tv-Pp-hEu">
@@ -51,6 +51,10 @@
                                         <constraint firstItem="Tev-jU-YXa" firstAttribute="leading" secondItem="9tv-Pp-hEu" secondAttribute="leadingMargin" id="wf3-zc-Llu"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="costLbl" destination="cwh-1l-63h" id="Nci-dD-Ccv"/>
+                                    <outlet property="nameLbl" destination="9O4-nZ-oF6" id="rv9-pV-Qls"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -212,12 +216,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="56.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose Tests" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YvC-2X-AKV">
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose Tests" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YvC-2X-AKV">
                                                     <rect key="frame" x="20" y="11" width="353" height="34.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2X-ax-zFP">
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2X-ax-zFP">
                                                     <rect key="frame" x="311" y="11" width="47" height="35"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
@@ -249,7 +253,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="56.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LYT-XT-b2y">
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LYT-XT-b2y">
                                                     <rect key="frame" x="20" y="11" width="353" height="34.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>

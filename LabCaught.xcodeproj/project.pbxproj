@@ -16,6 +16,9 @@
 		3AE79DD82B29DE2B00889BB7 /* bookings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE79DD72B29DE2B00889BB7 /* bookings.swift */; };
 		3AE79DDA2B29E04000889BB7 /* PatientHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE79DD92B29E04000889BB7 /* PatientHistoryTableViewCell.swift */; };
 		592208E12B31E164006673DD /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592208E02B31E164006673DD /* Service.swift */; };
+		592208E32B3206A1006673DD /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592208E22B3206A1006673DD /* ServiceTableViewCell.swift */; };
+		592208E52B3208B5006673DD /* ServicesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592208E42B3208B5006673DD /* ServicesTableViewController.swift */; };
+		592208E72B320A8E006673DD /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592208E62B320A8E006673DD /* Keys.swift */; };
 		8D33AABA2B30D317004CC0EF /* bookingdateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D33AAB92B30D317004CC0EF /* bookingdateTableViewController.swift */; };
 		8D33AABE2B30D604004CC0EF /* BookInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D33AABD2B30D604004CC0EF /* BookInfoTableViewCell.swift */; };
 		C3EC311F2B31AE0100AEF765 /* calenderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EC311E2B31AE0100AEF765 /* calenderTableViewCell.swift */; };
@@ -50,6 +53,9 @@
 		3AE79DD72B29DE2B00889BB7 /* bookings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookings.swift; sourceTree = "<group>"; };
 		3AE79DD92B29E04000889BB7 /* PatientHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		592208E02B31E164006673DD /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		592208E22B3206A1006673DD /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ServiceTableViewCell.swift; path = LabCaught/Models/ServiceTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		592208E42B3208B5006673DD /* ServicesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesTableViewController.swift; sourceTree = "<group>"; };
+		592208E62B320A8E006673DD /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		8D33AAB92B30D317004CC0EF /* bookingdateTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookingdateTableViewController.swift; sourceTree = "<group>"; };
 		8D33AABD2B30D604004CC0EF /* BookInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoTableViewCell.swift; sourceTree = "<group>"; };
 		C3EC311E2B31AE0100AEF765 /* calenderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calenderTableViewCell.swift; sourceTree = "<group>"; };
@@ -151,6 +157,7 @@
 				3AE79DD72B29DE2B00889BB7 /* bookings.swift */,
 				F0DBA5392B25DC2100EE7B28 /* Alerts.swift */,
 				C6D4F2812B29A4AC00798CE4 /* LabData.swift */,
+				592208E62B320A8E006673DD /* Keys.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -160,6 +167,7 @@
 			children = (
 				C6D4F2832B29AB3E00798CE4 /* HospitalLabTableViewCell.h */,
 				C6D4F2842B29AB3E00798CE4 /* HospitalLabTableViewCell.m */,
+				592208E22B3206A1006673DD /* ServiceTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,6 +180,7 @@
 				3AE79DD52B29DCA200889BB7 /* patientBookingTableViewController.swift */,
 				3A81C1F92B2B5A2300ADF51B /* viewBookingTableViewController.swift */,
 				8D33AAB92B30D317004CC0EF /* bookingdateTableViewController.swift */,
+				592208E42B3208B5006673DD /* ServicesTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -262,10 +271,12 @@
 				3AE79DDA2B29E04000889BB7 /* PatientHistoryTableViewCell.swift in Sources */,
 				F0DBA53A2B25DC2100EE7B28 /* Alerts.swift in Sources */,
 				F07483A52B1F100C003B67D8 /* AppDelegate.swift in Sources */,
+				592208E32B3206A1006673DD /* ServiceTableViewCell.swift in Sources */,
 				3A81C1FA2B2B5A2300ADF51B /* viewBookingTableViewController.swift in Sources */,
 				3AE79DD22B29D94900889BB7 /* packages.swift in Sources */,
 				3AE79DCC2B29D8CD00889BB7 /* Test.swift in Sources */,
 				C6D4F2822B29A4AC00798CE4 /* LabData.swift in Sources */,
+				592208E52B3208B5006673DD /* ServicesTableViewController.swift in Sources */,
 				8D33AABA2B30D317004CC0EF /* bookingdateTableViewController.swift in Sources */,
 				F0DBA52D2B25DB1700EE7B28 /* Patient.swift in Sources */,
 				F0DBA52B2B25DB0900EE7B28 /* Users.swift in Sources */,
@@ -274,6 +285,7 @@
 				F0DBA5382B25DC1300EE7B28 /* UsersData.swift in Sources */,
 				8D33AABE2B30D604004CC0EF /* BookInfoTableViewCell.swift in Sources */,
 				C3EC311F2B31AE0100AEF765 /* calenderTableViewCell.swift in Sources */,
+				592208E72B320A8E006673DD /* Keys.swift in Sources */,
 				C3EC31212B31C8D400AEF765 /* BookingDetailsConfirmedTableViewCell.swift in Sources */,
 				3AE79DD62B29DCA200889BB7 /* patientBookingTableViewController.swift in Sources */,
 			);
