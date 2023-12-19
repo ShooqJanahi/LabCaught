@@ -6,19 +6,28 @@
 //
 
 import Foundation
-class packages{
-    var package:String
-    var cost:String
-    var describtion:String
-    var insrtuctions:String
-    var package_includes:[test]
-    var package_expiry:DateComponents
+class Packages : Service {
+    
+    var packageIncludes: [Test]
+    var packageExpiry: DateComponents
     //var isLab: Bool
     var lab: Labs!
     //var tests: [test]
     
     
-    init(package: String, cost: String, describtion: String, insrtuctions: String, package_includes: [test], package_expiry: DateComponents,lab:Labs) {
+    init(name: String, cost: String, describtion: String, insrtuctions: String, lab: Labs, packageIncludes: [Test], packageExpiry: DateComponents ) {
+        self.packageIncludes = packageIncludes
+        self.packageExpiry = packageExpiry
+        self.lab = lab
+        super.init(name: name, cost: cost, describtion: describtion, insrtuctions: insrtuctions)
+    }
+    
+}
+    
+    
+    
+    
+    /*init(package: String, cost: String, describtion: String, insrtuctions: String, package_includes: [test], package_expiry: DateComponents,lab:Labs) {
         self.package = package
         self.cost = cost
         self.describtion = describtion
@@ -37,5 +46,5 @@ class packages{
         self.package_expiry = package_expiry
         
     }
-    
-}
+    */
+

@@ -15,6 +15,7 @@
 		3AE79DD62B29DCA200889BB7 /* patientBookingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE79DD52B29DCA200889BB7 /* patientBookingTableViewController.swift */; };
 		3AE79DD82B29DE2B00889BB7 /* bookings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE79DD72B29DE2B00889BB7 /* bookings.swift */; };
 		3AE79DDA2B29E04000889BB7 /* PatientHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE79DD92B29E04000889BB7 /* PatientHistoryTableViewCell.swift */; };
+		592208E12B31E164006673DD /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592208E02B31E164006673DD /* Service.swift */; };
 		4FB49A262B31E8EA00977E36 /* PatientHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB49A252B31E8EA00977E36 /* PatientHome.storyboard */; };
 		4FB49A282B31E9D100977E36 /* PatientHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB49A272B31E9D100977E36 /* PatientHomeTableViewCell.swift */; };
 		4FB49A2A2B31EDDB00977E36 /* PatientHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB49A292B31EDDB00977E36 /* PatientHomeTableViewController.swift */; };
@@ -52,6 +53,7 @@
 		3AE79DD52B29DCA200889BB7 /* patientBookingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = patientBookingTableViewController.swift; sourceTree = "<group>"; };
 		3AE79DD72B29DE2B00889BB7 /* bookings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookings.swift; sourceTree = "<group>"; };
 		3AE79DD92B29E04000889BB7 /* PatientHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		592208E02B31E164006673DD /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		4FB49A252B31E8EA00977E36 /* PatientHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PatientHome.storyboard; sourceTree = "<group>"; };
 		4FB49A272B31E9D100977E36 /* PatientHomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PatientHomeTableViewCell.swift; path = LabCaught/PatientHomeTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		4FB49A292B31EDDB00977E36 /* PatientHomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PatientHomeTableViewController.swift; path = LabCaught/PatientHomeTableViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -142,9 +144,10 @@
 				F0DBA5302B25DB3100EE7B28 /* Admin.swift */,
 				F0DBA52C2B25DB1700EE7B28 /* Patient.swift */,
 				F0DBA52E2B25DB2300EE7B28 /* Labs.swift */,
-				3AE79DCB2B29D8CD00889BB7 /* Test.swift */,
 				3AE79DCD2B29D8E200889BB7 /* hospital.swift */,
 				3AE79DCF2B29D91600889BB7 /* booking.swift */,
+				592208E02B31E164006673DD /* Service.swift */,
+				3AE79DCB2B29D8CD00889BB7 /* Test.swift */,
 				3AE79DD12B29D94900889BB7 /* packages.swift */,
 			);
 			path = Models;
@@ -263,6 +266,7 @@
 			files = (
 				C6D4F2852B29AB3E00798CE4 /* HospitalLabTableViewCell.m in Sources */,
 				3AE79DCE2B29D8E200889BB7 /* hospital.swift in Sources */,
+				592208E12B31E164006673DD /* Service.swift in Sources */,
 				F0DBA52F2B25DB2300EE7B28 /* Labs.swift in Sources */,
 				3AE79DD82B29DE2B00889BB7 /* bookings.swift in Sources */,
 				F0DBA5312B25DB3100EE7B28 /* Admin.swift in Sources */,

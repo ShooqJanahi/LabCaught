@@ -39,6 +39,8 @@ class patientBookingTableViewController: UITableViewController {
         let book = bookings[indexPath.row]
         cell.testName.text = book.test.TestName
         cell.labName.text = "alo"
+      
+        
         guard let year = book.booking_date.year, let month = book.booking_date.month, let day = book.booking_date.day else {
             return cell
         }
