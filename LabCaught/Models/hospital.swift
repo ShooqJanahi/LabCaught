@@ -7,7 +7,7 @@
 
 import Foundation
 class hospital{
-    
+ /*
     var Location: String //Example
     var labName :String
     var phone: Int
@@ -23,5 +23,5 @@ class hospital{
         self.alwaysOpen = alwaysOpen
         self.closingTime = closingTime
         self.openingTime = openingTime
-    }
+    } */
 }

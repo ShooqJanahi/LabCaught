@@ -11,13 +11,15 @@ class viewBookingTableViewController: UITableViewController {
 
     
     
-    @IBOutlet weak var TestPackageName: UILabel!
-    @IBOutlet weak var Location: UILabel!
-    @IBOutlet weak var Price: UILabel!
-    @IBOutlet weak var Date: UILabel!
-    @IBOutlet weak var PackageIncludes: UILabel!
-    @IBOutlet weak var Description: UILabel!
-    @IBOutlet weak var instruction: UILabel!
+    //@IBOutlet weak var TestPackageName: UILabel!
+    //@IBOutlet weak var Location: UILabel!
+    //@IBOutlet weak var Price: UILabel!
+    //@IBOutlet weak var Date: UILabel!
+    //@IBOutlet weak var PackageIncludes: UILabel!
+    //@IBOutlet weak var Description: UILabel!
+    //@IBOutlet weak var instruction: UILabel!
+    var selectedTest: test?
+    @IBOutlet weak var n: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,22 +38,52 @@ class viewBookingTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        
         // #warning Incomplete implementation, return the number of rows
         return 10
+        
+  
+        
     }
-
+    //var bookings: [Booking?] = AppData.bookings
+ 
+ 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "dateBook", for: indexPath) as! PatientHistoryTableViewCell
-        //let book = bookings[indexPath.row]
-        //cell.testName.text = book.test.TestName
-        //cell.labName.text = "alo"
-        //guard let year = book.booking_date.year, let month = book.booking_date.month, let day = book.booking_date.day else {
-          //  return cell
-        //}
-        //cell.Date.text = "\(day)-\(month)-\(year)"
-        // Configure the cell...
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dateBook", for: indexPath) as! PatientHistoryTableViewCell
-        return cell
+        //let bo = bookings[indexePath.row]
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "schedule", for: indexPath) as! BookingDetailsConfirmedTableViewCell
+            return cell
+        } else if indexPath.row == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "dateBook", for: indexPath) as! BookingDetailsConfirmedTableViewCell
+            return cell
+        } else if indexPath.row == 2{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "State", for: indexPath) as! BookingDetailsConfirmedTableViewCell
+            return cell
+        } else if indexPath.row == 3{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Loc", for: indexPath) as! BookingDetailsConfirmedTableViewCell
+            return cell
+        } else if indexPath.row == 4{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "labe", for: indexPath) as! BookingDetailsConfirmedTableViewCell
+            return cell
+        } else if indexPath.row == 5{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NameTest", for: indexPath) as! BookingDetailsConfirmedTableViewCell
+            cell.Namee.text = "ok"
+            return cell
+        } else if indexPath.row == 6{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PriceCell", for: indexPath) as! BookingDetailsConfirmedTableViewCell
+            return cell
+        } else if indexPath.row == 7{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "InstructionCell", for: indexPath) as! BookingDetailsConfirmedTableViewCell
+            return cell
+        } else if indexPath.row == 8{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell", for: indexPath) as! BookingDetailsConfirmedTableViewCell
+            return cell
+        }  else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PackageInncludeCell", for: indexPath) as! BookingDetailsConfirmedTableViewCell
+            return cell
+        }
+
     }
   
     
