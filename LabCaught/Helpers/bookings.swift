@@ -10,6 +10,7 @@ import Foundation
 class AppData{
     static var bookings : [booking] = []
     
+    
     static func load(){
         if bookings.isEmpty {
              bookings = sampleBookings
