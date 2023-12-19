@@ -9,6 +9,8 @@ import Foundation
 
 class AppData{
     static var bookings : [booking] = []
+    static var labs = [Labs]()
+    static var services = [Service]()
     
     static func load(){
         if bookings.isEmpty {
