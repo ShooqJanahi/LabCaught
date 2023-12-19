@@ -9,6 +9,9 @@ import UIKit
 
 class BookingDetailsConfirmedTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var nam: UILabel!
+    @IBOutlet weak var Namee: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
