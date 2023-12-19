@@ -106,7 +106,7 @@
         <!--Booking History-->
         <scene sceneID="smH-XH-Waw">
             <objects>
-                <tableViewController id="rQf-2k-zgl" sceneMemberID="viewController">
+                <tableViewController id="rQf-2k-zgl" customClass="viewBookingTableViewController" customModule="LabCaught" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="eGB-Bo-FOg">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,7 +114,7 @@
                         <sections>
                             <tableViewSection id="P9g-pG-aVk" userLabel="Name">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="57" id="Je9-h4-ten">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="schedule" rowHeight="57" id="Je9-h4-ten" customClass="BookingDetailsConfirmedTableViewCell" customModule="LabCaught" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Je9-h4-ten" id="Y0m-jX-OZt">
@@ -141,7 +141,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="58" id="N1K-IK-Ory">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dateBook" rowHeight="58" id="N1K-IK-Ory" customClass="BookingDetailsConfirmedTableViewCell" customModule="LabCaught" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="107" width="393" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N1K-IK-Ory" id="v7d-j8-jLR">
@@ -178,7 +178,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="58" id="srC-0h-jxr">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="State" rowHeight="58" id="srC-0h-jxr" customClass="BookingDetailsConfirmedTableViewCell" customModule="LabCaught" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="165" width="393" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="srC-0h-jxr" id="Nlu-QD-IgK">
@@ -220,7 +220,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="58" id="fbE-Q6-bwC">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Loc" rowHeight="58" id="fbE-Q6-bwC" customClass="BookingDetailsConfirmedTableViewCell" customModule="LabCaught" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="223" width="393" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fbE-Q6-bwC" id="pj3-0k-8uj">
@@ -257,7 +257,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="58" id="25d-1k-Bx7">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="58" id="25d-1k-Bx7" customClass="BookingDetailsConfirmedTableViewCell" customModule="LabCaught" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="281" width="393" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="25d-1k-Bx7" id="c2h-KJ-SCC">
@@ -284,7 +284,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="58" id="twe-YD-ix6">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NameTest" rowHeight="58" id="twe-YD-ix6" customClass="BookingDetailsConfirmedTableViewCell" customModule="LabCaught" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="339" width="393" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="twe-YD-ix6" id="o7z-hB-VF3">
@@ -320,7 +320,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="58" id="dp3-it-KCM">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PriceCell" rowHeight="58" id="dp3-it-KCM" customClass="BookingDetailsConfirmedTableViewCell" customModule="LabCaught" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="397" width="393" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dp3-it-KCM" id="qxY-Vi-rde">
@@ -356,7 +356,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="58" id="HzH-VI-JZF">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InstructionCell" rowHeight="58" id="HzH-VI-JZF" customClass="BookingDetailsConfirmedTableViewCell" customModule="LabCaught" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="455" width="393" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HzH-VI-JZF" id="5tC-Sz-9iP">
@@ -392,7 +392,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="58" id="PWW-t7-Rwi">
+                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="descriptionCell" rowHeight="58" id="PWW-t7-Rwi" customClass="BookingDetailsConfirmedTableViewCell" customModule="LabCaught" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="513" width="393" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PWW-t7-Rwi" id="CY2-9J-RTY">
@@ -428,7 +428,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="58" id="NtQ-OE-QPj">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PackageInncludeCell" rowHeight="58" id="NtQ-OE-QPj" customClass="BookingDetailsConfirmedTableViewCell" customModule="LabCaught" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="571" width="393" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NtQ-OE-QPj" id="xr4-X7-NQU">
@@ -475,6 +475,13 @@
                     <navigationItem key="navigationItem" title="Booking History" id="qYM-Tg-fcv">
                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="tj6-7n-hXc"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="Date" destination="H4i-sF-4cN" id="eK9-Jw-k6y"/>
+                        <outlet property="Location" destination="JOl-3x-jGf" id="VyA-AV-F2Y"/>
+                        <outlet property="Price" destination="9vH-Hs-0eL" id="cTK-V2-hwe"/>
+                        <outlet property="TestPackageName" destination="srM-WU-CxQ" id="MNE-aZ-swL"/>
+                        <outlet property="instruction" destination="j98-Hy-NWJ" id="o4d-UR-nob"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZMp-8T-ce7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
