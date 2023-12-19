@@ -7,16 +7,17 @@
 
 import Foundation
 
-//class LabData {
-//    static var labs = [Labs]()
+class LabData {
+    static var labs = [Labs]()
     
- //   static func load(){
-  //     if labs.isEmpty {
-    //       labs = sampleLabs
-  //      }
- // }
+    static func load(){
+        
+       if labs.isEmpty {
+           labs = sampleLabs
+        }
+  }
     
- //  static var sampleLabs = [
- //      Labs(Username: "RoyalMedical", Password: "RM123", labName: "Royal Medical Services", Specialization: "Hospital", Location: "Riffa, Bahrain", ContactInfo: 17766666, alwaysOpen: true)
- // ]
-//}
+   static var sampleLabs = [
+    Labs(PhoneNumber: 17766666, username: "RoayalMedical", password: "123RM", confirmPassword: "123RM", userType: .lab, Location: "Riffa, Bahrain", labName: "Royal Medical Services", facilityType: .hospital, alwaysOpen: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 18, minute: 0))
+  ]
+}

@@ -1,80 +1,55 @@
 //
-//  HosptalLabTableViewController.swift
+//  AddEditHospitalLabTableViewController.swift
 //  LabCaught
 //
-//  Created by Shaikha Hasan Ali Hasan Ali Mohamed on 14/12/2023.
+//  Created by Shaikha Hasan Ali Hasan Ali Mohamed on 19/12/2023.
 //
 
 import UIKit
 
-class HosptalLabTableViewController: UITableViewController {
+class AddEditHospitalLabTableViewController: UITableViewController {
 
-    
-    @IBOutlet weak var facilityTypeSC: UISegmentedControl!
-    
-    var labs : [Labs] = LabData.labs
-    
-    //var users : [User] = AppData.users.compactMap{ $0 as? Teacher }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    func loadFacilities(ofType type: FacilityType) {
-        
-        
-    }
-    
-    @IBAction func facilitytypeChanged(_ sender: UISegmentedControl) {
-        //loadFacilities()
-        
-        switch sender.selectedSegmentIndex {
-        case 0:
-            loadFacilities(ofType: .hospital)
-        case 1:
-            loadFacilities(ofType: .lab)
-        default:
-            break
-        }
-    }
-    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return labs.count
+        return 0
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Cell.HospitalLabCell.rawValue, for: indexPath) as! HospitalLabTableViewCell
-        
-        //let lab = Labs[indexPath.row]
-        //cell.configure(with: lab)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
 
         return cell
     }
-    
+    */
 
-    
+    /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    
+    */
 
-   
+    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -84,7 +59,7 @@ class HosptalLabTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    
+    */
 
     /*
     // Override to support rearranging the table view.
