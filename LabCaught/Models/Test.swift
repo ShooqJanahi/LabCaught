@@ -6,17 +6,10 @@
 //
 
 import Foundation
-class test{
-    var TestName:String
-    var cost:String
-    var describtion:String
-    var insrtuctions:String
-    
-    init(TestName: String, cost: String, describtion: String, insrtuctions: String) {
-        self.TestName = TestName
-        self.cost = cost
-        self.describtion = describtion
-        self.insrtuctions = insrtuctions
+class Test : Service {
+   
+    override init(name: String, cost: String, describtion: String, insrtuctions: String) {
+        super.init(name: name, cost: cost, describtion: describtion, insrtuctions: insrtuctions)
     }
     
 }
