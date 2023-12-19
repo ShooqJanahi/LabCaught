@@ -8,7 +8,7 @@
 import Foundation
 
 class UserData{
-    
+    var age = 0
 }
 
 
