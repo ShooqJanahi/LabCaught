@@ -7,30 +7,27 @@
 
 import Foundation
 
-enum UserType {
-    case Admin
-    case patient
-    case lab
-}
 
-
-class User {  //defining a structure named User
+class User: Equatable, Codable {
     
-    var PhoneNumber: Int
-    var username: String //declaring a property named username
-    var password: String //passwordHash is used to store hashed version of the users password for security
+    var username: String
+    var password: String
+    
+    var createdOn: Date
+    var phoneNumber: Int
     var confirmPassword: String
-    var userType: UserType
     
+    static func == (lhs: User, rhs: User) -> Bool {
+        lhs.username == rhs.username
+    }
     
-    init(PhoneNumber: Int, username: String, password: String, confirmPassword: String, userType: UserType) {
-     
-        self.PhoneNumber = PhoneNumber
+    init(username: String, password: String, createdOn: Date = Date(), confirmPassword: String, phoneNumber: Int) {
         self.username = username
         self.password = password
+        self.createdOn = createdOn
         self.confirmPassword = confirmPassword
-        self.userType = userType
-        
+        self.phoneNumber = phoneNumber
     }
-    }
+}
+
 
