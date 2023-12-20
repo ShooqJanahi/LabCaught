@@ -29,6 +29,12 @@ class RegistrationTableViewController: UITableViewController {
 
     //this action is called when the save button is tapped
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        let isUsernameInUse = false // Replace with actual check
+               let isCPRCorrect = true // Replace with actual check
+               let isEmailAddressInUse = false // Replace with actual check
+               let isPhoneNumberCorrect = true // Replace with actual check
+               let didAgreeToTerms = true // Replace with actual check
+        
         // Validate that none of the text fields are empty
         guard let firstName = FirstNameTextField.text, !firstName.isEmpty,
               let lastName = LastNameTextField.text, !lastName.isEmpty,
