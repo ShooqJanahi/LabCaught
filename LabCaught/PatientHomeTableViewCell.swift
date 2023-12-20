@@ -20,3 +20,10 @@ class PatientHomeTableViewCell: UITableViewCell {
     }
 
 }
+protocol SearchCell {
+    
+}
+
+extension Facility: SearchCell {
+    
+}
