@@ -17,4 +17,16 @@ struct Utility {
         let trimmedCpr = cpr.trimmingCharacters(in: .whitespacesAndNewlines)
         return trimmedCpr.count == 9 && trimmedCpr.allSatisfy { $0.isNumber }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

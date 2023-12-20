@@ -734,6 +734,7 @@ Thank you for choosing LabCaught for your medical testing needs. We appreciate y
                         <outlet property="LastNameTextField" destination="MMi-p0-aaA" id="QSY-gY-4Ho"/>
                         <outlet property="PasswordTextField" destination="etp-nC-nPJ" id="Bwj-hl-p3p"/>
                         <outlet property="PhoneNumberTextField" destination="fOK-RQ-Myd" id="tW2-am-adC"/>
+                        <outlet property="TermsSwitch" destination="gkF-HI-Oma" id="k9G-Sh-j9K"/>
                         <outlet property="UserNameTextField" destination="pOc-WV-s8W" id="ikL-Ss-OD3"/>
                     </connections>
                 </tableViewController>

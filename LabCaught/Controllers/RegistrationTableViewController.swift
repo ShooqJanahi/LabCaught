@@ -20,6 +20,8 @@ class RegistrationTableViewController: UITableViewController {
     @IBOutlet weak var PasswordTextField: UITextField!
     @IBOutlet weak var ConfirmPasswordTextField: UITextField!
     
+    @IBOutlet var TermsSwitch: UISwitch!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,10 +31,7 @@ class RegistrationTableViewController: UITableViewController {
 
     //this action is called when the save button is tapped
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        let isUsernameInUse = true // Replace with actual check
-               
-               
-               let didAgreeToTerms = true // Replace with actual check
+        
         
         // Validate that none of the text fields are empty
         guard let firstName = FirstNameTextField.text, !firstName.isEmpty,
@@ -76,29 +75,27 @@ class RegistrationTableViewController: UITableViewController {
              
 
         // Check if the phone number is correct (8 digits)
-              if !isPhoneNumberCorrect(phoneNumber: PhoneNumberTextField.text ?? "") {
-                  Alerts.showAlertWithRetry(on: self, title: "Phone Number Error", message: "The phone number is incorrect", retryHandler: {
-                      // Logic to handle the retry
-                      self.PhoneNumberTextField.text = ""
-                      self.PhoneNumberTextField.becomeFirstResponder()
+        if !Utility.isPhoneNumberCorrect(phoneNumber: PhoneNumberTextField.text ?? "") {
+            Alerts.showAlertWithRetry(on: self, title: "Phone Number Error", message: "The phone number is incorrect", retryHandler: {
+                // Logic to handle the retry
+                self.PhoneNumberTextField.text = ""
+                self.PhoneNumberTextField.becomeFirstResponder()
+            })
+            return
+        }
+
+        if !TermsSwitch.isOn {
+                  Alerts.showAlertWithRetry(on: self, title: "Terms and Conditions", message: "You must agree to the terms and conditions to continue", retryHandler: {
+                      // Logic to handle the retry, such as making the terms switch the focus
+                      self.TermsSwitch.setOn(false, animated: true)
+                      self.TermsSwitch.becomeFirstResponder()
                   })
                   return
               }
-
-
-               // Check if the user did not agree to the terms and conditions
-        if !didAgreeToTerms {
-                   Alerts.showAlertWithRetry(on: self, title: "Terms and Conditions", message: "Did not agree to the terms and conditions", retryHandler: {
-                       // Logic to handle the retry
-                       // Possibly refocus on the terms and conditions switch or button
-                   })
-                   return
-               }
         
-        
+      
     }
-
-   
+    
     }
     
     
