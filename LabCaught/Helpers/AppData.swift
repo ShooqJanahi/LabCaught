@@ -10,120 +10,82 @@
 import Foundation
 
 struct AppData {
-    
-    
-           
-    //Users
-           var users: [User] = []
-    
-    // Function to load registered user information
-    static func loadFromFile() {
-        if let usersData = UserDefaults.standard.data(forKey: "usersData"),
-           let decodedUsers = try? JSONDecoder().decode([User].self, from: usersData) {
-            AppData.users = decodedUsers // Use AppData.users here
-        }
-    }
-
-    // Save users to file
-    static func saveToFile() {
-        if let encodedData = try? JSONEncoder().encode(AppData.users) { // Use AppData.users here
-            UserDefaults.standard.set(encodedData, forKey: "usersData")
-        }
-    }
-
-    
-    
-    //Admin user
-           var admins: [Admin] = [
+    static var users: [User] = []
+    static var admins: [Admin] = [
         Admin(username: "admin", password: "admin123", department: "IT", firstName: "Alice", lastName: "Russo", phoneNumber: 12345678)
     ]
+    static var facilites: [Facility] = []
+    static var bookings: [Booking] = []
+    static var services: [Service] = []
     
-    
-    //Labs
-           var facilites = [Facility]()
-
-    
-    // Method to check if a username is already in use within the users array
-           func isUsernameInUse(username: String) -> Bool {
-        return users.contains { $0.username.lowercased() == username.lowercased() } || admins.contains { $0.username.lowercased() == username.lowercased() }
-    }
-    
-    
-   
-        
-
-    
-    
-    
-    
-    // ... other static methods or properties ...
-    
-  //bookings
-    static var bookings : [booking] = []
-    static var services = [Service]()
-    
-    static var sampleBookings = [booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:22), patient: Patient(username: "maryams", password: "1234", phoneNumber: 39993999, firstName: "Maryam", lastName: "Salah", DOB: DateComponents(calendar: Calendar.current, year: 2003, month: 11, day:22), CPR: 031100000), test: Test(name: "Vitamin B", cost: "3 BHD", describtion: "Blood test is done to check the patiend red and white cells and if they are healthy with no any side affeccts", insrtuctions: "No instruction")),
-    
-        booking(booking_date: DateComponents(calendar: Calendar.current, year: 2024, month: 01, day:06), patient: Patient(username: "fatiman", password: "4312", phoneNumber: 38883888, firstName: "Fatima", lastName: "Naser", DOB: DateComponents(calendar: Calendar.current, year: 2003, month: 05, day:09), CPR: 030500000), test: Test(name: "Vitamin D", cost: "3 BHD", describtion: "Blood test is done to check the patient's Vitamin D level and if they are healthy with no any side affeccts", insrtuctions: "Fasting for 8 - 10 hours is required"))
+    // Example bookings
+    static var sampleBookings: [Booking] = [
+        // ... Your sample bookings ...
     ]
     
-    static func load(){
-        if bookings.isEmpty {
-             bookings = sampleBookings
-        }
+    static func isUsernameInUse(username: String) -> Bool {
+        return users.contains { $0.username.lowercased() == username.lowercased() } ||
+               admins.contains { $0.username.lowercased() == username.lowercased() }
+    }
     
+    // ... other static methods or properties ...
 
+    static func load() {
+        // Load all data from file or initial settings
+        if bookings.isEmpty {
+            bookings = sampleBookings
+        }
+        // Load other user data if necessary
+        loadFromFile()
+    }
+
+    static func addUser(username: String, password: String, phoneNumber: Int, firstName: String, lastName: String, dob: DateComponents, cpr: Int) {
+        let newUser = Patient(username: username, password: password, phoneNumber: phoneNumber, firstName: firstName, lastName: lastName, DOB: dob, CPR: cpr)
+        users.append(newUser)
+        saveToFile()
+    }
+
+    static func editUser(user: User) {
+        if let index = users.firstIndex(where: { $0.username == user.username }) {
+            users.remove(at: index)
+            users.insert(user, at: index)
+            saveToFile()
+        }
+    }
+
+    static func deleteUser(user: User) -> Bool {
+        if let index = users.firstIndex(where: { $0.username == user.username }) {
+            users.remove(at: index)
+            saveToFile()
+            return true
+        }
+        return false
+    }
+
+    // Placeholder for the loadFromFile method
+    static func loadFromFile() {
+        // Implement your loading logic here, e.g. using UserDefaults or reading from a file
+    }
+
+    // Placeholder for the saveToFile method
+    static func saveToFile() {
+        // Implement your saving logic here, e.g. using UserDefaults or writing to a file
+    }
+    
+    // Call the initialize method from your AppDelegate or SceneDelegate
+    static func initializeAppData() {
+        load()
     }
 }
 
 
-extension AppData {
-    static func load(){
-        //load all data from file
-        if facilites.isEmpty {
-            facilites = sampleFacilities
-            
-            
-            
-            //to save user registrision information
-            
-            // Add a new user
-            static func addUser(username: String, password: String, phoneNumber: Int, firstName: String, lastName: String, dob: DateComponents, cpr: Int) {
-                let newUser = Patient(username: username, password: password, phoneNumber: phoneNumber, firstName: firstName, lastName: lastName, DOB: dob, CPR: cpr)
-                users.append(newUser)
-                saveToFile()
-            }
 
-            // Edit an existing user
-            static func editUser(user: User) {
-                if let index = users.firstIndex(where: { $0.username == user.username }) {
-                    users.remove(at: index)
-                    users.insert(user, at: index)
-                    saveToFile()
-                }
-            }
 
-            // Delete a user
-            static func deleteUser(user: User) -> Bool {
-                if let index = users.firstIndex(where: { $0.username == user.username }) {
-                    users.remove(at: index)
-                    saveToFile()
-                    return true
-                }
-                return false
-            }
-            
-            // Call loadFromFile at app launch
-            static func initializeAppData() {
-                loadFromFile()
-            }
-        }
-        }
-    }
+
     
     static var sampleFacilities = [
         Facility(username: "Royalmedical", password: "123RM", phoneNumber: 17766666, name: "Royal Medical Servises", location: "Riffa, Bhariain", isOpen24Hours: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 8, minute: 0), facilityType: .hospital),
         Facility(username: "Royalmedical", password: "123RM", phoneNumber: 17766666, name: "Royal Medical Servises", location: "Riffa, Bhariain", isOpen24Hours: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 8, minute: 0), facilityType: .hospital),
         Facility(username: "Royalmedical", password: "123RM", phoneNumber: 17766666, name: "Royal Medical Servises", location: "Riffa, Bhariain", isOpen24Hours: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 8, minute: 0), facilityType: .hospital)
     ]
-}
+
