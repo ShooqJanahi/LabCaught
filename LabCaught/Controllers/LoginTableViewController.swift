@@ -14,7 +14,7 @@ class LoginTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Any additional setup after loading the view, typically from a nib.
+       
     }
 
     @IBAction func loginButtonTapped(_ sender: UIButton) {

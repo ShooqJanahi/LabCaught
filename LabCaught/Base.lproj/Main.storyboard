@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bhr-aL-orK">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -29,6 +29,10 @@
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cjE-tc-Y1J">
                                                     <rect key="frame" x="40" y="11" width="313" height="687"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="313" id="KbT-Q2-VTK"/>
+                                                        <constraint firstAttribute="height" constant="687" id="XrL-MU-KlA"/>
+                                                    </constraints>
                                                     <mutableString key="text">At LabCaught, we understand that forgetting your password can be frustrating. We're here to help you regain access to your account. If you're experiencing any issues with your password, please reach out to our support team for prompt assistance.
 
 Contact Information:
@@ -63,12 +67,10 @@ Thank you for choosing LabCaught for your medical testing needs. We appreciate y
                                                 </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="cjE-tc-Y1J" firstAttribute="top" secondItem="JeN-xL-gKf" secondAttribute="topMargin" id="1te-hF-hYi"/>
-                                                <constraint firstItem="cjE-tc-Y1J" firstAttribute="leading" secondItem="JeN-xL-gKf" secondAttribute="leadingMargin" constant="20" id="5lJ-7D-9Xk"/>
-                                                <constraint firstItem="cjE-tc-Y1J" firstAttribute="centerY" secondItem="JeN-xL-gKf" secondAttribute="centerY" id="P7g-Bj-OB7"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="cjE-tc-Y1J" secondAttribute="bottom" constant="20" id="aPR-GL-VDE"/>
-                                                <constraint firstItem="cjE-tc-Y1J" firstAttribute="centerX" secondItem="JeN-xL-gKf" secondAttribute="centerX" id="n9J-jP-MFo"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="cjE-tc-Y1J" secondAttribute="trailing" constant="20" id="rpb-6o-Wo7"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="cjE-tc-Y1J" secondAttribute="bottom" constant="20" id="2RR-V8-3wt"/>
+                                                <constraint firstItem="cjE-tc-Y1J" firstAttribute="top" secondItem="JeN-xL-gKf" secondAttribute="topMargin" id="DRV-PI-AGF"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="cjE-tc-Y1J" secondAttribute="trailing" constant="20" id="TZ7-HY-5Ot"/>
+                                                <constraint firstItem="cjE-tc-Y1J" firstAttribute="leading" secondItem="JeN-xL-gKf" secondAttribute="leadingMargin" constant="20" id="v2P-gn-OaN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
