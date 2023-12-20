@@ -6,20 +6,18 @@
 //
 
 import Foundation
-/*class Packages : Service {
+class Packages : Service {
     
     var packageIncludes: [Test]
     var packageExpiry: DateComponents
     //var isLab: Bool
-    var lab: Labs!
     //var tests: [test]
     
     
-    init(name: String, cost: String, describtion: String, insrtuctions: String, lab: Labs, packageIncludes: [Test], packageExpiry: DateComponents ) {
+    init(name: String, cost: String, describtion: String, insrtuctions: String, packageIncludes: [Test], packageExpiry: DateComponents, lab: Labs) {
         self.packageIncludes = packageIncludes
         self.packageExpiry = packageExpiry
-        self.lab = lab
-        super.init(name: name, cost: cost, describtion: describtion, insrtuctions: insrtuctions)
+        super.init(name: name, cost: cost, describtion: describtion, insrtuctions: insrtuctions, lab: lab)
     }
     
 }
@@ -47,5 +45,4 @@ import Foundation
         
     }
     */
- */
 
