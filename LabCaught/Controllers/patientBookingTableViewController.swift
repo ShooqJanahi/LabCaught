@@ -49,6 +49,11 @@ class patientBookingTableViewController: UITableViewController {
 
         return cell
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? viewBookingTableViewController, let selected = tableView.indexPathForSelectedRow{
+            destination.selectedTest = bookings[selected.row]
+        }
+    }
   
 
     /*

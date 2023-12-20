@@ -11,15 +11,17 @@ class viewBookingTableViewController: UITableViewController {
 
 
     
+    @IBOutlet weak var Datelet: UIView!
     
-    //@IBOutlet weak var TestPackageName: UILabel!
-    //@IBOutlet weak var Location: UILabel!
-    //@IBOutlet weak var Price: UILabel!
-    //@IBOutlet weak var Date: UILabel!
-    //@IBOutlet weak var PackageIncludes: UILabel!
-    //@IBOutlet weak var Description: UILabel!
-    //@IBOutlet weak var instruction: UILabel!
-    var selectedTest: Test?
+    @IBOutlet weak var NameLet: UILabel!
+    @IBOutlet weak var Placelet: UILabel!
+    
+    @IBOutlet weak var Packagecell: BookingDetailsConfirmedTableViewCell!
+    @IBOutlet weak var packageinclude: UILabel!
+    @IBOutlet weak var descriptlet: UILabel!
+    @IBOutlet weak var instructlet: BookingDetailsConfirmedTableViewCell!
+    @IBOutlet weak var Pricelet: UILabel!
+    var selectedTest: booking?
     @IBOutlet weak var n: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,16 @@ class viewBookingTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     func updateView(){
-       // date.text = "Booking Date:"
+        guard let selectedTest = selectedTest else {
+            return
+        }
+        if selectedTest is Test {
+            Packagecell.isHidden = true
+            
+            
+        }else {
+            
+        }
     }
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
