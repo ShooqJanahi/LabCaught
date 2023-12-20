@@ -16,36 +16,66 @@ struct AppData {
     static var bookings: [booking] = []
     static var services: [Service] = []
     
-   /* static var labs: [Facility] = [
-           Facility(username: "Alhilal",
-                    password: "12345",
-                    phoneNumber: 17001700,
-                    name: "Alhilal Hospital",
-                    location: "Riffa",
-                    isOpen24Hours: true,
-                    openingTime: DateComponents(calendar: Calendar.current, hour: 0, minute: 0),
-                    closingTime: DateComponents(calendar: Calendar.current, hour: 0, minute: 0),
-                    facilityType: .hospital),
-           Facility(username: "Alsalam",
-                    password: "12345",
-                    phoneNumber: 17001700,
-                    name: "Alsalam Hospital",
-                    location: "Muharraq",
-                    isOpen24Hours: true,
-                    openingTime: DateComponents(calendar: Calendar.current, hour: 0, minute: 0),
-                    closingTime: DateComponents(calendar: Calendar.current, hour: 0, minute: 0),
-                    facilityType: .hospital
-                   )
-       ]*/
-    //bookings
-      //static var l1 = [facilites]()
+    // User : Patient dummy  data
+      static var Patients: [Patient] = [
+          Patient(username: "sa56", password: "7655", phoneNumber: 33234455, firstName: "Saleh", lastName: "ahmed", DOB: DateComponents(calendar: Calendar.current, year: 2009, month: 1, day:2), CPR: 091000000),
+      
+          Patient(username: "hessa5", password: "hasoos", phoneNumber: 0909098, firstName: "Hessa", lastName: "Fadhel", DOB: DateComponents(calendar: Calendar.current, year: 2002, month: 1, day:2), CPR: 021176524),
+          
+          Patient(username: "Fahad22", password: "fahad5454", phoneNumber: 777532424, firstName: "Fahad", lastName: "Ali", DOB: DateComponents(calendar: Calendar.current, year: 2002, month: 1, day:2), CPR: 7720829),
+          
+          Patient(username: "maryams", password: "1234", phoneNumber: 39993999, firstName: "Maryam", lastName: "Salah", DOB: DateComponents(calendar: Calendar.current, year: 2003, month: 11, day:22), CPR: 031100000),
+          
+          Patient(username: "fatimaa", password: "3143", phoneNumber: 38883888, firstName: "Fatima", lastName: "Ali", DOB: DateComponents(calendar: Calendar.current, year: 2003, month: 05, day:09), CPR: 030500000)
+      ]
       
       
-      static var sampleBookings = [
-        booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:22), patient: Patient(username: "maryams", password: "1234", phoneNumber: 39993999, firstName: "Maryam", lastName: "Salah", DOB: DateComponents(calendar: Calendar.current, year: 2003, month: 11, day:22), CPR: 031100000), medicalService: Test(name: "Vitamin D", cost: "3 BHD", describtion: "Blood test is done to check the patient's Vitamin D level and if they are healthy with no any side affeccts", insrtuctions: "Fasting for 8 - 10 hours is required", facility: sampleFacilities[0])),
-        
-        booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:22), patient: Patient(username: "fatimaa", password: "3143", phoneNumber: 38883888, firstName: "Fatima", lastName: "Ali", DOB: DateComponents(calendar: Calendar.current, year: 2003, month: 05, day:09), CPR: 030500000), medicalService: Test(name: "Vitamin B12", cost: "3 BHD", describtion: "Blood test is done to check the patient's Vitamin B12 level and if they are healthy with no any side affeccts", insrtuctions: "Fasting for 8 - 10 hours is required", facility: sampleFacilities[1]))
-]
+     // Facility Dummy Data
+      
+   static var labs: [Facility] = [
+             Facility(username: "Alhilal",
+                      password: "12345",
+                      phoneNumber: 17001700,
+                      name: "Alhilal Hospital",
+                      location: "Riffa",
+                      isOpen24Hours: true,
+                      openingTime: DateComponents(calendar: Calendar.current, hour: 0, minute: 0),
+                      closingTime: DateComponents(calendar: Calendar.current, hour: 0, minute: 0),
+                      facilityType: .hospital),
+             Facility(username: "Alsalam",
+                      password: "12345",
+                      phoneNumber: 17001700,
+                      name: "Alsalam Hospital",
+                      location: "Muharraq",
+                      isOpen24Hours: true,
+                      openingTime: DateComponents(calendar: Calendar.current, hour: 0, minute: 0),
+                      closingTime: DateComponents(calendar: Calendar.current, hour: 0, minute: 0),
+                      facilityType: .hospital
+                     )
+         ]
+      
+      //Test dummy Data
+      static var tests: [Test] = [
+          
+          Test(name: "Vitamin D", cost: "3 BHD", describtion: "Blood test is done to check the patient's Vitamin D level and if they are healthy with no any side affeccts", insrtuctions: "Fasting for 8 - 10 hours is required", facility: sampleFacilities[0]),
+      
+          
+          Test(name: "Vitamin B12", cost: "3 BHD", describtion: "Blood test is done to check the patient's Vitamin B12 level and if they are healthy with no any side affeccts", insrtuctions: "Fasting for 8 - 10 hours is required", facility: sampleFacilities[1])
+      
+      ]
+      
+      
+      
+      
+      
+      
+      //bookings Dummy Data
+        static var sampleBookings = [
+          booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:22), patient: Patients[3], medicalService: tests[1]),
+          
+          booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:22), patient: Patients[4], medicalService: tests[0])
+  ]
+      
     
     static func isUsernameInUse(username: String) -> Bool {
         return users.contains { $0.username.lowercased() == username.lowercased() } ||
