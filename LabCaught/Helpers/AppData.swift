@@ -14,7 +14,7 @@ class AppData {
     static var admins: [Admin] = [Admin(username: "admin", password: "admin123", department: "IT", firstName: "Alice", lastName: "Russo", phoneNumber: 12345678)]
     static var facilites = [Facility]()
     static var bookings: [booking] = []
-    static var services: [Service] = []
+    static var services = [Service]()
     
     // User : Patient dummy  data
       static var Patients: [Patient] = [
@@ -95,6 +95,9 @@ class AppData {
         }
         if facilites.isEmpty {
             facilites = sampleFacilities
+        }
+        if services.isEmpty {
+            services = tests
         }
         // Load other user data if necessary
         loadFromFile()
