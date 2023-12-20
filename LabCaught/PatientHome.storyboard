@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="101" id="c7X-fv-37f" customClass="PatientHomeTableViewCell" customModule="LabCaught" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PHCell" rowHeight="101" id="c7X-fv-37f" customClass="PatientHomeTableViewCell" customModule="LabCaught" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="101"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c7X-fv-37f" id="8Uw-Lt-Aza">
@@ -55,8 +55,10 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="companyLbl" destination="H8T-Jn-hl5" id="eI0-at-IOk"/>
+                                    <outlet property="facilityLbl" destination="H8T-Jn-hl5" id="k2T-7g-kqC"/>
                                     <outlet property="nameLbl" destination="QXu-yl-LDc" id="XxP-nK-Skw"/>
                                     <outlet property="priceLbl" destination="fwz-0Q-fuF" id="Uro-MW-eF4"/>
+                                    <outlet property="typeLbl" destination="fwz-0Q-fuF" id="kej-XX-b18"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

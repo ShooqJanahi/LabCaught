@@ -9,7 +9,7 @@ import UIKit
 
 class PatientHomeTableViewController: UITableViewController {
     
-    var facilities: [Facility] = AppData.facilites
+    var facilities: [Facility] = AppData.labs
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,14 +29,13 @@ class PatientHomeTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(facilities.count)
         return facilities.count
         
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PatientHomeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PHCell", for: indexPath) as! PatientHomeTableViewCell
         
         let facility = facilities[indexPath.row]
         
