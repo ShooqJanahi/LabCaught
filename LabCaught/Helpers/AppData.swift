@@ -7,4 +7,10 @@
 
 import Foundation
 
-
+class theTest {
+    var anything: String
+    
+    init(anything: String) {
+        self.anything = anything
+    }
+}
