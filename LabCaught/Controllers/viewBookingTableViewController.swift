@@ -13,9 +13,11 @@ class viewBookingTableViewController: UITableViewController {
     
     @IBOutlet weak var Datelet: UIView!
     
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var NameLet: UILabel!
     @IBOutlet weak var Placelet: UILabel!
     
+    @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var Packagecell: BookingDetailsConfirmedTableViewCell!
     @IBOutlet weak var packageinclude: UILabel!
     @IBOutlet weak var descriptlet: UILabel!
@@ -40,9 +42,17 @@ class viewBookingTableViewController: UITableViewController {
         guard let selectedTest = selectedTest else {
             return
         }
-        if selectedTest is Test {
+        if selectedTest.medicalService is Test {
             Packagecell.isHidden = true
-            
+            NameLet.text = selectedTest.medicalService.name
+            Placelet.text = selectedTest.medicalService.facility.location
+            guard let month = selectedTest.booking_date.month, let day = selectedTest.booking_date.day , let year = selectedTest.booking_date.year else{
+                return
+            }
+            dateLabel.text = "booking date: \(day)-\(month)-\(year) "
+            Pricelet.text = selectedTest.medicalService.cost
+            instructionLabel.text = selectedTest.medicalService.insrtuctions
+            descriptlet.text = selectedTest.medicalService.describtion
             
         }else {
             
