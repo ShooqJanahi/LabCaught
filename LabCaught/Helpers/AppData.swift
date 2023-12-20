@@ -15,11 +15,11 @@ struct AppData {
         Admin(username: "admin", password: "admin123", department: "IT", firstName: "Alice", lastName: "Russo", phoneNumber: 12345678)
     ]
     static var facilites: [Facility] = []
-    static var bookings: [Booking] = []
+    static var bookings: [booking] = []
     static var services: [Service] = []
     
     // Example bookings
-    static var sampleBookings: [Booking] = [
+    static var sampleBookings: [booking] = [
         // ... Your sample bookings ...
     ]
     
@@ -81,11 +81,12 @@ struct AppData {
 
 
 
-
+extension AppData {
     
     static var sampleFacilities = [
         Facility(username: "Royalmedical", password: "123RM", phoneNumber: 17766666, name: "Royal Medical Servises", location: "Riffa, Bhariain", isOpen24Hours: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 8, minute: 0), facilityType: .hospital),
         Facility(username: "Royalmedical", password: "123RM", phoneNumber: 17766666, name: "Royal Medical Servises", location: "Riffa, Bhariain", isOpen24Hours: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 8, minute: 0), facilityType: .hospital),
         Facility(username: "Royalmedical", password: "123RM", phoneNumber: 17766666, name: "Royal Medical Servises", location: "Riffa, Bhariain", isOpen24Hours: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 8, minute: 0), facilityType: .hospital)
     ]
+}
 
