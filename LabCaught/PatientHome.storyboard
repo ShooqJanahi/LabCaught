@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dkU-aw-Lod">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,36 +11,36 @@
         <!--Search-->
         <scene sceneID="zmM-kW-mHe">
             <objects>
-                <tableViewController id="2y1-SP-Veh" sceneMemberID="viewController">
+                <tableViewController id="2y1-SP-Veh" customClass="PatientHomeTableViewController" customModule="LabCaught" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Pew-M7-yKr">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="101" id="c7X-fv-37f" customClass="PatientHomeTableViewCell" customModule="LabCaught" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="393" height="101"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PHCell" rowHeight="121" id="c7X-fv-37f" customClass="PatientHomeTableViewCell" customModule="LabCaught" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="393" height="121"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c7X-fv-37f" id="8Uw-Lt-Aza">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="101"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="121"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rDV-9C-pRj">
-                                            <rect key="frame" x="20" y="23.666666666666664" width="353" height="66.333333333333343"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rDV-9C-pRj">
+                                            <rect key="frame" x="20" y="11" width="353" height="99"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXu-yl-LDc">
-                                                    <rect key="frame" x="0.0" y="0.0" width="353" height="20.333333333333332"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="353" height="33"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8T-Jn-hl5">
-                                                    <rect key="frame" x="0.0" y="25.333333333333329" width="353" height="18"/>
+                                                    <rect key="frame" x="0.0" y="33" width="353" height="33"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwz-0Q-fuF">
-                                                    <rect key="frame" x="0.0" y="48.333333333333329" width="353" height="18"/>
+                                                    <rect key="frame" x="0.0" y="66" width="353" height="33"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -50,14 +50,15 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="rDV-9C-pRj" secondAttribute="bottom" id="UbS-24-y7i"/>
+                                        <constraint firstItem="rDV-9C-pRj" firstAttribute="top" secondItem="8Uw-Lt-Aza" secondAttribute="topMargin" id="WxB-VR-w2T"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="rDV-9C-pRj" secondAttribute="trailing" id="kdL-Zb-AvC"/>
                                         <constraint firstItem="rDV-9C-pRj" firstAttribute="leading" secondItem="8Uw-Lt-Aza" secondAttribute="leadingMargin" id="sUy-Yw-A8D"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="companyLbl" destination="H8T-Jn-hl5" id="eI0-at-IOk"/>
-                                    <outlet property="nameLbl" destination="QXu-yl-LDc" id="6Va-ht-miS"/>
-                                    <outlet property="priceLbl" destination="fwz-0Q-fuF" id="Uro-MW-eF4"/>
+                                    <outlet property="facilityLbl" destination="H8T-Jn-hl5" id="ZCl-RO-GLe"/>
+                                    <outlet property="nameLbl" destination="QXu-yl-LDc" id="dCK-cn-CA3"/>
+                                    <outlet property="typeLbl" destination="fwz-0Q-fuF" id="QaG-xN-IJi"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -87,6 +88,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mHb-JS-ABK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="209" y="-12"/>
+        </scene>
+        <!--Hospital-->
+        <scene sceneID="bxK-qY-8ie">
+            <objects>
+                <viewController id="6eS-mB-eRq" customClass="PatientHomeViewController" customModule="LabCaught" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GbF-bb-SEt">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="SfE-Hi-Haa">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anq-D5-r8o">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="379.66666666666669"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Nii-x0-WtL">
+                                        <rect key="frame" x="0.0" y="379.66666666666674" width="393" height="379.33333333333326"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="6eS-mB-eRq" id="tcl-3W-3Fe"/>
+                                            <outlet property="delegate" destination="6eS-mB-eRq" id="2ZV-86-tSd"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3i6-Ro-tfr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SfE-Hi-Haa" firstAttribute="leading" secondItem="3i6-Ro-tfr" secondAttribute="leading" id="h2q-il-NxX"/>
+                            <constraint firstItem="3i6-Ro-tfr" firstAttribute="bottom" secondItem="SfE-Hi-Haa" secondAttribute="bottom" id="pgO-Ze-6gv"/>
+                            <constraint firstItem="3i6-Ro-tfr" firstAttribute="trailing" secondItem="SfE-Hi-Haa" secondAttribute="trailing" id="yi7-Zh-8l3"/>
+                            <constraint firstItem="SfE-Hi-Haa" firstAttribute="top" secondItem="3i6-Ro-tfr" secondAttribute="top" id="zSc-At-QdB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Hospital" id="l2q-Hq-BlY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vMn-2y-sxw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2147" y="87"/>
         </scene>
     </scenes>
     <resources>

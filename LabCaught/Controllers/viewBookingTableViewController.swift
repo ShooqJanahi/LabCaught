@@ -9,19 +9,26 @@ import UIKit
 
 class viewBookingTableViewController: UITableViewController {
 
+
     
+    @IBOutlet weak var Datelet: UIView!
     
-    //@IBOutlet weak var TestPackageName: UILabel!
-    //@IBOutlet weak var Location: UILabel!
-    //@IBOutlet weak var Price: UILabel!
-    //@IBOutlet weak var Date: UILabel!
-    //@IBOutlet weak var PackageIncludes: UILabel!
-    //@IBOutlet weak var Description: UILabel!
-    //@IBOutlet weak var instruction: UILabel!
-    var selectedTest: Test?
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var NameLet: UILabel!
+    @IBOutlet weak var Placelet: UILabel!
+    
+    @IBOutlet weak var instructionLabel: UILabel!
+    @IBOutlet weak var Packagecell: BookingDetailsConfirmedTableViewCell!
+    @IBOutlet weak var packageinclude: UILabel!
+    @IBOutlet weak var descriptlet: UILabel!
+    @IBOutlet weak var instructlet: BookingDetailsConfirmedTableViewCell!
+    @IBOutlet weak var Pricelet: UILabel!
+    var selectedTest: booking?
     @IBOutlet weak var n: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        updateView()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -31,7 +38,26 @@ class viewBookingTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
+    func updateView(){
+        guard let selectedTest = selectedTest else {
+            return
+        }
+        if selectedTest.medicalService is Test {
+            Packagecell.isHidden = true
+            NameLet.text = selectedTest.medicalService.name
+            Placelet.text = selectedTest.medicalService.facility.location
+            guard let month = selectedTest.booking_date.month, let day = selectedTest.booking_date.day , let year = selectedTest.booking_date.year else{
+                return
+            }
+            dateLabel.text = "booking date: \(day)-\(month)-\(year) "
+            Pricelet.text = selectedTest.medicalService.cost
+            instructionLabel.text = selectedTest.medicalService.insrtuctions
+            descriptlet.text = selectedTest.medicalService.describtion
+            
+        }else {
+            
+        }
+    }
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -48,9 +74,10 @@ class viewBookingTableViewController: UITableViewController {
     }
     //var bookings: [Booking?] = AppData.bookings
  
- 
+ /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let bo = bookings[indexePath.row]
+        //let bo = bookings[indexePath.row
+        /*
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "schedule", for: indexPath) as! BookingDetailsConfirmedTableViewCell
             return cell
@@ -83,8 +110,9 @@ class viewBookingTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PackageInncludeCell", for: indexPath) as! BookingDetailsConfirmedTableViewCell
             return cell
         }
-
+*/
     }
+  */
   
     
     /*

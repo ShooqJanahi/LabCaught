@@ -10,18 +10,12 @@ class booking{
     var booking_date:DateComponents
     var patient:Patient
     //var isPackage:Bool
-    var package:Packages!
-    var test:Test!
-        
-    init(booking_date: DateComponents, patient: Patient, package: packages!) {
+    var medicalService: Service
+    init(booking_date: DateComponents, patient: Patient, medicalService: Service) {
         self.booking_date = booking_date
         self.patient = patient
-        self.package = package
+        self.medicalService = medicalService
     }
-    init(booking_date: DateComponents, patient: Patient, test: Test!) {
-        self.booking_date = booking_date
-        self.patient = patient
-        self.test = test
-    }
+
     
     }

@@ -8,6 +8,18 @@
 import UIKit
 
 class HospitalLabTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var facilityNameLabel: UILabel!
+    @IBOutlet weak var FacilityLocationLabel: UILabel!
+    @IBOutlet weak var FacilityTypeLabel: UILabel!
+    @IBOutlet weak var FacilityLogo: UIImageView!
+    
+    
+    func configure (faclity: Facility) {
+        facilityNameLabel.text = faclity.name
+        FacilityLocationLabel.text = faclity.location
+        FacilityTypeLabel.text = faclity.facilityType.rawValue
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -14,11 +14,11 @@ class Packages : Service {
     //var tests: [test]
     
     
-    init(name: String, cost: String, describtion: String, insrtuctions: String, packageIncludes: [Test], packageExpiry: DateComponents, lab: Labs) {
+    init(name: String, cost: String, describtion: String, insrtuctions: String, packageIncludes: [Test], packageExpiry: DateComponents, facility: Facility) {
         self.packageIncludes = packageIncludes
         self.packageExpiry = packageExpiry
         
-        super.init(name: name, cost: cost, describtion: describtion, insrtuctions: insrtuctions, lab: lab)
+        super.init(name: name, cost: cost, describtion: describtion, insrtuctions: insrtuctions, facility: facility)
     }
     
 }

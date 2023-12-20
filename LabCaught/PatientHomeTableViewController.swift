@@ -7,15 +7,21 @@
 
 import UIKit
 
-/*class PatientHomeTableViewController: UITableViewController {
+class PatientHomeTableViewController: UITableViewController {
     
-    //IDK if this is right
-    var dataSource: [AnyObject] = AppData.labs + AppData.services
+    var facilities = AppData.facilites
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
 
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -23,22 +29,25 @@ import UIKit
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return facilities.count
+        
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PHCell", for: indexPath) as! PatientHomeTableViewCell
+        
+        let facility = facilities[indexPath.row]
+        
+        cell.configure(facility: facility)
 
         return cell
     }
-    
+    /*
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         <#code#>
     }
-
+     */
     /*
     // MARK: - Navigation
 
@@ -49,4 +58,4 @@ import UIKit
     }
     */
 
-}*/
+}
