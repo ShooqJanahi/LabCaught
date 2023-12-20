@@ -6,6 +6,12 @@
 //
 
 import UIKit
+
+class PatientHomeViewController: UIViewController{
+    
+}
+
+
 /*
 class PatientHomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
