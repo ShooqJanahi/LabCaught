@@ -8,8 +8,8 @@
 import Foundation
 class Test : Service {
    
-    override init(name: String, cost: String, describtion: String, insrtuctions: String, lab: Labs) {
-        super.init(name: name, cost: cost, describtion: describtion, insrtuctions: insrtuctions, lab: lab)
+    override init(name: String, cost: String, describtion: String, insrtuctions: String, facility: Facility) {
+        super.init(name: name, cost: cost, describtion: describtion, insrtuctions: insrtuctions, facility: Facility)
     }
     
 }
