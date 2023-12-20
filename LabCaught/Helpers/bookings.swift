@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AppData{
+/*class AppData{
     static var bookings : [booking] = []
     static var labs = [Labs]()
     static var services = [Service]()
@@ -26,4 +26,4 @@ class AppData{
 
     
     
-}
+}*/

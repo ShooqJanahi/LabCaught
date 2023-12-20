@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class Packages : Service {
+/*class Packages : Service {
     
     var packageIncludes: [Test]
     var packageExpiry: DateComponents
@@ -47,4 +47,5 @@ class Packages : Service {
         
     }
     */
+ */
 

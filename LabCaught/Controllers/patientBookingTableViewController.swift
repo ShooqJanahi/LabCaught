@@ -7,7 +7,7 @@
 
 import UIKit
 
-class patientBookingTableViewController: UITableViewController {
+/*class patientBookingTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,4 +96,4 @@ class patientBookingTableViewController: UITableViewController {
     }
     */
 
-}
+}*/

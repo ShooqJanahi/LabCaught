@@ -13,14 +13,15 @@ class Patient: User {
     var DOB: DateComponents
     var CPR: Int
     
-    init(username: String, password: String, name: String, firstName: String, lastName: String, DOB: DateComponents, CPR: Int) {
+    init(username: String, password: String, confirmPassword: String, phoneNumber: Int, name: String, firstName: String, lastName: String, DOB: DateComponents, CPR: Int) {
         self.firstName = firstName
         self.lastName = lastName
         self.DOB = DOB
         self.CPR = CPR
         super.init(username: username, password: password, createdOn: Date(), confirmPassword: confirmPassword, phoneNumber: phoneNumber)
-
     }
+
+
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -45,5 +46,4 @@ class Patient: User {
     }
 }
 
-    
 

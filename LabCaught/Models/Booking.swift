@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class booking{
+/*class booking{
     var booking_date:DateComponents
     var patient:Patient
     //var isPackage:Bool
@@ -24,4 +24,4 @@ class booking{
         self.test = test
     }
     
-    }
+    }*/

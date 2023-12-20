@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PatientHomeTableViewController: UITableViewController {
+/*class PatientHomeTableViewController: UITableViewController {
     
     //IDK if this is right
     var dataSource: [AnyObject] = AppData.labs + AppData.services
@@ -49,4 +49,4 @@ class PatientHomeTableViewController: UITableViewController {
     }
     */
 
-}
+}*/

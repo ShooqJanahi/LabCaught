@@ -7,7 +7,7 @@
 
 import UIKit
 
-class viewBookingTableViewController: UITableViewController {
+/*class viewBookingTableViewController: UITableViewController {
 
     
     
@@ -143,3 +143,4 @@ class viewBookingTableViewController: UITableViewController {
     */
 
 }
+*/
