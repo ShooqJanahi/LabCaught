@@ -7,7 +7,7 @@
 
 import UIKit
 
-/*class viewBookingTableViewController: UITableViewController {
+class viewBookingTableViewController: UITableViewController {
 
     
     
@@ -18,7 +18,7 @@ import UIKit
     //@IBOutlet weak var PackageIncludes: UILabel!
     //@IBOutlet weak var Description: UILabel!
     //@IBOutlet weak var instruction: UILabel!
-    var selectedTest: test?
+    var selectedTest: Test?
     @IBOutlet weak var n: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -143,4 +143,4 @@ import UIKit
     */
 
 }
-*/
+

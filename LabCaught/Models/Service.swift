@@ -12,10 +12,14 @@ class Service {
     var describtion: String
     var insrtuctions: String
     
-    init(name: String, cost: String, describtion: String, insrtuctions: String) {
+    var lab: Labs!
+
+    
+    init(name: String, cost: String, describtion: String, insrtuctions: String, lab: Labs) {
         self.name = name
         self.cost = cost
         self.describtion = describtion
         self.insrtuctions = insrtuctions
+        self.lab = lab
     }
 }
