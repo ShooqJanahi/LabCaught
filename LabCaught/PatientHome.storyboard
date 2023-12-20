@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dkU-aw-Lod">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -10,21 +10,21 @@
         <!--Search-->
         <scene sceneID="zmM-kW-mHe">
             <objects>
-                <tableViewController id="2y1-SP-Veh" sceneMemberID="viewController">
+                <tableViewController id="2y1-SP-Veh" customClass="PatientHomeTableViewController" customModule="LabCaught" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Pew-M7-yKr">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PHCell" rowHeight="101" id="c7X-fv-37f" customClass="PatientHomeTableViewCell" customModule="LabCaught" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="393" height="101"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PHCell" rowHeight="121" id="c7X-fv-37f" customClass="PatientHomeTableViewCell" customModule="LabCaught" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="393" height="121"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c7X-fv-37f" id="8Uw-Lt-Aza">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="101"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="121"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rDV-9C-pRj">
-                                            <rect key="frame" x="20" y="23.666666666666664" width="353" height="66.333333333333343"/>
+                                            <rect key="frame" x="20" y="43.666666666666664" width="353" height="66.333333333333343"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXu-yl-LDc">
                                                     <rect key="frame" x="0.0" y="0.0" width="353" height="20.333333333333332"/>
@@ -33,13 +33,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8T-Jn-hl5">
-                                                    <rect key="frame" x="0.0" y="25.333333333333329" width="353" height="18"/>
+                                                    <rect key="frame" x="0.0" y="25.333333333333336" width="353" height="18"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwz-0Q-fuF">
-                                                    <rect key="frame" x="0.0" y="48.333333333333329" width="353" height="18"/>
+                                                    <rect key="frame" x="0.0" y="48.333333333333336" width="353" height="18.000000000000007"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -54,11 +54,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="companyLbl" destination="H8T-Jn-hl5" id="eI0-at-IOk"/>
-                                    <outlet property="facilityLbl" destination="H8T-Jn-hl5" id="k2T-7g-kqC"/>
-                                    <outlet property="nameLbl" destination="QXu-yl-LDc" id="XxP-nK-Skw"/>
-                                    <outlet property="priceLbl" destination="fwz-0Q-fuF" id="Uro-MW-eF4"/>
-                                    <outlet property="typeLbl" destination="fwz-0Q-fuF" id="kej-XX-b18"/>
+                                    <outlet property="facilityLbl" destination="H8T-Jn-hl5" id="ZCl-RO-GLe"/>
+                                    <outlet property="nameLbl" destination="QXu-yl-LDc" id="dCK-cn-CA3"/>
+                                    <outlet property="typeLbl" destination="fwz-0Q-fuF" id="QaG-xN-IJi"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

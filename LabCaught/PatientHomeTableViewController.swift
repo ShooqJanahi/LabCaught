@@ -9,17 +9,17 @@ import UIKit
 
 class PatientHomeTableViewController: UITableViewController {
     
-    var facilities: [Facility] = AppData.labs
+    var facilities = AppData.facilites
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    /*
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
-*/
+
     
     
     // MARK: - Table view data source
