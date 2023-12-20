@@ -13,7 +13,7 @@ class booking{
     var package:Packages!
     var test:Test!
         
-    init(booking_date: DateComponents, patient: Patient, package: packages!) {
+    init(booking_date: DateComponents, patient: Patient, package: Packages!) {
         self.booking_date = booking_date
         self.patient = patient
         self.package = package

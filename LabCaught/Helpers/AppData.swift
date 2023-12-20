@@ -18,10 +18,36 @@ struct AppData {
     static var bookings: [booking] = []
     static var services: [Service] = []
     
-    // Example bookings
-    static var sampleBookings: [booking] = [
-        // ... Your sample bookings ...
-    ]
+   /* static var labs: [Facility] = [
+           Facility(username: "Alhilal",
+                    password: "12345",
+                    phoneNumber: 17001700,
+                    name: "Alhilal Hospital",
+                    location: "Riffa",
+                    isOpen24Hours: true,
+                    openingTime: DateComponents(calendar: Calendar.current, hour: 0, minute: 0),
+                    closingTime: DateComponents(calendar: Calendar.current, hour: 0, minute: 0),
+                    facilityType: .hospital),
+           Facility(username: "Alsalam",
+                    password: "12345",
+                    phoneNumber: 17001700,
+                    name: "Alsalam Hospital",
+                    location: "Muharraq",
+                    isOpen24Hours: true,
+                    openingTime: DateComponents(calendar: Calendar.current, hour: 0, minute: 0),
+                    closingTime: DateComponents(calendar: Calendar.current, hour: 0, minute: 0),
+                    facilityType: .hospital
+                   )
+       ]*/
+    //bookings
+      //static var l1 = [facilites]()
+      
+      
+      static var sampleBookings = [
+        booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:22), patient: Patient(username: "maryams", password: "1234", phoneNumber: 39993999, firstName: "Maryam", lastName: "Salah", DOB: DateComponents(calendar: Calendar.current, year: 2003, month: 11, day:22), CPR: 031100000), test: Test(name: "Vitamin D", cost: "3 BHD", describtion: "Blood test is done to check the patient's Vitamin D level and if they are healthy with no any side affeccts", insrtuctions: "Fasting for 8 - 10 hours is required", facility: sampleFacilities[0])),
+        
+        booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:22), patient: Patient(username: "fatimaa", password: "3143", phoneNumber: 38883888, firstName: "Fatima", lastName: "Ali", DOB: DateComponents(calendar: Calendar.current, year: 2003, month: 05, day:09), CPR: 030500000), test: Test(name: "Vitamin B12", cost: "3 BHD", describtion: "Blood test is done to check the patient's Vitamin B12 level and if they are healthy with no any side affeccts", insrtuctions: "Fasting for 8 - 10 hours is required", facility: sampleFacilities[1]))
+]
     
     static func isUsernameInUse(username: String) -> Bool {
         return users.contains { $0.username.lowercased() == username.lowercased() } ||
@@ -84,9 +110,9 @@ struct AppData {
 extension AppData {
     
     static var sampleFacilities = [
-        Facility(username: "Royalmedical", password: "123RM", phoneNumber: 17766666, name: "Royal Medical Servises", location: "Riffa, Bhariain", isOpen24Hours: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 8, minute: 0), facilityType: .hospital),
-        Facility(username: "Royalmedical", password: "123RM", phoneNumber: 17766666, name: "Royal Medical Servises", location: "Riffa, Bhariain", isOpen24Hours: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 8, minute: 0), facilityType: .hospital),
-        Facility(username: "Royalmedical", password: "123RM", phoneNumber: 17766666, name: "Royal Medical Servises", location: "Riffa, Bhariain", isOpen24Hours: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 8, minute: 0), facilityType: .hospital)
+        Facility(username: "Royalmedical", password: "123RM", phoneNumber: 17766666, name: "Royal Medical Servises", location: "Riffa, Bahrain", isOpen24Hours: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 8, minute: 0), facilityType: .hospital),
+        Facility(username: "Royalmedical", password: "123RM", phoneNumber: 17766666, name: "Royal Medical Servises", location: "Riffa, Bahrain", isOpen24Hours: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 8, minute: 0), facilityType: .hospital),
+        Facility(username: "Royalmedical", password: "123RM", phoneNumber: 17766666, name: "Royal Medical Servises", location: "Riffa, Bahrain", isOpen24Hours: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 8, minute: 0), facilityType: .hospital)
     ]
 }
 
