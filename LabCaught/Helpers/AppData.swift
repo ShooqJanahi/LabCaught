@@ -23,18 +23,9 @@ struct AppData {
     ]
     
     
-    static var labs: [Labs] = [
-           Labs(
-               username: "labUser",
-               password: "labPassword",
-               phoneNumber: 12345678,
-               location: "Lab Location",
-               labName: "Lab 1",
-               alwaysOpen: true,
-               openingTime: DateComponents(hour: 9, minute: 0),
-               closingTime: DateComponents(hour: 17, minute: 0)
-           )
-       ]
+    //Labs
+    static var facilites = [Facility]()
+
     
     // Method to check if a username is already in use within the users array
     static func isUsernameInUse(username: String) -> Bool {
@@ -45,7 +36,6 @@ struct AppData {
     
   //bookings
     static var bookings : [booking] = []
-    static var l1 = [Labs]()
     static var services = [Service]()
     
     static var sampleBookings = [booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:22), patient: Patient(username: "maryams", password: "1234", phoneNumber: 39993999, firstName: "Maryam", lastName: "Salah", DOB: DateComponents(calendar: Calendar.current, year: 2003, month: 11, day:22), CPR: 031100000), test: Test(name: "Vitamin B", cost: "3 BHD", describtion: "Blood test is done to check the patiend red and white cells and if they are healthy with no any side affeccts", insrtuctions: "No instruction")),
@@ -63,3 +53,17 @@ struct AppData {
 }
 
 
+extension AppData {
+    static func load(){
+        //load all data from file
+        if facilites.isEmpty {
+            facilites = sampleFacilities
+        }
+    }
+    
+    static var sampleFacilities = [
+        Facility(username: "Royalmedical", password: "123RM", phoneNumber: 17766666, name: "Royal Medical Servises", location: "Riffa, Bhariain", isOpen24Hours: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 8, minute: 0), facilityType: .hospital),
+        Facility(username: "Royalmedical", password: "123RM", phoneNumber: 17766666, name: "Royal Medical Servises", location: "Riffa, Bhariain", isOpen24Hours: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 8, minute: 0), facilityType: .hospital),
+        Facility(username: "Royalmedical", password: "123RM", phoneNumber: 17766666, name: "Royal Medical Servises", location: "Riffa, Bhariain", isOpen24Hours: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 8, minute: 0), facilityType: .hospital)
+    ]
+}
