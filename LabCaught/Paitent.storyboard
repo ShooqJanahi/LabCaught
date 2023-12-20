@@ -146,16 +146,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="58"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="5OF-rM-wtV">
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="285" translatesAutoresizingMaskIntoConstraints="NO" id="5OF-rM-wtV">
                                             <rect key="frame" x="20" y="11" width="353" height="36"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dx3-qO-8Eg">
-                                                    <rect key="frame" x="0.0" y="1.6666666666666643" width="79" height="33"/>
+                                                    <rect key="frame" x="0.0" y="1.6666666666666643" width="35.666666666666664" height="33"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4i-sF-4cN">
-                                                    <rect key="frame" x="103" y="0.0" width="250" height="36"/>
+                                                    <rect key="frame" x="320.66666666666669" y="0.0" width="32.333333333333314" height="36"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="250" id="bRE-rF-g4u"/>
+                                                        <constraint firstAttribute="width" constant="250" id="DPL-ta-uXf"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -163,16 +163,22 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="dx3-qO-8Eg" secondAttribute="bottom" id="ObY-CH-a3H"/>
-                                                <constraint firstItem="dx3-qO-8Eg" firstAttribute="top" secondItem="5OF-rM-wtV" secondAttribute="top" id="PD0-fn-bEd"/>
+                                                <constraint firstAttribute="bottom" secondItem="dx3-qO-8Eg" secondAttribute="bottom" id="BxO-lr-tnX"/>
+                                                <constraint firstItem="dx3-qO-8Eg" firstAttribute="top" secondItem="5OF-rM-wtV" secondAttribute="top" id="PDe-1g-bsN"/>
+                                                <constraint firstItem="H4i-sF-4cN" firstAttribute="leading" secondItem="dx3-qO-8Eg" secondAttribute="trailing" id="hNi-OD-qGi"/>
+                                                <constraint firstAttribute="bottom" secondItem="H4i-sF-4cN" secondAttribute="bottom" id="lSz-7t-NJt"/>
+                                                <constraint firstItem="H4i-sF-4cN" firstAttribute="centerY" secondItem="5OF-rM-wtV" secondAttribute="centerY" id="leU-Ws-TC3"/>
+                                                <constraint firstItem="H4i-sF-4cN" firstAttribute="top" secondItem="5OF-rM-wtV" secondAttribute="top" id="mQB-9I-CdB"/>
+                                                <constraint firstAttribute="trailing" secondItem="H4i-sF-4cN" secondAttribute="trailing" id="r8l-oR-fN7"/>
+                                                <constraint firstItem="dx3-qO-8Eg" firstAttribute="leading" secondItem="5OF-rM-wtV" secondAttribute="leading" id="zBz-Mp-EXy"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="5OF-rM-wtV" secondAttribute="trailing" id="EQ1-Ls-02y"/>
-                                        <constraint firstItem="5OF-rM-wtV" firstAttribute="top" secondItem="v7d-j8-jLR" secondAttribute="topMargin" id="EwH-Xh-p7d"/>
-                                        <constraint firstItem="5OF-rM-wtV" firstAttribute="leading" secondItem="v7d-j8-jLR" secondAttribute="leadingMargin" id="Zir-Wh-nmq"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="5OF-rM-wtV" secondAttribute="bottom" id="bF3-5D-2ps"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="5OF-rM-wtV" secondAttribute="bottom" id="9dw-7k-N4h"/>
+                                        <constraint firstItem="5OF-rM-wtV" firstAttribute="top" secondItem="v7d-j8-jLR" secondAttribute="topMargin" id="JPk-eF-62s"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="5OF-rM-wtV" secondAttribute="trailing" id="Yx0-u2-fFE"/>
+                                        <constraint firstItem="5OF-rM-wtV" firstAttribute="leading" secondItem="v7d-j8-jLR" secondAttribute="leadingMargin" id="fOj-Bs-QJ4"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -478,7 +484,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZMp-8T-ce7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2862" y="163"/>
+            <point key="canvasLocation" x="2861.8320610687024" y="162.67605633802819"/>
         </scene>
         <!--Booking History-->
         <scene sceneID="IVw-JQ-9lq">

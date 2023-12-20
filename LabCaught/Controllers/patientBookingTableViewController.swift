@@ -7,7 +7,7 @@
 
 import UIKit
 
-/*class patientBookingTableViewController: UITableViewController {
+class patientBookingTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,19 +25,19 @@ import UIKit
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    var bookings = AppData.sampleBookings
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         bookings.count
     }
-    var bookings = AppData.bookings
+
 
  
  
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "book", for: indexPath) as! PatientHistoryTableViewCell
         let book = bookings[indexPath.row]
-        cell.testName.text = book.test.TestName
+        cell.testName.text = book.test.name
         cell.labName.text = "alo"
       
         
@@ -96,4 +96,4 @@ import UIKit
     }
     */
 
-}*/
+}
