@@ -11,23 +11,27 @@ import Foundation
 
 struct AppData {
     
-    //to save registered user information
-    static func loadFromFile() {
-           if let usersData = UserDefaults.standard.data(forKey: "usersData"),
-              let decodedUsers = try? JSONDecoder().decode([User].self, from: usersData) {
-               users = decodedUsers
-           }
-       }
-       
-       // Save users to file
-       static func saveToFile() {
-           if let encodedData = try? JSONEncoder().encode(users) {
-               UserDefaults.standard.set(encodedData, forKey: "usersData")
-           }
-           
+    
            
     //Users
            var users: [User] = []
+    
+    // Function to load registered user information
+    static func loadFromFile() {
+        if let usersData = UserDefaults.standard.data(forKey: "usersData"),
+           let decodedUsers = try? JSONDecoder().decode([User].self, from: usersData) {
+            AppData.users = decodedUsers // Use AppData.users here
+        }
+    }
+
+    // Save users to file
+    static func saveToFile() {
+        if let encodedData = try? JSONEncoder().encode(AppData.users) { // Use AppData.users here
+            UserDefaults.standard.set(encodedData, forKey: "usersData")
+        }
+    }
+
+    
     
     //Admin user
            var admins: [Admin] = [
@@ -45,39 +49,8 @@ struct AppData {
     }
     
     
-    //for the users
-    extension AppData {
-        // Add a new user
-        static func addUser(username: String, password: String, phoneNumber: Int, firstName: String, lastName: String, dob: DateComponents, cpr: Int) {
-            let newUser = Patient(username: username, password: password, phoneNumber: phoneNumber, firstName: firstName, lastName: lastName, DOB: dob, CPR: cpr)
-            users.append(newUser)
-            saveToFile()
-        }
-
-        // Edit an existing user
-        static func editUser(user: User) {
-            if let index = users.firstIndex(where: { $0.username == user.username }) {
-                users.remove(at: index)
-                users.insert(user, at: index)
-                saveToFile()
-            }
-        }
-
-        // Delete a user
-        static func deleteUser(user: User) -> Bool {
-            if let index = users.firstIndex(where: { $0.username == user.username }) {
-                users.remove(at: index)
-                saveToFile()
-                return true
-            }
-            return false
-        }
+   
         
-        // Call loadFromFile at app launch
-        static func initializeAppData() {
-            loadFromFile()
-        }
-    }
 
     
     
@@ -109,6 +82,42 @@ extension AppData {
         //load all data from file
         if facilites.isEmpty {
             facilites = sampleFacilities
+            
+            
+            
+            //to save user registrision information
+            
+            // Add a new user
+            static func addUser(username: String, password: String, phoneNumber: Int, firstName: String, lastName: String, dob: DateComponents, cpr: Int) {
+                let newUser = Patient(username: username, password: password, phoneNumber: phoneNumber, firstName: firstName, lastName: lastName, DOB: dob, CPR: cpr)
+                users.append(newUser)
+                saveToFile()
+            }
+
+            // Edit an existing user
+            static func editUser(user: User) {
+                if let index = users.firstIndex(where: { $0.username == user.username }) {
+                    users.remove(at: index)
+                    users.insert(user, at: index)
+                    saveToFile()
+                }
+            }
+
+            // Delete a user
+            static func deleteUser(user: User) -> Bool {
+                if let index = users.firstIndex(where: { $0.username == user.username }) {
+                    users.remove(at: index)
+                    saveToFile()
+                    return true
+                }
+                return false
+            }
+            
+            // Call loadFromFile at app launch
+            static func initializeAppData() {
+                loadFromFile()
+            }
+        }
         }
     }
     

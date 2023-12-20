@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Utility {
     static func isPhoneNumberCorrect(phoneNumber: String) -> Bool {
@@ -19,6 +20,23 @@ struct Utility {
     }
     
     
+    //Don't Touch (this is fo the segue)
+    struct CommonMethods {
+        static func changeStoryboard(storyboardName: String, identifier: String) {
+            let root = UIStoryboard(name: storyboardName, bundle: nil).instantiateViewController(withIdentifier: identifier)
+
+            // Get the SceneDelegate from the connected scenes
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+               let sceneDelegate = windowScene.delegate as? SceneDelegate {
+                
+                // Set the root view controller and make the window key and visible
+                sceneDelegate.window?.rootViewController = root
+                sceneDelegate.window?.makeKeyAndVisible()
+            }
+        }
+    }
+    //for the segue
+
     
     
     
