@@ -14,7 +14,7 @@ class Labs: User {
     var openingTime: DateComponents
     var closingTime: DateComponents
     
-    init(username: String, password: String, phoneNumber: Int, name: String, location: String, labName: String, alwaysOpen: Bool, openingTime: DateComponents, closingTime: DateComponents) {
+    init(username: String, password: String, phoneNumber: Int, location: String, labName: String, alwaysOpen: Bool, openingTime: DateComponents, closingTime: DateComponents) {
         self.location = location
         self.labName = labName
         self.alwaysOpen = alwaysOpen

@@ -19,7 +19,7 @@ struct AppData {
     
     //Admin user
     static var admins: [Admin] = [
-        Admin(username: "admin", password: "admin123", name: "Alice", department: "IT", firstName: "Alice", lastName: "Russo", phoneNumber: 12345678)
+        Admin(username: "admin", password: "admin123", department: "IT", firstName: "Alice", lastName: "Russo", phoneNumber: 12345678)
     ]
     
     
@@ -28,7 +28,6 @@ struct AppData {
                username: "labUser",
                password: "labPassword",
                phoneNumber: 12345678,
-               name: "Lab Name",
                location: "Lab Location",
                labName: "Lab 1",
                alwaysOpen: true,

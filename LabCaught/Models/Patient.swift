@@ -13,7 +13,7 @@ class Patient: User {
     var DOB: DateComponents
     var CPR: Int
     
-    init(username: String, password: String, phoneNumber: Int, name: String, firstName: String, lastName: String, DOB: DateComponents, CPR: Int) {
+    init(username: String, password: String, phoneNumber: Int, firstName: String, lastName: String, DOB: DateComponents, CPR: Int) {
         self.firstName = firstName
         self.lastName = lastName
         self.DOB = DOB
