@@ -7,20 +7,20 @@
 
 import Foundation
 
+import Foundation
+
 struct AppData {
+    static var users: [User] = []
+    static var admins: [Admin] = [
+        Admin(username: "admin", password: "admin123", name: "Admin User", department: "IT", firstName: "Alice", lastName: "Administrator", phoneNumber: 12345678)
+    ]
     
-    
-    //users
+    // Method to check if a username is already in use within the users array
     static func isUsernameInUse(username: String) -> Bool {
-        // Check against your data source to see if the username is already taken.
-        // This is a placeholder for your username checking logic.
-        let existingUsernames = ["user1", "user2", "user3"] // Example usernames
-        return existingUsernames.contains(username)
+        return users.contains { $0.username.lowercased() == username.lowercased() } || admins.contains { $0.username.lowercased() == username.lowercased() }
     }
     
-    
-    
-    
-    
+    // ... other static methods or properties ...
 }
+
 
