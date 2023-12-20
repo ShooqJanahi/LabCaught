@@ -29,9 +29,9 @@ class RegistrationTableViewController: UITableViewController {
 
     //this action is called when the save button is tapped
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        let isUsernameInUse = false // Replace with actual check
-               let isCPRCorrect = true // Replace with actual check
-                let isPhoneNumberCorrect = true // Replace with actual check
+        let isUsernameInUse = true // Replace with actual check
+               
+               
                let didAgreeToTerms = true // Replace with actual check
         
         // Validate that none of the text fields are empty
@@ -57,34 +57,33 @@ class RegistrationTableViewController: UITableViewController {
             return
         }
         
-        // Check if the username is already in use
-        if isUsernameInUse {
-                   Alerts.showAlertWithRetry(on: self, title: "Username Error", message: "Username already in use", retryHandler: {
-                       // Logic to handle the retry
-                       self.UserNameTextField.becomeFirstResponder()
-                   })
-                   return
-               }
+        // In RegistrationTableViewController
+        if !Utility.isCPRCorrect(CPRTextField.text ?? "") {
+            Alerts.showAlertWithRetry(on: self, title: "CPR Error", message: "The entered CPR is incorrect", retryHandler: {
+                self.CPRTextField.becomeFirstResponder()
+            })
+            return
+        }
 
-               // Check if the entered CPR is incorrect
-        if !isCPRCorrect {
-                 Alerts.showAlertWithRetry(on: self, title: "CPR Error", message: "The entered CPR is incorrect", retryHandler: {
-                     // Logic to handle the retry
-                     self.CPRTextField.becomeFirstResponder()
-                 })
-                 return
-             }
+        if AppData.isUsernameInUse(username: UserNameTextField.text ?? "") {
+            Alerts.showAlertWithRetry(on: self, title: "Username Error", message: "Username already in use", retryHandler: {
+                self.UserNameTextField.becomeFirstResponder()
+            })
+            return
+        }
+
 
              
 
-               // Check if the phone number is incorrect
-        if !isPhoneNumberCorrect {
-                   Alerts.showAlertWithRetry(on: self, title: "Phone Number Error", message: "The phone number is incorrect", retryHandler: {
-                       // Logic to handle the retry
-                       self.PhoneNumberTextField.becomeFirstResponder()
-                   })
-                   return
-               }
+        // Check if the phone number is correct (8 digits)
+              if !isPhoneNumberCorrect(phoneNumber: PhoneNumberTextField.text ?? "") {
+                  Alerts.showAlertWithRetry(on: self, title: "Phone Number Error", message: "The phone number is incorrect", retryHandler: {
+                      // Logic to handle the retry
+                      self.PhoneNumberTextField.text = ""
+                      self.PhoneNumberTextField.becomeFirstResponder()
+                  })
+                  return
+              }
 
 
                // Check if the user did not agree to the terms and conditions
@@ -99,9 +98,10 @@ class RegistrationTableViewController: UITableViewController {
         
     }
 
-        
-              
+   
     }
+    
+    
     
 
     /*
