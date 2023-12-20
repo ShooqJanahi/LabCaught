@@ -31,8 +31,7 @@ class RegistrationTableViewController: UITableViewController {
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         let isUsernameInUse = false // Replace with actual check
                let isCPRCorrect = true // Replace with actual check
-               let isEmailAddressInUse = false // Replace with actual check
-               let isPhoneNumberCorrect = true // Replace with actual check
+                let isPhoneNumberCorrect = true // Replace with actual check
                let didAgreeToTerms = true // Replace with actual check
         
         // Validate that none of the text fields are empty
@@ -57,6 +56,45 @@ class RegistrationTableViewController: UITableViewController {
             })
             return
         }
+        
+        // Check if the username is already in use
+        if isUsernameInUse {
+                   Alerts.showAlertWithRetry(on: self, title: "Username Error", message: "Username already in use", retryHandler: {
+                       // Logic to handle the retry
+                       self.UserNameTextField.becomeFirstResponder()
+                   })
+                   return
+               }
+
+               // Check if the entered CPR is incorrect
+        if !isCPRCorrect {
+                 Alerts.showAlertWithRetry(on: self, title: "CPR Error", message: "The entered CPR is incorrect", retryHandler: {
+                     // Logic to handle the retry
+                     self.CPRTextField.becomeFirstResponder()
+                 })
+                 return
+             }
+
+             
+
+               // Check if the phone number is incorrect
+        if !isPhoneNumberCorrect {
+                   Alerts.showAlertWithRetry(on: self, title: "Phone Number Error", message: "The phone number is incorrect", retryHandler: {
+                       // Logic to handle the retry
+                       self.PhoneNumberTextField.becomeFirstResponder()
+                   })
+                   return
+               }
+
+
+               // Check if the user did not agree to the terms and conditions
+        if !didAgreeToTerms {
+                   Alerts.showAlertWithRetry(on: self, title: "Terms and Conditions", message: "Did not agree to the terms and conditions", retryHandler: {
+                       // Logic to handle the retry
+                       // Possibly refocus on the terms and conditions switch or button
+                   })
+                   return
+               }
         
         
     }

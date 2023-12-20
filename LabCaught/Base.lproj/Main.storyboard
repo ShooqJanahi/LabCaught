@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bhr-aL-orK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -19,28 +19,57 @@
                         <sections>
                             <tableViewSection id="ZfU-xB-DX4">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="YEO-bP-HPp">
-                                        <rect key="frame" x="0.0" y="18" width="393" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="729" id="YEO-bP-HPp">
+                                        <rect key="frame" x="0.0" y="18" width="393" height="729"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YEO-bP-HPp" id="JeN-xL-gKf">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="729"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="8zm-1q-CCA">
-                                        <rect key="frame" x="0.0" y="62" width="393" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8zm-1q-CCA" id="sqO-BN-Tix">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="7xi-QH-SDl">
-                                        <rect key="frame" x="0.0" y="106" width="393" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7xi-QH-SDl" id="e0O-jz-JWK">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cjE-tc-Y1J">
+                                                    <rect key="frame" x="40" y="11" width="313" height="687"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <mutableString key="text">At LabCaught, we understand that forgetting your password can be frustrating. We're here to help you regain access to your account. If you're experiencing any issues with your password, please reach out to our support team for prompt assistance.
+
+Contact Information:
+Email: support@labcaught.com
+Phone: +973 17897472
+Working Hours: 9 AM - 6 PM
+
+How to Recover Your Password:
+If you've forgotten your password, follow these steps:
+Email Support:
+Send an email to support@labcaught.com with the subject line "Password Recovery Request."
+Include Required Information:
+In your email, please include the following information to expedite the process:
+Your full name
+Username or CPR
+Registered email address
+Any additional details that may help us verify your identity
+Verification Process:
+Our support team will review your request and may contact you for additional verification if needed.
+Password Reset:
+Once your identity is verified, we will assist you in resetting your password.
+
+General Inquiries:
+For general inquiries, feedback, or any other assistance, feel free to contact us using the same email address and phone number provided above.
+We Are Here to Help:
+
+LabCaught is committed to providing excellent customer service. Our support team is dedicated to assisting you with any issues you may encounter. Please allow up to 7 working days for a response during our working hours.
+Thank you for choosing LabCaught for your medical testing needs. We appreciate your trust in our services.</mutableString>
+                                                    <color key="textColor" systemColor="labelColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cjE-tc-Y1J" firstAttribute="top" secondItem="JeN-xL-gKf" secondAttribute="topMargin" id="1te-hF-hYi"/>
+                                                <constraint firstItem="cjE-tc-Y1J" firstAttribute="leading" secondItem="JeN-xL-gKf" secondAttribute="leadingMargin" constant="20" id="5lJ-7D-9Xk"/>
+                                                <constraint firstItem="cjE-tc-Y1J" firstAttribute="centerY" secondItem="JeN-xL-gKf" secondAttribute="centerY" id="P7g-Bj-OB7"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="cjE-tc-Y1J" secondAttribute="bottom" constant="20" id="aPR-GL-VDE"/>
+                                                <constraint firstItem="cjE-tc-Y1J" firstAttribute="centerX" secondItem="JeN-xL-gKf" secondAttribute="centerX" id="n9J-jP-MFo"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="cjE-tc-Y1J" secondAttribute="trailing" constant="20" id="rpb-6o-Wo7"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -55,7 +84,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pkz-4j-q6i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="792" y="-782"/>
+            <point key="canvasLocation" x="791.60305343511448" y="-782.3943661971831"/>
         </scene>
         <!--Login Table View Controller-->
         <scene sceneID="paT-Kv-q3p">
@@ -201,7 +230,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Forget Password?"/>
                                                     <connections>
-                                                        <segue destination="UhS-8x-GYK" kind="show" id="utR-Sx-nK5"/>
+                                                        <segue destination="UhS-8x-GYK" kind="show" id="bKj-Sn-UCW"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -226,6 +255,9 @@
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="gray" title="Login"/>
+                                                    <connections>
+                                                        <action selector="loginButtonTapped:" destination="LrU-jT-N1p" eventType="touchUpInside" id="yTG-I8-iPz"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -301,6 +333,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="R8B-MJ-vpm"/>
+                    <connections>
+                        <outlet property="passwordTextField" destination="mSP-Us-b9T" id="bNW-3U-0b2"/>
+                        <outlet property="usernameTextField" destination="39j-UV-ZuY" id="isp-oe-qiq"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04Y-28-79L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -636,7 +672,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="95"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gkF-HI-Oma">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gkF-HI-Oma">
                                                     <rect key="frame" x="50" y="19" width="51" height="25"/>
                                                 </switch>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MRM-ea-HYr">
@@ -651,7 +687,7 @@
                                                         <segue destination="Ucm-6J-ksN" kind="show" id="Ta9-xg-Erd"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By Checking the switch, I agree to " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C17-Fs-IBI">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="By Checking the switch, I agree to " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C17-Fs-IBI">
                                                     <rect key="frame" x="105" y="23" width="240" height="16"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="240" id="WAI-ir-2M2"/>
@@ -714,17 +750,81 @@
                         <sections>
                             <tableViewSection id="rAK-aX-Up0">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="659" id="ObE-Hw-8pH">
-                                        <rect key="frame" x="0.0" y="18" width="393" height="659"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="714" id="ObE-Hw-8pH">
+                                        <rect key="frame" x="0.0" y="18" width="393" height="714"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ObE-Hw-8pH" id="kdL-46-w8t">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="659"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="714"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pjx-FP-cVv">
-                                                    <rect key="frame" x="40" y="11" width="313" height="617"/>
+                                                    <rect key="frame" x="40" y="11" width="313" height="672"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <mutableString key="text">Welcome to LabCaught app! By using our services, you agree to comply with and be bound by the following terms and conditions. Please read the following carefully:
+
+User Agreement:
+By using our app, you agree to provide accurate and complete information during the registration process.
+You are responsible for maintaining the confidentiality of your account credentials.
+You must not use the app for any unlawful or unauthorized purposes.
+
+Lab Partnership:
+Labs interested in joining our network must request partnership. by contacting us.
+we reserve the right to accept or reject partnership requests.
+Once accepted, the lab can manage their tests, packages, and view booking information.
+
+Account Deletion:
+Users and labs can request account deletion by contacting the admin.
+we will review and process account deletion requests.
+
+Test and Package Management:
+Labs can add, edit, or delete tests and packages through their account.
+Changes made by labs are subject to review by the admin
+.
+Booking Information:
+Labs can view upcoming, completed, and cancelled bookings.
+Users can book tests through the app.
+
+Clinic Management:
+ We reserve the authority to add, edit, or delete clinics from the app.
+
+Limitation of Liability:
+We are not liable for any damages or losses resulting from the use of our services.
+
+Changes to Terms:
+We reserve the right to modify these terms at any time. Users will be notified of any changes.
+
+Termination:
+We reserve the right to terminate accounts for violation of terms or for any other reason.
+
+Privacy Policy
+Your privacy is important to us. Please review our Privacy Policy to understand how we collect, use, and protect your personal information.
+
+Information Collection:
+We collect personal information during account creation and app usage.
+
+Use of Information:
+We use collected information to provide and improve our services.
+
+3.Security:
+We implement security measures to protect your information.
+
+Third-Party Services:
+We may use third-party services, and their terms may apply.
+
+Cookies:
+We may use cookies for a better user experience.
+
+Sharing Information:
+We will share information with labs for booking purposes.
+
+About Us
+LabCaught is dedicated to providing a convenient platform for users to book medical tests and for labs to manage their services efficiently. Our mission is to enhance the healthcare experience by connecting users with reliable labs. For inquiries or assistance, please contact us.
+
+Update and Changes
+We may update our Terms and Conditions and Privacy Policy periodically. Users will be notified of any changes within the app. Continued use of our services implies acceptance of the updated terms.
+
+Contact Us
+For any questions, concerns, or feedback, please contact our support team at [support@labcaught.com] or [+973 17897472]. We strive to provide timely assistance and ensure a seamless experience for our users and partners.</mutableString>
                                                     <color key="textColor" systemColor="labelColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
