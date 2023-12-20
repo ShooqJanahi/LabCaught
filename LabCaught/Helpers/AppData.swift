@@ -11,26 +11,77 @@ import Foundation
 
 struct AppData {
     
-    
-    
-    
+    //to save registered user information
+    static func loadFromFile() {
+           if let usersData = UserDefaults.standard.data(forKey: "usersData"),
+              let decodedUsers = try? JSONDecoder().decode([User].self, from: usersData) {
+               users = decodedUsers
+           }
+       }
+       
+       // Save users to file
+       static func saveToFile() {
+           if let encodedData = try? JSONEncoder().encode(users) {
+               UserDefaults.standard.set(encodedData, forKey: "usersData")
+           }
+           
+           
     //Users
-    static var users: [User] = []
+           var users: [User] = []
     
     //Admin user
-    static var admins: [Admin] = [
+           var admins: [Admin] = [
         Admin(username: "admin", password: "admin123", department: "IT", firstName: "Alice", lastName: "Russo", phoneNumber: 12345678)
     ]
     
     
     //Labs
-    static var facilites = [Facility]()
+           var facilites = [Facility]()
 
     
     // Method to check if a username is already in use within the users array
-    static func isUsernameInUse(username: String) -> Bool {
+           func isUsernameInUse(username: String) -> Bool {
         return users.contains { $0.username.lowercased() == username.lowercased() } || admins.contains { $0.username.lowercased() == username.lowercased() }
     }
+    
+    
+    //for the users
+    extension AppData {
+        // Add a new user
+        static func addUser(username: String, password: String, phoneNumber: Int, firstName: String, lastName: String, dob: DateComponents, cpr: Int) {
+            let newUser = Patient(username: username, password: password, phoneNumber: phoneNumber, firstName: firstName, lastName: lastName, DOB: dob, CPR: cpr)
+            users.append(newUser)
+            saveToFile()
+        }
+
+        // Edit an existing user
+        static func editUser(user: User) {
+            if let index = users.firstIndex(where: { $0.username == user.username }) {
+                users.remove(at: index)
+                users.insert(user, at: index)
+                saveToFile()
+            }
+        }
+
+        // Delete a user
+        static func deleteUser(user: User) -> Bool {
+            if let index = users.firstIndex(where: { $0.username == user.username }) {
+                users.remove(at: index)
+                saveToFile()
+                return true
+            }
+            return false
+        }
+        
+        // Call loadFromFile at app launch
+        static func initializeAppData() {
+            loadFromFile()
+        }
+    }
+
+    
+    
+    
     
     // ... other static methods or properties ...
     
