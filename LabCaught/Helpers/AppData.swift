@@ -11,9 +11,7 @@ import Foundation
 
 struct AppData {
     static var users: [User] = []
-    static var admins: [Admin] = [
-        Admin(username: "admin", password: "admin123", department: "IT", firstName: "Alice", lastName: "Russo", phoneNumber: 12345678)
-    ]
+    static var admins: [Admin] = [Admin(username: "admin", password: "admin123", department: "IT", firstName: "Alice", lastName: "Russo", phoneNumber: 12345678)]
     static var facilites: [Facility] = []
     static var bookings: [booking] = []
     static var services: [Service] = []
@@ -60,6 +58,9 @@ struct AppData {
         // Load all data from file or initial settings
         if bookings.isEmpty {
             bookings = sampleBookings
+        }
+        if facilites.isEmpty {
+            facilites = sampleFacilities
         }
         // Load other user data if necessary
         loadFromFile()
