@@ -6,22 +6,22 @@
 //
 
 import Foundation
-/*class booking{
+class booking{
     var booking_date:DateComponents
     var patient:Patient
     //var isPackage:Bool
-    var package:packages!
-    var test:test!
+    var package:Packages!
+    var test:Test!
         
     init(booking_date: DateComponents, patient: Patient, package: packages!) {
         self.booking_date = booking_date
         self.patient = patient
         self.package = package
     }
-    init(booking_date: DateComponents, patient: Patient, test: test!) {
+    init(booking_date: DateComponents, patient: Patient, test: Test!) {
         self.booking_date = booking_date
         self.patient = patient
         self.test = test
     }
     
-    }*/
+    }
