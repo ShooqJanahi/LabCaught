@@ -14,14 +14,14 @@ class Labs: User {
     var openingTime: DateComponents
     var closingTime: DateComponents
     
-    init(username: String, password: String, confirmPassword: String, phoneNumber: Int, name: String, location: String, labName: String, alwaysOpen: Bool, openingTime: DateComponents, closingTime: DateComponents) {
+    init(username: String, password: String, phoneNumber: Int, name: String, location: String, labName: String, alwaysOpen: Bool, openingTime: DateComponents, closingTime: DateComponents) {
         self.location = location
         self.labName = labName
         self.alwaysOpen = alwaysOpen
         self.openingTime = openingTime
         self.closingTime = closingTime
         
-        super.init(username: username, password: password, createdOn: Date(), confirmPassword: confirmPassword, phoneNumber: phoneNumber)
+        super.init(username: username, password: password, createdOn: Date(), phoneNumber: phoneNumber)
     }
 
     

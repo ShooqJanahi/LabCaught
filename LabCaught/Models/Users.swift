@@ -15,17 +15,17 @@ class User: Equatable, Codable {
     
     var createdOn: Date
     var phoneNumber: Int
-    var confirmPassword: String
+    
     
     static func == (lhs: User, rhs: User) -> Bool {
         lhs.username == rhs.username
     }
     
-    init(username: String, password: String, createdOn: Date = Date(), confirmPassword: String, phoneNumber: Int) {
+    init(username: String, password: String, createdOn: Date = Date(), phoneNumber: Int) {
         self.username = username
         self.password = password
         self.createdOn = createdOn
-        self.confirmPassword = confirmPassword
+        
         self.phoneNumber = phoneNumber
     }
 }

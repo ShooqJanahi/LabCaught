@@ -12,14 +12,14 @@ class Admin: User {
     var firstName: String
     var lastName: String
 
-    init(username: String, password: String, name: String, department: String, firstName: String, lastName: String, confirmPassword: String, phoneNumber: Int) {
+    init(username: String, password: String, name: String, department: String, firstName: String, lastName: String, phoneNumber: Int) {
         // Initialize all properties of the subclass first.
         self.department = department
         self.firstName = firstName
         self.lastName = lastName
         
        
-        super.init(username: username, password: password, createdOn: Date(), confirmPassword: confirmPassword, phoneNumber: phoneNumber)
+        super.init(username: username, password: password, createdOn: Date(), phoneNumber: phoneNumber)
    
     }
 
