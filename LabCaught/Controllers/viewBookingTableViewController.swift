@@ -9,6 +9,7 @@ import UIKit
 
 class viewBookingTableViewController: UITableViewController {
 
+
     
     
     //@IBOutlet weak var TestPackageName: UILabel!
@@ -22,6 +23,8 @@ class viewBookingTableViewController: UITableViewController {
     @IBOutlet weak var n: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        updateView()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -31,7 +34,9 @@ class viewBookingTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
+    func updateView(){
+       // date.text = "Booking Date:"
+    }
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -48,9 +53,10 @@ class viewBookingTableViewController: UITableViewController {
     }
     //var bookings: [Booking?] = AppData.bookings
  
- 
+ /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let bo = bookings[indexePath.row]
+        //let bo = bookings[indexePath.row
+        /*
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "schedule", for: indexPath) as! BookingDetailsConfirmedTableViewCell
             return cell
@@ -83,8 +89,9 @@ class viewBookingTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PackageInncludeCell", for: indexPath) as! BookingDetailsConfirmedTableViewCell
             return cell
         }
-
+*/
     }
+  */
   
     
     /*
