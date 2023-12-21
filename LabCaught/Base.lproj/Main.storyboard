@@ -493,7 +493,7 @@ Thank you for choosing LabCaught for your medical testing needs. We appreciate y
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nd6-Nl-WYG">
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="mm/dd/yyyy" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nd6-Nl-WYG">
                                                     <rect key="frame" x="49" y="39" width="295" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="295" id="CPU-8d-cny"/>
