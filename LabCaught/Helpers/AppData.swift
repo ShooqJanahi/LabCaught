@@ -31,9 +31,7 @@ class AppData {
       
       
      // Facility Dummy Data
-      
-   static var labs: [Facility] = [
-             Facility(username: "Alhilal",
+    static var Facility1 = Facility(username: "Alhilal",
                       password: "12345",
                       phoneNumber: 17001700,
                       name: "Alhilal Hospital",
@@ -41,8 +39,8 @@ class AppData {
                       isOpen24Hours: true,
                       openingTime: DateComponents(calendar: Calendar.current, hour: 0, minute: 0),
                       closingTime: DateComponents(calendar: Calendar.current, hour: 0, minute: 0),
-                      facilityType: .hospital),
-             Facility(username: "Alsalam",
+                      facilityType: .hospital)
+    static var Facility2 = Facility(username: "Alsalam",
                       password: "12345",
                       phoneNumber: 17001700,
                       name: "Alsalam Hospital",
@@ -52,26 +50,75 @@ class AppData {
                       closingTime: DateComponents(calendar: Calendar.current, hour: 0, minute: 0),
                       facilityType: .hospital
                      )
-         ]
-      
-      //Test dummy Data
-      static var tests: [Test] = [
-          
-          Test(name: "Vitamin D", cost: "3 BHD", describtion: "Blood test is done to check the patient's Vitamin D level and if they are healthy with no any side affeccts", insrtuctions: "Fasting for 8 - 10 hours is required", facility: sampleFacilities[0]),
-      
-          
-          Test(name: "Vitamin B12", cost: "3 BHD", describtion: "Blood test is done to check the patient's Vitamin B12 level and if they are healthy with no any side affeccts", insrtuctions: "Fasting for 8 - 10 hours is required", facility: sampleFacilities[1])
-      
-      ]
-      
-      
+             
+    static var Facility3 = Facility(username: "Royalmedical",
+                      password: "123RM", phoneNumber: 17766666,
+                      name: "Alhilal Medical Servises",
+                      location: "Riffa, Bahrain",
+                      isOpen24Hours: true,
+                      openingTime: DateComponents(hour: 8, minute: 0),
+                      closingTime: DateComponents(hour: 8, minute: 0),
+                      facilityType: .hospital)
+             
+    static var Facility4 = Facility(username: "Royalmedical",
+                      password: "123RM",
+                      phoneNumber: 17766666,
+                      name: "Royal Medical Servises",
+                      location: "Muharraq, Bahrain",
+                      isOpen24Hours: true,
+                      openingTime: DateComponents(hour: 8, minute: 0),
+                      closingTime: DateComponents(hour: 8, minute: 0),
+                      facilityType: .hospital)
+             
+    static var Facility5 = Facility(username: "medicalabortary",
+                      password: "123RM",
+                      phoneNumber: 17766666,
+                      name: "Bahrain medical labortary",
+                      location: "Salmaniya, Bahrain",
+                      isOpen24Hours: true,
+                      openingTime: DateComponents(hour: 8, minute: 0),
+                      closingTime: DateComponents(hour: 8, minute: 0),
+                      facilityType: .lab)
+    
+    
+  static var sampleFacilities: [Facility] = [Facility1, Facility2, Facility3, Facility4, Facility5 ]
+    //Test dummy Data
+    static var test1 = Test(name: "Vitamin D",
+         cost: "3 BHD",
+         describtion: "Blood test is done to check the patient's Vitamin D level and if they are healthy with no affeccts",
+         insrtuctions: "Fasting for 8 - 10 hours is required",
+         facility: sampleFacilities[0])
+    
+    static var test2 = Test(name: "Vitamin B12",
+                            cost: "3 BHD",
+                            describtion: "Blood test is done to check the patient's Vitamin B12 level and if they are healthy with no any side affeccts",
+                            insrtuctions: "Fasting for 8 - 10 hours is required",
+                            facility: sampleFacilities[1])
+    
+    static var test3 = Test(name: "Vitamin A",
+                            cost: "2 BHD",
+                            describtion: "Blood test is done to check the patient's Vitamin B12 level and if they are healthy with no any side affeccts",
+                            insrtuctions: "Fasting for 5 hours is required",
+                            facility: sampleFacilities[1])
+
+      static var tests: [Test] = [test1,test2, test3]
+    
+    //packages dummy data
+    static var package1 = Packages(name: "", cost: "", describtion: "", insrtuctions: "", packageIncludes: [test2, test3], packageExpiry: DateComponents(calendar: Calendar.current, year: 2002, month: 1, day:2), facility: sampleFacilities[1])
+
+    static var package2 = Packages(name: "Healthy life Package", cost: "10 BHD", describtion: "A package that containes 2 test which are vitamans A and C", insrtuctions: "fasting for 5 hours are required", packageIncludes: [test1, test3], packageExpiry: DateComponents(calendar: Calendar.current, year: 2002, month: 1, day:2), facility: sampleFacilities[1])
+    
+    static var packages: [Packages] = [package1, package2]
+    
+    
+      /*    moved them up with other facility data
     static var sampleFacilities = [
         Facility(username: "Royalmedical", password: "123RM", phoneNumber: 17766666, name: "Alhilal Medical Servises", location: "Riffa, Bahrain", isOpen24Hours: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 8, minute: 0), facilityType: .hospital),
         Facility(username: "Royalmedical", password: "123RM", phoneNumber: 17766666, name: "Royal Medical Servises", location: "Muharraq, Bahrain", isOpen24Hours: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 8, minute: 0), facilityType: .hospital),
         Facility(username: "Royalmedical", password: "123RM", phoneNumber: 17766666, name: "Royal Medical Servises", location: "Riffa, Bahrain", isOpen24Hours: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 8, minute: 0), facilityType: .lab)
     ]
       
-      
+    */
       
       //bookings Dummy Data
         static var sampleBookings = [
