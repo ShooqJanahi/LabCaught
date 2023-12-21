@@ -7,29 +7,32 @@
 
 import UIKit
 
-class PatientHomeViewController: UIViewController{
-    
-}
-
-
-/*
 class PatientHomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    var services = AppData.services
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    
+    
+    
+    // MARK: - Table view data source
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return services.count
     }
-    /*
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return
-    }
-    */
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PHFCell", for: indexPath) as! PatientHomeFacilityTableViewCell
+        
+        let service = services[indexPath.row]
+        
+        cell.configure(service: service)
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        return cell
     }
     
 
@@ -44,4 +47,3 @@ class PatientHomeViewController: UIViewController, UITableViewDelegate, UITableV
     */
 
 }
-*/

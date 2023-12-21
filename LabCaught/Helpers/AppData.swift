@@ -122,7 +122,7 @@ class AppData {
     
     static var packages: [Packages] = [package1, package2]
     
-    
+    static var allTestsPackages: [Service] = [test1,test2, test3, package1, package2]
       /*    moved them up with other facility data
     static var sampleFacilities = [
         Facility(username: "Royalmedical", password: "123RM", phoneNumber: 17766666, name: "Alhilal Medical Servises", location: "Riffa, Bahrain", isOpen24Hours: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 8, minute: 0), facilityType: .hospital),
@@ -158,7 +158,7 @@ class AppData {
             facilites = sampleFacilities
         }
         if services.isEmpty {
-            services = tests
+            services = allTestsPackages
         }
         // Load other user data if necessary
         loadFromFile()
