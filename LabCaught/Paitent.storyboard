@@ -107,7 +107,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvf-07-Efn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1956" y="163"/>
+            <point key="canvasLocation" x="2031" y="163"/>
         </scene>
         <!--Booking History-->
         <scene sceneID="smH-XH-Waw">
@@ -481,7 +481,7 @@
         <scene sceneID="IVw-JQ-9lq">
             <objects>
                 <navigationController id="Zik-Rl-S1S" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Booking History" id="ega-c4-PwA"/>
+                    <tabBarItem key="tabBarItem" title="Booking History" selectedImage="book" catalog="system" id="ega-c4-PwA"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WCo-8e-5sj">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -825,7 +825,7 @@
         <scene sceneID="YXH-8S-ZCM">
             <objects>
                 <navigationController id="buV-rh-Bft" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="uMU-6c-lal"/>
+                    <tabBarItem key="tabBarItem" title="Home" selectedImage="house" catalog="system" id="uMU-6c-lal"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="emF-jE-rb2">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -840,6 +840,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="book" catalog="system" width="128" height="99"/>
+        <image name="house" catalog="system" width="128" height="104"/>
         <image name="rectangle.portrait.and.arrow.forward" catalog="system" width="128" height="109"/>
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
