@@ -25,10 +25,22 @@ class RegistrationTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UserNameTextField.tag = 1
+        
     }
     
     //this action is called when the save button is tapped
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        
+        
+        if let userName = UserNameTextField.text, !userName.isEmpty {
+               // Use the tag of UserNameTextField to reference it.
+               Alerts.checkUsernameAndShowAlert(username: userName, tag: UserNameTextField.tag, on: self, successHandler: {
+                   // Continue with registration or updating username
+               })
+           } else {
+               // Handle the case where the UserNameTextField is empty.
+           }
         
         
         // Validate that none of the text fields are empty
@@ -57,6 +69,7 @@ class RegistrationTableViewController: UITableViewController {
         
         
         
+
         
         
         

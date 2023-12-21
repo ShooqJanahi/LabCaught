@@ -44,9 +44,20 @@ class Alerts {
     }
     
     
-    
-    
-    
+    // check username and show alert with retry option
+    static func checkUsernameAndShowAlert(username: String, tag: Int, on viewController: UIViewController, successHandler: @escaping () -> Void) {
+        if AppData.isUsernameInUse(username: username) {
+            showAlertWithRetry(on: viewController, title: "Username Error", message: "Username already in use", retryHandler: {
+                // Use the tag to find the text field and make it the first responder.
+                if let textField = viewController.view.viewWithTag(tag) as? UITextField {
+                    textField.becomeFirstResponder()
+                }
+            })
+        } else {
+            successHandler()
+        }
+    }
+
     
 }
 
