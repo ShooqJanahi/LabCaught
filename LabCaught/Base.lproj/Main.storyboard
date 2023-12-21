@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -727,7 +728,6 @@ Thank you for choosing LabCaught for your medical testing needs. We appreciate y
                         <barButtonItem key="rightBarButtonItem" title="Save" id="3AH-8X-4tP">
                             <connections>
                                 <action selector="saveButtonTapped:" destination="lbU-3b-Gxl" id="xGZ-hv-oic"/>
-                                <segue destination="LrU-jT-N1p" kind="show" id="d2i-1X-Fc1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -877,9 +877,6 @@ For any questions, concerns, or feedback, please contact our support team at [su
             <point key="canvasLocation" x="-728" y="-29"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="7ed-S0-5IC"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="Logo" width="736" height="967"/>
         <systemColor name="labelColor">
