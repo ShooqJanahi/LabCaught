@@ -24,8 +24,6 @@ class RegistrationTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    
         
     }
 
@@ -49,12 +47,26 @@ class RegistrationTableViewController: UITableViewController {
         }
         
         // Additional validation for password match
-        guard password == confirmPassword else {
-            Alerts.showAlertWithRetry(on: self, title: "Password Error", message: "Passwords do not match.", retryHandler: {
-                // Add code here for retry logic, such as clearing the password fields
-            })
-            return
-        }
+          guard password == confirmPassword else {
+              Alerts.showAlertWithRetry(on: self, title: "Password Error", message: "Passwords do not match.", retryHandler: {
+                  // Add code here for retry logic, such as clearing the password fields
+              })
+              return
+          }
+
+        
+        
+
+        
+        
+
+          // Parse the date of birth into DateComponents
+          guard let dobComponents = Utility.parseDateComponents(from: dob) else {
+              // Handle error - invalid date
+              return
+          }
+        
+        
         
         // In RegistrationTableViewController
         if !Utility.isCPRCorrect(CPRTextField.text ?? "") {
@@ -92,6 +104,8 @@ class RegistrationTableViewController: UITableViewController {
                   })
                   return
               }
+        // Assuming all validations passed, add the user
+        AppData.addUser(username: userName, password: password, phoneNumber: Int(phoneNumber) ?? 0, firstName: firstName, lastName: lastName, dob: dobComponents, cpr: Int(cpr) ?? 0)
         
       
     }

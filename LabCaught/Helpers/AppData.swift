@@ -11,7 +11,9 @@ import Foundation
 
 class AppData {
     static var users: [User] = []
+    //admin user
     static var admins: [Admin] = [Admin(username: "admin", password: "admin123", department: "IT", firstName: "Alice", lastName: "Russo", phoneNumber: 12345678)]
+    //end of admin information
     static var facilites = [Facility]()
     static var bookings: [booking] = []
     static var services = [Service]()
@@ -87,6 +89,8 @@ class AppData {
     }
     
     // ... other static methods or properties ...
+    
+    
 
     static func load() {
         // Load all data from file or initial settings
@@ -103,6 +107,7 @@ class AppData {
         loadFromFile()
     }
 
+    //don't touch this (this is for saving registerd user information
     static func addUser(username: String, password: String, phoneNumber: Int, firstName: String, lastName: String, dob: DateComponents, cpr: Int) {
         let newUser = Patient(username: username, password: password, phoneNumber: phoneNumber, firstName: firstName, lastName: lastName, DOB: dob, CPR: cpr)
         users.append(newUser)
@@ -135,6 +140,10 @@ class AppData {
     static func saveToFile() {
         // Implement your saving logic here, e.g. using UserDefaults or writing to a file
     }
+    
+    //don't touch this (this is to save registerd user information)
+    
+    
     
     // Call the initialize method from your AppDelegate or SceneDelegate
     static func initializeAppData() {

@@ -9,6 +9,20 @@ import Foundation
 import UIKit
 
 struct Utility {
+    
+    static func parseDateComponents(from dateString: String) -> DateComponents? {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd/MM/yyyy" // Change this format to whatever format your date string is in
+            guard let date = dateFormatter.date(from: dateString) else {
+                return nil
+            }
+            
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.year, .month, .day], from: date)
+            return components
+        }
+    
+    
     static func isPhoneNumberCorrect(phoneNumber: String) -> Bool {
         let trimmedPhoneNumber = phoneNumber.trimmingCharacters(in: .whitespacesAndNewlines)
         return trimmedPhoneNumber.count == 8 && trimmedPhoneNumber.allSatisfy { $0.isNumber }
