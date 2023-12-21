@@ -118,7 +118,7 @@ class AppData {
     
     
     //packages dummy data
-    static var package1 = Packages(name: "", cost: "", describtion: "", insrtuctions: "", packageIncludes: [test2, test3], packageExpiry: DateComponents(calendar: Calendar.current, year: 2002, month: 1, day:2), facility: sampleFacilities[1])
+    static var package1 = Packages(name: "Basic Wellness Package", cost: "15 BHD", describtion: "This package includes essential health screenings, such as blood pressure, cholesterol, and blood sugar tests.", insrtuctions: "No fasting required. Please stay hydrated.", packageIncludes: [test2, test3], packageExpiry: DateComponents(calendar: Calendar.current, year: 2023, month: 6, day:2), facility: sampleFacilities[0])
 
     static var package2 = Packages(name: "Healthy life Package", cost: "10 BHD", describtion: "A package that containes 2 test which are vitamans A and C", insrtuctions: "fasting for 5 hours are required", packageIncludes: [test1, test3], packageExpiry: DateComponents(calendar: Calendar.current, year: 2002, month: 1, day:2), facility: sampleFacilities[1])
     
