@@ -30,6 +30,7 @@ class PatientHomeTableViewController: UITableViewController, UISearchControllerD
         self.search.searchBar.showsScopeBar = true
         navigationItem.preferredSearchBarPlacement = .stacked
         search.searchResultsUpdater = self
+         
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -121,9 +122,9 @@ class PatientHomeTableViewController: UITableViewController, UISearchControllerD
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PHCell", for: indexPath) as! PatientHomeTableViewCell
         
-        let facility = facilities[indexPath.row]
+        let item = items[indexPath.row]
         
-        cell.configure(facility: facility)
+        cell.configure(item: item)
 
         return cell
     }

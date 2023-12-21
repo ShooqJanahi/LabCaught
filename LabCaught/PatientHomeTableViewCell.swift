@@ -13,7 +13,8 @@ class PatientHomeTableViewCell: UITableViewCell {
     @IBOutlet weak var facilityLbl: UILabel!
     @IBOutlet weak var typeLbl: UILabel!
     
-    func configure(facility: Facility){
+    func configure(item: SearchCell){
+        let facility = item as! Facility
         nameLbl.text = facility.name
         facilityLbl.text = facility.location
         typeLbl.text = facility.facilityType.rawValue
