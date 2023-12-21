@@ -49,3 +49,19 @@ class Alerts {
     
     
 }
+
+extension UIAlertController {
+    static func confirmAction(title: String, message: String, confirmTitle: String = "Delete", cancelTitle: String = "Cancel", onConfirm: @escaping () -> Void) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let confirmAction = UIAlertAction(title: confirmTitle, style: .destructive) { _ in
+            onConfirm()
+        }
+        let cancelAction = UIAlertAction(title: cancelTitle, style: .cancel)
+        
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        
+        return alert
+    }
+}

@@ -41,19 +41,21 @@ class AppData {
                       name: "Alhilal Hospital",
                       location: "Riffa",
                       isOpen24Hours: true,
-                      openingTime: DateComponents(calendar: Calendar.current, hour: 0, minute: 0),
-                      closingTime: DateComponents(calendar: Calendar.current, hour: 0, minute: 0),
-                      facilityType: .hospital)
+                      openingTime: DateComponents(hour: 8, minute: 0),
+                      closingTime: DateComponents(hour: 8, minute: 0),
+                      facilityType: .hospital,
+                      logoImageName: "")
+    
     static var Facility2 = Facility(username: "Alsalam",
                       password: "12345",
                       phoneNumber: 17001700,
                       name: "Alsalam Hospital",
                       location: "Muharraq",
                       isOpen24Hours: true,
-                      openingTime: DateComponents(calendar: Calendar.current, hour: 0, minute: 0),
-                      closingTime: DateComponents(calendar: Calendar.current, hour: 0, minute: 0),
-                      facilityType: .hospital
-                     )
+                      openingTime: DateComponents(hour: 8, minute: 0),
+                      closingTime: DateComponents(hour: 8, minute: 0),
+                      facilityType: .hospital,
+                      logoImageName: "")
              
     static var Facility3 = Facility(username: "Royalmedical",
                       password: "123RM", phoneNumber: 17766666,
@@ -62,7 +64,8 @@ class AppData {
                       isOpen24Hours: true,
                       openingTime: DateComponents(hour: 8, minute: 0),
                       closingTime: DateComponents(hour: 8, minute: 0),
-                      facilityType: .hospital)
+                      facilityType: .hospital,
+                      logoImageName: "")
              
     static var Facility4 = Facility(username: "Royalmedical",
                       password: "123RM",
@@ -72,7 +75,8 @@ class AppData {
                       isOpen24Hours: true,
                       openingTime: DateComponents(hour: 8, minute: 0),
                       closingTime: DateComponents(hour: 8, minute: 0),
-                      facilityType: .hospital)
+                      facilityType: .hospital,
+                      logoImageName: "")
              
     static var Facility5 = Facility(username: "medicalabortary",
                       password: "123RM",
@@ -82,10 +86,13 @@ class AppData {
                       isOpen24Hours: true,
                       openingTime: DateComponents(hour: 8, minute: 0),
                       closingTime: DateComponents(hour: 8, minute: 0),
-                      facilityType: .lab)
+                      facilityType: .lab,
+                      logoImageName: "")
     
     
   static var sampleFacilities: [Facility] = [Facility1, Facility2, Facility3, Facility4, Facility5 ]
+    
+    
     //Test dummy Data
     static var test1 = Test(name: "Vitamin D",
          cost: "3 BHD",

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddEditHospitalLabTableViewControlle: UITableViewController {
+class AddEditHospitalLabTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

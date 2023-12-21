@@ -23,14 +23,16 @@ class Facility: User{
     var openingTime: DateComponents
     var closingTime: DateComponents
     var facilityType: FacilityType
+    var logoImageName: String // Name of the image file or URL as a string
     
-    init(username: String, password: String, phoneNumber: Int, name: String, location: String, isOpen24Hours: Bool, openingTime: DateComponents, closingTime: DateComponents, facilityType: FacilityType) {
+    init(username: String, password: String, phoneNumber: Int, name: String, location: String, isOpen24Hours: Bool, openingTime: DateComponents, closingTime: DateComponents, facilityType: FacilityType, logoImageName: String) {
         self.name = name
         self.location = location
         self.isOpen24Hours = isOpen24Hours
         self.openingTime = openingTime
         self.closingTime = closingTime
         self.facilityType = facilityType
+        self.logoImageName = logoImageName
 
         super.init(username: username, password: password, createdOn: Date(),  phoneNumber: phoneNumber)
     }
@@ -44,6 +46,7 @@ class Facility: User{
             openingTime = try container.decode(DateComponents.self, forKey: .openingTime)
             closingTime = try container.decode(DateComponents.self, forKey: .closingTime)
             facilityType = try container.decode(FacilityType.self, forKey: .facilityType)
+            logoImageName = try container.decode(String.self, forKey: .logoImageName)
             try super.init(from: decoder)
     }
     
@@ -55,10 +58,11 @@ class Facility: User{
             try container.encode(openingTime, forKey: .openingTime)
             try container.encode(closingTime, forKey: .closingTime)
             try container.encode(facilityType, forKey: .facilityType)
+        try container.encode(logoImageName, forKey: .logoImageName)
             try super.encode(to: encoder)
     }
     
     private enum CodingKeys: String, CodingKey{
-            case name, location, isOpen24Hours, openingTime, closingTime, facilityType
+            case name, location, isOpen24Hours, openingTime, closingTime, facilityType, logoImageName
     }
 }

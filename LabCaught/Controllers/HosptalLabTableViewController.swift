@@ -14,11 +14,12 @@ class HosptalLabTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        //show hospitals by default
+        if let segmentedControl = self.navigationItem.titleView as? UISegmentedControl {
+                segmentedControl.selectedSegmentIndex = 0
+            }
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        updateDisplayedFacilities()
     }
 
     // MARK: - Table view data source
@@ -46,25 +47,60 @@ class HosptalLabTableViewController: UITableViewController {
     }
 
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+                // Present confirmation alert
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
+                    let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+                        // Perform the deletion
+                        self.performDeletion(at: indexPath)
+                    }
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+                    alert.addAction(deleteAction)
+                    alert.addAction(cancelAction)
+                    self.present(alert, animated: true)
+                }
+            }
     }
-    */
+    
+    func performDeletion(at indexPath: IndexPath) {
+        // Delete the facility from the data source
+            AppData.sampleFacilities.remove(at: indexPath.row)
+            updateDisplayedFacilities()
+   }
+   
+    func updateDisplayedFacilities() {
+       
+        if let segmentedControl = self.navigationItem.titleView as? UISegmentedControl {
+               let selectedIndex = segmentedControl.selectedSegmentIndex
+               switch selectedIndex {
+               case 0:
+                   faclities = AppData.sampleFacilities.filter { $0.facilityType == .hospital }
+               case 1:
+                   faclities = AppData.sampleFacilities.filter { $0.facilityType == .lab }
+               default:
+                   faclities = AppData.sampleFacilities
+               }
+           } else {
+               // Default to showing hospitals if segmented control is not available
+               faclities = AppData.sampleFacilities.filter { $0.facilityType == .hospital }
+           }
+
+           // Reload the table view data
+           tableView.reloadData()
+   }
+    
 
     /*
     // Override to support rearranging the table view.
@@ -90,5 +126,19 @@ class HosptalLabTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
+    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+                // Hospital is selected
+            faclities = AppData.sampleFacilities.filter { $0.facilityType == .hospital }
+            } else {
+                // Lab is selected
+                faclities = AppData.sampleFacilities.filter { $0.facilityType == .lab }
+            }
+            tableView.reloadData() // Reload the table view with the filtered data
+        
+    }
+    
+    
 }
