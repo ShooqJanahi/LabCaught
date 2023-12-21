@@ -105,6 +105,7 @@ class AppData {
 
       static var tests: [Test] = [test1,test2, test3]
     
+    
     //packages dummy data
     static var package1 = Packages(name: "", cost: "", describtion: "", insrtuctions: "", packageIncludes: [test2, test3], packageExpiry: DateComponents(calendar: Calendar.current, year: 2002, month: 1, day:2), facility: sampleFacilities[1])
 
