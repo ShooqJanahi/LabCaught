@@ -10,6 +10,14 @@ import UIKit
 class PatientHomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var services = AppData.services
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    
+    
+    
+    // MARK: - Table view data source
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -25,13 +33,6 @@ class PatientHomeViewController: UIViewController, UITableViewDelegate, UITableV
         cell.configure(service: service)
 
         return cell
-    }
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
 
