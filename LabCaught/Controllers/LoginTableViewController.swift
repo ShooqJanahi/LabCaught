@@ -9,7 +9,7 @@ import UIKit
 
 class LoginTableViewController: UITableViewController {
     
-    // Outlets that connect to the username and password text fields in your storyboard.
+    // Outlets that connect to the username and password text fields in the storyboard.
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -20,7 +20,7 @@ class LoginTableViewController: UITableViewController {
     
     // This function is called when the login button is tapped.
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-        // Check if the username and password fields are not empty.
+        // Checking if the username and password fields are not empty.
         guard let username = usernameTextField.text, !username.isEmpty,
               let password = passwordTextField.text, !password.isEmpty else {
             // If either field is empty, exit the function and do not proceed with login.

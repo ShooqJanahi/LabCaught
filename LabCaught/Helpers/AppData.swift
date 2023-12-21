@@ -11,9 +11,11 @@ import Foundation
 
 class AppData {
     static var users: [User] = []
+    
     //admin user
     static var admins: [Admin] = [Admin(username: "admin", password: "admin123", department: "IT", firstName: "Alice", lastName: "Russo", phoneNumber: 12345678)]
     //end of admin information
+    
     static var facilites = [Facility]()
     static var bookings: [booking] = []
     static var services = [Service]()
@@ -181,21 +183,34 @@ class AppData {
 
     // Placeholder for the loadFromFile method
     static func loadFromFile() {
-        // Implement your loading logic here, e.g. using UserDefaults or reading from a file
-    }
+           // Load the users array from UserDefaults or a file
+           if let savedUsers = UserDefaults.standard.object(forKey: "SavedUsers") as? Data {
+               if let decodedUsers = try? JSONDecoder().decode([User].self, from: savedUsers) {
+                   users = decodedUsers
+                   
+                   // Reconstruct Patients array from users array if needed
+                   Patients = users.compactMap { $0 as? Patient }
+               }
+            }
+        }
 
     // Placeholder for the saveToFile method
     static func saveToFile() {
-        // Implement your saving logic here, e.g. using UserDefaults or writing to a file
-    }
+           // Save the users array to UserDefaults or a file
+           if let encoded = try? JSONEncoder().encode(users) {
+               UserDefaults.standard.set(encoded, forKey: "SavedUsers")
+           }
+       }
     
     //don't touch this (this is to save registerd user information)
     
     
     
-    // Call the initialize method from your AppDelegate or SceneDelegate
-    static func initializeAppData() {
-        load()
-    }
-}
+    // Call this method when you want to initialize your app data.
+       static func initializeAppData() {
+           // Load user data from UserDefaults.
+           loadFromFile()
+           // Load other initial settings as needed.
+       }
+   }
 
