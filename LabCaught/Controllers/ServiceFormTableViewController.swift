@@ -20,8 +20,27 @@ class ServiceFormTableViewController: UITableViewController {
     @IBOutlet weak var testsList: UILabel!
     @IBOutlet weak var expiryDate: UIDatePicker!
     
-    var packageItemsIndexPath = IndexPath(row: 5, section: 0)
-    var expiryDateIndexPAth = IndexPath(row: 6, section: 0)
+    
+    enum ServiceFormSection: Int, CaseIterable {
+        case seg = 0
+        case name
+        case cost
+        case description
+        case instructions
+        case packageItems
+        case expiryDate
+
+        static var count: Int {
+            return self.allCases.count
+        }
+    }
+    
+    enum ServiceType {
+        case test, package
+    }
+
+    var currentServiceType: ServiceType = .test
+    
     
     var service: Service?
     //var currentType: serviceType = .Test
@@ -35,6 +54,7 @@ class ServiceFormTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        serviceTypeChanged(serviceTypeSC)
         updateViews()
     }
     
@@ -49,11 +69,8 @@ class ServiceFormTableViewController: UITableViewController {
         costTxt.text = service.cost
         descriptionTxt.text = service.describtion
         instructionsTxt.text = service.insrtuctions
+    }
         
-        
-        /*func updateCurrentType() {
-            currentType = serviceTypeSC.selectedSegmentIndex == 0 ? .Test : .Packages
-        }*/
         
         
         // MARK: - Table view data source
@@ -61,22 +78,45 @@ class ServiceFormTableViewController: UITableViewController {
         /*override func numberOfSections(in tableView: UITableView) -> Int {
          // #warning Incomplete implementation, return the number of sections
          return 1
-         }
-         
-         override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         // #warning Incomplete implementation, return the number of rows
-         return 0
          }*/
+         
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        /*
-         override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-         
-         // Configure the cell...
-         
-         return cell
+        if currentServiceType == .test && (section == ServiceFormSection.packageItems.rawValue || section == ServiceFormSection.expiryDate.rawValue) {
+            return 0
+            
+        }
+        return super.tableView(tableView, numberOfRowsInSection: section)
+
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        // If 'Tests' is selected and the section is 'packageItems' or 'expiryDate', return an empty string.
+        if currentServiceType == .test && (section == ServiceFormSection.packageItems.rawValue || section == ServiceFormSection.expiryDate.rawValue) {
+            return ""
+        }
+        // For all other cases, return the normal section title.
+        return super.tableView(tableView, titleForHeaderInSection: section)
+    }
+
+        
+        
+        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            
+            let cell = super.tableView(tableView, cellForRowAt: indexPath)
+            return cell
+            //tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
          }
-         */
+    
+    
+    @IBAction func serviceTypeChanged(_ sender: UISegmentedControl) {
+        currentServiceType = sender.selectedSegmentIndex == 0 ? .test : .package
+        tableView.reloadData()
+    }
+    
+
+
+    
         
         /*
          // Override to support conditional editing of the table view.
@@ -123,4 +163,4 @@ class ServiceFormTableViewController: UITableViewController {
          }
          */
         
-    } }
+    }

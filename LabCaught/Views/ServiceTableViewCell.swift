@@ -14,7 +14,7 @@ class ServiceTableViewCell: UITableViewCell {
     
     func configure(service: Service) {
         nameLbl.text = service.name
-        costLbl.text = service.cost + " BD"
+        costLbl.text = service.cost
     }
 
 }
