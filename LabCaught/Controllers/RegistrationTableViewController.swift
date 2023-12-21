@@ -33,14 +33,7 @@ class RegistrationTableViewController: UITableViewController {
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         
         
-        if let userName = UserNameTextField.text, !userName.isEmpty {
-               // Use the tag of UserNameTextField to reference it.
-               Alerts.checkUsernameAndShowAlert(username: userName, tag: UserNameTextField.tag, on: self, successHandler: {
-                   // Continue with registration or updating username
-               })
-           } else {
-               // Handle the case where the UserNameTextField is empty.
-           }
+   
         
         
         // Validate that none of the text fields are empty
@@ -68,8 +61,14 @@ class RegistrationTableViewController: UITableViewController {
         
         
         
-        
-
+        // Check if the username is already in use
+        Alerts.showUsernameInUseAlertIfNecessary(for: UserNameTextField.text ?? "", on: self, isUsernameInUse: {
+            AppData.isUsernameInUse(username: UserNameTextField.text ?? "")
+        }, retryHandler: {
+            // Logic to handle the retry for username
+            self.UserNameTextField.text = ""
+            self.UserNameTextField.becomeFirstResponder()
+        })
         
         
         

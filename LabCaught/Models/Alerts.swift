@@ -31,34 +31,16 @@ class Alerts {
         return trimmedCpr.count == 9 && trimmedCpr.allSatisfy { $0.isNumber }
     }
     
-    // Assuming AppData.swift has a structure similar to this
-    struct AppData {
-        static func isUsernameInUse(username: String) -> Bool {
-            // Here you would check against your data source to see if the username is already taken.
-            // For demonstration purposes, this is a dummy implementation.
-            // Replace with actual logic, possibly involving a database or in-memory data check.
-            let existingUsernames = ["user1", "user2", "user3"] // Example usernames
-            return existingUsernames.contains(username)
+    
+    static func showUsernameInUseAlertIfNecessary(for username: String, on viewController: UIViewController, isUsernameInUse: () -> Bool, retryHandler: @escaping () -> Void) {
+        if isUsernameInUse() {
+            showAlertWithRetry(on: viewController, title: "Username Error", message: "Username already in use", retryHandler: retryHandler)
         }
         
+        
+        
+        
     }
-    
-    
-    // check username and show alert with retry option
-    static func checkUsernameAndShowAlert(username: String, tag: Int, on viewController: UIViewController, successHandler: @escaping () -> Void) {
-        if AppData.isUsernameInUse(username: username) {
-            showAlertWithRetry(on: viewController, title: "Username Error", message: "Username already in use", retryHandler: {
-                // Use the tag to find the text field and make it the first responder.
-                if let textField = viewController.view.viewWithTag(tag) as? UITextField {
-                    textField.becomeFirstResponder()
-                }
-            })
-        } else {
-            successHandler()
-        }
-    }
-
-    
 }
 
 extension UIAlertController {
