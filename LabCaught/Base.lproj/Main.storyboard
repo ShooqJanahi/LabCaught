@@ -475,15 +475,15 @@ Thank you for choosing LabCaught for your medical testing needs. We appreciate y
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="79" id="rbk-AR-YRS">
-                                        <rect key="frame" x="0.0" y="468" width="393" height="79"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="95" id="rbk-AR-YRS">
+                                        <rect key="frame" x="0.0" y="468" width="393" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rbk-AR-YRS" id="9ql-iz-yDO">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="95"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Of Birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5S-wF-l82">
-                                                    <rect key="frame" x="49" y="11" width="169" height="21"/>
+                                                    <rect key="frame" x="49" y="11.000000000000002" width="139" height="17.666666666666671"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="169" id="F8U-9I-Wbz"/>
                                                     </constraints>
@@ -491,21 +491,28 @@ Thank you for choosing LabCaught for your medical testing needs. We appreciate y
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="pVW-sr-WQ8">
-                                                    <rect key="frame" x="0.0" y="22" width="393" height="36"/>
-                                                </datePicker>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nd6-Nl-WYG">
+                                                    <rect key="frame" x="49" y="30.666666666666671" width="295" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="34" id="CfR-s1-CAZ"/>
+                                                        <constraint firstAttribute="width" constant="295" id="IzM-Lf-pmU"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="pVW-sr-WQ8" firstAttribute="centerX" secondItem="9ql-iz-yDO" secondAttribute="centerX" id="10P-qn-40v"/>
                                                 <constraint firstItem="M5S-wF-l82" firstAttribute="top" secondItem="9ql-iz-yDO" secondAttribute="topMargin" id="7HS-1j-8wO"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="M5S-wF-l82" secondAttribute="trailing" constant="185" id="IIK-SR-OP6"/>
+                                                <constraint firstItem="nd6-Nl-WYG" firstAttribute="centerY" secondItem="9ql-iz-yDO" secondAttribute="centerY" id="Kkq-PT-aJs"/>
+                                                <constraint firstItem="nd6-Nl-WYG" firstAttribute="top" secondItem="M5S-wF-l82" secondAttribute="bottom" constant="2" id="Mxh-6y-mIl"/>
+                                                <constraint firstItem="nd6-Nl-WYG" firstAttribute="centerX" secondItem="9ql-iz-yDO" secondAttribute="centerX" id="SHb-LK-s7e"/>
                                                 <constraint firstItem="M5S-wF-l82" firstAttribute="leading" secondItem="9ql-iz-yDO" secondAttribute="leadingMargin" constant="29" id="p6j-HU-e5X"/>
-                                                <constraint firstItem="pVW-sr-WQ8" firstAttribute="centerY" secondItem="9ql-iz-yDO" secondAttribute="centerY" id="w2S-RV-SH3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="68" id="wIr-pf-Dcs">
-                                        <rect key="frame" x="0.0" y="547" width="393" height="68"/>
+                                        <rect key="frame" x="0.0" y="563" width="393" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wIr-pf-Dcs" id="8yJ-aa-Gla">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="68"/>
@@ -535,7 +542,7 @@ Thank you for choosing LabCaught for your medical testing needs. We appreciate y
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="68" id="MYZ-n0-PVh">
-                                        <rect key="frame" x="0.0" y="615" width="393" height="68"/>
+                                        <rect key="frame" x="0.0" y="631" width="393" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MYZ-n0-PVh" id="2Ed-D7-BWA">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="68"/>
@@ -565,7 +572,7 @@ Thank you for choosing LabCaught for your medical testing needs. We appreciate y
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="68" id="8yl-fO-pXm">
-                                        <rect key="frame" x="0.0" y="683" width="393" height="68"/>
+                                        <rect key="frame" x="0.0" y="699" width="393" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8yl-fO-pXm" id="MOA-5o-HEb">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="68"/>
@@ -598,7 +605,7 @@ Thank you for choosing LabCaught for your medical testing needs. We appreciate y
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="68" id="9xj-g3-5V0">
-                                        <rect key="frame" x="0.0" y="751" width="393" height="68"/>
+                                        <rect key="frame" x="0.0" y="767" width="393" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9xj-g3-5V0" id="8Ri-cM-DNg">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="68"/>
@@ -631,7 +638,7 @@ Thank you for choosing LabCaught for your medical testing needs. We appreciate y
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="68" id="Tpg-4C-Eoc">
-                                        <rect key="frame" x="0.0" y="819" width="393" height="68"/>
+                                        <rect key="frame" x="0.0" y="835" width="393" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tpg-4C-Eoc" id="xJS-Zu-ESU">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="68"/>
@@ -664,7 +671,7 @@ Thank you for choosing LabCaught for your medical testing needs. We appreciate y
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="95" id="Nee-i5-eqI">
-                                        <rect key="frame" x="0.0" y="887" width="393" height="95"/>
+                                        <rect key="frame" x="0.0" y="903" width="393" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nee-i5-eqI" id="Qbf-As-Ft9">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="95"/>
@@ -725,6 +732,7 @@ Thank you for choosing LabCaught for your medical testing needs. We appreciate y
                     <connections>
                         <outlet property="CPRTextField" destination="h7T-GS-Rtj" id="wk8-Xr-k9b"/>
                         <outlet property="ConfirmPasswordTextField" destination="Tgw-4O-Utq" id="dNC-JF-VNt"/>
+                        <outlet property="DOBTextField" destination="nd6-Nl-WYG" id="Iz2-sO-liH"/>
                         <outlet property="FirstNameTextField" destination="omu-DD-t8P" id="ZGQ-UA-e6X"/>
                         <outlet property="LastNameTextField" destination="MMi-p0-aaA" id="QSY-gY-4Ho"/>
                         <outlet property="PasswordTextField" destination="etp-nC-nPJ" id="Bwj-hl-p3p"/>
