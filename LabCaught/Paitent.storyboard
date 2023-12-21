@@ -96,8 +96,14 @@
                                 <segment title="Completed"/>
                                 <segment title="Canceled"/>
                             </segments>
+                            <connections>
+                                <action selector="segmentedControlChanged:" destination="VMt-OS-IjR" eventType="valueChanged" id="Zhp-im-aid"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="L80-I4-wnC" id="aZJ-sX-FvO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvf-07-Efn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

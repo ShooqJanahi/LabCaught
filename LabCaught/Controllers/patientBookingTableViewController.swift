@@ -43,6 +43,7 @@ class patientBookingTableViewController: UITableViewController {
 
     @IBAction func segmentedControlChanged(_ sender: Any) {
         selectedSegement = segmentedControl.selectedSegmentIndex
+        categorizeBookings()
         tableView.reloadData()
     }
     // MARK: - Table view data source
