@@ -11,6 +11,8 @@ import Foundation
 
 class AppData {
     static var users: [User] = []
+    //for the registered patient
+    static var patient: [Patient] = []
     
     //admin user
     static var admins: [Admin] = [Admin(username: "admin", password: "admin123", department: "IT", firstName: "Alice", lastName: "Russo", phoneNumber: 12345678)]
@@ -21,7 +23,7 @@ class AppData {
     static var services = [Service]()
     
     // User : Patient dummy  data
-      static var Patients: [Patient] = [
+      static var samplePatients: [Patient] = [
           Patient(username: "sa56", password: "7655", phoneNumber: 33234455, firstName: "Saleh", lastName: "ahmed", DOB: DateComponents(calendar: Calendar.current, year: 2009, month: 1, day:2), CPR: 091000000),
       
           Patient(username: "hessa5", password: "hasoos", phoneNumber: 0909098, firstName: "Hessa", lastName: "Fadhel", DOB: DateComponents(calendar: Calendar.current, year: 2002, month: 1, day:2), CPR: 021176524),
@@ -134,9 +136,9 @@ class AppData {
       
       //bookings Dummy Data
         static var sampleBookings = [
-          booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:22), patient: Patients[3], medicalService: tests[1]),
+          booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:22), patient: samplePatients[3], medicalService: tests[1]),
           
-          booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:22), patient: Patients[4], medicalService: tests[0])
+          booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:22), patient: samplePatients[4], medicalService: tests[0])
         ]
       
     
@@ -160,16 +162,20 @@ class AppData {
         if services.isEmpty {
             services = allTestsPackages
         }
+        if patient.isEmpty{
+            patient = samplePatients
+        }
         // Load other user data if necessary
         loadFromFile()
     }
 
     //don't touch this (this is for saving registerd user information
-    static func addUser(username: String, password: String, phoneNumber: Int, firstName: String, lastName: String, dob: DateComponents, cpr: Int) {
-           let newUser = Patient(username: username, password: password, phoneNumber: phoneNumber, firstName: firstName, lastName: lastName, DOB: dob, CPR: cpr)
-           Patients.append(newUser) // Add the patient to the Patients array.
-           saveToFile() // Save the updated Patients array.
-       }
+    // Add user to the saved data and save to UserDefaults
+     static func addUser(username: String, password: String, phoneNumber: Int, firstName: String, lastName: String, dob: DateComponents, cpr: Int) {
+         let newUser = Patient(username: username, password: password, phoneNumber: phoneNumber, firstName: firstName, lastName: lastName, DOB: dob, CPR: cpr)
+         patient.append(newUser)
+         saveToFile()
+     }
 
     static func editUser(user: User) {
         if let index = users.firstIndex(where: { $0.username == user.username }) {
@@ -188,18 +194,20 @@ class AppData {
         return false
     }
 
-    // Placeholder for the loadFromFile method
-    static func loadFromFile() {
+//this for the registered patient
+    // Load data from UserDefaults
+       static func loadFromFile() {
            if let savedPatients = UserDefaults.standard.object(forKey: "SavedPatients") as? Data {
                if let decodedPatients = try? JSONDecoder().decode([Patient].self, from: savedPatients) {
-                   Patients = decodedPatients
+                   patient = decodedPatients
                }
            }
+           // Add any other initial loading logic here if necessary
        }
 
-    // Placeholder for the saveToFile method
-    static func saveToFile() {
-           if let encoded = try? JSONEncoder().encode(Patients) {
+       // Save user data to UserDefaults
+       static func saveToFile() {
+           if let encoded = try? JSONEncoder().encode(patient) {
                UserDefaults.standard.set(encoded, forKey: "SavedPatients")
            }
        }

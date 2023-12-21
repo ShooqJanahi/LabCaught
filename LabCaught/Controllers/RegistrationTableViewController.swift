@@ -60,12 +60,6 @@ class RegistrationTableViewController: UITableViewController {
         
         
         
-        // Parse the date of birth into DateComponents
-        guard let dobComponents = Utility.parseDateComponents(from: dob) else {
-            // Handle error - invalid date
-            return
-        }
-        
         
         
         // In RegistrationTableViewController
@@ -108,12 +102,12 @@ class RegistrationTableViewController: UITableViewController {
         
       
         // If all checks pass, add the user and navigate back to the login screen
-          AppData.addUser(username: userName, password: password, phoneNumber: Int(phoneNumber) ?? 0, firstName: firstName, lastName: lastName, dob: dobComponents, cpr: Int(cpr) ?? 0)
-          
-          // Use your segue or navigation controller to pop back to the login screen
-          // For example, if using a navigation controller:
-          DispatchQueue.main.async { [weak self] in
-              self?.navigationController?.popViewController(animated: true)
+        let dobComponents = Utility.parseDateComponents(from: dob)
+                AppData.addUser(username: userName, password: password, phoneNumber: Int(phoneNumber) ?? 0, firstName: firstName, lastName: lastName, dob: dobComponents ?? DateComponents(), cpr: Int(cpr) ?? 0)
+                
+                // Navigate back to the login screen
+                DispatchQueue.main.async { [weak self] in
+                    self?.navigationController?.popViewController(animated: true)
           }
       }
         
