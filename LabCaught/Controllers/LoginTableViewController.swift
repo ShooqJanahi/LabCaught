@@ -28,14 +28,18 @@ class LoginTableViewController: UITableViewController {
         }
         
         // Check if the entered username and password match a patient's credentials.
-        let isPatient = AppData.Patients.contains { $0.username == username && $0.password == password }
+        let isPatient = AppData.patient.contains { $0.username == username && $0.password == password }
         // Check if the entered username and password match a facility's credentials.
         let isFacility = AppData.facilites.contains { $0.username == username && $0.password == password }
         // Check if the entered username and password match an admin's credentials.
         let isAdmin = AppData.admins.contains { $0.username == username && $0.password == password }
         
+        let isSamplePatient = AppData.samplePatients.contains { $0.username == username && $0.password == password }
+        
         // If the user is a patient, switch to the Patient storyboard.
         if isPatient {
+            Utility.switchToStoryboard(named: "PatientHome")
+        } else if isSamplePatient{
             Utility.switchToStoryboard(named: "PatientHome")
         }
         // If the user is a facility, switch to the Lab storyboard.
