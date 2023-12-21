@@ -159,10 +159,10 @@ class AppData {
 
     //don't touch this (this is for saving registerd user information
     static func addUser(username: String, password: String, phoneNumber: Int, firstName: String, lastName: String, dob: DateComponents, cpr: Int) {
-        let newUser = Patient(username: username, password: password, phoneNumber: phoneNumber, firstName: firstName, lastName: lastName, DOB: dob, CPR: cpr)
-        users.append(newUser)
-        saveToFile()
-    }
+           let newUser = Patient(username: username, password: password, phoneNumber: phoneNumber, firstName: firstName, lastName: lastName, DOB: dob, CPR: cpr)
+           Patients.append(newUser) // Add the patient to the Patients array.
+           saveToFile() // Save the updated Patients array.
+       }
 
     static func editUser(user: User) {
         if let index = users.firstIndex(where: { $0.username == user.username }) {
@@ -183,25 +183,19 @@ class AppData {
 
     // Placeholder for the loadFromFile method
     static func loadFromFile() {
-           // Load the users array from UserDefaults or a file
-           if let savedUsers = UserDefaults.standard.object(forKey: "SavedUsers") as? Data {
-               if let decodedUsers = try? JSONDecoder().decode([User].self, from: savedUsers) {
-                   users = decodedUsers
-                   
-                   // Reconstruct Patients array from users array if needed
-                   Patients = users.compactMap { $0 as? Patient }
+           if let savedPatients = UserDefaults.standard.object(forKey: "SavedPatients") as? Data {
+               if let decodedPatients = try? JSONDecoder().decode([Patient].self, from: savedPatients) {
+                   Patients = decodedPatients
                }
-            }
-        }
+           }
+       }
 
     // Placeholder for the saveToFile method
     static func saveToFile() {
-           // Save the users array to UserDefaults or a file
-           if let encoded = try? JSONEncoder().encode(users) {
-               UserDefaults.standard.set(encoded, forKey: "SavedUsers")
+           if let encoded = try? JSONEncoder().encode(Patients) {
+               UserDefaults.standard.set(encoded, forKey: "SavedPatients")
            }
        }
-    
     //don't touch this (this is to save registerd user information)
     
     
