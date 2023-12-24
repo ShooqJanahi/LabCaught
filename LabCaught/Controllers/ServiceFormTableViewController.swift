@@ -35,12 +35,11 @@ class ServiceFormTableViewController: UITableViewController {
         }
     }
     
-    enum ServiceType {
-        case test, package
+    enum ServiceType: Int {
+        case test = 0, package
     }
 
     var currentServiceType: ServiceType = .test
-    
     
     var service: Service?
     
@@ -68,7 +67,23 @@ class ServiceFormTableViewController: UITableViewController {
         costTxt.text = service.cost
         descriptionTxt.text = service.describtion
         instructionsTxt.text = service.insrtuctions
-    }
+        
+        if service is Test {
+                serviceTypeSC.selectedSegmentIndex = ServiceType.test.rawValue
+                currentServiceType = .test
+            } else if let package = service as? Packages {
+                serviceTypeSC.selectedSegmentIndex = ServiceType.package.rawValue
+                currentServiceType = .package
+                
+                // Set the date picker to the package's expiry date
+                if let calendar = package.packageExpiry.calendar {
+                    expiryDate.date = calendar.date(from: package.packageExpiry) ?? Date()
+                }
+            }
+        // reload table view to reflect changes
+        tableView.reloadData()
+        }
+    
         
         
         
@@ -79,15 +94,16 @@ class ServiceFormTableViewController: UITableViewController {
          return 1
          }*/
          
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if currentServiceType == .test && (section == ServiceFormSection.packageItems.rawValue || section == ServiceFormSection.expiryDate.rawValue) {
-            return 0
-            
+        if currentServiceType == .package && (section == ServiceFormSection.packageItems.rawValue || section == ServiceFormSection.expiryDate.rawValue) {
+            return 1 // Assuming there is 1 row in each of these sections for packages
+        } else if currentServiceType == .test && (section == ServiceFormSection.packageItems.rawValue || section == ServiceFormSection.expiryDate.rawValue) {
+            return 0 // Hide rows for tests
         }
         return super.tableView(tableView, numberOfRowsInSection: section)
-
     }
+
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         // If 'Tests' is selected and the section is 'packageItems' or 'expiryDate', return an empty string.
