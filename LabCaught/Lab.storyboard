@@ -220,6 +220,7 @@
                         <outlet property="nameTxt" destination="qoX-FP-GbZ" id="ShK-f4-eVW"/>
                         <outlet property="saveBtn" destination="zJc-48-9Ml" id="WKW-KL-apd"/>
                         <outlet property="serviceTypeSC" destination="xuA-Jt-neL" id="xXs-aZ-73h"/>
+                        <outlet property="testsList" destination="gtb-ao-MNP" id="moX-H8-Eak"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ao7-dN-dcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -333,7 +334,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="53" id="bSW-TM-hGG">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TestCell" rowHeight="53" id="bSW-TM-hGG">
                                 <rect key="frame" x="0.0" y="50" width="393" height="53"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bSW-TM-hGG" id="lGX-1H-ZB2">
