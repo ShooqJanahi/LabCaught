@@ -10,16 +10,16 @@ import UIKit
 class ServiceFormTableViewController: UITableViewController, TestSelectionViewControllerDelegate {
     func testSelectionViewController(_ controller: TestSelectionViewController, didSelectTests selectedTests: [Test]) {
         // Convert selectedTests back into selectedIndexPaths for consistency
-                selectedIndexPaths = selectedTests.map { test in
-                    if let index = AppData.tests.firstIndex(where: { $0.name == test.name }) {
-                        return IndexPath(row: index, section: 0)
-                    }
-                    return IndexPath(row: 0, section: 0)
-                }
-                
-                // Update the label with the names of the selected tests
-        testsList.text = selectedTests.map { $0.name }.joined(separator: ", ")
+        selectedIndexPaths = selectedTests.map { test in
+            if let index = AppData.tests.firstIndex(where: { $0.name == test.name }) {
+                return IndexPath(row: index, section: 0)
+            }
+            return IndexPath(row: 0, section: 0)
         }
+        
+        // Update the label with the names of the selected tests
+        testsList.text = selectedTests.map { $0.name }.joined(separator: ", ")
+    }
     
     
     @IBOutlet weak var serviceTypeSC: UISegmentedControl!
@@ -35,7 +35,7 @@ class ServiceFormTableViewController: UITableViewController, TestSelectionViewCo
     @IBOutlet weak var expiryDate: UIDatePicker!
     
     var selectedIndexPaths: [IndexPath] = []
-
+    
     
     
     enum ServiceFormSection: Int, CaseIterable {
@@ -46,7 +46,7 @@ class ServiceFormTableViewController: UITableViewController, TestSelectionViewCo
         case instructions
         case packageItems
         case expiryDate
-
+        
         static var count: Int {
             return self.allCases.count
         }
@@ -55,7 +55,7 @@ class ServiceFormTableViewController: UITableViewController, TestSelectionViewCo
     enum ServiceType: Int {
         case test = 0, package
     }
-
+    
     var currentServiceType: ServiceType = .test
     
     var service: Service?
@@ -65,7 +65,15 @@ class ServiceFormTableViewController: UITableViewController, TestSelectionViewCo
     var descrip: String = ""
     var instructions: String = ""
     
+    init?(coder: NSCoder, service: Service) {
+        self.service = service
+        super.init(coder: coder)
+    }
     
+    required init?(coder: NSCoder) {
+        self.service = nil
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,8 +87,6 @@ class ServiceFormTableViewController: UITableViewController, TestSelectionViewCo
         instructionsTxt.layer.borderColor = UIColor(white: 0.95, alpha: 1.0).cgColor
         instructionsTxt.layer.borderWidth = 1.0
         instructionsTxt.layer.cornerRadius = 5.0
-        
-        
     }
     
     func updateViews() {
@@ -96,34 +102,37 @@ class ServiceFormTableViewController: UITableViewController, TestSelectionViewCo
         instructionsTxt.text = service.insrtuctions
         
         if service is Test {
-                serviceTypeSC.selectedSegmentIndex = ServiceType.test.rawValue
-                currentServiceType = .test
-            } else if let package = service as? Packages {
-                serviceTypeSC.selectedSegmentIndex = ServiceType.package.rawValue
-                currentServiceType = .package
-                
-                // Update the label with the names of the tests included in the package
-                testsList.text = package.packageIncludes.map { $0.name }.joined(separator: ", ")
-                
-                // Convert the package's included tests to their corresponding index paths
-                // This assumes that 'AppData.tests' contains all possible tests in the order they are displayed
-                selectedIndexPaths = package.packageIncludes.compactMap { test in
+            serviceTypeSC.selectedSegmentIndex = ServiceType.test.rawValue
+            currentServiceType = .test
+        } else if let package = service as? Packages {
+            serviceTypeSC.selectedSegmentIndex = ServiceType.package.rawValue
+            currentServiceType = .package
+            
+            // Update the label with the names of the tests included in the package
+            testsList.text = package.packageIncludes.map { $0.name }.joined(separator: ", ")
+            
+            // Convert the package's included tests to their corresponding index paths
+            // This assumes that 'AppData.tests' contains all possible tests in the order they are displayed
+            selectedIndexPaths = package.packageIncludes.compactMap { test in
                 guard let index = AppData.tests.firstIndex(where: { $0.name == test.name }) else { return nil }
                 return IndexPath(row: index, section: 0)  // Assuming there is only one section
-                }
-                
-                // Set the date picker to the package's expiry date
-                if let calendar = package.packageExpiry.calendar {
-                    expiryDate.date = calendar.date(from: package.packageExpiry) ?? Date()
-                }
             }
+            
+            // Set the date picker to the package's expiry date
+            if let calendar = package.packageExpiry.calendar {
+                expiryDate.date = calendar.date(from: package.packageExpiry) ?? Date()
+            }
+        }
         // reload table view to reflect changes
         tableView.reloadData()
-        }
+    }
     
+    
+    /*@IBAction func saveBtnTapped(_ sender: Any) {
         
-        
-        
+    }*/
+
+    
         // MARK: - Table view data source
         
         /*override func numberOfSections(in tableView: UITableView) -> Int {
