@@ -21,6 +21,7 @@
 		4FB49A2A2B31EDDB00977E36 /* PatientHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB49A292B31EDDB00977E36 /* PatientHomeTableViewController.swift */; };
 		4FB49A2C2B31FEAA00977E36 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB49A2B2B31FEAA00977E36 /* AppData.swift */; };
 		592208E12B31E164006673DD /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592208E02B31E164006673DD /* Service.swift */; };
+		59630BE02B383D970020CF4F /* TestSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59630BDF2B383D970020CF4F /* TestSelectionViewController.swift */; };
 		59E5BFF42B3359DE004C0D10 /* ServiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E5BFF32B3359DE004C0D10 /* ServiceTableViewController.swift */; };
 		59E5BFF82B335A5A004C0D10 /* ServiceFormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E5BFF72B335A5A004C0D10 /* ServiceFormTableViewController.swift */; };
 		59E5BFFA2B335AEB004C0D10 /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E5BFF92B335AEB004C0D10 /* ServiceTableViewCell.swift */; };
@@ -64,6 +65,7 @@
 		4FB49A292B31EDDB00977E36 /* PatientHomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PatientHomeTableViewController.swift; path = LabCaught/PatientHomeTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		4FB49A2B2B31FEAA00977E36 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		592208E02B31E164006673DD /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		59630BDF2B383D970020CF4F /* TestSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSelectionViewController.swift; sourceTree = "<group>"; };
 		59E5BFF32B3359DE004C0D10 /* ServiceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTableViewController.swift; sourceTree = "<group>"; };
 		59E5BFF72B335A5A004C0D10 /* ServiceFormTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceFormTableViewController.swift; sourceTree = "<group>"; };
 		59E5BFF92B335AEB004C0D10 /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				C3EC31202B31C8D400AEF765 /* BookingDetailsConfirmedTableViewCell.swift */,
 				C68F7BCE2B32EAF7008EB770 /* HospitalLabTableViewCell.swift */,
 				59E5BFF92B335AEB004C0D10 /* ServiceTableViewCell.swift */,
+				59630BDF2B383D970020CF4F /* TestSelectionViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				4F1B7B662B347DEF0076EA2A /* PatientHomeFacilityTableViewCell.swift in Sources */,
 				8D33AABE2B30D604004CC0EF /* BookInfoTableViewCell.swift in Sources */,
 				C3EC311F2B31AE0100AEF765 /* calenderTableViewCell.swift in Sources */,
+				59630BE02B383D970020CF4F /* TestSelectionViewController.swift in Sources */,
 				C3EC31212B31C8D400AEF765 /* BookingDetailsConfirmedTableViewCell.swift in Sources */,
 				3AE79DD62B29DCA200889BB7 /* patientBookingTableViewController.swift in Sources */,
 			);

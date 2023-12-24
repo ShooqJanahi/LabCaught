@@ -7,18 +7,35 @@
 
 import UIKit
 
-class ServiceFormTableViewController: UITableViewController {
+class ServiceFormTableViewController: UITableViewController, TestSelectionViewControllerDelegate {
+    func testSelectionViewController(_ controller: TestSelectionViewController, didSelectTests selectedTests: [Test]) {
+        // Convert selectedTests back into selectedIndexPaths for consistency
+                selectedIndexPaths = selectedTests.map { test in
+                    if let index = AppData.tests.firstIndex(where: { $0.name == test.name }) {
+                        return IndexPath(row: index, section: 0)
+                    }
+                    return IndexPath(row: 0, section: 0)
+                }
+                
+                // Update the label with the names of the selected tests
+        testsList.text = selectedTests.map { $0.name }.joined(separator: ", ")
+        }
+    
     
     @IBOutlet weak var serviceTypeSC: UISegmentedControl!
     @IBOutlet weak var nameTxt: UITextField!
     @IBOutlet weak var costTxt: UITextField!
-    @IBOutlet weak var descriptionTxt: UITextField!
-    @IBOutlet weak var instructionsTxt: UITextField!
+    
+    @IBOutlet weak var descriptionTxt: UITextView!
+    @IBOutlet weak var instructionsTxt: UITextView!
     
     @IBOutlet weak var saveBtn: UIBarButtonItem!
     
     @IBOutlet weak var testsList: UILabel!
     @IBOutlet weak var expiryDate: UIDatePicker!
+    
+    var selectedIndexPaths: [IndexPath] = []
+
     
     
     enum ServiceFormSection: Int, CaseIterable {
@@ -54,6 +71,16 @@ class ServiceFormTableViewController: UITableViewController {
         super.viewDidLoad()
         serviceTypeChanged(serviceTypeSC)
         updateViews()
+        
+        //border color, width, and corner radius
+        descriptionTxt.layer.borderColor = UIColor(white: 0.95, alpha: 1.0).cgColor
+        descriptionTxt.layer.borderWidth = 1.0
+        descriptionTxt.layer.cornerRadius = 5.0
+        instructionsTxt.layer.borderColor = UIColor(white: 0.95, alpha: 1.0).cgColor
+        instructionsTxt.layer.borderWidth = 1.0
+        instructionsTxt.layer.cornerRadius = 5.0
+        
+        
     }
     
     func updateViews() {
@@ -74,6 +101,16 @@ class ServiceFormTableViewController: UITableViewController {
             } else if let package = service as? Packages {
                 serviceTypeSC.selectedSegmentIndex = ServiceType.package.rawValue
                 currentServiceType = .package
+                
+                // Update the label with the names of the tests included in the package
+                testsList.text = package.packageIncludes.map { $0.name }.joined(separator: ", ")
+                
+                // Convert the package's included tests to their corresponding index paths
+                // This assumes that 'AppData.tests' contains all possible tests in the order they are displayed
+                selectedIndexPaths = package.packageIncludes.compactMap { test in
+                guard let index = AppData.tests.firstIndex(where: { $0.name == test.name }) else { return nil }
+                return IndexPath(row: index, section: 0)  // Assuming there is only one section
+                }
                 
                 // Set the date picker to the package's expiry date
                 if let calendar = package.packageExpiry.calendar {
@@ -128,6 +165,16 @@ class ServiceFormTableViewController: UITableViewController {
         currentServiceType = sender.selectedSegmentIndex == 0 ? .test : .package
         tableView.reloadData()
     }
+    
+    
+    // Before navigating to TestSelectionViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowTestSelection", let destinationVC = segue.destination as? TestSelectionViewController {
+            destinationVC.selectedIndexPaths = selectedIndexPaths
+            destinationVC.delegate = self
+        }
+    }
+
     
 
 
