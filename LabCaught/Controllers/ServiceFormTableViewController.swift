@@ -43,7 +43,6 @@ class ServiceFormTableViewController: UITableViewController {
     
     
     var service: Service?
-    //var currentType: serviceType = .Test
     
     var name: String = ""
     var cost: String = ""
