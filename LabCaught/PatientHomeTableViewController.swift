@@ -136,9 +136,7 @@ class PatientHomeTableViewController: UITableViewController, UISearchControllerD
         var choosenFacility: Facility?
         if let cell = sender as? PatientHomeTableViewCell,
            let indexPath = tableView.indexPath(for: cell){
-            print("hello")//pp
-            choosenFacility = facilities[indexPath.row]
-            print(indexPath.row)//pp
+            choosenFacility = items[indexPath.row] as? Facility
         }
         return PatientHomeViewController(coder: coder, facility: choosenFacility)
     }
