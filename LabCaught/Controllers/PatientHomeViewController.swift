@@ -82,9 +82,21 @@ class PatientHomeViewController: UIViewController, UITableViewDelegate, UITableV
     
     
 
-    /*
+    
     // MARK: - Navigation
-
+    
+    @IBSegueAction func bookPage(_ coder: NSCoder, sender: Any?) -> bookableViewController? {
+        
+        var choosenService: Service?
+        if let cell = sender as? PatientHomeFacilityTableViewCell,
+           let indexPath = tableView.indexPath(for: cell){
+            choosenService = filteredServices[indexPath.row] as Service
+        }
+        
+        return bookableViewController(coder: coder, service: choosenService)
+    }
+    
+    /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
