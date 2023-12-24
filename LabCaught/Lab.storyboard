@@ -38,10 +38,10 @@
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="xuA-Jt-neL" firstAttribute="leading" secondItem="leJ-2V-NxD" secondAttribute="leadingMargin" constant="5" id="EiZ-nb-PkK"/>
-                                                <constraint firstItem="xuA-Jt-neL" firstAttribute="top" secondItem="leJ-2V-NxD" secondAttribute="topMargin" id="J5i-20-HLk"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="xuA-Jt-neL" secondAttribute="bottom" id="aOy-qD-Cf7"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="xuA-Jt-neL" secondAttribute="trailing" constant="5" id="dBz-oi-w4L"/>
+                                                <constraint firstItem="xuA-Jt-neL" firstAttribute="top" secondItem="leJ-2V-NxD" secondAttribute="topMargin" id="56d-Rt-m0P"/>
+                                                <constraint firstItem="xuA-Jt-neL" firstAttribute="leading" secondItem="leJ-2V-NxD" secondAttribute="leadingMargin" constant="5" id="QmP-rG-tD2"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="xuA-Jt-neL" secondAttribute="bottom" id="UDs-ZL-a4f"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="xuA-Jt-neL" secondAttribute="trailing" constant="5" id="qHh-aV-kiU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -223,7 +223,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="suH-W0-0rf">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="zJc-48-9Ml"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="zJc-48-9Ml">
+                            <connections>
+                                <action selector="saveBtnTapped:" destination="WeI-w5-qKq" id="5Xy-DH-T4q"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="costTxt" destination="gXt-m1-fUI" id="nwb-kN-h4A"/>
