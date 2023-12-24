@@ -128,14 +128,22 @@ class PatientHomeTableViewController: UITableViewController, UISearchControllerD
 
         return cell
     }
-    /*
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
-    }
-     */
-    /*
+    
     // MARK: - Navigation
-
+    
+    @IBSegueAction func facilityPage(_ coder: NSCoder, sender: Any?) -> PatientHomeViewController? {
+        
+        var choosenFacility: Facility?
+        if let cell = sender as? PatientHomeTableViewCell,
+           let indexPath = tableView.indexPath(for: cell){
+            print("hello")//pp
+            choosenFacility = facilities[indexPath.row]
+            print(indexPath.row)//pp
+        }
+        return PatientHomeViewController(coder: coder, facility: choosenFacility)
+    }
+    
+    /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.

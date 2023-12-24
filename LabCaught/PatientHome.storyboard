@@ -59,7 +59,7 @@
                                     <outlet property="facilityLbl" destination="H8T-Jn-hl5" id="ZCl-RO-GLe"/>
                                     <outlet property="nameLbl" destination="QXu-yl-LDc" id="dCK-cn-CA3"/>
                                     <outlet property="typeLbl" destination="fwz-0Q-fuF" id="QaG-xN-IJi"/>
-                                    <segue destination="6eS-mB-eRq" kind="show" id="RtI-vc-hP9"/>
+                                    <segue destination="6eS-mB-eRq" kind="show" destinationCreationSelector="facilityPage:sender:" id="RtI-vc-hP9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -281,6 +281,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Hospital" id="l2q-Hq-BlY"/>
+                    <connections>
+                        <outlet property="locationLbl" destination="JFe-sr-wda" id="4eZ-pM-zs8"/>
+                        <outlet property="nameLbl" destination="0i4-bK-pxX" id="fyD-gJ-z36"/>
+                        <outlet property="openingLbl" destination="4v7-fc-xnI" id="Z4u-zn-0FU"/>
+                        <outlet property="specializationLbl" destination="pKu-Uc-tBQ" id="08K-Sm-GHf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vMn-2y-sxw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
