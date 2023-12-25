@@ -7,15 +7,17 @@
 
 import UIKit
 
+// This class manages the login process.
 class LoginTableViewController: UITableViewController {
     
     // Outlets that connect to the username and password text fields in the storyboard.
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
+
+    // Called after the view controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Any additional setup after loading the view, typically from a nib.
+        // here goes Any additional setup after loading the view.
     }
     
     // This function is called when the login button is tapped.
