@@ -43,18 +43,33 @@ class Alerts {
     }
 }
 
-extension UIAlertController {
-    static func confirmAction(title: String, message: String, confirmTitle: String = "Delete", cancelTitle: String = "Cancel", onConfirm: @escaping () -> Void) -> UIAlertController {
+extension UIViewController {
+    
+    func confirmation(title: String, message: String?, confirmHandler: @escaping () -> Void) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        let confirmAction = UIAlertAction(title: confirmTitle, style: .destructive) { _ in
-            onConfirm()
+        let confirm = UIAlertAction(title: "Yes", style: .default) { action in
+            confirmHandler()
         }
-        let cancelAction = UIAlertAction(title: cancelTitle, style: .cancel)
-        
-        alert.addAction(confirmAction)
-        alert.addAction(cancelAction)
-        
-        return alert
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(confirm)
+        alert.addAction(cancel)
+        present(alert, animated: true)
     }
+    
+    func error(title: String, message: String?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Ok", style: .cancel)
+        alert.addAction(cancel)
+        present(alert, animated: true)
+    }
+}
+
+enum AlertTitle: String {
+    case DeleteConfirm = "Delete Confirmation"
+    case ErrorOccurred = "Error Occurred"
+}
+
+enum AlertMessage: String {
+    case DeleteConfirm = "Are you sure you want to continue deletion?"
+    case UserDeleteNotAllowed = "Cannot delete user, as they are part of one or more courses"
 }

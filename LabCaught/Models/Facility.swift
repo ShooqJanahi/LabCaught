@@ -1,7 +1,7 @@
 import Foundation
 
 //enum to specify the type of facility
-enum FacilityType: String, Codable{
+enum FacilityType: String, Codable, Equatable{
     case hospital
     case lab
     
@@ -58,7 +58,7 @@ class Facility: User{
             try container.encode(openingTime, forKey: .openingTime)
             try container.encode(closingTime, forKey: .closingTime)
             try container.encode(facilityType, forKey: .facilityType)
-        try container.encode(logoImageName, forKey: .logoImageName)
+            try container.encode(logoImageName, forKey: .logoImageName)
             try super.encode(to: encoder)
     }
     

@@ -12,7 +12,7 @@
         <scene sceneID="mo9-IY-dn8">
             <objects>
                 <tableViewController id="bjZ-HA-PTB" customClass="HosptalLabTableViewController" customModule="LabCaught" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="xGz-GG-bS7">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="xGz-GG-bS7">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -109,6 +109,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="facilityTypeSC" destination="9eg-05-EGB" id="XZG-jZ-L8E"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OGd-tK-ziJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -363,6 +366,9 @@
                                                     <subviews>
                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iTI-tn-H77">
                                                             <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                            <connections>
+                                                                <action selector="facilityIsAlwaysOpen:" destination="Qvy-s6-6R0" eventType="valueChanged" id="Yhf-Pr-mSo"/>
+                                                            </connections>
                                                         </switch>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24 Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASW-v5-tQI">
                                                             <rect key="frame" x="73" y="0.0" width="280" height="31"/>
@@ -377,6 +383,7 @@
                                                 <constraint firstItem="8a3-Nl-y82" firstAttribute="centerY" secondItem="tPb-A7-k58" secondAttribute="centerY" id="3Cf-8f-2qW"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="8a3-Nl-y82" secondAttribute="trailing" id="AFL-H8-x97"/>
                                                 <constraint firstItem="8a3-Nl-y82" firstAttribute="leading" secondItem="tPb-A7-k58" secondAttribute="leadingMargin" id="ECI-6O-7pS"/>
+                                                <constraint firstItem="8a3-Nl-y82" firstAttribute="centerY" secondItem="tPb-A7-k58" secondAttribute="centerY" id="Q0w-4h-Jy1"/>
                                                 <constraint firstItem="8a3-Nl-y82" firstAttribute="top" secondItem="tPb-A7-k58" secondAttribute="topMargin" id="jfj-XO-4yd"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="8a3-Nl-y82" secondAttribute="bottom" id="trO-YL-rV4"/>
                                             </constraints>
@@ -406,6 +413,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="P1W-xc-koY" secondAttribute="bottom" id="0zA-Be-lH7"/>
+                                                <constraint firstItem="P1W-xc-koY" firstAttribute="centerY" secondItem="F1N-fv-g8z" secondAttribute="centerY" id="KfV-Sw-iGj"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="P1W-xc-koY" secondAttribute="trailing" id="h4L-o8-bRk"/>
                                                 <constraint firstItem="P1W-xc-koY" firstAttribute="centerY" secondItem="F1N-fv-g8z" secondAttribute="centerY" id="kZc-e5-6bL"/>
                                                 <constraint firstItem="P1W-xc-koY" firstAttribute="leading" secondItem="F1N-fv-g8z" secondAttribute="leadingMargin" id="qd4-KB-dYM"/>
@@ -437,6 +445,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="zeo-vX-Eeg" firstAttribute="centerY" secondItem="XJk-6C-XN3" secondAttribute="centerY" id="1NP-Ew-dtc"/>
+                                                <constraint firstItem="zeo-vX-Eeg" firstAttribute="centerY" secondItem="XJk-6C-XN3" secondAttribute="centerY" id="AIa-uX-LRf"/>
                                                 <constraint firstItem="zeo-vX-Eeg" firstAttribute="top" secondItem="XJk-6C-XN3" secondAttribute="topMargin" id="Mgi-Jy-rxf"/>
                                                 <constraint firstItem="zeo-vX-Eeg" firstAttribute="leading" secondItem="XJk-6C-XN3" secondAttribute="leadingMargin" id="YOl-74-3Uc"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="zeo-vX-Eeg" secondAttribute="trailing" id="dhi-F6-6vD"/>
@@ -461,6 +470,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="btnSave" destination="4lU-aH-zIo" id="1gH-k9-VQa"/>
+                        <outlet property="closingTimeCell" destination="2Md-ia-F5j" id="qEJ-B2-hzv"/>
                         <outlet property="closingTimeDP" destination="hWf-N1-JOg" id="hJX-mt-iwl"/>
                         <outlet property="facilityLocationTextField" destination="a2g-ot-a5q" id="vQe-6E-S6h"/>
                         <outlet property="facilityLogo" destination="tp2-rF-v80" id="vf8-l9-muv"/>
@@ -470,6 +480,7 @@
                         <outlet property="facilityTypeSC" destination="HeF-ut-TFj" id="bwX-RO-90Z"/>
                         <outlet property="facilityUsernameTextField" destination="5BN-Hc-7d3" id="qpA-75-jDx"/>
                         <outlet property="isAlwaysOpenSwitch" destination="iTI-tn-H77" id="9DB-rd-lxm"/>
+                        <outlet property="openingTimeCell" destination="QDF-Mk-7wC" id="XQA-QE-g5y"/>
                         <outlet property="openingTimeDP" destination="1Gh-IB-iik" id="bZj-F0-cwM"/>
                     </connections>
                 </tableViewController>

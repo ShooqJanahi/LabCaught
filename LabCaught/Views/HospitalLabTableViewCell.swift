@@ -9,6 +9,7 @@ import UIKit
 
 class HospitalLabTableViewCell: UITableViewCell {
     
+    
     @IBOutlet weak var facilityNameLabel: UILabel!
     @IBOutlet weak var FacilityLocationLabel: UILabel!
     @IBOutlet weak var FacilityTypeLabel: UILabel!
@@ -31,5 +32,7 @@ class HospitalLabTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
 
 }

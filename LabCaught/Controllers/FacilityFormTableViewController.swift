@@ -22,8 +22,12 @@ class FacilityFormTableViewController: UITableViewController {
 
         @IBOutlet weak var btnSave: UIBarButtonItem!
         
-        
-        var facility: Facility?
+    @IBOutlet weak var openingTimeCell: UITableViewCell!
+    @IBOutlet weak var closingTimeCell: UITableViewCell!
+    
+    var facility: Facility?
+        var currentFacilityType: FacilityType = .hospital
+    
         
         var username: String = ""
         var password: String = ""
@@ -31,10 +35,16 @@ class FacilityFormTableViewController: UITableViewController {
         var phoneNumber: String = ""
         var location: String = ""
     
-    
-    required init?(coder: NSCoder) {
+    init?(coder: NSCoder, facility: Facility?) {
+        self.facility = facility
         super.init(coder: coder)
     }
+    
+    required init?(coder: NSCoder) {
+        self.facility = nil
+        super.init(coder: coder)
+    }
+    
         
     
     override func viewDidLoad() {
@@ -42,43 +52,12 @@ class FacilityFormTableViewController: UITableViewController {
         
         //AppData.loadFacilities()
         updateViews()
+        facilityIsAlwaysOpen(isAlwaysOpenSwitch)
     }
 
 
     func updateViews() {
-             // Check if there's an existing facility to edit
-                 if let facility = facility {
-                     // Editing an existing facility, populate the fields with its data
-                     facilityUsernameTextField.text = facility.username
-                     facilityPasswordTextField.text = facility.password
-                     facilityNameTextField.text = facility.name
-                     facilityPhoneNumberTextField.text = String(facility.phoneNumber)
-                     facilityLocationTextField.text = facility.location
-                     isAlwaysOpenSwitch.isOn = facility.isOpen24Hours
-                     facilityTypeSC.selectedSegmentIndex = facility.facilityType == .hospital ? 0 : 1
-
-                     // Configure date pickers
-                     openingTimeDP.date = createDate(from: facility.openingTime) ?? Date()
-                     closingTimeDP.date = createDate(from: facility.closingTime) ?? Date()
-
-                     // Set title for editing
-                     title = "Edit Facility"
-                 } else {
-                     // Adding a new facility, clear or set default values for the fields
-                     facilityUsernameTextField.text = ""
-                     facilityPasswordTextField.text = ""
-                     facilityNameTextField.text = ""
-                     facilityPhoneNumberTextField.text = ""
-                     facilityLocationTextField.text = ""
-                     isAlwaysOpenSwitch.isOn = false
-                     facilityTypeSC.selectedSegmentIndex = 0 // Default to hospital
-                     openingTimeDP.date = Date() // Set to current date/time or a default
-                     closingTimeDP.date = Date() // Set to current date/time or a default
-
-                     // Set title for adding
-                     title = "Add Facility"
-                 }
-             /*
+             
             guard let facility = facility else {
                 title = "Add Facility"
                 return
@@ -96,12 +75,12 @@ class FacilityFormTableViewController: UITableViewController {
                 closingTimeDP.date = createDate(from: facility.closingTime) ?? Date()
 
                 // Set the segmented control for facility type
-                facilityTypeSC.selectedSegmentIndex = facility.facilityType == .hospital ? 0 : 1
+        facilityTypeSC.selectedSegmentIndex = facility.facilityType == .hospital ? 0 : 1 
 
                 
                 // Assuming you have a method to load the image into faclityLogo
                 // faclityLogo.image = ...
-    */
+    
             // reload table view to reflect changes
             tableView.reloadData()
 
@@ -115,46 +94,96 @@ class FacilityFormTableViewController: UITableViewController {
     
     @IBAction func svaeButtoPassed(_ sender: UIBarButtonItem) {
         // Gather data from UI elements
-                            let username = facilityUsernameTextField.text ?? ""
-                            let password = facilityPasswordTextField.text ?? ""
-                            let name = facilityNameTextField.text ?? ""
-                            let phoneNumber = Int(facilityPhoneNumberTextField.text ?? "") ?? 0 // Make sure to handle conversion errors
-                            let location = facilityLocationTextField.text ?? ""
-                            let isOpen24Hours = isAlwaysOpenSwitch.isOn
-                            let facilityType = facilityTypeSC.selectedSegmentIndex == 0 ? FacilityType.hospital : FacilityType.lab
-                            let openingTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: openingTimeDP.date)
-                            let closingTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: closingTimeDP.date)
-                            let logoImageName = "defaultLogo" // Replace with your logic to get the image name or URL
+        let username = facilityUsernameTextField.text ?? ""
+        let password = facilityPasswordTextField.text ?? ""
+        let name = facilityNameTextField.text ?? ""
+        let phoneNumberText = facilityPhoneNumberTextField.text ?? "" // Make sure to handle conversion errors
+        let location = facilityLocationTextField.text ?? ""
+        let isOpen24Hours = isAlwaysOpenSwitch.isOn
+        let facilityType = facilityTypeSC.selectedSegmentIndex == 0 ? FacilityType.hospital : FacilityType.lab
+        let openingTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: openingTimeDP.date)
+        let closingTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: closingTimeDP.date)
+        let logoImageName = "defaultLogo" // Replace with your logic to get the image name or URL
+        
+        if username.isEmpty || password.isEmpty || name.isEmpty || location.isEmpty {
+                           //Alert message
+                           let alertController = UIAlertController(title: "Empty Fields", message: "Please fill the empty fields.", preferredStyle: .alert)
+                           let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                           alertController.addAction(okAction)
+                           present(alertController, animated: true, completion: nil)
+                           return
+                       }
 
-                            if let facility = facility { // If editing an existing facility
-                                // Update facility properties
-                                facility.username = username
-                                facility.password = password
-                                facility.name = name
-                                facility.phoneNumber = phoneNumber
-                                facility.location = location
-                                facility.isOpen24Hours = isOpen24Hours
-                                facility.facilityType = facilityType
-                                facility.openingTime = openingTimeComponents
-                                facility.closingTime = closingTimeComponents
-                                // Update other properties as needed
-                            } else { // If adding a new facility
-                                // Create new facility object
-                                let newFacility = Facility(username: username, password: password, phoneNumber: phoneNumber, name: name, location: location, isOpen24Hours: isOpen24Hours, openingTime: openingTimeComponents, closingTime: closingTimeComponents, facilityType: facilityType, logoImageName: logoImageName)
-                                // Add new facility to the data source
-                                AppData.sampleFacilities.append(newFacility)
-                            }
+        // Convert and validate phone number
+        guard let phoneNumber = Int(phoneNumberText) else {
+            // Alert message for invalid phone number
+            let alertController = UIAlertController(title: "Invalid Phone Number", message: "Please enter a valid phone number.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
+            return
+                }
+
+        // If editing an existing facility
+        if let facility = facility {
+            // Update facility properties
+            facility.username = username
+            facility.password = password
+            facility.name = name
+            facility.phoneNumber = phoneNumber
+            facility.location = location
+            facility.isOpen24Hours = isOpen24Hours
+            facility.facilityType = facilityType
+            facility.openingTime = openingTimeComponents
+            facility.closingTime = closingTimeComponents
+            // Update other properties as needed
+                                
+            //Edit facility to the data source
+            AppData.editFacility(facility: facility)
+        } else { // If adding a new facility
+            // Create new facility object
+            if isAlwaysOpenSwitch.isOn {
+                    let newFacility = Facility(username: username, password: password, phoneNumber: phoneNumber, name: name, location: location, isOpen24Hours: isOpen24Hours, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 20, minute: 0), facilityType: facilityType, logoImageName: logoImageName)
+                    AppData.addFacility(facility: newFacility)
+            } else {
+                    let newFacility = Facility(username: username, password: password, phoneNumber: phoneNumber, name: name, location: location, isOpen24Hours: isOpen24Hours, openingTime: openingTimeComponents, closingTime: closingTimeComponents, facilityType: facilityType, logoImageName: logoImageName)
+                    AppData.addFacility(facility: newFacility)
+            }
+                                
+            // Add new facility to the data source
+            //AppData.sampleFacilities.append(newFacility)
+                                
+                                
+        }
                         
-                        // Save changes to data source
-                           AppData.saveFacilities()
+            // Save changes to data source
+            AppData.saveFacilities()
+            //reload
 
-                        // Navigate back to the previous view controller
-                           navigationController?.popViewController(animated: true)
+        
+            // Navigate back to the previous view controller
+            navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func facilityIsAlwaysOpen(_ sender: UISwitch) {
+        if sender.isOn{
+            openingTimeCell.isHidden = true
+            closingTimeCell.isHidden = true
+        } else {
+            openingTimeCell.isHidden = false
+            closingTimeCell.isHidden = false
+        }
+    }
+    
+    
+    func updateCurrentType(){
+        currentFacilityType = facilityTypeSC.selectedSegmentIndex == 0 ? .hospital : .lab
+    }
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "showEditFacilitySegue", let destinationVC = segue.destination as? FacilityFormTableViewController, let indexPath = tableView.indexPathForSelectedRow {
                 destinationVC.facility = AppData.sampleFacilities[indexPath.row]
             }
         }
+     */
 }

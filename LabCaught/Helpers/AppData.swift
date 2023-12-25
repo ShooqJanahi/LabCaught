@@ -36,12 +36,12 @@ class AppData {
     ]
     
     
-    // Facility Dummy Data
+    //Facility Dummy Data
     static var Facility1 = Facility(username: "Alhilal",
                                     password: "12345",
                                     phoneNumber: 17001700,
-                                    name: "Alhilal Hospital",
-                                    location: "Riffa",
+                                    name: "Al Hilal Hospital",
+                                    location: "Riffa, Bahrain",
                                     isOpen24Hours: true,
                                     openingTime: DateComponents(hour: 8, minute: 0),
                                     closingTime: DateComponents(hour: 8, minute: 0),
@@ -51,15 +51,15 @@ class AppData {
     static var Facility2 = Facility(username: "Alsalam",
                                     password: "12345",
                                     phoneNumber: 17001700,
-                                    name: "Alsalam Hospital",
-                                    location: "Muharraq",
+                                    name: "Al Salam Hospital",
+                                    location: "Muharraq, Bahrain",
                                     isOpen24Hours: true,
                                     openingTime: DateComponents(hour: 8, minute: 0),
                                     closingTime: DateComponents(hour: 8, minute: 0),
                                     facilityType: .hospital,
                                     logoImageName: "")
     
-    static var Facility3 = Facility(username: "Royalmedical",
+    static var Facility3 = Facility(username: "alhilal",
                                     password: "123RM", phoneNumber: 17766666,
                                     name: "Alhilal Medical Servises",
                                     location: "Riffa, Bahrain",
@@ -69,30 +69,41 @@ class AppData {
                                     facilityType: .hospital,
                                     logoImageName: "")
     
-    static var Facility4 = Facility(username: "Royalmedical",
+    static var Facility4 = Facility(username: "KHamadUni",
                                     password: "123RM",
-                                    phoneNumber: 17766666,
-                                    name: "Royal Medical Servises",
-                                    location: "Muharraq, Bahrain",
+                                    phoneNumber: 17444444,
+                                    name: "King Hamad University Hospital ",
+                                    location: "Busaiteen, Bahrain",
                                     isOpen24Hours: true,
                                     openingTime: DateComponents(hour: 8, minute: 0),
-                                    closingTime: DateComponents(hour: 8, minute: 0),
+                                    closingTime: DateComponents(hour: 20, minute: 0),
                                     facilityType: .hospital,
                                     logoImageName: "")
     
-    static var Facility5 = Facility(username: "medicalabortary",
+    static var Facility5 = Facility(username: "MedicalLabortary",
                                     password: "123RM",
-                                    phoneNumber: 17766666,
+                                    phoneNumber: 17255522,
                                     name: "Bahrain medical labortary",
                                     location: "Salmaniya, Bahrain",
                                     isOpen24Hours: true,
-                                    openingTime: DateComponents(hour: 8, minute: 0),
-                                    closingTime: DateComponents(hour: 8, minute: 0),
+                                    openingTime: DateComponents(hour: 7, minute: 0),
+                                    closingTime: DateComponents(hour: 17, minute: 0),
+                                    facilityType: .lab,
+                                    logoImageName: "")
+    
+    static var Facility6 = Facility(username: "ThyrocareGulf",
+                                    password: "123RM",
+                                    phoneNumber: 66004000,
+                                    name: "Thyrocare Gulf Laboratories",
+                                    location: "Sanabis, Bahrain",
+                                    isOpen24Hours: false,
+                                    openingTime: DateComponents(hour: 9, minute: 0),
+                                    closingTime: DateComponents(hour: 17, minute: 0),
                                     facilityType: .lab,
                                     logoImageName: "")
     
     
-    static var sampleFacilities: [Facility] = [Facility1, Facility2, Facility3, Facility4, Facility5 ] {
+    static var sampleFacilities: [Facility] = [Facility1, Facility2, Facility3, Facility4, Facility5, Facility6 ] {
         didSet {
             saveFacilities()
         }
@@ -245,5 +256,40 @@ class AppData {
     static func getServices(facility: Facility) -> [Service]{
         return services.filter { $0.facility.username == facility.username}
     }
+    
+    
+    
 }
 
+// Facility Methods
+extension AppData {
+    static func getFacility(username: String) -> Facility? {
+        facilites.first(where: { $0.username == username })
+    }
+    
+    static func addFacility(facility: Facility) {
+        facilites.append(facility)
+        saveToFile()
+    }
+    
+    static func editFacility(facility: Facility) {
+        if let index = facilites.firstIndex(of: facility) {
+            facilites.remove(at: index)
+            facilites.insert(facility, at: index)
+            saveToFile()
+        }
+    }
+    
+    static func deleteFacility(facility: Facility) {
+        let index = AppData.facilites.firstIndex(of: facility) ?? 0
+        if let _ = AppData.facilites.first(where: { $0.facilityType == .hospital }){
+            
+        }
+        if let _ = AppData.facilites.first(where: { $0.facilityType == .lab }){
+            
+        }
+        AppData.facilites.remove(at: index)
+        saveToFile()
+        
+    }
+}
