@@ -7,7 +7,9 @@
 
 import UIKit
 
+// A class dedicated to managing alert presentations in the app.
 class Alerts {
+    // Static method to show an alert with a retry option on a view controller.
     static func showAlertWithRetry(on viewController: UIViewController, title: String, message: String, retryHandler: @escaping () -> Void){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let retryAction = UIAlertAction(title: "Try Again", style: .default) { _ in retryHandler()
@@ -20,18 +22,19 @@ class Alerts {
         }
     }
     
-    // Helper method to check if the phone number is an 8-digit integer
+     // Method to validate a phone number format.
     func isPhoneNumberCorrect(phoneNumber: String) -> Bool {
         let trimmedPhoneNumber = phoneNumber.trimmingCharacters(in: .whitespacesAndNewlines)
         return trimmedPhoneNumber.count == 8 && trimmedPhoneNumber.allSatisfy { $0.isNumber }
     }
     
+    // Method to validate a CPR number format.
     func isCPRCorrect(_ cpr: String) -> Bool {
         let trimmedCpr = cpr.trimmingCharacters(in: .whitespacesAndNewlines)
         return trimmedCpr.count == 9 && trimmedCpr.allSatisfy { $0.isNumber }
     }
     
-    
+    // Static method to display an alert if a username is already in use.
     static func showUsernameInUseAlertIfNecessary(for username: String, on viewController: UIViewController, isUsernameInUse: () -> Bool, retryHandler: @escaping () -> Void) {
         if isUsernameInUse() {
             showAlertWithRetry(on: viewController, title: "Username Error", message: "Username already in use", retryHandler: retryHandler)
