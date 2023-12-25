@@ -11,6 +11,19 @@ class bookableViewController: UITableViewController {
     
     //declare elements
     @IBOutlet weak var datePick: UIDatePicker!
+    var service: Service?
+    
+    //nada added this
+    init?(coder: NSCoder, service: Service?){
+        self.service = service
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.service = nil
+        super.init(coder: coder)
+    }
+    //end
     
     @IBAction func bookBtn(_ sender: Any) {
         //var selectedDate = datePick.date
