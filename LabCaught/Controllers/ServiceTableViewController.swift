@@ -79,23 +79,35 @@ class ServiceTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Present confirmation alert
             let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
-            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
-                // Perform the deletion
-                self.services.remove(at: indexPath.row)
-                AppData.services.remove(at: indexPath.row)
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [unowned self] _ in
+                // Identify the service to delete
+                let serviceToDelete = self.displayedServices[indexPath.row]
+
+                // Remove the service from the displayed services
+                self.displayedServices.remove(at: indexPath.row)
+                
+                // Also remove the service from the global AppData.services
+                if let indexInGlobal = AppData.services.firstIndex(where: { $0 === serviceToDelete }) {
+                    AppData.services.remove(at: indexInGlobal)
+                }
+
+                // Delete the row from the table view
                 tableView.deleteRows(at: [indexPath], with: .fade)
+
+                // Update persistent storage if necessary
+                // AppData.saveServicesToFile()
             }
+
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-            
+
             alert.addAction(deleteAction)
             alert.addAction(cancelAction)
-            
+
             // Present the alert
-            DispatchQueue.main.async {
-                self.present(alert, animated: true)
-            }
+            self.present(alert, animated: true)
         }
     }
+
 
     
     func performDeletion(at indexPath: IndexPath) {
