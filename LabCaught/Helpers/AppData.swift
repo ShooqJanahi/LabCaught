@@ -92,7 +92,25 @@ class AppData {
                                     logoImageName: "")
     
     
-    static var sampleFacilities: [Facility] = [Facility1, Facility2, Facility3, Facility4, Facility5 ]
+    static var sampleFacilities: [Facility] = [Facility1, Facility2, Facility3, Facility4, Facility5 ] {
+        didSet {
+            saveFacilities()
+        }
+    }
+
+    static func saveFacilities() {
+        if let encodedData = try? JSONEncoder().encode(sampleFacilities) {
+            UserDefaults.standard.set(encodedData, forKey: "facilities")
+        }
+    }
+
+    static func loadFacilities() {
+        if let savedFacilities = UserDefaults.standard.object(forKey: "facilities") as? Data {
+            if let decodedFacilities = try? JSONDecoder().decode([Facility].self, from: savedFacilities) {
+                sampleFacilities = decodedFacilities
+            }
+        }
+    }
     
     
     //Test dummy Data
