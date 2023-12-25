@@ -12,12 +12,21 @@ class ServiceTableViewController: UITableViewController {
 
     var services = AppData.services
     var displayedServices: [Service] = []
+    var lastSelectedSegmentIndex: Int = 0
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateDisplayedServices(segment: .tests)
         }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+            if let selectedSegment = ServiceSegment(rawValue: lastSelectedSegmentIndex) {
+                updateDisplayedServices(segment: selectedSegment)
+            }
+            tableView.reloadData()
+    }
     
     // An enum to differentiate between segments
     enum ServiceSegment: Int {
@@ -41,8 +50,12 @@ class ServiceTableViewController: UITableViewController {
     
     
     @IBAction func updateDisplayedServices(_ sender: UISegmentedControl) {
-        guard let selectedSegment = ServiceSegment(rawValue: sender.selectedSegmentIndex) else { return }
-        updateDisplayedServices(segment: selectedSegment)
+        /*guard let selectedSegment = ServiceSegment(rawValue: sender.selectedSegmentIndex) else { return }
+        updateDisplayedServices(segment: selectedSegment)*/
+        
+        lastSelectedSegmentIndex = sender.selectedSegmentIndex
+            guard let selectedSegment = ServiceSegment(rawValue: sender.selectedSegmentIndex) else { return }
+            updateDisplayedServices(segment: selectedSegment)
     }
     
     
