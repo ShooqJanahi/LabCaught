@@ -73,3 +73,16 @@ enum AlertMessage: String {
     case DeleteConfirm = "Are you sure you want to continue deletion?"
     case UserDeleteNotAllowed = "Cannot delete user, as they are part of one or more courses"
 }
+
+extension UIViewController{
+    func confirmation(title:String, message:String, confirmHandler: @escaping ()-> Void){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "yes", style: .default){
+            action in confirmHandler()
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(confirm)
+        alert.addAction(cancel)
+        present(alert,animated: true)
+    }
+}
