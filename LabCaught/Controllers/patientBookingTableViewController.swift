@@ -105,6 +105,33 @@ class patientBookingTableViewController: UITableViewController {
         tableView.reloadData()
     }
   
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            confirmation(title: "Confirm Deletion", message: "do you want to delete this record, if it is active, it will lead to automatic cancellation"){
+                let bookingToRemove : booking
+                switch self.selectedSegement{
+                case 0: bookingToRemove = self.upcomingBookings[indexPath.row]
+                    self.upcomingBookings.remove(at: indexPath.row)
+                case 1: bookingToRemove = self.completedBookings[indexPath.row]
+                    self.completedBookings.remove(at: indexPath.row)
+                case 2: bookingToRemove = self.cancelledBookings[indexPath.row]
+                    self.completedBookings.remove(at: indexPath.row)
+                default:
+                    return
+                }
+                if let index = AppData.bookings.firstIndex(where: {$0.patient == bookingToRemove.patient && $0.booking_date == bookingToRemove.booking_date}){
+                    AppData.bookings.remove(at: index)
+                    self.listOfBookings.remove(at: index)
+                }
+                self.categorizeBookings()
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            
+
+        }
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
