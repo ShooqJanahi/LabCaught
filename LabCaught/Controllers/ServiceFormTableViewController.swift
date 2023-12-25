@@ -15,10 +15,12 @@ class ServiceFormTableViewController: UITableViewController, TestSelectionViewCo
                 return IndexPath(row: index, section: 0)
             }
             return IndexPath(row: 0, section: 0)
+            
         }
         
         // Update the label with the names of the selected tests
         testsList.text = selectedTests.map { $0.name }.joined(separator: ", ")
+        updateSaveBtnState()
     }
     
     
@@ -35,7 +37,9 @@ class ServiceFormTableViewController: UITableViewController, TestSelectionViewCo
     @IBOutlet weak var expiryDate: UIDatePicker!
     
     var selectedIndexPaths: [IndexPath] = []
-    
+    var selectedTests: [Test] {
+        return selectedIndexPaths.map { AppData.tests[$0.row] }
+    }
     
     
     enum ServiceFormSection: Int, CaseIterable {
@@ -80,6 +84,11 @@ class ServiceFormTableViewController: UITableViewController, TestSelectionViewCo
         serviceTypeChanged(serviceTypeSC)
         updateViews()
         
+        updateSaveBtnState()
+        
+        descriptionTxt.delegate = self
+        instructionsTxt.delegate = self
+        
         //border color, width, and corner radius
         descriptionTxt.layer.borderColor = UIColor(white: 0.95, alpha: 1.0).cgColor
         descriptionTxt.layer.borderWidth = 1.0
@@ -87,6 +96,8 @@ class ServiceFormTableViewController: UITableViewController, TestSelectionViewCo
         instructionsTxt.layer.borderColor = UIColor(white: 0.95, alpha: 1.0).cgColor
         instructionsTxt.layer.borderWidth = 1.0
         instructionsTxt.layer.cornerRadius = 5.0
+        
+
     }
     
     func updateViews() {
@@ -125,12 +136,80 @@ class ServiceFormTableViewController: UITableViewController, TestSelectionViewCo
         }
         // reload table view to reflect changes
         tableView.reloadData()
+        updateSaveBtnState()
     }
     
     
-    /*@IBAction func saveBtnTapped(_ sender: Any) {
-        
-    }*/
+    @IBAction func saveBtnTapped(_ sender: Any) {
+        guard let name = nameTxt.text, !name.isEmpty,
+                  let cost = costTxt.text, !cost.isEmpty,
+                  let description = descriptionTxt.text, !description.isEmpty,
+                  let instructions = instructionsTxt.text, !instructions.isEmpty else {
+                presentAlert(withTitle: "Missing Information", message: "Please fill in all fields.")
+                return
+            }
+            
+            // Package-specific validation
+            if currentServiceType == .package {
+                let selectedTests = selectedIndexPaths.map { AppData.tests[$0.row] }
+                guard selectedTests.count >= 2 else {
+                    presentAlert(withTitle: "Insufficient Tests", message: "Please select at least two tests for the package.")
+                    return
+                }
+                
+                let expiryDateComponents = Calendar.current.dateComponents([.year, .month, .day], from: expiryDate.date)
+                guard expiryDateComponents.isValidDate(in: Calendar.current) else {
+                    presentAlert(withTitle: "Missing Expiry Date", message: "Please choose an expiry date for the package.")
+                    return
+                }
+                updateSaveBtnState()
+            }
+            
+            // Create a new service or update an existing one
+            if let existingService = service {
+                existingService.name = name
+                existingService.cost = cost
+                existingService.describtion = description
+                existingService.insrtuctions = instructions
+                if let package = existingService as? Packages {
+                    package.packageIncludes = selectedIndexPaths.map { AppData.tests[$0.row] }
+                    package.packageExpiry = Calendar.current.dateComponents([.year, .month, .day], from: expiryDate.date)
+                }
+                // Update the service in the AppData array
+                if let index = AppData.services.firstIndex(where: { $0 === existingService }) {
+                    AppData.services[index] = existingService
+                }
+            } else {
+                // Create new service object based on the type and add it to AppData
+                let facility = AppData.Facility1.self// get the facility object
+                if currentServiceType == .test {
+                    let newTest = Test(name: name, cost: cost, describtion: description, insrtuctions: instructions, facility: facility)
+                    AppData.services.append(newTest)
+                } else {
+                    let selectedTests = selectedIndexPaths.map { AppData.tests[$0.row] }
+                    let packageExpiry = Calendar.current.dateComponents([.year, .month, .day], from: expiryDate.date)
+                    let newPackage = Packages(name: name, cost: cost, describtion: description, insrtuctions: instructions, packageIncludes: selectedTests, packageExpiry: packageExpiry, facility: facility)
+                    AppData.services.append(newPackage)
+                }
+            }
+
+            // Save the updated services to persistent storage
+            // You need to implement this method to save `AppData.services`
+            //AppData.saveServicesToFile()
+
+            // Notify any listeners that the services have been updated (e.g., the list view controller)
+            NotificationCenter.default.post(name: NSNotification.Name("ServiceListShouldRefresh"), object: nil)
+
+            // Dismiss the current view controller to return to the list view
+            navigationController?.popViewController(animated: true)
+        }
+    
+
+private func presentAlert(withTitle title: String, message: String) {
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "OK", style: .default))
+    present(alert, animated: true)
+}
 
     
         // MARK: - Table view data source
@@ -170,11 +249,28 @@ class ServiceFormTableViewController: UITableViewController, TestSelectionViewCo
          }
     
     
+
+    @IBAction func textFieldEditingChanged(_ sender: Any) {
+        updateSaveBtnState()
+    }
+    
+    
     @IBAction func serviceTypeChanged(_ sender: UISegmentedControl) {
         currentServiceType = sender.selectedSegmentIndex == 0 ? .test : .package
         tableView.reloadData()
     }
     
+    func updateSaveBtnState() {
+        let name = nameTxt.text ?? ""
+        let cost = costTxt.text ?? ""
+        let description = descriptionTxt.text ?? ""
+        let instructions = instructionsTxt.text ?? ""
+        let isPackage = currentServiceType == .package
+        let hasSelectedTests = isPackage && selectedTests.count >= 2
+        let hasValidExpiryDate = isPackage && Calendar.current.dateComponents([.year, .month, .day], from: expiryDate.date).isValidDate(in: Calendar.current)
+
+        saveBtn.isEnabled = !name.isEmpty && !cost.isEmpty && !description.isEmpty && !instructions.isEmpty && (!isPackage || (hasSelectedTests && hasValidExpiryDate))
+    }
     
     // Before navigating to TestSelectionViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -235,3 +331,8 @@ class ServiceFormTableViewController: UITableViewController, TestSelectionViewCo
          */
         
     }
+extension ServiceFormTableViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        updateSaveBtnState()
+    }
+}

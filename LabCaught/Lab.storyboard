@@ -60,6 +60,9 @@
                                                     <rect key="frame" x="20" y="11" width="313" height="34.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textFieldEditingChanged:" destination="WeI-w5-qKq" eventType="editingDidEnd" id="mlJ-kY-1dX"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -85,6 +88,9 @@
                                                     <rect key="frame" x="20" y="11" width="313" height="34.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textFieldEditingChanged:" destination="WeI-w5-qKq" eventType="editingDidEnd" id="OzC-Aa-EcY"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -376,7 +382,7 @@
         <segue reference="7Vo-2G-N3t"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="plus" catalog="system" width="32" height="32"/>
         <image name="rectangle.portrait.and.arrow.forward" catalog="system" width="128" height="109"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
