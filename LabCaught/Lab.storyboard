@@ -182,7 +182,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="cFy-vd-5nb">
-                                                    <rect key="frame" x="214" y="7" width="114" height="28"/>
+                                                    <rect key="frame" x="214" y="7" width="113" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <date key="minimumDate" timeIntervalSinceReferenceDate="694267200">
                                                         <!--2023-01-01 12:00:00 +0000-->
@@ -309,7 +309,7 @@
                                 <segment title="Tests"/>
                                 <segment title="Packages"/>
                             </segments>
-                            <color key="selectedSegmentTintColor" red="0.37258696559999999" green="0.40143489840000002" blue="0.55669742820000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="selectedSegmentTintColor" red="0.37254901960784315" green="0.40000000000000002" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="updateDisplayedServices:" destination="W7F-0P-48b" eventType="valueChanged" id="DuZ-lN-ze0"/>
                             </connections>

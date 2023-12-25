@@ -11,6 +11,13 @@ class HosptalLabTableViewController: UITableViewController {
 
     var faclities: [Facility] = AppData.facilites
     
+    var facility: Facility?
+
+        required init?(coder: NSCoder) {
+            super.init(coder: coder)
+        }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -59,6 +66,17 @@ class HosptalLabTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+                    let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
+                    let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+                        self.performDeletion(at: indexPath)
+                    }
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+                    alert.addAction(deleteAction)
+                    alert.addAction(cancelAction)
+                    present(alert, animated: true)
+                }
+        /*
+        if editingStyle == .delete {
                 // Present confirmation alert
                 DispatchQueue.main.async {
                     let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this item?", preferredStyle: .alert)
@@ -72,6 +90,7 @@ class HosptalLabTableViewController: UITableViewController {
                     self.present(alert, animated: true)
                 }
             }
+         */
     }
     
     func performDeletion(at indexPath: IndexPath) {
@@ -139,6 +158,28 @@ class HosptalLabTableViewController: UITableViewController {
             tableView.reloadData() // Reload the table view with the filtered data
         
     }
-    
+    /*
+    @IBSegueAction func editFacility(_ coder: NSCoder, sender: Any?) -> FacilityFormTableViewController? {
+        
+        // Determine which facility was selected
+                    guard let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) else {
+                        return nil
+                    }
+
+                    // Retrieve the selected facility
+                    let selectedFacility = AppData.sampleFacilities[indexPath.row]
+
+                    // Create the FacilityFormTableViewController with the selected facility
+                    let editViewController = FacilityFormTableViewController(coder: coder, facility: selectedFacility)
+
+                    return editViewController
+        
+    }
+    */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showEditFacilitySegue", let destinationVC = segue.destination as? FacilityFormTableViewController, let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
+            destinationVC.facility = AppData.sampleFacilities[indexPath.row]
+        }
+    }
     
 }
