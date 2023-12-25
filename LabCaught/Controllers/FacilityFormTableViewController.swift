@@ -40,7 +40,7 @@ class FacilityFormTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AppData.loadFacilities()
+        //AppData.loadFacilities()
         updateViews()
     }
 

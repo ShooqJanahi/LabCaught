@@ -21,6 +21,7 @@ class HosptalLabTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        AppData.loadFacilities()
         //show hospitals by default
         if let segmentedControl = self.navigationItem.titleView as? UISegmentedControl {
                 segmentedControl.selectedSegmentIndex = 0

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B9Z-sP-XIM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B9Z-sP-XIM">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -357,13 +358,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="8a3-Nl-y82">
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="8a3-Nl-y82">
                                                     <rect key="frame" x="20" y="11" width="353" height="31"/>
                                                     <subviews>
-                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iTI-tn-H77">
+                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iTI-tn-H77">
                                                             <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
                                                         </switch>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="24 Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASW-v5-tQI">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24 Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASW-v5-tQI">
                                                             <rect key="frame" x="73" y="0.0" width="280" height="31"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -373,6 +374,7 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="8a3-Nl-y82" firstAttribute="centerY" secondItem="tPb-A7-k58" secondAttribute="centerY" id="3Cf-8f-2qW"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="8a3-Nl-y82" secondAttribute="trailing" id="AFL-H8-x97"/>
                                                 <constraint firstItem="8a3-Nl-y82" firstAttribute="leading" secondItem="tPb-A7-k58" secondAttribute="leadingMargin" id="ECI-6O-7pS"/>
                                                 <constraint firstItem="8a3-Nl-y82" firstAttribute="top" secondItem="tPb-A7-k58" secondAttribute="topMargin" id="jfj-XO-4yd"/>
@@ -387,16 +389,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="P1W-xc-koY">
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="P1W-xc-koY">
                                                     <rect key="frame" x="20" y="11" width="353" height="31"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Opening Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHh-gF-gaw">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opening Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHh-gF-gaw">
                                                             <rect key="frame" x="0.0" y="0.0" width="164.66666666666666" height="31"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="1Gh-IB-iik">
+                                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="1Gh-IB-iik">
                                                             <rect key="frame" x="188.66666666666663" y="0.0" width="164.33333333333337" height="31"/>
                                                         </datePicker>
                                                     </subviews>
@@ -405,6 +407,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="P1W-xc-koY" secondAttribute="bottom" id="0zA-Be-lH7"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="P1W-xc-koY" secondAttribute="trailing" id="h4L-o8-bRk"/>
+                                                <constraint firstItem="P1W-xc-koY" firstAttribute="centerY" secondItem="F1N-fv-g8z" secondAttribute="centerY" id="kZc-e5-6bL"/>
                                                 <constraint firstItem="P1W-xc-koY" firstAttribute="leading" secondItem="F1N-fv-g8z" secondAttribute="leadingMargin" id="qd4-KB-dYM"/>
                                                 <constraint firstItem="P1W-xc-koY" firstAttribute="top" secondItem="F1N-fv-g8z" secondAttribute="topMargin" id="vL8-Mw-rw3"/>
                                             </constraints>
@@ -417,22 +420,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="zeo-vX-Eeg">
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="zeo-vX-Eeg">
                                                     <rect key="frame" x="20" y="11" width="353" height="31"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Closing Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0b2-gh-GGs">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closing Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0b2-gh-GGs">
                                                             <rect key="frame" x="0.0" y="0.0" width="164.66666666666666" height="31"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hWf-N1-JOg">
+                                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hWf-N1-JOg">
                                                             <rect key="frame" x="188.66666666666663" y="0.0" width="164.33333333333337" height="31"/>
                                                         </datePicker>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="zeo-vX-Eeg" firstAttribute="centerY" secondItem="XJk-6C-XN3" secondAttribute="centerY" id="1NP-Ew-dtc"/>
                                                 <constraint firstItem="zeo-vX-Eeg" firstAttribute="top" secondItem="XJk-6C-XN3" secondAttribute="topMargin" id="Mgi-Jy-rxf"/>
                                                 <constraint firstItem="zeo-vX-Eeg" firstAttribute="leading" secondItem="XJk-6C-XN3" secondAttribute="leadingMargin" id="YOl-74-3Uc"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="zeo-vX-Eeg" secondAttribute="trailing" id="dhi-F6-6vD"/>
