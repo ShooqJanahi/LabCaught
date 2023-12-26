@@ -7,15 +7,17 @@
 
 import UIKit
 
+// This class manages the login process.
 class LoginTableViewController: UITableViewController {
     
     // Outlets that connect to the username and password text fields in the storyboard.
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
+
+    // Called after the view controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Any additional setup after loading the view, typically from a nib.
+        // here goes Any additional setup after loading the view.
     }
     
     // This function is called when the login button is tapped.
@@ -36,26 +38,33 @@ class LoginTableViewController: UITableViewController {
         
         let isSamplePatient = AppData.samplePatients.contains { $0.username == username && $0.password == password }
         
-        // If the user is a patient, switch to the Patient storyboard.
-        if isPatient {
-            Utility.switchToStoryboard(named: "PatientHome")
-        } else if isSamplePatient{
-            Utility.switchToStoryboard(named: "PatientHome")
-        }
-        // If the user is a facility, switch to the Lab storyboard.
-        else if isFacility {
-            Utility.switchToStoryboard(named: "Lab")
-        }
-        // If the user is an admin, switch to the Admin storyboard.
-        else if isAdmin {
-            Utility.switchToStoryboard(named: "Admin")
-        } else {
-            // If the credentials do not match any user type, display an error message.
-            Alerts.showAlertWithRetry(on: self, title: "Login Error", message: "The provided credentials are incorrect.", retryHandler: {
-                // Clear the password field and put focus back on the username field for the user to try again.
-                self.passwordTextField.text = ""
-                self.usernameTextField.becomeFirstResponder()
-            })
-        }
+        /* commented because of errors
+         
+         
+         // If the user is a patient, switch to the Patient storyboard.
+         if isPatient {
+         Utility.switchToStoryboard(named: "PatientHome")
+         } else if isSamplePatient{
+         Utility.switchToStoryboard(named: "PatientHome")
+         }
+         // If the user is a facility, switch to the Lab storyboard.
+         else if isFacility {
+         Utility.switchToStoryboard(named: "Lab")
+         }
+         // If the user is an admin, switch to the Admin storyboard.
+         else if isAdmin {
+         Utility.switchToStoryboard(named: "Admin")
+         } else {
+         // If the credentials do not match any user type, display an error message.
+         Alerts.showAlertWithRetry(on: self, title: "Login Error", message: "The provided credentials are incorrect.", retryHandler: {
+         // Clear the password field and put focus back on the username field for the user to try again.
+         self.passwordTextField.text = ""
+         self.usernameTextField.becomeFirstResponder()
+         })
+         }
+         
+         */
     }
 }
+
+

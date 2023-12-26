@@ -10,7 +10,8 @@ import UIKit
 
 //Registration table view controller to allow new patients to register in the app
 class RegistrationTableViewController: UITableViewController {
-    
+
+    // Outlets for the text fields where users enter their personal information.
     @IBOutlet weak var FirstNameTextField: UITextField!
     @IBOutlet weak var LastNameTextField: UITextField!
     @IBOutlet weak var DOBTextField: UITextField!
@@ -19,12 +20,15 @@ class RegistrationTableViewController: UITableViewController {
     @IBOutlet weak var UserNameTextField: UITextField!
     @IBOutlet weak var PasswordTextField: UITextField!
     @IBOutlet weak var ConfirmPasswordTextField: UITextField!
-    
+
+    // Outlet for the switch to accept terms and conditions.
     @IBOutlet var TermsSwitch: UISwitch!
-    
+
+    // Called after the view controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        // Setting a unique tag to the username text field.
         UserNameTextField.tag = 1
         
     }
@@ -45,16 +49,18 @@ class RegistrationTableViewController: UITableViewController {
               let userName = UserNameTextField.text, !userName.isEmpty,
               let password = PasswordTextField.text, !password.isEmpty,
               let confirmPassword = ConfirmPasswordTextField.text, !confirmPassword.isEmpty else {
-            Alerts.showAlertWithRetry(on: self, title: "Registration Error", message: "Please fill in all fields.", retryHandler: {
-                // Add code here for retry logic, such as clearing fields or refocusing
+           // Show an alert if any field is empty.
+                  Alerts.showAlertWithRetry(on: self, title: "Registration Error", message: "Please fill in all fields.", retryHandler: {
+                 // Optional retry logic
             })
             return
         }
         
-        // Additional validation for password match
+        // Check if the entered passwords match.
         guard password == confirmPassword else {
+             // Show an alert if passwords do not match.
             Alerts.showAlertWithRetry(on: self, title: "Password Error", message: "Passwords do not match.", retryHandler: {
-                // Add code here for retry logic, such as clearing the password fields
+                // Optional retry logic for passwords
             })
             return
         }
@@ -72,7 +78,7 @@ class RegistrationTableViewController: UITableViewController {
         
         
         
-        
+   /* commented because of errors
         
         // In RegistrationTableViewController
         if !Utility.isCPRCorrect(CPRTextField.text ?? "") {
@@ -81,7 +87,8 @@ class RegistrationTableViewController: UITableViewController {
             })
             return
         }
-        
+
+        //check if username is already in use
         if AppData.isUsernameInUse(username: UserNameTextField.text ?? "") {
             Alerts.showAlertWithRetry(on: self, title: "Username Error", message: "Username already in use", retryHandler: {
                 self.UserNameTextField.becomeFirstResponder()
@@ -101,7 +108,8 @@ class RegistrationTableViewController: UITableViewController {
             })
             return
         }
-        
+*/
+        //check the terms switch
         if !TermsSwitch.isOn {
             Alerts.showAlertWithRetry(on: self, title: "Terms and Conditions", message: "You must agree to the terms and conditions to continue", retryHandler: {
                 // Logic to handle the retry, such as making the terms switch the focus

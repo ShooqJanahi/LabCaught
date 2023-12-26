@@ -8,39 +8,44 @@
 import Foundation
 import UIKit
 
+// A struct containing utility functions used throughout the app.
 struct Utility {
     
     
-    // Parses a string into DateComponents based on the specified format.
+    // Function to parse a date string into DateComponents.
+    // The function expects a date string in the format "dd/MM/yyyy".
     static func parseDateComponents(from dateString: String) -> DateComponents? {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd/MM/yyyy" // Change this format to whatever format your date string is in
+            dateFormatter.dateFormat = "dd/MM/yyyy" // Specifying the expected date format.
             guard let date = dateFormatter.date(from: dateString) else {
-                return nil
+                return nil // Returning nil if the date string does not match the format.
             }
             
             let calendar = Calendar.current
             let components = calendar.dateComponents([.year, .month, .day], from: date)
-            return components
+            return components // Returning the DateComponents extracted from the date.
+    }
         }
     
-    // Checks if a given phone number string is valid based on specific criteria.
-    static func isPhoneNumberCorrect(phoneNumber: String) -> Bool {
+     // Function to validate a phone number.
+    // It checks if the phone number has exactly 8 digits.
+func isPhoneNumberCorrect(phoneNumber: String) -> Bool {
         let trimmedPhoneNumber = phoneNumber.trimmingCharacters(in: .whitespacesAndNewlines)
         return trimmedPhoneNumber.count == 8 && trimmedPhoneNumber.allSatisfy { $0.isNumber }
     }
     
-    // Validates a CPR number based on specific criteria.
-    static func isCPRCorrect(_ cpr: String) -> Bool {
+    // Function to validate a CPR number.
+    // It checks if the CPR number has exactly 9 digits.
+func isCPRCorrect(_ cpr: String) -> Bool {
         let trimmedCpr = cpr.trimmingCharacters(in: .whitespacesAndNewlines)
         return trimmedCpr.count == 9 && trimmedCpr.allSatisfy { $0.isNumber }
     }
     
-    
-    //Don't Touch (this is fo the segue)
-    // Handles storyboard transitions. To be used cautiously as it affects the root view controller.
-    static func switchToStoryboard(named name: String) {
-            // Ensure this function is within the scope of your class
+
+    //Don't Touch this is the segue
+    // Function to switch to a different storyboard.
+func switchToStoryboard(named name: String) {
+            
             let storyboard = UIStoryboard(name: name, bundle: nil)
             if let initialViewController = storyboard.instantiateInitialViewController() {
                 guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
@@ -60,10 +65,4 @@ struct Utility {
     
     
     
-    
-    
-    
-    
-    
-    
-}
+

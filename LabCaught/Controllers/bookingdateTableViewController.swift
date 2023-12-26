@@ -10,7 +10,14 @@ import UIKit
 class bookableViewController: UITableViewController {
     
     //declare elements
+    @IBOutlet weak var testCell: UITableViewCell!
+    var test : Service?
     @IBOutlet weak var datePick: UIDatePicker!
+    @IBOutlet weak var CostLabel: UILabel!
+    @IBOutlet weak var NameLabel: UILabel!
+    @IBOutlet weak var testsInclueLabel: UILabel!
+    @IBOutlet weak var DescribtionLabel: UILabel!
+    @IBOutlet weak var InstructionLabel: UILabel!
     var service: Service?
     
     //nada added this
@@ -25,12 +32,17 @@ class bookableViewController: UITableViewController {
     }
     //end
     
+    
+    
     @IBAction func bookBtn(_ sender: Any) {
         //var selectedDate = datePick.date
         //let currentDate = Date()
         //if selectedDate >= currentDate {
-            let alert = UIAlertController(title: "Confirm Booking", message: "Are you sure you want to proceed with the booking?", preferredStyle: .alert)
+       // confirmation(title: "", message: ""){
             
+     //   }
+        let alert = UIAlertController(title: "Confirm Booking", message: "Are you sure you want to proceed with the booking?", preferredStyle: .alert)
+        
             let bookAction = UIAlertAction(title: "Book", style: .default) { _ in
                 self.handleBookingConfirmed()
             }
@@ -50,6 +62,7 @@ class bookableViewController: UITableViewController {
 
         
     //}
+    
 
     private func handleBookingConfirmed() {
         // Add your booking confirmation logic here
@@ -78,6 +91,9 @@ class bookableViewController: UITableViewController {
         //datePick.date = Date()
         // datePick.date = Date()
         // Additional setup if needed
+    updateView()
+        
+
     }
 
     // MARK: - Table view data source
@@ -90,6 +106,7 @@ class bookableViewController: UITableViewController {
         return 7 // One row for the trigger, one for the date picker
     }
 
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "datePicker", for: indexPath)
@@ -116,6 +133,30 @@ class bookableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "datePicker2", for: indexPath)
             return cell
         }
+        
+    }
+    */
+    
+    func updateView(){
+        guard let test = test else {
+            return
+        }
+        NameLabel.text = test.name
+        CostLabel.text = test.cost
+        InstructionLabel.text = test.insrtuctions
+        DescribtionLabel.text = test.describtion
+        if test is Test {
+            testCell.isHidden = true
+        }else if test is Packages {
+            let package1 = test as! Packages
+            var label = "Test includes:\n "
+            for t in package1.packageIncludes {
+                label += "-\(t.name)\n"
+            }
+            
+            testsInclueLabel.text = label
+        }
+        
         
     }
 

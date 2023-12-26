@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,7 +12,7 @@
         <scene sceneID="mo9-IY-dn8">
             <objects>
                 <tableViewController id="bjZ-HA-PTB" customClass="HosptalLabTableViewController" customModule="LabCaught" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="xGz-GG-bS7">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="xGz-GG-bS7">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -26,6 +26,7 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KDc-KR-rsT">
                                             <rect key="frame" x="30" y="11" width="88" height="88"/>
+                                            <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="88" id="0WJ-VA-XNF"/>
                                                 <constraint firstAttribute="width" constant="88" id="v10-Zg-v3Y"/>
@@ -76,7 +77,7 @@
                                     <outlet property="FacilityLogo" destination="KDc-KR-rsT" id="yWz-CL-eYt"/>
                                     <outlet property="FacilityTypeLabel" destination="Q7z-lO-frq" id="ofE-cP-VsZ"/>
                                     <outlet property="facilityNameLabel" destination="OaV-de-hJm" id="rpa-9P-yOu"/>
-                                    <segue destination="Qvy-s6-6R0" kind="show" id="vv4-fa-0bF"/>
+                                    <segue destination="Qvy-s6-6R0" kind="show" identifier="showEditFacilitySegue" destinationCreationSelector="editFacility:sender:" id="Fdo-s7-nPf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -96,17 +97,21 @@
                                 <segment title="Hospital"/>
                                 <segment title="Lab"/>
                             </segments>
+                            <color key="selectedSegmentTintColor" red="0.37254901959999998" green="0.40143489840000002" blue="0.55669742820000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="segmentChanged:" destination="bjZ-HA-PTB" eventType="valueChanged" id="etk-0K-XVP"/>
                             </connections>
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="BNi-HK-hfn">
                             <connections>
-                                <segue destination="Qvy-s6-6R0" kind="show" id="pTa-qO-ScF"/>
+                                <segue destination="Qvy-s6-6R0" kind="show" id="83I-sX-Kvm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="facilityTypeSC" destination="9eg-05-EGB" id="XZG-jZ-L8E"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OGd-tK-ziJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -128,10 +133,10 @@
             </objects>
             <point key="canvasLocation" x="-1045" y="85"/>
         </scene>
-        <!--Add Edit Hospital Lab Table View Controller-->
+        <!--Facility Form Table View Controller-->
         <scene sceneID="cWP-yX-qJQ">
             <objects>
-                <tableViewController id="Qvy-s6-6R0" customClass="AddEditHospitalLabTableViewController" customModule="LabCaught" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Qvy-s6-6R0" customClass="FacilityFormTableViewController" customModule="LabCaught" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="3Xr-JP-VoJ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -152,6 +157,7 @@
                                                         <segment title="Hospital"/>
                                                         <segment title="Lab"/>
                                                     </segments>
+                                                    <color key="selectedSegmentTintColor" red="0.37254901959999998" green="0.40000000000000002" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
@@ -355,13 +361,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="8a3-Nl-y82">
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="8a3-Nl-y82">
                                                     <rect key="frame" x="20" y="11" width="353" height="31"/>
                                                     <subviews>
-                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iTI-tn-H77">
+                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iTI-tn-H77">
                                                             <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                            <connections>
+                                                                <action selector="facilityIsAlwaysOpen:" destination="Qvy-s6-6R0" eventType="valueChanged" id="Yhf-Pr-mSo"/>
+                                                            </connections>
                                                         </switch>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="24 Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASW-v5-tQI">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24 Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASW-v5-tQI">
                                                             <rect key="frame" x="73" y="0.0" width="280" height="31"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -371,8 +380,10 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="8a3-Nl-y82" firstAttribute="centerY" secondItem="tPb-A7-k58" secondAttribute="centerY" id="3Cf-8f-2qW"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="8a3-Nl-y82" secondAttribute="trailing" id="AFL-H8-x97"/>
                                                 <constraint firstItem="8a3-Nl-y82" firstAttribute="leading" secondItem="tPb-A7-k58" secondAttribute="leadingMargin" id="ECI-6O-7pS"/>
+                                                <constraint firstItem="8a3-Nl-y82" firstAttribute="centerY" secondItem="tPb-A7-k58" secondAttribute="centerY" id="Q0w-4h-Jy1"/>
                                                 <constraint firstItem="8a3-Nl-y82" firstAttribute="top" secondItem="tPb-A7-k58" secondAttribute="topMargin" id="jfj-XO-4yd"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="8a3-Nl-y82" secondAttribute="bottom" id="trO-YL-rV4"/>
                                             </constraints>
@@ -385,16 +396,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="P1W-xc-koY">
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="P1W-xc-koY">
                                                     <rect key="frame" x="20" y="11" width="353" height="31"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Opening Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHh-gF-gaw">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opening Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHh-gF-gaw">
                                                             <rect key="frame" x="0.0" y="0.0" width="164.66666666666666" height="31"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="1Gh-IB-iik">
+                                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="1Gh-IB-iik">
                                                             <rect key="frame" x="188.66666666666663" y="0.0" width="164.33333333333337" height="31"/>
                                                         </datePicker>
                                                     </subviews>
@@ -402,7 +413,9 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="P1W-xc-koY" secondAttribute="bottom" id="0zA-Be-lH7"/>
+                                                <constraint firstItem="P1W-xc-koY" firstAttribute="centerY" secondItem="F1N-fv-g8z" secondAttribute="centerY" id="KfV-Sw-iGj"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="P1W-xc-koY" secondAttribute="trailing" id="h4L-o8-bRk"/>
+                                                <constraint firstItem="P1W-xc-koY" firstAttribute="centerY" secondItem="F1N-fv-g8z" secondAttribute="centerY" id="kZc-e5-6bL"/>
                                                 <constraint firstItem="P1W-xc-koY" firstAttribute="leading" secondItem="F1N-fv-g8z" secondAttribute="leadingMargin" id="qd4-KB-dYM"/>
                                                 <constraint firstItem="P1W-xc-koY" firstAttribute="top" secondItem="F1N-fv-g8z" secondAttribute="topMargin" id="vL8-Mw-rw3"/>
                                             </constraints>
@@ -415,22 +428,24 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="zeo-vX-Eeg">
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="zeo-vX-Eeg">
                                                     <rect key="frame" x="20" y="11" width="353" height="31"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Closing Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0b2-gh-GGs">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closing Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0b2-gh-GGs">
                                                             <rect key="frame" x="0.0" y="0.0" width="164.66666666666666" height="31"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hWf-N1-JOg">
+                                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hWf-N1-JOg">
                                                             <rect key="frame" x="188.66666666666663" y="0.0" width="164.33333333333337" height="31"/>
                                                         </datePicker>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="zeo-vX-Eeg" firstAttribute="centerY" secondItem="XJk-6C-XN3" secondAttribute="centerY" id="1NP-Ew-dtc"/>
+                                                <constraint firstItem="zeo-vX-Eeg" firstAttribute="centerY" secondItem="XJk-6C-XN3" secondAttribute="centerY" id="AIa-uX-LRf"/>
                                                 <constraint firstItem="zeo-vX-Eeg" firstAttribute="top" secondItem="XJk-6C-XN3" secondAttribute="topMargin" id="Mgi-Jy-rxf"/>
                                                 <constraint firstItem="zeo-vX-Eeg" firstAttribute="leading" secondItem="XJk-6C-XN3" secondAttribute="leadingMargin" id="YOl-74-3Uc"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="zeo-vX-Eeg" secondAttribute="trailing" id="dhi-F6-6vD"/>
@@ -447,20 +462,26 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ZPE-Zh-FtN">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="4lU-aH-zIo"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="4lU-aH-zIo">
+                            <connections>
+                                <action selector="svaeButtoPassed:" destination="Qvy-s6-6R0" id="CXR-aE-Cei"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="FacilityLocationTextField" destination="a2g-ot-a5q" id="fvC-Hu-7zt"/>
-                        <outlet property="FacilityNameTextField" destination="TEV-HA-pqd" id="FjL-sw-0Zo"/>
-                        <outlet property="FacilityPasswordTextField" destination="Wx4-Jv-zib" id="uJb-q2-OyB"/>
-                        <outlet property="FacilityPhoneNumberTextField" destination="Eo6-cC-Z1p" id="T7b-ev-Yo4"/>
-                        <outlet property="FacilityUsernameTextField" destination="5BN-Hc-7d3" id="OlK-tI-Xpm"/>
-                        <outlet property="IsAlwaysOpenSW" destination="iTI-tn-H77" id="9fM-R9-9Ed"/>
-                        <outlet property="btnSave" destination="4lU-aH-zIo" id="9l4-1F-9zF"/>
-                        <outlet property="closingTimeDP" destination="hWf-N1-JOg" id="7IY-JF-Rat"/>
-                        <outlet property="facilityTypeSC" destination="HeF-ut-TFj" id="IZo-O4-B5E"/>
-                        <outlet property="faclityLogo" destination="tp2-rF-v80" id="KWR-t8-NzV"/>
-                        <outlet property="openingtTimeDP" destination="1Gh-IB-iik" id="qXR-Km-IJf"/>
+                        <outlet property="btnSave" destination="4lU-aH-zIo" id="1gH-k9-VQa"/>
+                        <outlet property="closingTimeCell" destination="2Md-ia-F5j" id="qEJ-B2-hzv"/>
+                        <outlet property="closingTimeDP" destination="hWf-N1-JOg" id="hJX-mt-iwl"/>
+                        <outlet property="facilityLocationTextField" destination="a2g-ot-a5q" id="vQe-6E-S6h"/>
+                        <outlet property="facilityLogo" destination="tp2-rF-v80" id="vf8-l9-muv"/>
+                        <outlet property="facilityNameTextField" destination="TEV-HA-pqd" id="jsd-qI-Zg4"/>
+                        <outlet property="facilityPasswordTextField" destination="Wx4-Jv-zib" id="jR7-gx-4tK"/>
+                        <outlet property="facilityPhoneNumberTextField" destination="Eo6-cC-Z1p" id="mGu-Cq-P5z"/>
+                        <outlet property="facilityTypeSC" destination="HeF-ut-TFj" id="bwX-RO-90Z"/>
+                        <outlet property="facilityUsernameTextField" destination="5BN-Hc-7d3" id="qpA-75-jDx"/>
+                        <outlet property="isAlwaysOpenSwitch" destination="iTI-tn-H77" id="9DB-rd-lxm"/>
+                        <outlet property="openingTimeCell" destination="QDF-Mk-7wC" id="XQA-QE-g5y"/>
+                        <outlet property="openingTimeDP" destination="1Gh-IB-iik" id="bZj-F0-cwM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XpA-PM-OEY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -469,7 +490,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vv4-fa-0bF"/>
+        <segue reference="Fdo-s7-nPf"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="rectangle.portrait.and.arrow.forward" catalog="system" width="128" height="109"/>
