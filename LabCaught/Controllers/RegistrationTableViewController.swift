@@ -78,7 +78,7 @@ class RegistrationTableViewController: UITableViewController {
         
         
         
-        
+   /* commented because of errors
         
         // In RegistrationTableViewController
         if !Utility.isCPRCorrect(CPRTextField.text ?? "") {
@@ -108,7 +108,7 @@ class RegistrationTableViewController: UITableViewController {
             })
             return
         }
-
+*/
         //check the terms switch
         if !TermsSwitch.isOn {
             Alerts.showAlertWithRetry(on: self, title: "Terms and Conditions", message: "You must agree to the terms and conditions to continue", retryHandler: {

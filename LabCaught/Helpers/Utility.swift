@@ -29,14 +29,14 @@ struct Utility {
     
      // Function to validate a phone number.
     // It checks if the phone number has exactly 8 digits.
-    static func isPhoneNumberCorrect(phoneNumber: String) -> Bool {
+func isPhoneNumberCorrect(phoneNumber: String) -> Bool {
         let trimmedPhoneNumber = phoneNumber.trimmingCharacters(in: .whitespacesAndNewlines)
         return trimmedPhoneNumber.count == 8 && trimmedPhoneNumber.allSatisfy { $0.isNumber }
     }
     
     // Function to validate a CPR number.
     // It checks if the CPR number has exactly 9 digits.
-    static func isCPRCorrect(_ cpr: String) -> Bool {
+func isCPRCorrect(_ cpr: String) -> Bool {
         let trimmedCpr = cpr.trimmingCharacters(in: .whitespacesAndNewlines)
         return trimmedCpr.count == 9 && trimmedCpr.allSatisfy { $0.isNumber }
     }
@@ -44,7 +44,7 @@ struct Utility {
 
     //Don't Touch this is the segue
     // Function to switch to a different storyboard.
-    static func switchToStoryboard(named name: String) {
+func switchToStoryboard(named name: String) {
             
             let storyboard = UIStoryboard(name: name, bundle: nil)
             if let initialViewController = storyboard.instantiateInitialViewController() {
@@ -65,10 +65,4 @@ struct Utility {
     
     
     
-    
-    
-    
-    
-    
-    
-}
+

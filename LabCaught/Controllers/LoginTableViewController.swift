@@ -38,26 +38,33 @@ class LoginTableViewController: UITableViewController {
         
         let isSamplePatient = AppData.samplePatients.contains { $0.username == username && $0.password == password }
         
-        // If the user is a patient, switch to the Patient storyboard.
-        if isPatient {
-            Utility.switchToStoryboard(named: "PatientHome")
-        } else if isSamplePatient{
-            Utility.switchToStoryboard(named: "PatientHome")
-        }
-        // If the user is a facility, switch to the Lab storyboard.
-        else if isFacility {
-            Utility.switchToStoryboard(named: "Lab")
-        }
-        // If the user is an admin, switch to the Admin storyboard.
-        else if isAdmin {
-            Utility.switchToStoryboard(named: "Admin")
-        } else {
-            // If the credentials do not match any user type, display an error message.
-            Alerts.showAlertWithRetry(on: self, title: "Login Error", message: "The provided credentials are incorrect.", retryHandler: {
-                // Clear the password field and put focus back on the username field for the user to try again.
-                self.passwordTextField.text = ""
-                self.usernameTextField.becomeFirstResponder()
-            })
-        }
+        /* commented because of errors
+         
+         
+         // If the user is a patient, switch to the Patient storyboard.
+         if isPatient {
+         Utility.switchToStoryboard(named: "PatientHome")
+         } else if isSamplePatient{
+         Utility.switchToStoryboard(named: "PatientHome")
+         }
+         // If the user is a facility, switch to the Lab storyboard.
+         else if isFacility {
+         Utility.switchToStoryboard(named: "Lab")
+         }
+         // If the user is an admin, switch to the Admin storyboard.
+         else if isAdmin {
+         Utility.switchToStoryboard(named: "Admin")
+         } else {
+         // If the credentials do not match any user type, display an error message.
+         Alerts.showAlertWithRetry(on: self, title: "Login Error", message: "The provided credentials are incorrect.", retryHandler: {
+         // Clear the password field and put focus back on the username field for the user to try again.
+         self.passwordTextField.text = ""
+         self.usernameTextField.becomeFirstResponder()
+         })
+         }
+         
+         */
     }
 }
+
+

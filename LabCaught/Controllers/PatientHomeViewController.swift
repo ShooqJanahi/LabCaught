@@ -96,6 +96,12 @@ class PatientHomeViewController: UIViewController, UITableViewDelegate, UITableV
         return bookableViewController(coder: coder, service: choosenService)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? bookableViewController, let selected = tableView.indexPathForSelectedRow{
+            destination.test = filteredServices[selected.row]
+        }
+    }
+    
     /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
