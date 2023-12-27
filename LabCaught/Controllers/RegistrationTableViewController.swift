@@ -77,8 +77,16 @@ class RegistrationTableViewController: UITableViewController {
         })
         
         
-        
-   /* commented because of errors
+        // Check if the password is strong.
+        guard Utility.isPasswordStrong(password) else {
+            Alerts.showAlertWithRetry(on: self, title: "Weak Password", message: "Please enter a stronger password. It should have at least 8 characters, including uppercase and lowercase letters, a number, and a special character.", retryHandler: { [weak self] in
+                self?.PasswordTextField.text = ""
+                self?.ConfirmPasswordTextField.text = ""
+                self?.PasswordTextField.becomeFirstResponder()
+            })
+            return
+        }
+   
         
         // In RegistrationTableViewController
         if !Utility.isCPRCorrect(CPRTextField.text ?? "") {
@@ -88,95 +96,56 @@ class RegistrationTableViewController: UITableViewController {
             return
         }
 
-        //check if username is already in use
-        if AppData.isUsernameInUse(username: UserNameTextField.text ?? "") {
-            Alerts.showAlertWithRetry(on: self, title: "Username Error", message: "Username already in use", retryHandler: {
-                self.UserNameTextField.becomeFirstResponder()
-            })
-            return
-        }
+        // Check if the username is already in use.
+            if AppData.isUsernameInUse(username: userName) {
+                Alerts.showAlertWithRetry(on: self, title: "Username Error", message: "Username already in use", retryHandler: { [weak self] in
+                    self?.UserNameTextField.text = ""
+                    self?.UserNameTextField.becomeFirstResponder()
+                })
+                return
+            }
+      
+
+        // Check the date of birth format correctness.
+            guard let dobComponents = Utility.parseDateComponents(from: dob) else {
+                Alerts.showAlertWithRetry(on: self, title: "DOB Error", message: "The entered Date of Birth is in an incorrect format. Please use 'dd/MM/yyyy'.", retryHandler: {
+                    self.DOBTextField.text = ""
+                    self.DOBTextField.becomeFirstResponder()
+                })
+                return
+            }
         
         
         
         
-        // Check if the phone number is correct (8 digits)
-        if !Utility.isPhoneNumberCorrect(phoneNumber: PhoneNumberTextField.text ?? "") {
-            Alerts.showAlertWithRetry(on: self, title: "Phone Number Error", message: "The phone number is incorrect", retryHandler: {
-                // Logic to handle the retry
-                self.PhoneNumberTextField.text = ""
-                self.PhoneNumberTextField.becomeFirstResponder()
-            })
-            return
-        }
-*/
-        //check the terms switch
-        if !TermsSwitch.isOn {
-            Alerts.showAlertWithRetry(on: self, title: "Terms and Conditions", message: "You must agree to the terms and conditions to continue", retryHandler: {
-                // Logic to handle the retry, such as making the terms switch the focus
-                self.TermsSwitch.setOn(false, animated: true)
-                self.TermsSwitch.becomeFirstResponder()
-            })
-            return
-        }
+        // Check if the phone number is correct.
+            guard Utility.isPhoneNumberCorrect(phoneNumber: phoneNumber) else {
+                Alerts.showAlertWithRetry(on: self, title: "Phone Number Error", message: "The phone number is incorrect", retryHandler: {
+                    self.PhoneNumberTextField.text = ""
+                    self.PhoneNumberTextField.becomeFirstResponder()
+                })
+                return
+            }
+        
+        
+        // Check the terms switch.
+            guard TermsSwitch.isOn else {
+                Alerts.showAlertWithRetry(on: self, title: "Terms and Conditions", message: "You must agree to the terms and conditions to continue", retryHandler: {
+                    self.TermsSwitch.setOn(false, animated: true)
+                })
+                return
+            }
         
         
       
-        // If all checks pass, add the user and navigate back to the login screen
-        let dobComponents = Utility.parseDateComponents(from: dob)
-                AppData.addUser(username: userName, password: password, phoneNumber: Int(phoneNumber) ?? 0, firstName: firstName, lastName: lastName, dob: dobComponents ?? DateComponents(), cpr: Int(cpr) ?? 0)
+        // All checks passed - add the user and navigate back.
+            AppData.addUser(username: userName, password: password, phoneNumber: Int(phoneNumber) ?? 0, firstName: firstName, lastName: lastName, dob: dobComponents, cpr: Int(cpr) ?? 0)
                 
                 // Navigate back to the login screen
                 DispatchQueue.main.async { [weak self] in
                     self?.navigationController?.popViewController(animated: true)
           }
       }
-        
-        
-        
-        
-        /*
-         // Override to support conditional editing of the table view.
-         override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-         // Return false if you do not want the specified item to be editable.
-         return true
-         }
-         */
-        
-        /*
-         // Override to support editing the table view.
-         override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-         if editingStyle == .delete {
-         // Delete the row from the data source
-         tableView.deleteRows(at: [indexPath], with: .fade)
-         } else if editingStyle == .insert {
-         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-         }
-         }
-         */
-        
-        /*
-         // Override to support rearranging the table view.
-         override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-         
-         }
-         */
-        
-        /*
-         // Override to support conditional rearranging of the table view.
-         override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-         // Return false if you do not want the item to be re-orderable.
-         return true
-         }
-         */
-        
-        /*
-         // MARK: - Navigation
-         
-         // In a storyboard-based application, you will often want to do a little preparation before navigation
-         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-         }
-         */
+   
     }
 

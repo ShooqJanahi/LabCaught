@@ -38,7 +38,7 @@ class LoginTableViewController: UITableViewController {
         
         let isSamplePatient = AppData.samplePatients.contains { $0.username == username && $0.password == password }
         
-        /* commented because of errors
+        
          
          
          // If the user is a patient, switch to the Patient storyboard.
@@ -63,7 +63,7 @@ class LoginTableViewController: UITableViewController {
          })
          }
          
-         */
+         
     }
 }
 
