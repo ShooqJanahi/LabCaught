@@ -37,6 +37,8 @@
 		C65104622B387046008F95D6 /* FacilityFormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65104612B387046008F95D6 /* FacilityFormTableViewController.swift */; };
 		C68F7BCD2B32EAB4008EB770 /* HosptalLabTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68F7BCC2B32EAB4008EB770 /* HosptalLabTableViewController.swift */; };
 		C68F7BCF2B32EAF7008EB770 /* HospitalLabTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68F7BCE2B32EAF7008EB770 /* HospitalLabTableViewCell.swift */; };
+		C6FF36D12B3C51A90068A94A /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = C6FF36D02B3C51A90068A94A /* FirebaseDatabase */; };
+		C6FF36D32B3C51AF0068A94A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C6FF36D22B3C51AF0068A94A /* FirebaseStorage */; };
 		F01B13C82B32E8DF006619E1 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B13C72B32E8DF006619E1 /* Utility.swift */; };
 		F07483A52B1F100C003B67D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07483A42B1F100C003B67D8 /* AppDelegate.swift */; };
 		F07483A72B1F100C003B67D8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07483A62B1F100C003B67D8 /* SceneDelegate.swift */; };
@@ -117,6 +119,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6FF36D12B3C51A90068A94A /* FirebaseDatabase in Frameworks */,
+				C6FF36D32B3C51AF0068A94A /* FirebaseStorage in Frameworks */,
 				F0EC45082B3C262100EE15D5 /* FirebaseAnalyticsSwift in Frameworks */,
 				F0EC45062B3C262100EE15D5 /* FirebaseAnalytics in Frameworks */,
 			);
@@ -125,11 +129,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C6FF36CF2B3C51A90068A94A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F07483982B1F100C003B67D8 = {
 			isa = PBXGroup;
 			children = (
 				F07483A32B1F100C003B67D8 /* LabCaught */,
 				F07483A22B1F100C003B67D8 /* Products */,
+				C6FF36CF2B3C51A90068A94A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -248,6 +260,8 @@
 			packageProductDependencies = (
 				F0EC45052B3C262100EE15D5 /* FirebaseAnalytics */,
 				F0EC45072B3C262100EE15D5 /* FirebaseAnalyticsSwift */,
+				C6FF36D02B3C51A90068A94A /* FirebaseDatabase */,
+				C6FF36D22B3C51AF0068A94A /* FirebaseStorage */,
 			);
 			productName = LabCaught;
 			productReference = F07483A12B1F100C003B67D8 /* LabCaught.app */;
@@ -586,6 +600,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C6FF36D02B3C51A90068A94A /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0EC45042B3C262100EE15D5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		C6FF36D22B3C51AF0068A94A /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0EC45042B3C262100EE15D5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
 		F0EC45052B3C262100EE15D5 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F0EC45042B3C262100EE15D5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
