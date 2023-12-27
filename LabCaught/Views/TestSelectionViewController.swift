@@ -14,7 +14,7 @@ protocol TestSelectionViewControllerDelegate: AnyObject {
 class TestSelectionViewController: UITableViewController {
    
     weak var delegate: TestSelectionViewControllerDelegate?
-        var tests: [Test] = AppData.tests
+    var tests: [Test] = AppData.tests.filter { $0.facility.username == AppData.getLoggedInUsername() }
         var selectedIndexPaths: [IndexPath] = []
 
         override func viewDidLoad() {

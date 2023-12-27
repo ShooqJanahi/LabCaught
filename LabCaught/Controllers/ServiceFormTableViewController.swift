@@ -89,6 +89,7 @@ class ServiceFormTableViewController: UITableViewController, TestSelectionViewCo
         descriptionTxt.delegate = self
         instructionsTxt.delegate = self
         
+        
         //border color, width, and corner radius
         descriptionTxt.layer.borderColor = UIColor(white: 0.95, alpha: 1.0).cgColor
         descriptionTxt.layer.borderWidth = 1.0
@@ -180,8 +181,10 @@ class ServiceFormTableViewController: UITableViewController, TestSelectionViewCo
                     AppData.services[index] = existingService
                 }
             } else {
+               
                 // Create new service object based on the type and add it to AppData
-                let facility = AppData.Facility1.self// get the facility object
+                let facility: Facility = AppData.facilites.first(where: {$0.username == AppData.getLoggedInUsername()})!
+                
                 if currentServiceType == .test {
                     let newTest = Test(name: name, cost: cost, describtion: description, insrtuctions: instructions, facility: facility)
                     AppData.services.append(newTest)

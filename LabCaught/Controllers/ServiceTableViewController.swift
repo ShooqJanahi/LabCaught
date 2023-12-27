@@ -10,7 +10,7 @@ import UIKit
 class ServiceTableViewController: UITableViewController {
 
 
-    var services = AppData.services
+    var services = AppData.services.filter{$0.facility.username == AppData.getLoggedInUsername()}
     var displayedServices: [Service] = []
     var lastSelectedSegmentIndex: Int = 0
 
@@ -38,9 +38,9 @@ class ServiceTableViewController: UITableViewController {
     func updateDisplayedServices(segment: ServiceSegment) {
         switch segment {
         case .tests:
-            displayedServices = AppData.services.filter { $0 is Test }
+            displayedServices = AppData.services.filter {$0.facility.username == AppData.getLoggedInUsername() && $0 is Test }
         case .packages:
-            displayedServices = AppData.services.filter { $0 is Packages }
+            displayedServices = AppData.services.filter {$0.facility.username == AppData.getLoggedInUsername() && $0 is Packages }
         }
         
         tableView.reloadData() // Reload the table view with the filtered data
