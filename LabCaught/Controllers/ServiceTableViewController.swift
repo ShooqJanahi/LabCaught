@@ -139,6 +139,31 @@ class ServiceTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func logOutToMainScreen(_ sender: Any) {
+        Alerts.showLogoutConfirmation(on: self) {
+        self.performLogout()
+        }
+    }
+    
+    
+    
+    private func performLogout() {
+
+            if let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginTableViewControllerID") as? LoginTableViewController {
+                // Present or set as root view controller
+                self.present(loginViewController, animated: true)
+
+                // Alternatively, you can pop to the root view controller if it's a login screen
+                // self.navigationController?.popToRootViewController(animated: true)
+
+                // Or if you are using a navigation controller, you can do something like this:
+                 //navigationController?.setViewControllers([loginViewController], animated: true)
+            }
+        }
+
+
+    
+    
     /*override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "editSegue", sender: self)
     }*/
