@@ -20,6 +20,16 @@ class AppData {
     static var admins: [Admin] = [Admin(username: "admin", password: "admin123", department: "IT", firstName: "Alice", lastName: "Russo", phoneNumber: 12345678)]
     
 
+    // Saving the logged-in username to UserDefaults.
+        static func saveLoggedInUsername(username: String) {
+            UserDefaults.standard.set(username, forKey: "LoggedInUsername")
+        }
+
+        // Retrieving the logged-in username from UserDefaults.
+        static func getLoggedInUsername() -> String? {
+            return UserDefaults.standard.string(forKey: "LoggedInUsername")
+        }
+    
      // Array to store facility information.
     static var facilites = [Facility]()
     // Array to store booking information.
