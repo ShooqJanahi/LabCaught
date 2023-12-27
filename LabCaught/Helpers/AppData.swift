@@ -286,7 +286,11 @@ class AppData {
         return services.filter { $0.facility.username == facility.username}
     }
     
-    
+    static func editBookingStatus(booking: booking, status: statusType){
+        if let index = bookings.firstIndex(of: booking) {
+            bookings[index].status = status
+        }
+    }
     
 }
 

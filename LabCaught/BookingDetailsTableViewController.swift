@@ -44,6 +44,39 @@ class BookingDetailsTableViewController: UITableViewController {
         filling()
     }
     
+    @IBAction func cancelBooking(_ sender: Any) {
+        let alert = UIAlertController(title: "Cancel Booking",
+                                          message: "Are you sure you want to cancel this booking?",
+                                          preferredStyle: .alert)
+
+            let cancelAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+            let confirmAction = UIAlertAction(title: "Yes", style: .destructive) { _ in
+                AppData.editBookingStatus(booking: self.booking!, status: .cancelled)
+            }
+
+            alert.addAction(cancelAction)
+            alert.addAction(confirmAction)
+
+            present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func completeBooking(_ sender: Any) {
+        let alert = UIAlertController(title: "Complete Booking",
+                                          message: "Are you sure you want to complete this booking?",
+                                          preferredStyle: .alert)
+
+            let cancelAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+            let confirmAction = UIAlertAction(title: "Yes", style: .default) { _ in
+                AppData.editBookingStatus(booking: self.booking!, status: .completed)
+                //performSegue(withIdentifier: , sender: sender)
+            }
+
+            alert.addAction(cancelAction)
+            alert.addAction(confirmAction)
+
+            present(alert, animated: true, completion: nil)
+    }
+    
     func filling(){
         if let bookingStatus = booking?.status {
                 switch bookingStatus {
