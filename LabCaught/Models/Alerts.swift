@@ -39,11 +39,23 @@ class Alerts {
         if isUsernameInUse() {
             showAlertWithRetry(on: viewController, title: "Username Error", message: "Username already in use", retryHandler: retryHandler)
         }
-        
-        
-        
-        
     }
+    
+    static func showLogoutConfirmation(on viewController: UIViewController, confirmHandler: @escaping () -> Void) {
+            let alert = UIAlertController(title: "Logout", message: "Are you sure you want to log out?", preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "Logout", style: .destructive) { _ in
+                confirmHandler()
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+
+            alert.addAction(confirmAction)
+            alert.addAction(cancelAction)
+            DispatchQueue.main.async {
+                viewController.present(alert, animated: true, completion: nil)
+            }
+        }
+    
+    
 }
 
 extension UIViewController {

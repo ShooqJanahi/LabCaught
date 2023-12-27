@@ -19,6 +19,9 @@ class BookingDetailsTableViewController: UITableViewController {
     @IBOutlet weak var instructionsLbl: UILabel!
     @IBOutlet weak var descriptionLbl: UILabel!
     
+    @IBOutlet weak var buttonCell: UITableViewCell!
+    @IBOutlet weak var statusCell: UITableViewCell!
+    @IBOutlet weak var statusLbl: UILabel!
     
     var booking: booking?
     
@@ -36,52 +39,60 @@ class BookingDetailsTableViewController: UITableViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        filling()
+    }
+    
     func filling(){
+        if let bookingStatus = booking?.status {
+                switch bookingStatus {
+                case .upcoming:
+                    statusCell.isHidden = true
+                    buttonCell.isHidden = false
+                case .completed:
+                    buttonCell.isHidden = true
+                    statusCell.isHidden = false
+                    statusLbl.text = "APPOINTMENT COMPLETED!"
+                    
+                default:
+                    buttonCell.isHidden = true
+                    statusCell.isHidden = false
+                    statusLbl.text = "APPOINTMENT CANCELED!"
+                }
+            }
         
         if let firstName = booking?.patient.firstName, let lastName = booking?.patient.lastName {
-            patientNameLbl.text = ": " + firstName + lastName
+            patientNameLbl.text = firstName + lastName
         }
         
         if let CPR = booking?.patient.CPR {
-            cprLbl.text = ": " + CPR
+            cprLbl.text = String(CPR)
         }
         
         if let phone = booking?.patient.phoneNumber {
-            phoneLbl.text = ": " + phone
+            phoneLbl.text = String(phone)
         }
         
         if let bookingDate = booking?.booking_date {
-            bookingDateLbl.text = ": " + bookingDate
+            bookingDateLbl.text = "\(bookingDate)"
         }
         
         if let testPackageName = booking?.medicalService.name {
-            testPackageNameLbl.text = ": " + testPackageName
+            testPackageNameLbl.text = testPackageName
         }
         
         if let price = booking?.medicalService.cost {
-            priceLbl.text = ": " + price
+            priceLbl.text = price
         }
         
         if let instructions = booking?.medicalService.insrtuctions {
-            instructionsLbl.text = ": " + instructions
+            instructionsLbl.text = instructions
         }
         
         if let description = booking?.medicalService.describtion {
-            descriptionLbl.text = ": " + description
+            descriptionLbl.text = description
         }
-//        cprLbl.text = booking?.patient.CPR
-        
-//        phoneLbl.text = booking?.patient.phoneNumber
-//
-//        bookingDateLbl.text = booking?.booking_date
-//
-//        testPackageNameLbl.text = booking?.medicalService.name
-//
-//        priceLbl.text = booking?.medicalService.cost
-//
-//        instructionsLbl.text = booking?.medicalService.insrtuctions
-//
-//        descriptionLbl.text = booking?.medicalService.describtion
     }
     
     

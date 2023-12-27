@@ -226,20 +226,26 @@ class AppData {
                             describtion: "Blood test is done to check the patient's Vitamin B12 level and if they are healthy with no any side affeccts",
                             insrtuctions: "Fasting for 5 hours is required",
                             facility: sampleFacilities[1])
+    
+    static var test4 = Test(name: "Vitamin B12",
+                            cost: "3 BHD",
+                            describtion: "Blood test is done to check the patient's Vitamin B12 level and if they are healthy with no any side affeccts",
+                            insrtuctions: "Fasting for 8 - 10 hours is required",
+                            facility: sampleFacilities[0])
 
     
-    static var tests: [Test] = [test1,test2, test3]
+    static var tests: [Test] = [test1,test2, test3, test4]
     
     
     // Packages data for testing purposes.
-    static var package1 = Packages(name: "Basic Wellness Package", cost: "15 BHD", describtion: "This package includes essential health screenings, such as blood pressure, cholesterol, and blood sugar tests.", insrtuctions: "No fasting required. Please stay hydrated.", packageIncludes: [test2, test3], packageExpiry: DateComponents(calendar: Calendar.current, year: 2023, month: 6, day:2), facility: sampleFacilities[0])
+    static var package1 = Packages(name: "Basic Wellness Package", cost: "15 BHD", describtion: "This package includes essential health screenings, such as blood pressure, cholesterol, and blood sugar tests.", insrtuctions: "No fasting required. Please stay hydrated.", packageIncludes: [test1, test4], packageExpiry: DateComponents(calendar: Calendar.current, year: 2023, month: 6, day:2), facility: sampleFacilities[0])
     
-    static var package2 = Packages(name: "Healthy life Package", cost: "10 BHD", describtion: "A package that containes 2 test which are vitamans A and C", insrtuctions: "fasting for 5 hours are required", packageIncludes: [test1, test3], packageExpiry: DateComponents(calendar: Calendar.current, year: 2002, month: 1, day:2), facility: sampleFacilities[1])
+    static var package2 = Packages(name: "Healthy life Package", cost: "10 BHD", describtion: "A package that containes 2 test which are vitamans A and C", insrtuctions: "fasting for 5 hours are required", packageIncludes: [test2, test3], packageExpiry: DateComponents(calendar: Calendar.current, year: 2002, month: 1, day:2), facility: sampleFacilities[1])
     
     static var packages: [Packages] = [package1, package2]
 
     // Combined array of all tests and packages.
-    static var allTestsPackages: [Service] = [test1,test2, test3, package1, package2]
+    static var allTestsPackages: [Service] = [test1,test2, test3,test4, package1, package2]
     /*    moved them up with other facility data
      static var sampleFacilities = [
      Facility(username: "Royalmedical", password: "123RM", phoneNumber: 17766666, name: "Alhilal Medical Servises", location: "Riffa, Bahrain", isOpen24Hours: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 8, minute: 0), facilityType: .hospital),

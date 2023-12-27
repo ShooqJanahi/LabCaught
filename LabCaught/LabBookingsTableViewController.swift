@@ -57,9 +57,17 @@ class LabBookingsTableViewController: UITableViewController {
         return cell
     }
 
-    /*
+    
     // MARK: - Navigation
-
+    
+    @IBSegueAction func bookingDetails(_ coder: NSCoder, sender: Any?) -> BookingDetailsTableViewController? {
+        guard let cell = sender as? UITableViewCell,
+              let indexPath = tableView.indexPath(for: cell)
+        else { return nil }
+        let booking = bookings[indexPath.row]
+        return BookingDetailsTableViewController(coder: coder, booking: booking)
+    }
+    /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.

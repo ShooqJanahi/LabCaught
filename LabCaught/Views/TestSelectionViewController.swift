@@ -57,8 +57,15 @@ class TestSelectionViewController: UITableViewController {
 
         override func viewWillDisappear(_ animated: Bool) {
             super.viewWillDisappear(animated)
-            let selectedTests = selectedIndexPaths.map { tests[$0.row] }
-            delegate?.testSelectionViewController(self, didSelectTests: selectedTests)
+
+                let selectedTests = selectedIndexPaths.compactMap { indexPath -> Test? in
+                    guard tests.indices.contains(indexPath.row) else {
+                        return nil
+                    }
+                    return tests[indexPath.row]
+                }
+                
+                delegate?.testSelectionViewController(self, didSelectTests: selectedTests)
         }
 }
 
