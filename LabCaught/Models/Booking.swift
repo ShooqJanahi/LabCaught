@@ -11,7 +11,11 @@ enum statusType : String,Codable{
     cancelled = "Cancelled"
 }
 import Foundation
-class booking{
+class booking: Equatable{
+    static func == (lhs: booking, rhs: booking) -> Bool {
+        lhs.patient == rhs.patient && lhs.booking_date == rhs.booking_date
+    }
+    
     var booking_date:DateComponents
     var patient:Patient
     var status: statusType
