@@ -51,6 +51,8 @@
 		F0E033BF2B1F18A80090D7BB /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0E033BE2B1F18A80090D7BB /* Admin.storyboard */; };
 		F0E033C12B1F18C40090D7BB /* Lab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0E033C02B1F18C40090D7BB /* Lab.storyboard */; };
 		F0E033C32B1F18ED0090D7BB /* Paitent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0E033C22B1F18ED0090D7BB /* Paitent.storyboard */; };
+		F0EC44FF2B3C085D00EE15D5 /* TermsandConditionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EC44FE2B3C085D00EE15D5 /* TermsandConditionsTableViewController.swift */; };
+		F0EC45012B3C088B00EE15D5 /* ContactUsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EC45002B3C088B00EE15D5 /* ContactUsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +102,8 @@
 		F0E033BE2B1F18A80090D7BB /* Admin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
 		F0E033C02B1F18C40090D7BB /* Lab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lab.storyboard; sourceTree = "<group>"; };
 		F0E033C22B1F18ED0090D7BB /* Paitent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Paitent.storyboard; sourceTree = "<group>"; };
+		F0EC44FE2B3C085D00EE15D5 /* TermsandConditionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsandConditionsTableViewController.swift; sourceTree = "<group>"; };
+		F0EC45002B3C088B00EE15D5 /* ContactUsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +213,8 @@
 				59E5BFF32B3359DE004C0D10 /* ServiceTableViewController.swift */,
 				59E5BFF72B335A5A004C0D10 /* ServiceFormTableViewController.swift */,
 				C65104612B387046008F95D6 /* FacilityFormTableViewController.swift */,
+				F0EC44FE2B3C085D00EE15D5 /* TermsandConditionsTableViewController.swift */,
+				F0EC45002B3C088B00EE15D5 /* ContactUsTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -306,6 +312,7 @@
 				4F75475F2B3B2B1D00FA9CF9 /* LabBookingsTableViewCell.swift in Sources */,
 				4F9D6AB22B33485F007EFD3D /* PatientHomeViewController.swift in Sources */,
 				3AE79DDA2B29E04000889BB7 /* PatientHistoryTableViewCell.swift in Sources */,
+				F0EC45012B3C088B00EE15D5 /* ContactUsTableViewController.swift in Sources */,
 				F0DBA53A2B25DC2100EE7B28 /* Alerts.swift in Sources */,
 				C3956A272B3307CD0040EE00 /* Facility.swift in Sources */,
 				F07483A52B1F100C003B67D8 /* AppDelegate.swift in Sources */,
@@ -324,6 +331,7 @@
 				8D33AABE2B30D604004CC0EF /* BookInfoTableViewCell.swift in Sources */,
 				C3EC311F2B31AE0100AEF765 /* calenderTableViewCell.swift in Sources */,
 				59630BE02B383D970020CF4F /* TestSelectionViewController.swift in Sources */,
+				F0EC44FF2B3C085D00EE15D5 /* TermsandConditionsTableViewController.swift in Sources */,
 				C3EC31212B31C8D400AEF765 /* BookingDetailsConfirmedTableViewCell.swift in Sources */,
 				3AE79DD62B29DCA200889BB7 /* patientBookingTableViewController.swift in Sources */,
 			);

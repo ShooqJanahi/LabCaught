@@ -11,7 +11,7 @@
         <!--Contact Us-->
         <scene sceneID="mwB-bZ-J57">
             <objects>
-                <tableViewController id="UhS-8x-GYK" sceneMemberID="viewController">
+                <tableViewController id="UhS-8x-GYK" customClass="ContactUsTableViewController" customModule="LabCaught" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="jqt-VK-Cxq">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -750,7 +750,7 @@ Thank you for choosing LabCaught for your medical testing needs. We appreciate y
         <!--Terms and Conditions-->
         <scene sceneID="T0f-y2-rop">
             <objects>
-                <tableViewController id="Ucm-6J-ksN" customClass="Terms_ConditionsTableViewController" customModule="LabCaught" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Ucm-6J-ksN" customClass="TermsandConditionsTableViewController" customModule="LabCaught" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="8QK-KD-pTN">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
