@@ -17,6 +17,7 @@
 		4F1B7B662B347DEF0076EA2A /* PatientHomeFacilityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B7B652B347DEF0076EA2A /* PatientHomeFacilityTableViewCell.swift */; };
 		4F75475F2B3B2B1D00FA9CF9 /* LabBookingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F75475E2B3B2B1D00FA9CF9 /* LabBookingsTableViewCell.swift */; };
 		4F7547612B3B2BB000FA9CF9 /* LabBookingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7547602B3B2BB000FA9CF9 /* LabBookingsTableViewController.swift */; };
+		4F7B74562B3C320200A9D9B1 /* BookingDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7B74552B3C320200A9D9B1 /* BookingDetailsTableViewController.swift */; };
 		4F9D6AB22B33485F007EFD3D /* PatientHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9D6AB12B33485F007EFD3D /* PatientHomeViewController.swift */; };
 		4FB49A262B31E8EA00977E36 /* PatientHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FB49A252B31E8EA00977E36 /* PatientHome.storyboard */; };
 		4FB49A282B31E9D100977E36 /* PatientHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB49A272B31E9D100977E36 /* PatientHomeTableViewCell.swift */; };
@@ -69,6 +70,7 @@
 		4F1B7B652B347DEF0076EA2A /* PatientHomeFacilityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientHomeFacilityTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		4F75475E2B3B2B1D00FA9CF9 /* LabBookingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LabBookingsTableViewCell.swift; path = LabCaught/LabBookingsTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		4F7547602B3B2BB000FA9CF9 /* LabBookingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LabBookingsTableViewController.swift; path = LabCaught/LabBookingsTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		4F7B74552B3C320200A9D9B1 /* BookingDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookingDetailsTableViewController.swift; path = LabCaught/BookingDetailsTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		4F9D6AB12B33485F007EFD3D /* PatientHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientHomeViewController.swift; sourceTree = "<group>"; };
 		4FB49A252B31E8EA00977E36 /* PatientHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PatientHome.storyboard; sourceTree = "<group>"; };
 		4FB49A272B31E9D100977E36 /* PatientHomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PatientHomeTableViewCell.swift; path = LabCaught/PatientHomeTableViewCell.swift; sourceTree = SOURCE_ROOT; };
@@ -208,6 +210,7 @@
 		F0E033C62B1F19180090D7BB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4F7B74552B3C320200A9D9B1 /* BookingDetailsTableViewController.swift */,
 				4F7547602B3B2BB000FA9CF9 /* LabBookingsTableViewController.swift */,
 				4FB49A292B31EDDB00977E36 /* PatientHomeTableViewController.swift */,
 				F0DBA53B2B25DC5200EE7B28 /* LoginTableViewController.swift */,
@@ -326,6 +329,7 @@
 				4FB49A282B31E9D100977E36 /* PatientHomeTableViewCell.swift in Sources */,
 				4F75475F2B3B2B1D00FA9CF9 /* LabBookingsTableViewCell.swift in Sources */,
 				4F9D6AB22B33485F007EFD3D /* PatientHomeViewController.swift in Sources */,
+				4F7B74562B3C320200A9D9B1 /* BookingDetailsTableViewController.swift in Sources */,
 				3AE79DDA2B29E04000889BB7 /* PatientHistoryTableViewCell.swift in Sources */,
 				F0EC45012B3C088B00EE15D5 /* ContactUsTableViewController.swift in Sources */,
 				F0DBA53A2B25DC2100EE7B28 /* Alerts.swift in Sources */,

@@ -11,7 +11,7 @@ class LabBookingsTableViewController: UITableViewController {
     
     @IBOutlet weak var segment: UISegmentedControl!
     
-    var bookings: [booking] = AppData.bookings.filter{$0.medicalService.facility.name == AppData.Facility1.name}
+    var bookings: [booking] = AppData.bookings.filter{$0.medicalService.facility.username == AppData.getLoggedInUsername()}
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +25,11 @@ class LabBookingsTableViewController: UITableViewController {
     
     @IBAction func segmentChange(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0{
-            bookings = AppData.bookings.filter{$0.medicalService.facility.name == AppData.Facility1.name && $0.status == .upcoming}
+            bookings = AppData.bookings.filter{$0.medicalService.facility.username == AppData.getLoggedInUsername() && $0.status == .upcoming}
         }else if(sender.selectedSegmentIndex == 1){
-            bookings = AppData.bookings.filter{$0.medicalService.facility.name == AppData.Facility1.name && $0.status == .completed}
+            bookings = AppData.bookings.filter{$0.medicalService.facility.username == AppData.getLoggedInUsername() && $0.status == .completed}
         }else{
-            bookings = AppData.bookings.filter{$0.medicalService.facility.name == AppData.Facility1.name && $0.status == .cancelled}
+            bookings = AppData.bookings.filter{$0.medicalService.facility.username == AppData.getLoggedInUsername() && $0.status == .cancelled}
         }
         tableView.reloadData()
     }
