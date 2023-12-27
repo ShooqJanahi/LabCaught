@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseStorage
+
 
 class FacilityFormTableViewController: UITableViewController {
 
-    @IBOutlet weak var facilityTypeSC: UISegmentedControl!
+        @IBOutlet weak var facilityTypeSC: UISegmentedControl!
         @IBOutlet weak var facilityLogo: UIImageView!
         @IBOutlet weak var facilityUsernameTextField: UITextField!
         @IBOutlet weak var facilityPasswordTextField: UITextField!
@@ -22,13 +25,15 @@ class FacilityFormTableViewController: UITableViewController {
 
         @IBOutlet weak var btnSave: UIBarButtonItem!
         
-    @IBOutlet weak var openingTimeCell: UITableViewCell!
-    @IBOutlet weak var closingTimeCell: UITableViewCell!
+        @IBOutlet weak var openingTimeCell: UITableViewCell!
+        @IBOutlet weak var closingTimeCell: UITableViewCell!
     
-    var facility: Facility?
+        var facility: Facility?
         var currentFacilityType: FacilityType = .hospital
     
-        
+        var selectedImage: UIImage?
+    
+
         var username: String = ""
         var password: String = ""
         var name: String = ""
@@ -53,6 +58,9 @@ class FacilityFormTableViewController: UITableViewController {
         //AppData.loadFacilities()
         updateViews()
         facilityIsAlwaysOpen(isAlwaysOpenSwitch)
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(facilityLogoTapped))
+        facilityLogo.addGestureRecognizer(tapGestureRecognizer)
     }
 
 
@@ -90,6 +98,35 @@ class FacilityFormTableViewController: UITableViewController {
                 return Calendar.current.date(from: dateComponents)
             }
 
+    func uploadFacilityLogo(_ image: UIImage, completion: @escaping (Result<URL, Error>) -> Void) {
+            guard let imageData = image.jpegData(compressionQuality: 0.75) else {
+                completion(.failure(UploadError.imageConversionFailed))
+                return
+            }
+            
+            let uniqueImageName = "facility_logos/\(UUID().uuidString).jpg"
+            let storageRef = Storage.storage().reference().child(uniqueImageName)
+            
+            storageRef.putData(imageData, metadata: nil) { metadata, error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                
+                storageRef.downloadURL { url, error in
+                    if let error = error {
+                        completion(.failure(error))
+                    } else if let url = url {
+                        completion(.success(url))
+                    }
+                }
+            }
+        }
+    enum UploadError: Error {
+            case imageConversionFailed
+        }
+    
+    
     
     
     @IBAction func svaeButtoPassed(_ sender: UIBarButtonItem) {
@@ -104,6 +141,20 @@ class FacilityFormTableViewController: UITableViewController {
         let openingTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: openingTimeDP.date)
         let closingTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: closingTimeDP.date)
         let logoImageName = "defaultLogo" // Replace with your logic to get the image name or URL
+        
+        if let image = facilityLogo.image {
+               uploadFacilityLogo(image) { result in
+                   switch result {
+                   case .success(let url):
+                       // Handle successful upload, get download URL
+                       print("Image URL: \(url)")
+                       // Save the URL with the facility data if needed
+                   case .failure(let error):
+                       // Handle errors
+                       print("Error uploading image: \(error)")
+                   }
+               }
+           }
         
         if username.isEmpty || password.isEmpty || name.isEmpty || location.isEmpty {
                            //Alert message
@@ -165,6 +216,13 @@ class FacilityFormTableViewController: UITableViewController {
             navigationController?.popViewController(animated: true)
     }
     
+    @objc func facilityLogoTapped(_ sender: UITapGestureRecognizer) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary // or .camera for taking a photo
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
     @IBAction func facilityIsAlwaysOpen(_ sender: UISwitch) {
         if sender.isOn{
             openingTimeCell.isHidden = true
@@ -179,11 +237,14 @@ class FacilityFormTableViewController: UITableViewController {
     func updateCurrentType(){
         currentFacilityType = facilityTypeSC.selectedSegmentIndex == 0 ? .hospital : .lab
     }
-    /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "showEditFacilitySegue", let destinationVC = segue.destination as? FacilityFormTableViewController, let indexPath = tableView.indexPathForSelectedRow {
-                destinationVC.facility = AppData.sampleFacilities[indexPath.row]
-            }
+    
+}
+
+extension FacilityFormTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let selectedImage = info[.originalImage] as? UIImage {
+            facilityLogo.image = selectedImage
         }
-     */
+        dismiss(animated: true, completion: nil)
+    }
 }

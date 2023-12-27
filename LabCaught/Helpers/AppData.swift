@@ -117,8 +117,75 @@ class AppData {
                                     facilityType: .lab,
                                     logoImageName: "")
     
-    // Array of sample facilities.
-    static var sampleFacilities: [Facility] = [Facility1, Facility2, Facility3, Facility4, Facility5, Facility6 ] {
+    static var Facility7 = Facility(username: "AlKindi",
+                                        password: "123Ak",
+                                        phoneNumber: 17240444,
+                                        name: "Al Kindi Hospital",
+                                        location: "Manama, Bahrain",
+                                        isOpen24Hours: true,
+                                        openingTime: DateComponents(hour: 8, minute: 0),
+                                        closingTime: DateComponents(hour: 20, minute: 0),
+                                        facilityType: .hospital,
+                                        logoImageName: "")
+        
+        static var Facility8 = Facility(username: "AlNafees",
+                                        password: "123An",
+                                        phoneNumber: 17828282,
+                                        name: "Ibn Al-Nafees Hospital",
+                                        location: "Manama, Bahrain",
+                                        isOpen24Hours: true,
+                                        openingTime: DateComponents(hour: 8, minute: 0),
+                                        closingTime: DateComponents(hour: 20, minute: 0),
+                                        facilityType: .hospital,
+                                        logoImageName: "")
+        
+        static var Facility9 = Facility(username: "BlossomMedical",
+                                        password: "123RM",
+                                        phoneNumber: 17179316,
+                                        name: "Blossom Medical",
+                                        location: "Isa Town, Bahrain",
+                                        isOpen24Hours: false,
+                                        openingTime: DateComponents(hour: 7, minute: 0),
+                                        closingTime: DateComponents(hour: 22, minute: 0),
+                                        facilityType: .lab,
+                                        logoImageName: "")
+        
+        static var Facility10 = Facility(username: "AsterClinic",
+                                        password: "123Ac",
+                                        phoneNumber: 17711811,
+                                        name: "Aster Clinic",
+                                        location: "Sanad, Bahrain",
+                                        isOpen24Hours: false,
+                                        openingTime: DateComponents(hour: 7, minute: 0),
+                                        closingTime: DateComponents(hour: 23, minute: 0),
+                                        facilityType: .lab,
+                                        logoImageName: "")
+        
+        static var Facility11 = Facility(username: "AlResalah",
+                                        password: "123Ar",
+                                        phoneNumber: 17680088,
+                                        name: "Al Resalah Medical Center",
+                                        location: "Isa Town, Bahrain",
+                                        isOpen24Hours: true,
+                                        openingTime: DateComponents(hour: 8, minute: 0),
+                                        closingTime: DateComponents(hour: 20, minute: 0),
+                                        facilityType: .lab,
+                                        logoImageName: "")
+        
+        static var Facility12 = Facility(username: "AlRayan",
+                                        password: "123Ar",
+                                        phoneNumber: 17495500,
+                                        name: "Al Rayan Medical Complex",
+                                        location: "Riffa, Bahrain",
+                                        isOpen24Hours: true,
+                                        openingTime: DateComponents(hour: 8, minute: 0),
+                                        closingTime: DateComponents(hour: 20, minute: 0),
+                                        facilityType: .lab,
+                                        logoImageName: "")
+        
+        
+        // Array of sample facilities.
+        static var sampleFacilities: [Facility] = [Facility1, Facility2, Facility3, Facility4, Facility5, Facility6, Facility7, Facility8, Facility9, Facility10, Facility11, Facility12] {
         didSet {
             saveFacilities() // Save facilities when the array is updated.
         }
