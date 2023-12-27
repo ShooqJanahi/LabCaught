@@ -19,6 +19,9 @@ class BookingDetailsTableViewController: UITableViewController {
     @IBOutlet weak var instructionsLbl: UILabel!
     @IBOutlet weak var descriptionLbl: UILabel!
     
+    @IBOutlet weak var buttonCell: UITableViewCell!
+    @IBOutlet weak var statusCell: UITableViewCell!
+    @IBOutlet weak var statusLbl: UILabel!
     
     var booking: booking?
     
@@ -36,7 +39,28 @@ class BookingDetailsTableViewController: UITableViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        filling()
+    }
+    
     func filling(){
+        if let bookingStatus = booking?.status {
+                switch bookingStatus {
+                case .upcoming:
+                    statusCell.isHidden = true
+                    buttonCell.isHidden = false
+                case .completed:
+                    buttonCell.isHidden = true
+                    statusCell.isHidden = false
+                    statusLbl.text = "APPOINTMENT COMPLETED!"
+                    
+                default:
+                    buttonCell.isHidden = true
+                    statusCell.isHidden = false
+                    statusLbl.text = "APPOINTMENT CANCELED!"
+                }
+            }
         
         if let firstName = booking?.patient.firstName, let lastName = booking?.patient.lastName {
             patientNameLbl.text = firstName + lastName
