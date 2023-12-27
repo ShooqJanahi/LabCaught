@@ -806,9 +806,11 @@
                         <outlet property="statusCell" destination="IRU-dh-N2a" id="AaP-7Q-qCW"/>
                         <outlet property="statusLbl" destination="skl-je-8rq" id="HRx-3z-tvU"/>
                         <outlet property="testPackageNameLbl" destination="Qse-Uy-9d0" id="6Zi-yy-Lsp"/>
+                        <segue destination="Lju-zf-RRr" kind="unwind" identifier="unwindToLabBokingPage" unwindAction="unwindToLabBookingPageWithSegue:" id="sDo-b1-kJF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MjN-Df-Qlt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Lju-zf-RRr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2405" y="688"/>
         </scene>

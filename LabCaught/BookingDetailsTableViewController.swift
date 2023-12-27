@@ -68,7 +68,7 @@ class BookingDetailsTableViewController: UITableViewController {
             let cancelAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
             let confirmAction = UIAlertAction(title: "Yes", style: .default) { _ in
                 AppData.editBookingStatus(booking: self.booking!, status: .completed)
-                //performSegue(withIdentifier: , sender: sender)
+                self.performSegue(withIdentifier: "unwindToLabBokingPage", sender: self)
             }
 
             alert.addAction(cancelAction)
