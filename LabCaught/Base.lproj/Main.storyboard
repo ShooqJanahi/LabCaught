@@ -33,34 +33,6 @@
                                                         <constraint firstAttribute="width" constant="313" id="KbT-Q2-VTK"/>
                                                         <constraint firstAttribute="height" constant="687" id="XrL-MU-KlA"/>
                                                     </constraints>
-                                                    <string key="text">At LabCaught, we understand that forgetting your password can be frustrating. We're here to help you regain access to your account. If you're experiencing any issues with your password, please reach out to our support team for prompt assistance.
-
-Contact Information:
-Email: support@labcaught.com
-Phone: +973 17897472
-Working Hours: 9 AM - 6 PM
-
-How to Recover Your Password:
-If you've forgotten your password, follow these steps:
-Email Support:
-Send an email to support@labcaught.com with the subject line "Password Recovery Request."
-Include Required Information:
-In your email, please include the following information to expedite the process:
-Your full name
-Username or CPR
-Registered email address
-Any additional details that may help us verify your identity
-Verification Process:
-Our support team will review your request and may contact you for additional verification if needed.
-Password Reset:
-Once your identity is verified, we will assist you in resetting your password.
-
-General Inquiries:
-For general inquiries, feedback, or any other assistance, feel free to contact us using the same email address and phone number provided above.
-We Are Here to Help:
-
-LabCaught is committed to providing excellent customer service. Our support team is dedicated to assisting you with any issues you may encounter. Please allow up to 7 working days for a response during our working hours.
-Thank you for choosing LabCaught for your medical testing needs. We appreciate your trust in our services.</string>
                                                     <color key="textColor" systemColor="labelColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -83,6 +55,9 @@ Thank you for choosing LabCaught for your medical testing needs. We appreciate y
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Contact Us" id="6h3-4u-uS4"/>
+                    <connections>
+                        <outlet property="ContactUsTxt" destination="cjE-tc-Y1J" id="e5E-Rs-6hk"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pkz-4j-q6i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
