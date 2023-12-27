@@ -1,0 +1,14 @@
+//list all implemented features (naming the main developer) and describing any changes since the design documentas well as all required steps for setup
+Implemented Features:
+
+Login Functionality (Developed by [Shooq Janahi 202001753])
+Description: Allows users to log in to the app using their credentials.
+Changes Since Design Document:
+The format of the login text fields was simplified to basic ones, deviating from the initial complex design.
+The color scheme was retained as black due to time constraints.
+
+Registration Functionality (Developed by [Shooq Janahi 202001753])
+Description: New users can register by entering their personal information in the provided fields.
+Changes Since Design Document:
+The registration text fields were changed to a basic format for simplicity.
+The terms and conditions checkbox was replaced with a switch for ease of use, and this switch was placed at the bottom of the form for better UI flow.
