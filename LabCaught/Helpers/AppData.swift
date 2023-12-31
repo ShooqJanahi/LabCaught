@@ -240,52 +240,42 @@ class AppData {
     }
     
     
-    // Sample test data for testing purposes.
-    static var test1 = Test(name: "Vitamin D",
-                            cost: "3 BHD",
-                            describtion: "Blood test is done to check the patient's Vitamin D level and if they are healthy with no affeccts",
-                            insrtuctions: "Fasting for 8 - 10 hours is required",
-                            facility: sampleFacilities[0])
+    // Test data for Alhilal Hospital.
+    static var test1H = Test(name: "Hemoglobin A1C ",cost: "3 BHD",describtion: "Measures average blood glucose levels over the past 3 months, used to monitor diabetes.",insrtuctions: "Blood sample required. No special preparation needed.",facility: sampleFacilities[0])
+    static var test2H = Test(name: "Renal Function Panel",cost: "5 BHD",describtion: "Assesses kidney function by testing substances like creatinine and urea.",insrtuctions: "Blood sample required. Stay hydrated and follow any specific pre-test instructions.",facility: sampleFacilities[0])
+    static var test3H = Test(name: "Stress ECG",cost: "2 BHD",describtion: "Evaluates heart function under stress conditions, often involving physical exercise.",insrtuctions: "Wear comfortable clothing and shoes suitable for exercise. Avoid eating a heavy meal before the test.",facility: sampleFacilities[0])
+    static var test4H = Test(name: "Cholesterol Panel",cost: "7 BHD",describtion: "Measures different types of cholesterol and triglycerides to assess heart disease risk.",insrtuctions: "Fasting for 9-12 hours prior to the test is typically required.",facility: sampleFacilities[0])
+    static var test5H = Test(name: "Cholesterol Panel",cost: "7 BHD",describtion: "Measures different types of cholesterol and triglycerides to assess heart disease risk.",insrtuctions: "Fasting for 9-12 hours prior to the test is typically required.",facility: sampleFacilities[0])
+    static var test6H = Test(name: "Liver Enzyme", cost: "8 BHD", describtion: "Measures enzymes and proteins to evaluate liver health.", insrtuctions: "Blood sample required. Fasting may be necessary.", facility: sampleFacilities[0])
+    static var test7H = Test(name: "Electrolyte Panel", cost: "5 BHD", describtion: "Assesses the balance of key electrolytes like sodium, potassium, and chloride.", insrtuctions: "Blood sample needed. Stay hydrated; no other preparation needed.", facility: sampleFacilities[0])
+    static var test8H = Test(name: "Uric Acid", cost: "8 BHD", describtion: "Measures uric acid in the blood, helping diagnose gout and kidney health.", insrtuctions: "Blood sample required. Avoid foods high in purines before the test.", facility: sampleFacilities[0])
     
-    static var test2 = Test(name: "Vitamin B12",
-                            cost: "3 BHD",
-                            describtion: "Blood test is done to check the patient's Vitamin B12 level and if they are healthy with no any side affeccts",
-                            insrtuctions: "Fasting for 8 - 10 hours is required",
-                            facility: sampleFacilities[1])
-    
-    static var test3 = Test(name: "Vitamin A",
-                            cost: "2 BHD",
-                            describtion: "Blood test is done to check the patient's Vitamin B12 level and if they are healthy with no any side affeccts",
-                            insrtuctions: "Fasting for 5 hours is required",
-                            facility: sampleFacilities[1])
-    
-    static var test4 = Test(name: "Vitamin B12",
-                            cost: "3 BHD",
-                            describtion: "Blood test is done to check the patient's Vitamin B12 level and if they are healthy with no any side affeccts",
-                            insrtuctions: "Fasting for 8 - 10 hours is required",
-                            facility: sampleFacilities[0])
+    // Test data for AlSalam Hospital.
+    static var test1S = Test(name: "Lipid Profile",cost: "6 BHD",describtion:"Assesses levels of cholesterol and triglycerides.",insrtuctions: "Fasting for 9-12 hours before the test.",facility: sampleFacilities[1])
+        static var test2S = Test(name: "Blood Glucose Level",cost: "9 BHD",describtion: "Measures the concentration of glucose in the blood.",insrtuctions: "Fasting for 8 hours before the test is usually required.",facility: sampleFacilities[1])
+        static var test3S = Test(name: "Blood Pressure Check",cost: "12 BHD",describtion: "Measures the pressure of blood in the arteries.",insrtuctions: "Relax for a few minutes before the test; avoid caffeine or exercise beforehand.",facility: sampleFacilities[1])
+        static var test4S = Test(name: "Complete Blood Count",cost: "4 BHD",describtion: "Evaluates overall blood health, analyzing various types of blood cells.",insrtuctions: "No special preparation needed.",facility: sampleFacilities[1])
+        static var test5S = Test(name: "Thyroid Function",cost: "3 BHD",describtion: "Assesses thyroid hormone levels to check thyroid gland function.",insrtuctions: "Typically no fasting required; best taken in the morning.",facility: sampleFacilities[1])
+    static var test6S = Test(name: "Vitamin D Level",cost: "7 BHD",describtion: "Measures the level of Vitamin D, crucial for bone health.",insrtuctions: "No special preparation needed.",facility: sampleFacilities[1])
 
     
-    static var tests: [Test] = [test1,test2, test3, test4]
+    static var tests: [Test] = [test1H,test2H, test3H, test4H, test5H, test6H,test7H, test8H, test1S, test2S, test3S, test4S, test5S,test6S]
     
     
-    // Packages data for testing purposes.
-    static var package1 = Packages(name: "Basic Wellness Package", cost: "15 BHD", describtion: "This package includes essential health screenings, such as blood pressure, cholesterol, and blood sugar tests.", insrtuctions: "No fasting required. Please stay hydrated.", packageIncludes: [test1, test4], packageExpiry: DateComponents(calendar: Calendar.current, year: 2023, month: 6, day:2), facility: sampleFacilities[0])
+    // Packages data for Alhilal Hospital
+    static var package1H = Packages(name: "Vitality Screening Package", cost: "30 BHD", describtion: " This package is designed to assess blood sugar control and kidney health.", insrtuctions: " For the Hemoglobin A1C test, no special preparation is needed. The Renal Function Panel may require fasting, so check with your healthcare provider.", packageIncludes: [test1H, test2H], packageExpiry: DateComponents(calendar: Calendar.current, year: 2023, month: 6, day:2), facility: sampleFacilities[0])
+    static var package2H = Packages(name: "Cardio Care Package", cost: "58 BHD", describtion: "Focuses on heart health by evaluating cardiovascular function and cholesterol levels.", insrtuctions: "Wear comfortable clothing for the Stress ECG, which may involve physical exercise. Fasting for 9-12 hours before the Cholesterol Panel test is typically required.", packageIncludes: [test3H, test4H], packageExpiry: DateComponents(calendar: Calendar.current, year: 2024, month: 1, day:31), facility: sampleFacilities[0])
     
-    static var package2 = Packages(name: "Healthy life Package", cost: "10 BHD", describtion: "A package that containes 2 test which are vitamans A and C", insrtuctions: "fasting for 5 hours are required", packageIncludes: [test2, test3], packageExpiry: DateComponents(calendar: Calendar.current, year: 2002, month: 1, day:2), facility: sampleFacilities[1])
+    // Packages for AlSalam
+    static var package1S = Packages(name: "Cardio-Metabolic Health Package", cost: "25 BHD", describtion: "Targets heart and metabolic health, checking cholesterol, blood sugar, and blood pressure.", insrtuctions: "For the Lipid Profile and Blood Glucose Level, fasting for 9-12 hours is typically required. No special preparation is needed for the Blood Pressure Check.", packageIncludes: [test1S,test2H,test3S], packageExpiry: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day: 31), facility: sampleFacilities[1])
+
+        static var package2S = Packages(name: "General Wellness Package", cost: "30 BHD", describtion: "Provides a comprehensive health overview, assessing blood health, thyroid function, and Vitamin D levels.", insrtuctions: "No special preparation is needed for the Complete Blood Count (CBC) and Vitamin D Level tests. The Thyroid Function Test (TFT) is usually best conducted in the morning, but no fasting is required.", packageIncludes: [test4S,test5S,test6S], packageExpiry: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day: 31), facility: sampleFacilities[1])
     
-    static var packages: [Packages] = [package1, package2]
+    static var packages: [Packages] = [package1H, package2H, package1S, package2S]
 
     // Combined array of all tests and packages.
-    static var allTestsPackages: [Service] = [test1,test2, test3,test4, package1, package2]
-    /*    moved them up with other facility data
-     static var sampleFacilities = [
-     Facility(username: "Royalmedical", password: "123RM", phoneNumber: 17766666, name: "Alhilal Medical Servises", location: "Riffa, Bahrain", isOpen24Hours: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 8, minute: 0), facilityType: .hospital),
-     Facility(username: "Royalmedical", password: "123RM", phoneNumber: 17766666, name: "Royal Medical Servises", location: "Muharraq, Bahrain", isOpen24Hours: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 8, minute: 0), facilityType: .hospital),
-     Facility(username: "Royalmedical", password: "123RM", phoneNumber: 17766666, name: "Royal Medical Servises", location: "Riffa, Bahrain", isOpen24Hours: true, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 8, minute: 0), facilityType: .lab)
-     ]
-     
-     */
+    static var allTestsPackages: [Service] = [test1H,test2H, test3H,test4H,test5H, test6H,test7H, test8H,test1S, test2S, test3S, test4S, test5S,test6S, package1H, package2H,package1S, package2S]
+    
     
     //bookings Dummy Data
     static var sampleBookings = [
