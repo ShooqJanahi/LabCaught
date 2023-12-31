@@ -98,6 +98,10 @@ class ServiceFormTableViewController: UITableViewController, TestSelectionViewCo
         instructionsTxt.layer.borderWidth = 1.0
         instructionsTxt.layer.cornerRadius = 5.0
         
+        testsList.numberOfLines = 0
+        testsList.adjustsFontSizeToFitWidth = true
+        testsList.minimumScaleFactor = 0.5
+        
 
     }
     
