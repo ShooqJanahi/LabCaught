@@ -83,14 +83,12 @@ class FacilityFormTableViewController: UITableViewController {
                 openingTimeDP.date = createDate(from: facility.openingTime) ?? Date()
                 closingTimeDP.date = createDate(from: facility.closingTime) ?? Date()
 
+        
                 // Set the segmented control for facility type
                 facilityTypeSC.selectedSegmentIndex = facility.facilityType == .hospital ? 0 : 1
 
                 
-                // Assuming you have a method to load the image into faclityLogo
-                // faclityLogo.image = ...
-        
-        // Load the image from Firebase Storage
+            // Load the image from Firebase Storage
             let storageRef = Storage.storage().reference().child("images/\(facility.logoImageName)")
             storageRef.getData(maxSize: 1 * 1024 * 1024) { [weak self] data, error in
                 if let error = error {
@@ -113,63 +111,53 @@ class FacilityFormTableViewController: UITableViewController {
                 return Calendar.current.date(from: dateComponents)
             }
 
-    func uploadFacilityLogo(_ image: UIImage, completion: @escaping (Result<URL, Error>) -> Void) {
-            guard let imageData = image.jpegData(compressionQuality: 0.75) else {
-                completion(.failure(UploadError.imageConversionFailed))
+    private func uploadImageToFirebase(image: UIImage, completion: @escaping (_ url: String?) -> Void) {
+        guard let imageData = image.jpegData(compressionQuality: 0.8) else {
+            completion(nil)
+            return
+        }
+        
+        let imageName = UUID().uuidString // A unique string for each image
+        let storageRef = Storage.storage().reference().child("images/\(imageName).jpg")
+        
+        storageRef.putData(imageData, metadata: nil) { (metadata, error) in
+            guard metadata != nil else {
+                completion(nil)
                 return
             }
             
-            let uniqueImageName = "facility_logos/\(UUID().uuidString).jpg"
-            let storageRef = Storage.storage().reference().child(uniqueImageName)
-            
-            storageRef.putData(imageData, metadata: nil) { metadata, error in
-                if let error = error {
-                    completion(.failure(error))
+            storageRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    completion(nil)
                     return
                 }
                 
-                storageRef.downloadURL { url, error in
-                    if let error = error {
-                        completion(.failure(error))
-                    } else if let url = url {
-                        completion(.success(url))
-                    }
-                }
+                completion(downloadURL.absoluteString)
             }
         }
-    enum UploadError: Error {
-            case imageConversionFailed
-        }
+    }
     
-    
-    
+    private func presentAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
     
     @IBAction func svaeButtoPassed(_ sender: UIBarButtonItem) {
         // Gather data from UI elements
         let username = facilityUsernameTextField.text ?? ""
         let password = facilityPasswordTextField.text ?? ""
         let name = facilityNameTextField.text ?? ""
-        let phoneNumberText = facilityPhoneNumberTextField.text ?? "" // Make sure to handle conversion errors
+        let phoneNumberText = facilityPhoneNumberTextField.text ?? ""
         let location = facilityLocationTextField.text ?? ""
         let isOpen24Hours = isAlwaysOpenSwitch.isOn
         let facilityType = facilityTypeSC.selectedSegmentIndex == 0 ? FacilityType.hospital : FacilityType.lab
         let openingTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: openingTimeDP.date)
         let closingTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: closingTimeDP.date)
         let logoImageName = "defaultLogo" // Replace with your logic to get the image name or URL
+        //let currentLogoImageName = self.facility?.logoImageName
         
-        if let image = facilityLogo.image {
-               uploadFacilityLogo(image) { result in
-                   switch result {
-                   case .success(let url):
-                       // Handle successful upload, get download URL
-                       print("Image URL: \(url)")
-                       // Save the URL with the facility data if needed
-                   case .failure(let error):
-                       // Handle errors
-                       print("Error uploading image: \(error)")
-                   }
-               }
-           }
         
         if username.isEmpty || password.isEmpty || name.isEmpty || location.isEmpty {
                            //Alert message
@@ -189,7 +177,29 @@ class FacilityFormTableViewController: UITableViewController {
             present(alertController, animated: true, completion: nil)
             return
                 }
+        
+        // Check if there is an image selected
+        if let selectedImage = facilityLogo.image, selectedImage != UIImage(named: "defaultLogo") {
+            // Upload the image to Firebase
+            uploadImageToFirebase(image: selectedImage) { [weak self] imageUrl in
+                guard let self = self, let imageUrl = imageUrl else {
+                    self?.presentAlert(title: "Error", message: "Failed to upload image.")
+                    return
+                }
+                // After uploading, save the facility with the new image URL
+                if isAlwaysOpenSwitch.isOn {
+                    let newFacility = Facility(username: username, password: password, phoneNumber: phoneNumber, name: name, location: location, isOpen24Hours: isOpen24Hours, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 20, minute: 0), facilityType: facilityType, logoImageName: imageUrl)
+                    // Create new facility object
+                    AppData.addFacility(facility: newFacility)
+                    
+                }
+            }} else {
+                let newFacility = Facility(username: username, password: password, phoneNumber: phoneNumber, name: name, location: location, isOpen24Hours: isOpen24Hours, openingTime: openingTimeComponents, closingTime: closingTimeComponents, facilityType: facilityType, logoImageName: facility?.logoImageName ?? logoImageName)
+            // Create new facility object
+                AppData.addFacility(facility: newFacility)
 
+            }
+        
         // If editing an existing facility
         if let facility = facility {
             // Update facility properties
@@ -202,6 +212,8 @@ class FacilityFormTableViewController: UITableViewController {
             facility.facilityType = facilityType
             facility.openingTime = openingTimeComponents
             facility.closingTime = closingTimeComponents
+            facility.logoImageName = logoImageName
+        
             // Update other properties as needed
                                 
             //Edit facility to the data source
@@ -230,6 +242,7 @@ class FacilityFormTableViewController: UITableViewController {
             navigationController?.popViewController(animated: true)
     }
     
+    
     @objc func facilityLogoTapped(_ sender: UITapGestureRecognizer) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -252,9 +265,6 @@ class FacilityFormTableViewController: UITableViewController {
         currentFacilityType = facilityTypeSC.selectedSegmentIndex == 0 ? .hospital : .lab
     }
     
-    
-    
-
     
 }
 

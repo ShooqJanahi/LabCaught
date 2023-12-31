@@ -23,7 +23,7 @@ class HospitalLabTableViewCell: UITableViewCell {
         FacilityTypeLabel.text = faclity.facilityType.rawValue
         
         // Create a reference to the storage service using the default Firebase App
-            let storage = Storage.storage()
+            //let storage = Storage.storage()
 
             // Create a reference to the file you want to download
             let storageRef = Storage.storage().reference().child("images/\(faclity.logoImageName)")
