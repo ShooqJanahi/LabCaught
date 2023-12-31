@@ -61,7 +61,7 @@ class AppData {
                                     openingTime: DateComponents(hour: 8, minute: 0),
                                     closingTime: DateComponents(hour: 8, minute: 0),
                                     facilityType: .hospital,
-                                    logoImageName: "")
+                                    logoImageName: "AlHilal.png")
     
     static var Facility2 = Facility(username: "Alsalam",
                                     password: "12345",
@@ -72,28 +72,28 @@ class AppData {
                                     openingTime: DateComponents(hour: 8, minute: 0),
                                     closingTime: DateComponents(hour: 8, minute: 0),
                                     facilityType: .hospital,
-                                    logoImageName: "")
+                                    logoImageName: "AlSalam.png")
     
-    static var Facility3 = Facility(username: "alhilal",
-                                    password: "123RM", phoneNumber: 17766666,
-                                    name: "Alhilal Medical Servises",
-                                    location: "Riffa, Bahrain",
+    static var Facility3 = Facility(username: "shifa",
+                                    password: "123Sh", phoneNumber: 17288000,
+                                    name: "Shifa Al Jazeera Hospital",
+                                    location: "Manama, Bahrain",
                                     isOpen24Hours: true,
                                     openingTime: DateComponents(hour: 8, minute: 0),
                                     closingTime: DateComponents(hour: 8, minute: 0),
                                     facilityType: .hospital,
-                                    logoImageName: "")
+                                    logoImageName: "ShifaAlJazeera.png")
     
     static var Facility4 = Facility(username: "KHamadUni",
                                     password: "123RM",
                                     phoneNumber: 17444444,
-                                    name: "King Hamad University Hospital ",
+                                    name: "King Hamad University",
                                     location: "Busaiteen, Bahrain",
                                     isOpen24Hours: true,
                                     openingTime: DateComponents(hour: 8, minute: 0),
                                     closingTime: DateComponents(hour: 20, minute: 0),
                                     facilityType: .hospital,
-                                    logoImageName: "")
+                                    logoImageName: "KingHamadUniversityHospital .jpeg")
     
     static var Facility5 = Facility(username: "MedicalLabortary",
                                     password: "123RM",
@@ -104,7 +104,7 @@ class AppData {
                                     openingTime: DateComponents(hour: 7, minute: 0),
                                     closingTime: DateComponents(hour: 17, minute: 0),
                                     facilityType: .lab,
-                                    logoImageName: "")
+                                    logoImageName: "BahrainMedicalLaboratory.jpeg")
     
     static var Facility6 = Facility(username: "ThyrocareGulf",
                                     password: "123RM",
@@ -115,7 +115,7 @@ class AppData {
                                     openingTime: DateComponents(hour: 9, minute: 0),
                                     closingTime: DateComponents(hour: 17, minute: 0),
                                     facilityType: .lab,
-                                    logoImageName: "")
+                                    logoImageName: "ThyrocareGulfLaboratories.jpeg")
     
     static var Facility7 = Facility(username: "AlKindi",
                                         password: "123Ak",
@@ -126,7 +126,7 @@ class AppData {
                                         openingTime: DateComponents(hour: 8, minute: 0),
                                         closingTime: DateComponents(hour: 20, minute: 0),
                                         facilityType: .hospital,
-                                        logoImageName: "")
+                                        logoImageName: "AlKindiHospital.png")
         
         static var Facility8 = Facility(username: "AlNafees",
                                         password: "123An",
@@ -137,7 +137,7 @@ class AppData {
                                         openingTime: DateComponents(hour: 8, minute: 0),
                                         closingTime: DateComponents(hour: 20, minute: 0),
                                         facilityType: .hospital,
-                                        logoImageName: "")
+                                        logoImageName: "IbnAlNafeesHospital.png")
         
         static var Facility9 = Facility(username: "BlossomMedical",
                                         password: "123RM",
@@ -148,7 +148,7 @@ class AppData {
                                         openingTime: DateComponents(hour: 7, minute: 0),
                                         closingTime: DateComponents(hour: 22, minute: 0),
                                         facilityType: .lab,
-                                        logoImageName: "")
+                                        logoImageName: "BlossomMedical.png")
         
         static var Facility10 = Facility(username: "AsterClinic",
                                         password: "123Ac",
@@ -159,7 +159,7 @@ class AppData {
                                         openingTime: DateComponents(hour: 7, minute: 0),
                                         closingTime: DateComponents(hour: 23, minute: 0),
                                         facilityType: .lab,
-                                        logoImageName: "")
+                                        logoImageName: "AsterClinic.jpeg")
         
         static var Facility11 = Facility(username: "AlResalah",
                                         password: "123Ar",
@@ -170,7 +170,7 @@ class AppData {
                                         openingTime: DateComponents(hour: 8, minute: 0),
                                         closingTime: DateComponents(hour: 20, minute: 0),
                                         facilityType: .lab,
-                                        logoImageName: "")
+                                        logoImageName: "AlResalahMedicalCenter.jpeg")
         
         static var Facility12 = Facility(username: "AlRayan",
                                         password: "123Ar",
@@ -181,11 +181,43 @@ class AppData {
                                         openingTime: DateComponents(hour: 8, minute: 0),
                                         closingTime: DateComponents(hour: 20, minute: 0),
                                         facilityType: .lab,
-                                        logoImageName: "")
-        
+                                        logoImageName: "AlRayanMedicalComplex.jpeg")
+    
+    static var Facility13 = Facility(username: "SpecialistHospital",
+                                    password: "123Sh123",
+                                    phoneNumber: 17812222,
+                                    name: "Bahrain Specialist Hospital Laboratory",
+                                    location: "Juffair, Bahrain",
+                                    isOpen24Hours: false,
+                                    openingTime: DateComponents(hour: 8, minute: 0),
+                                    closingTime: DateComponents(hour: 16, minute: 0),
+                                    facilityType: .lab,
+                                    logoImageName: "BahrainSpecialistLaboratory.jpeg")
+    
+    static var Facility14 = Facility(username: "ExpressMed",
+                                    password: "123Em",
+                                    phoneNumber: 77298888,
+                                    name: "ExpressMed Laboratories",
+                                    location: "Zinj, Bahrain",
+                                    isOpen24Hours: false,
+                                    openingTime: DateComponents(hour: 8, minute: 0),
+                                    closingTime: DateComponents(hour: 20, minute: 0),
+                                    facilityType: .lab,
+                                    logoImageName: "ExpressMedLaboratories.jpeg")
+    
+    static var Facility15 = Facility(username: "AlAmal",
+                                    password: "123An",
+                                    phoneNumber: 17602602,
+                                    name: "Al Amal Hospital",
+                                    location: "Buri, Bahrain",
+                                    isOpen24Hours: true,
+                                    openingTime: DateComponents(hour: 8, minute: 0),
+                                    closingTime: DateComponents(hour: 20, minute: 0),
+                                    facilityType: .hospital,
+                                    logoImageName: "AlAmalHospital.png")
         
         // Array of sample facilities.
-        static var sampleFacilities: [Facility] = [Facility1, Facility2, Facility3, Facility4, Facility5, Facility6, Facility7, Facility8, Facility9, Facility10, Facility11, Facility12] {
+        static var sampleFacilities: [Facility] = [Facility1, Facility2, Facility3, Facility4, Facility5, Facility6, Facility7, Facility8, Facility9, Facility10, Facility11, Facility12, Facility13, Facility14, Facility15] {
         didSet {
             saveFacilities() // Save facilities when the array is updated.
         }

@@ -72,7 +72,8 @@ class FacilityFormTableViewController: UITableViewController {
             }
             
             title = "Edit Facility"
-                //Update the UI elements with the data from the facility
+        
+                // Update the UI elements with the data from the facility
                 facilityUsernameTextField.text = facility.username
                 facilityPasswordTextField.text = facility.password
                 facilityNameTextField.text = facility.name
@@ -83,11 +84,25 @@ class FacilityFormTableViewController: UITableViewController {
                 closingTimeDP.date = createDate(from: facility.closingTime) ?? Date()
 
                 // Set the segmented control for facility type
-        facilityTypeSC.selectedSegmentIndex = facility.facilityType == .hospital ? 0 : 1 
+                facilityTypeSC.selectedSegmentIndex = facility.facilityType == .hospital ? 0 : 1
 
                 
                 // Assuming you have a method to load the image into faclityLogo
                 // faclityLogo.image = ...
+        
+        // Load the image from Firebase Storage
+            let storageRef = Storage.storage().reference().child("images/\(facility.logoImageName)")
+            storageRef.getData(maxSize: 1 * 1024 * 1024) { [weak self] data, error in
+                if let error = error {
+                    // Handle any errors
+                    print("Error downloading image: \(error)")
+                } else if let data = data, let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        // Set the downloaded image to the facilityLogo image view
+                        self?.facilityLogo.image = image
+                    }
+                }
+            }
     
             // reload table view to reflect changes
             tableView.reloadData()
@@ -191,19 +206,18 @@ class FacilityFormTableViewController: UITableViewController {
                                 
             //Edit facility to the data source
             AppData.editFacility(facility: facility)
+            
         } else { // If adding a new facility
-            // Create new facility object
+            
             if isAlwaysOpenSwitch.isOn {
                     let newFacility = Facility(username: username, password: password, phoneNumber: phoneNumber, name: name, location: location, isOpen24Hours: isOpen24Hours, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 20, minute: 0), facilityType: facilityType, logoImageName: logoImageName)
+                // Create new facility object
                     AppData.addFacility(facility: newFacility)
             } else {
                     let newFacility = Facility(username: username, password: password, phoneNumber: phoneNumber, name: name, location: location, isOpen24Hours: isOpen24Hours, openingTime: openingTimeComponents, closingTime: closingTimeComponents, facilityType: facilityType, logoImageName: logoImageName)
+                // Create new facility object
                     AppData.addFacility(facility: newFacility)
             }
-                                
-            // Add new facility to the data source
-            //AppData.sampleFacilities.append(newFacility)
-                                
                                 
         }
                         
@@ -219,7 +233,7 @@ class FacilityFormTableViewController: UITableViewController {
     @objc func facilityLogoTapped(_ sender: UITapGestureRecognizer) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary // or .camera for taking a photo
+        imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
     }
     
@@ -237,6 +251,10 @@ class FacilityFormTableViewController: UITableViewController {
     func updateCurrentType(){
         currentFacilityType = facilityTypeSC.selectedSegmentIndex == 0 ? .hospital : .lab
     }
+    
+    
+    
+
     
 }
 

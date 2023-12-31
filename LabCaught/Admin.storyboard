@@ -26,7 +26,6 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KDc-KR-rsT">
                                             <rect key="frame" x="30" y="11" width="88" height="88"/>
-                                            <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="88" id="0WJ-VA-XNF"/>
                                                 <constraint firstAttribute="width" constant="88" id="v10-Zg-v3Y"/>
@@ -89,7 +88,11 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="b0m-d8-qb4">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" image="rectangle.portrait.and.arrow.forward" catalog="system" id="BiW-Vc-5is"/>
+                        <barButtonItem key="leftBarButtonItem" image="rectangle.portrait.and.arrow.forward" catalog="system" id="BiW-Vc-5is">
+                            <connections>
+                                <action selector="switchToLoginScreen:" destination="bjZ-HA-PTB" id="WVj-2m-4BI"/>
+                            </connections>
+                        </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="9eg-05-EGB">
                             <rect key="frame" x="78" y="6" width="237" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -388,6 +391,7 @@
                                                 <constraint firstItem="8a3-Nl-y82" firstAttribute="top" secondItem="tPb-A7-k58" secondAttribute="topMargin" id="jfj-XO-4yd"/>
                                                 <constraint firstItem="8a3-Nl-y82" firstAttribute="centerY" secondItem="tPb-A7-k58" secondAttribute="centerY" id="sy1-hB-yCc"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="8a3-Nl-y82" secondAttribute="bottom" id="trO-YL-rV4"/>
+                                                <constraint firstItem="8a3-Nl-y82" firstAttribute="centerY" secondItem="tPb-A7-k58" secondAttribute="centerY" id="zMV-bB-zqc"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -416,6 +420,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="P1W-xc-koY" secondAttribute="bottom" id="0zA-Be-lH7"/>
                                                 <constraint firstItem="P1W-xc-koY" firstAttribute="centerY" secondItem="F1N-fv-g8z" secondAttribute="centerY" id="KfV-Sw-iGj"/>
+                                                <constraint firstItem="P1W-xc-koY" firstAttribute="centerY" secondItem="F1N-fv-g8z" secondAttribute="centerY" id="S5z-if-BSR"/>
                                                 <constraint firstItem="P1W-xc-koY" firstAttribute="centerY" secondItem="F1N-fv-g8z" secondAttribute="centerY" id="enF-Ox-xOc"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="P1W-xc-koY" secondAttribute="trailing" id="h4L-o8-bRk"/>
                                                 <constraint firstItem="P1W-xc-koY" firstAttribute="centerY" secondItem="F1N-fv-g8z" secondAttribute="centerY" id="kZc-e5-6bL"/>

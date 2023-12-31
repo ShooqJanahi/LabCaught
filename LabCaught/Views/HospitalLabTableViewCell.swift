@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class HospitalLabTableViewCell: UITableViewCell {
     
@@ -20,6 +21,33 @@ class HospitalLabTableViewCell: UITableViewCell {
         facilityNameLabel.text = faclity.name
         FacilityLocationLabel.text = faclity.location
         FacilityTypeLabel.text = faclity.facilityType.rawValue
+        
+        // Create a reference to the storage service using the default Firebase App
+            let storage = Storage.storage()
+
+            // Create a reference to the file you want to download
+            let storageRef = Storage.storage().reference().child("images/\(faclity.logoImageName)")
+
+            // Download the image
+            storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                if let error = error {
+                    // Handle any errors
+                    print("Error downloading image: \(error)")
+                } else if let data = data {
+                    // Data for "images/facility.logoImageName" is returned
+                    let image = UIImage(data: data)
+                    self.FacilityLogo.image = image
+                }
+            }
+        
+        /*
+        if let error = error {
+            print("Error downloading image: \(error)")
+            self.FacilityLogo.image = UIImage(named: "placeholder_image")
+        } else if let data = data {
+            // ...
+        }
+        */
     }
 
     override func awakeFromNib() {
