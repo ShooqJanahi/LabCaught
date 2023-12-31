@@ -9,6 +9,7 @@ import UIKit
 
 protocol TestSelectionViewControllerDelegate: AnyObject {
     func testSelectionViewController(_ controller: TestSelectionViewController, didSelectTests selectedTests: [Test])
+    
 }
 
 class TestSelectionViewController: UITableViewController {
