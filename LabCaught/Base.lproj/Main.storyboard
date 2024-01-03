@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -287,7 +287,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Register as Paitent"/>
                                                     <connections>
-                                                        <segue destination="lbU-3b-Gxl" kind="show" id="6jo-3R-0w5"/>
+                                                        <segue destination="lbU-3b-Gxl" kind="show" identifier="showRegistration" id="6jo-3R-0w5"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

@@ -46,6 +46,14 @@ struct Utility {
         let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
         return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: password)
     }
+    
+    //Invalid Credentials Alert
+    static func showInvalidCredentialsAlert(on viewController: UIViewController, usernameTextField: UITextField, passwordTextField: UITextField) {
+            Alerts.showAlertWithRetry(on: viewController, title: "Login Error", message: "The provided credentials are incorrect.", retryHandler: {
+                passwordTextField.text = ""
+                usernameTextField.becomeFirstResponder()
+            })
+        }
 
     
     

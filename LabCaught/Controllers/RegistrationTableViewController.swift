@@ -68,14 +68,21 @@ class RegistrationTableViewController: UITableViewController {
         
         
         // Check if the username is already in use
-        Alerts.showUsernameInUseAlertIfNecessary(for: UserNameTextField.text ?? "", on: self, isUsernameInUse: {
-            AppData.isUsernameInUse(username: UserNameTextField.text ?? "")
-        }, retryHandler: {
-            // Logic to handle the retry for username
-            self.UserNameTextField.text = ""
-            self.UserNameTextField.becomeFirstResponder()
-        })
+            let usernameInUse = AppData.patient.contains { $0.username == UserNameTextField.text } ||
+                                AppData.facilites.contains { $0.username == UserNameTextField.text } ||
+                                AppData.admins.contains { $0.username == UserNameTextField.text } ||
+                                AppData.samplePatients.contains { $0.username == UserNameTextField.text }
+
         
+        
+        if usernameInUse {
+               // Show alert if username is already in use
+               Alerts.showAlertWithRetry(on: self, title: "Username Error", message: "Username already in use", retryHandler: { [weak self] in
+                   self?.UserNameTextField.text = ""
+                   self?.UserNameTextField.becomeFirstResponder()
+               })
+               return
+           }
         
         // Check if the password is strong.
         guard Utility.isPasswordStrong(password) else {
