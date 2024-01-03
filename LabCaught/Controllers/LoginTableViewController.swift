@@ -13,7 +13,7 @@ class LoginTableViewController: UITableViewController {
     // Outlets that connect to the username and password text fields in the storyboard.
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-
+    
     // Called after the view controller's view is loaded into memory.
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,59 +24,58 @@ class LoginTableViewController: UITableViewController {
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         
         
-        
-        
-        // Checking if the username and password fields are not empty.
-        guard let username = usernameTextField.text, !username.isEmpty,
-              let password = passwordTextField.text, !password.isEmpty else {
-            // If either field is empty, exit the function and do not proceed with login.
+        // Checking if the username field is empty.
+        guard let username = usernameTextField.text, !username.isEmpty else {
+            Alerts.showAlertWithRetry(on: self, title: "Login Error", message: "Username field cannot be empty.", retryHandler: {
+                self.usernameTextField.becomeFirstResponder()
+            })
             return
         }
         
-        // Check if the entered username and password match a patient's credentials.
-        let isPatient = AppData.patient.contains { $0.username == username && $0.password == password }
-        // Check if the entered username and password match a facility's credentials.
-        let isFacility = AppData.facilites.contains { $0.username == username && $0.password == password }
-        // Check if the entered username and password match an admin's credentials.
-        let isAdmin = AppData.admins.contains { $0.username == username && $0.password == password }
-        
-        let isSamplePatient = AppData.samplePatients.contains { $0.username == username && $0.password == password }
-        
-        
-        if isPatient || isFacility || isAdmin {
-                    // Save the logged-in username
-                    AppData.saveLoggedInUsername(username: username)
-
-            // If the user is a patient, switch to the Patient storyboard.
-            if isPatient {
-            Utility.switchToStoryboard(named: "PatientHome")
-            } else if isSamplePatient{
-            Utility.switchToStoryboard(named: "PatientHome")
-            }
-            // If the user is a facility, switch to the Lab storyboard.
-            else if isFacility {
-            Utility.switchToStoryboard(named: "Lab")
-            }
-            // If the user is an admin, switch to the Admin storyboard.
-            else if isAdmin {
-            Utility.switchToStoryboard(named: "Admin")
-            } else {
-            // If the credentials do not match any user type, display an error message.
-            Alerts.showAlertWithRetry(on: self, title: "Login Error", message: "The provided credentials are incorrect.", retryHandler: {
-            // Clear the password field and put focus back on the username field for the user to try again.
-            self.passwordTextField.text = ""
-            self.usernameTextField.becomeFirstResponder()
+        // Checking if the password field is empty.
+        guard let password = passwordTextField.text, !password.isEmpty else {
+            Alerts.showAlertWithRetry(on: self, title: "Login Error", message: "Password field cannot be empty.", retryHandler: {
+                self.passwordTextField.becomeFirstResponder()
             })
+            return
+        }
+        
+        // Checkin if the username exists in any user list.
+            let usernameExists = AppData.patient.contains { $0.username == username } ||
+                                 AppData.facilites.contains { $0.username == username } ||
+                                 AppData.admins.contains { $0.username == username } ||
+                                 AppData.samplePatients.contains { $0.username == username }
+            
+            // Checking if the entered username and password match a user's credentials.
+            let isUserValid = (AppData.patient.first { $0.username == username }?.password == password) ||
+                              (AppData.facilites.first { $0.username == username }?.password == password) ||
+                              (AppData.admins.first { $0.username == username }?.password == password) ||
+                              (AppData.samplePatients.first { $0.username == username }?.password == password)
+        
+        if isUserValid {
+            // Save the logged-in username
+            AppData.saveLoggedInUsername(username: username)
+            
+            // Determine the user type and switch to the appropriate storyboard.
+            if AppData.patient.contains(where: { patient in patient.username == username }) ||
+                AppData.samplePatients.contains(where: { samplePatient in samplePatient.username == username }) {
+                Utility.switchToStoryboard(named: "PatientHome")
+            } else if AppData.facilites.contains(where: { facility in facility.username == username }) {
+                Utility.switchToStoryboard(named: "Lab")
+            } else if AppData.admins.contains(where: { admin in admin.username == username }) {
+                Utility.switchToStoryboard(named: "Admin")
             }
-                } else {
-                    // ... existing error handling code ...
-                }
+            
+        } else if !usernameExists {
+            // Username does not exist, asking user to register
+                    Alerts.showAlertWithOptionToRegister(on: self, title: "Registration Required", message: "Username not found. Would you like to register?") {
+                        DispatchQueue.main.async {
+                            self.performSegue(withIdentifier: "showRegistration", sender: self)
+                        }
             }
-         
-         
-         
-         
+        } else {
+            // Username exists, but wrong password entered
+                   Utility.showInvalidCredentialsAlert(on: self, usernameTextField: usernameTextField, passwordTextField: passwordTextField)
+        }
     }
-
-
-
+}
