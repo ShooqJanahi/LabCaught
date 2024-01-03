@@ -41,7 +41,9 @@
                                                 <constraint firstItem="xuA-Jt-neL" firstAttribute="leading" secondItem="leJ-2V-NxD" secondAttribute="leadingMargin" constant="5" id="EiZ-nb-PkK"/>
                                                 <constraint firstItem="xuA-Jt-neL" firstAttribute="top" secondItem="leJ-2V-NxD" secondAttribute="topMargin" id="J5i-20-HLk"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="xuA-Jt-neL" secondAttribute="bottom" id="aOy-qD-Cf7"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="xuA-Jt-neL" secondAttribute="bottom" id="apR-Yf-wwv"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="xuA-Jt-neL" secondAttribute="trailing" constant="5" id="dBz-oi-w4L"/>
+                                                <constraint firstItem="xuA-Jt-neL" firstAttribute="leading" secondItem="leJ-2V-NxD" secondAttribute="leadingMargin" constant="5" id="nb5-tV-6up"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -84,7 +86,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="353" height="56.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ex. 2.5 BHD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gXt-m1-fUI">
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ex. 2.5 " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gXt-m1-fUI">
                                                     <rect key="frame" x="20" y="11" width="313" height="34.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
