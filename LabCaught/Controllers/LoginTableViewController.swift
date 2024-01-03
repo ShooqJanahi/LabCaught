@@ -24,7 +24,7 @@ class LoginTableViewController: UITableViewController {
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         
         
-        // Check if the username field is empty.
+        // Checking if the username field is empty.
         guard let username = usernameTextField.text, !username.isEmpty else {
             Alerts.showAlertWithRetry(on: self, title: "Login Error", message: "Username field cannot be empty.", retryHandler: {
                 self.usernameTextField.becomeFirstResponder()
@@ -32,7 +32,7 @@ class LoginTableViewController: UITableViewController {
             return
         }
         
-        // Check if the password field is empty.
+        // Checking if the password field is empty.
         guard let password = passwordTextField.text, !password.isEmpty else {
             Alerts.showAlertWithRetry(on: self, title: "Login Error", message: "Password field cannot be empty.", retryHandler: {
                 self.passwordTextField.becomeFirstResponder()
@@ -40,13 +40,13 @@ class LoginTableViewController: UITableViewController {
             return
         }
         
-        // Check if the username exists in any user list.
+        // Checkin if the username exists in any user list.
             let usernameExists = AppData.patient.contains { $0.username == username } ||
                                  AppData.facilites.contains { $0.username == username } ||
                                  AppData.admins.contains { $0.username == username } ||
                                  AppData.samplePatients.contains { $0.username == username }
             
-            // Check if the entered username and password match a user's credentials.
+            // Checking if the entered username and password match a user's credentials.
             let isUserValid = (AppData.patient.first { $0.username == username }?.password == password) ||
                               (AppData.facilites.first { $0.username == username }?.password == password) ||
                               (AppData.admins.first { $0.username == username }?.password == password) ||
@@ -67,7 +67,7 @@ class LoginTableViewController: UITableViewController {
             }
             
         } else if !usernameExists {
-            // Username does not exist, ask user to register
+            // Username does not exist, asking user to register
                     Alerts.showAlertWithOptionToRegister(on: self, title: "Registration Required", message: "Username not found. Would you like to register?") {
                         DispatchQueue.main.async {
                             self.performSegue(withIdentifier: "showRegistration", sender: self)
