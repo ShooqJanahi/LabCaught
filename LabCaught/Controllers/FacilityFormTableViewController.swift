@@ -105,19 +105,21 @@ class FacilityFormTableViewController: UITableViewController {
             // reload table view to reflect changes
             tableView.reloadData()
 
-            }
+    }
     
     func createDate(from dateComponents: DateComponents) -> Date? {
                 return Calendar.current.date(from: dateComponents)
             }
 
-    private func uploadImageToFirebase(image: UIImage, completion: @escaping (_ url: String?) -> Void) {
+    private func uploadImageToFirebase(image: UIImage, username: String, completion: @escaping (_ url: String?) -> Void){
         guard let imageData = image.jpegData(compressionQuality: 0.8) else {
             completion(nil)
             return
         }
         
-        let imageName = UUID().uuidString // A unique string for each image
+        // A unique string for each image
+        let timestamp = Int(Date().timeIntervalSince1970)
+        let imageName = "\(username)_\(timestamp).jpg"
         let storageRef = Storage.storage().reference().child("images/\(imageName).jpg")
         
         storageRef.putData(imageData, metadata: nil) { (metadata, error) in
@@ -134,6 +136,13 @@ class FacilityFormTableViewController: UITableViewController {
                 
                 completion(downloadURL.absoluteString)
             }
+        }
+    }
+    func refreshFacilityList() {
+        // Update your list view (e.g., tableView.reloadData())
+        // Make sure to call this on the main thread if updating UI
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
     }
     
@@ -155,8 +164,7 @@ class FacilityFormTableViewController: UITableViewController {
         let facilityType = facilityTypeSC.selectedSegmentIndex == 0 ? FacilityType.hospital : FacilityType.lab
         let openingTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: openingTimeDP.date)
         let closingTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: closingTimeDP.date)
-        let logoImageName = "defaultLogo" // Replace with your logic to get the image name or URL
-        //let currentLogoImageName = self.facility?.logoImageName
+        //let logoImageName = "defaultLogo.jpg"
         
         
         if username.isEmpty || password.isEmpty || name.isEmpty || location.isEmpty {
@@ -166,73 +174,113 @@ class FacilityFormTableViewController: UITableViewController {
                            alertController.addAction(okAction)
                            present(alertController, animated: true, completion: nil)
                            return
-                       }
+        }
 
         // Convert and validate phone number
         guard let phoneNumber = Int(phoneNumberText) else {
-            // Alert message for invalid phone number
-            let alertController = UIAlertController(title: "Invalid Phone Number", message: "Please enter a valid phone number.", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(okAction)
-            present(alertController, animated: true, completion: nil)
-            return
-                }
-        
-        // Check if there is an image selected
-        if let selectedImage = facilityLogo.image, selectedImage != UIImage(named: "defaultLogo") {
-            // Upload the image to Firebase
-            uploadImageToFirebase(image: selectedImage) { [weak self] imageUrl in
-                guard let self = self, let imageUrl = imageUrl else {
-                    self?.presentAlert(title: "Error", message: "Failed to upload image.")
-                    return
-                }
-                // After uploading, save the facility with the new image URL
-                if isAlwaysOpenSwitch.isOn {
-                    let newFacility = Facility(username: username, password: password, phoneNumber: phoneNumber, name: name, location: location, isOpen24Hours: isOpen24Hours, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 20, minute: 0), facilityType: facilityType, logoImageName: imageUrl)
-                    // Create new facility object
-                    AppData.addFacility(facility: newFacility)
-                    
-                }
-            }} else {
-                let newFacility = Facility(username: username, password: password, phoneNumber: phoneNumber, name: name, location: location, isOpen24Hours: isOpen24Hours, openingTime: openingTimeComponents, closingTime: closingTimeComponents, facilityType: facilityType, logoImageName: facility?.logoImageName ?? logoImageName)
-            // Create new facility object
-                AppData.addFacility(facility: newFacility)
-
-            }
-        
-        // If editing an existing facility
-        if let facility = facility {
-            // Update facility properties
-            facility.username = username
-            facility.password = password
-            facility.name = name
-            facility.phoneNumber = phoneNumber
-            facility.location = location
-            facility.isOpen24Hours = isOpen24Hours
-            facility.facilityType = facilityType
-            facility.openingTime = openingTimeComponents
-            facility.closingTime = closingTimeComponents
-            facility.logoImageName = logoImageName
-        
-            // Update other properties as needed
-                                
-            //Edit facility to the data source
-            AppData.editFacility(facility: facility)
-            
-        } else { // If adding a new facility
-            
-            if isAlwaysOpenSwitch.isOn {
-                    let newFacility = Facility(username: username, password: password, phoneNumber: phoneNumber, name: name, location: location, isOpen24Hours: isOpen24Hours, openingTime: DateComponents(hour: 8, minute: 0), closingTime: DateComponents(hour: 20, minute: 0), facilityType: facilityType, logoImageName: logoImageName)
-                // Create new facility object
-                    AppData.addFacility(facility: newFacility)
-            } else {
-                    let newFacility = Facility(username: username, password: password, phoneNumber: phoneNumber, name: name, location: location, isOpen24Hours: isOpen24Hours, openingTime: openingTimeComponents, closingTime: closingTimeComponents, facilityType: facilityType, logoImageName: logoImageName)
-                // Create new facility object
-                    AppData.addFacility(facility: newFacility)
-            }
-                                
+                presentAlert(title: "Invalid Phone Number", message: "Please enter a valid phone number.")
+                return
         }
-                        
+        
+        // Function to save facility data
+            func saveFacility(with imageUrl: String? ) {
+                let imageUrlToUse: String
+                        if let newImageUrl = imageUrl, !newImageUrl.isEmpty {
+                            // New image URL is present and not empty, use it
+                            imageUrlToUse = newImageUrl
+                        } else {
+                            // No new image URL, use the existing one from the facility being edited
+                            imageUrlToUse = self.facility?.logoImageName ?? "defaultLogo.jpg"
+                        }
+                /*
+                let imageUrlToUse: String
+                        if let newImageUrl = newImageUrl, !newImageUrl.isEmpty {
+                            // Use the new image URL if a new image has been uploaded
+                            imageUrlToUse = newImageUrl
+                        } else if let existingImageUrl = self.facility?.logoImageName, !existingImageUrl.isEmpty {
+                            // Use the existing image URL if no new image is uploaded
+                            imageUrlToUse = existingImageUrl
+                        } else {
+                            // Default to a generic image if no existing image URL is found
+                            imageUrlToUse = "defaultLogo.jpg"
+                        }
+*/
+                if let existingFacility = self.facility {
+                    // Update existing facility
+                    // Directly update properties of the existing facility
+                                existingFacility.username = username
+                                existingFacility.password = password
+                                existingFacility.name = name
+                                existingFacility.phoneNumber = phoneNumber
+                                existingFacility.location = location
+                                existingFacility.isOpen24Hours = isOpen24Hours
+                                existingFacility.facilityType = facilityType
+                                existingFacility.openingTime = openingTimeComponents
+                                existingFacility.closingTime = closingTimeComponents
+                                existingFacility.logoImageName = imageUrlToUse
+                    AppData.editFacility(facility: existingFacility)
+                    
+                } else {
+                    let newFacility = Facility(username: username, password: password, phoneNumber: phoneNumber, name: name, location: location, isOpen24Hours: isOpen24Hours, openingTime: openingTimeComponents, closingTime: closingTimeComponents, facilityType: facilityType, logoImageName: imageUrlToUse)
+
+                    // Add new facility
+                    AppData.addFacility(facility: newFacility)
+                }
+
+                AppData.saveFacilities()
+                refreshFacilityList()
+                navigationController?.popViewController(animated: true)
+            }
+        
+        // Check if a new image is selected
+            if let selectedImage = facilityLogo.image, selectedImage != UIImage(named: "defaultLogo") {
+                // Upload the image to Firebase
+                uploadImageToFirebase(image: selectedImage, username: username) { [weak self] imageUrl in
+                    guard let _ = self, let imageUrl = imageUrl else {
+                        self?.presentAlert(title: "Error", message: "Failed to upload image.")
+                        return
+                    }
+                    saveFacility(with: imageUrl)
+                }
+            } else {
+                // Use the existing image URL if no new image is selected
+                let existingImageUrl = self.facility?.logoImageName
+                    //let imageUrl = !existingImageUrl.isEmpty ? existingImageUrl : "defaultLogo.jpg"
+                saveFacility(with: self.facility?.logoImageName)
+            }
+        
+        /*
+        // If editing an existing facility
+        func updateAndSaveFacility(imageUrl: String? = nil) {
+                if let facility = self.facility {
+                    // Update existing facility
+                    facility.username = username
+                    facility.password = password
+                    facility.name = name
+                    facility.phoneNumber = phoneNumber
+                    facility.location = location
+                    facility.isOpen24Hours = isOpen24Hours
+                    facility.facilityType = facilityType
+                    facility.openingTime = openingTimeComponents
+                    facility.closingTime = closingTimeComponents
+
+                    // If a new image was uploaded, use the new URL. Otherwise, retain the existing URL.
+                    if let newImageUrl = imageUrl {
+                        facility.logoImageName = newImageUrl
+                    } // If imageUrl is nil, it implies no new image was selected, so don't change facility.logoImageName
+
+                    AppData.editFacility(facility: facility)
+                } else {
+                    // If adding a new facility
+                    let newFacility = Facility(username: username, password: password, phoneNumber: phoneNumber, name: name, location: location, isOpen24Hours: isOpen24Hours, openingTime: openingTimeComponents, closingTime: closingTimeComponents, facilityType: facilityType, logoImageName: imageUrl ?? "defaultLogo")
+                    AppData.addFacility(facility: newFacility)
+                }
+
+                AppData.saveFacilities()
+                refreshFacilityList()
+                navigationController?.popViewController(animated: true)
+            }
+             
             // Save changes to data source
             AppData.saveFacilities()
             //reload
@@ -240,6 +288,7 @@ class FacilityFormTableViewController: UITableViewController {
         
             // Navigate back to the previous view controller
             navigationController?.popViewController(animated: true)
+         */
     }
     
     

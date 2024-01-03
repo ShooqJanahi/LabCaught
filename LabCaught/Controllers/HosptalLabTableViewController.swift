@@ -136,6 +136,7 @@ class HosptalLabTableViewController: UITableViewController {
     
     
     //logout
+    /*
     @objc func handleLogout() {
         // Present confirmation alert
         let alert = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: .alert)
@@ -145,7 +146,7 @@ class HosptalLabTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
-    /*
+    
     
     @IBAction func switchToLoginScreen(_ sender: UIBarButtonItem) {
         // Instantiate the Main storyboard by name
