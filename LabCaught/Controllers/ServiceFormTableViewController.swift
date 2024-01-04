@@ -22,6 +22,7 @@ class ServiceFormTableViewController: UITableViewController, TestSelectionViewCo
         testsList.text = selectedTests.map { $0.name }.joined(separator: ", ")
     }
     
+    var includedTests = [Test]()
     
     @IBOutlet weak var serviceTypeSC: UISegmentedControl!
     @IBOutlet weak var nameTxt: UITextField!
@@ -273,17 +274,37 @@ private func presentAlert(withTitle title: String, message: String) {
     }
     
     // Before navigating to TestSelectionViewController
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowTestSelection", let destinationVC = segue.destination as? TestSelectionViewController {
-            destinationVC.selectedIndexPaths = selectedIndexPaths
-            destinationVC.delegate = self
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "ShowTestSelection", let destinationVC = segue.destination as? TestSelectionViewController {
+//            destinationVC.selectedIndexPaths = selectedIndexPaths
+//            destinationVC.delegate = self
+//        }
+//    }
+    
+    @IBSegueAction func goToTestsPage(_ coder: NSCoder) -> UITableViewController? {
+
+        
+        if let package = service as? Packages{
+            let selectTestsVC = SelectTestsTableViewController(coder: coder, tests: package.packageIncludes)
+            selectTestsVC!.delegate = self
+            return selectTestsVC
         }
+        
+        let selectTestsVC = SelectTestsTableViewController(coder: coder)
+        selectTestsVC!.delegate = self
+        return selectTestsVC
     }
+    
 
         
     }
 extension ServiceFormTableViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         updateSaveBtnState()
+    }
+}
+extension ServiceFormTableViewController: SelectTestsDelegate {
+    func didSelectTests(_ tests: [Test]) {
+        includedTests = tests
     }
 }

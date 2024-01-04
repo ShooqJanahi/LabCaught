@@ -95,7 +95,7 @@ class AppData {
                                     logoImageName: "AlSalam.png")
     
     static var Facility3 = Facility(username: "shifa",
-                                    password: "123Sh", phoneNumber: 17288000,
+                                    password: "12345", phoneNumber: 17288000,
                                     name: "Shifa Al Jazeera Hospital",
                                     location: "Manama, Bahrain",
                                     isOpen24Hours: true,
@@ -105,7 +105,7 @@ class AppData {
                                     logoImageName: "ShifaAlJazeera.png")
     
     static var Facility4 = Facility(username: "KHamadUni",
-                                    password: "123RM",
+                                    password: "12345",
                                     phoneNumber: 17444444,
                                     name: "King Hamad University",
                                     location: "Busaiteen, Bahrain",
@@ -116,7 +116,7 @@ class AppData {
                                     logoImageName: "KingHamadUniversityHospital .jpeg")
     
     static var Facility5 = Facility(username: "MedicalLabortary",
-                                    password: "123RM",
+                                    password: "12345",
                                     phoneNumber: 17255522,
                                     name: "Bahrain medical labortary",
                                     location: "Salmaniya, Bahrain",
@@ -127,7 +127,7 @@ class AppData {
                                     logoImageName: "BahrainMedicalLaboratory.jpeg")
     
     static var Facility6 = Facility(username: "ThyrocareGulf",
-                                    password: "123RM",
+                                    password: "12345",
                                     phoneNumber: 66004000,
                                     name: "Thyrocare Gulf Laboratories",
                                     location: "Sanabis, Bahrain",
@@ -138,7 +138,7 @@ class AppData {
                                     logoImageName: "ThyrocareGulfLaboratories.jpeg")
     
     static var Facility7 = Facility(username: "AlKindi",
-                                        password: "123Ak",
+                                        password: "12345",
                                         phoneNumber: 17240444,
                                         name: "Al Kindi Hospital",
                                         location: "Manama, Bahrain",
@@ -149,7 +149,7 @@ class AppData {
                                         logoImageName: "AlKindiHospital.png")
         
         static var Facility8 = Facility(username: "AlNafees",
-                                        password: "123An",
+                                        password: "12345",
                                         phoneNumber: 17828282,
                                         name: "Ibn Al-Nafees Hospital",
                                         location: "Manama, Bahrain",
@@ -160,7 +160,7 @@ class AppData {
                                         logoImageName: "IbnAlNafeesHospital.png")
         
         static var Facility9 = Facility(username: "BlossomMedical",
-                                        password: "123RM",
+                                        password: "12345",
                                         phoneNumber: 17179316,
                                         name: "Blossom Medical",
                                         location: "Isa Town, Bahrain",
@@ -171,7 +171,7 @@ class AppData {
                                         logoImageName: "BlossomMedical.png")
         
         static var Facility10 = Facility(username: "AsterClinic",
-                                        password: "123Ac",
+                                        password: "12345",
                                         phoneNumber: 17711811,
                                         name: "Aster Clinic",
                                         location: "Sanad, Bahrain",
@@ -182,7 +182,7 @@ class AppData {
                                         logoImageName: "AsterClinic.jpeg")
         
         static var Facility11 = Facility(username: "AlResalah",
-                                        password: "123Ar",
+                                        password: "12345",
                                         phoneNumber: 17680088,
                                         name: "Al Resalah Medical Center",
                                         location: "Isa Town, Bahrain",
@@ -193,7 +193,7 @@ class AppData {
                                         logoImageName: "AlResalahMedicalCenter.jpeg")
         
         static var Facility12 = Facility(username: "AlRayan",
-                                        password: "123Ar",
+                                        password: "12345",
                                         phoneNumber: 17495500,
                                         name: "Al Rayan Medical Complex",
                                         location: "Riffa, Bahrain",
@@ -204,7 +204,7 @@ class AppData {
                                         logoImageName: "AlRayanMedicalComplex.jpeg")
     
     static var Facility13 = Facility(username: "SpecialistHospital",
-                                    password: "123Sh123",
+                                    password: "12345",
                                     phoneNumber: 17812222,
                                     name: "Bahrain Specialist Hospital Laboratory",
                                     location: "Juffair, Bahrain",
@@ -215,7 +215,7 @@ class AppData {
                                     logoImageName: "BahrainSpecialistLaboratory.jpeg")
     
     static var Facility14 = Facility(username: "ExpressMed",
-                                    password: "123Em",
+                                    password: "12345",
                                     phoneNumber: 77298888,
                                     name: "ExpressMed Laboratories",
                                     location: "Zinj, Bahrain",
@@ -226,7 +226,7 @@ class AppData {
                                     logoImageName: "ExpressMedLaboratories.jpeg")
     
     static var Facility15 = Facility(username: "AlAmal",
-                                    password: "123An",
+                                    password: "12345",
                                     phoneNumber: 17602602,
                                     name: "Al Amal Hospital",
                                     location: "Buri, Bahrain",
@@ -407,7 +407,7 @@ class AppData {
     
     
     
-    static var tests: [Test] = [test1H,test2H, test3H, test4H, test5H, test6H,test7H, test8H, test1S, test2S, test3S, test4S, test5S,test6S, test1Shifa, test2Shifa, test3Shifa,test4Shifa,test5Shifa,test6Shifa, test1BHlab,test2BHlab,test3BHlab,test4BHlab,test5BHlab, test1Blos,test2Blos,test3Blos,test4Blos,test5Blos,test6Blos,test1KHUH,test2KHUH,test3KHUH,test4KHUH,test5KHUH,test6KHUH, test7KHUH,test8KHUH,test9KHUH,test10KHUH,test1Thy,test2Thy,test3Thy,test4Thy,test5Thy,test6Thy,test7Thy,test1Kindi,test2Kindi,test3Kindi,test4Kindi,test5Kindi,test6Kindi,test6Kindi,test1Naf,test2Naf,test3Naf,test4Naf,test5Naf,test6Naf,test7Naf,test8Naf,test9Naf,test1Ast,test2Ast,test3Ast,test4Ast,test5Ast,test6Ast,test7Ast,test8Ast,test9Ast,test1Res,test2Res,test3Res,test4Res,test5Res,test6Res,test7Res,test8Res,test1Ray,test2Ray,test3Ray,test4Ray,test5Ray,test6Ray,test7Ray,test8Ray,test9Ray,test1bhSp,test2bhSp,test3bhSp,test4bhSp,test5bhSp,test6bhSp,test7bhSp,test1Exp,test2Exp,test3Exp,test4Exp,test5Exp,test6Exp,test7Exp,test1Amal,test2Amal,test3Amal,test4Amal,test5Amal,test6Amal,test7Amal]
+    static var tests: [Test] = [test1H,test2H, test3H, test4H, test5H, test6H,test7H, test8H, test1S, test2S, test3S, test4S, test5S,test6S, test1Shifa, test2Shifa, test3Shifa,test4Shifa,test5Shifa,test6Shifa, test1BHlab,test2BHlab,test3BHlab,test4BHlab,test5BHlab, test1Blos,test2Blos,test3Blos,test4Blos,test5Blos,test6Blos,test1KHUH,test2KHUH,test3KHUH,test4KHUH,test5KHUH,test6KHUH, test7KHUH,test8KHUH,test9KHUH,test10KHUH,test1Thy,test2Thy,test3Thy,test4Thy,test5Thy,test6Thy,test7Thy,test1Kindi,test2Kindi,test3Kindi,test4Kindi,test5Kindi,test6Kindi,test7Kindi,test1Naf,test2Naf,test3Naf,test4Naf,test5Naf,test6Naf,test7Naf,test8Naf,test9Naf,test1Ast,test2Ast,test3Ast,test4Ast,test5Ast,test6Ast,test7Ast,test8Ast,test9Ast,test1Res,test2Res,test3Res,test4Res,test5Res,test6Res,test7Res,test8Res,test1Ray,test2Ray,test3Ray,test4Ray,test5Ray,test6Ray,test7Ray,test8Ray,test9Ray,test1bhSp,test2bhSp,test3bhSp,test4bhSp,test5bhSp,test6bhSp,test7bhSp,test1Exp,test2Exp,test3Exp,test4Exp,test5Exp,test6Exp,test7Exp,test1Amal,test2Amal,test3Amal,test4Amal,test5Amal,test6Amal,test7Amal]
     
     
     // Packages data for Alhilal Hospital
@@ -415,7 +415,7 @@ class AppData {
     static var package2H = Packages(name: "Cardio Care Package", cost: "58", describtion: "Focuses on heart health by evaluating cardiovascular function and cholesterol levels.", insrtuctions: "Wear comfortable clothing for the Stress ECG, which may involve physical exercise. Fasting for 9-12 hours before the Cholesterol Panel test is typically required.", packageIncludes: [test3H, test4H], packageExpiry: DateComponents(calendar: Calendar.current, year: 2024, month: 1, day:31), facility: sampleFacilities[0])
     
     // Packages for AlSalam
-    static var package1S = Packages(name: "Cardio-Metabolic Health Package", cost: "25", describtion: "Targets heart and metabolic health, checking cholesterol, blood sugar, and blood pressure.", insrtuctions: "For the Lipid Profile and Blood Glucose Level, fasting for 9-12 hours is typically required. No special preparation is needed for the Blood Pressure Check.", packageIncludes: [test1S,test2H,test3S], packageExpiry: DateComponents(calendar: Calendar.current, year: 2024, month: 12, day: 31), facility: sampleFacilities[1])
+    static var package1S = Packages(name: "Cardio-Metabolic Health Package", cost: "25", describtion: "Targets heart and metabolic health, checking cholesterol, blood sugar, and blood pressure.", insrtuctions: "For the Lipid Profile and Blood Glucose Level, fasting for 9-12 hours is typically required. No special preparation is needed for the Blood Pressure Check.", packageIncludes: [test1S,test2S,test3S], packageExpiry: DateComponents(calendar: Calendar.current, year: 2024, month: 12, day: 31), facility: sampleFacilities[1])
 
         static var package2S = Packages(name: "General Wellness Package", cost: "30", describtion: "Provides a comprehensive health overview, assessing blood health, thyroid function, and Vitamin D levels.", insrtuctions: "No special preparation is needed for the Complete Blood Count (CBC) and Vitamin D Level tests. The Thyroid Function Test (TFT) is usually best conducted in the morning, but no fasting is required.", packageIncludes: [test4S,test5S,test6S], packageExpiry: DateComponents(calendar: Calendar.current, year: 2024, month: 3, day: 31), facility: sampleFacilities[1])
     
@@ -427,7 +427,7 @@ class AppData {
     //Packages for King Hamad Hospital
     static var package1KHUH = Packages(name: "Cancer-Screening (Female Only)", cost: "150", describtion: "This package is designed for women to screen their body to detect cancer before any symptoms appear and increase their chance of winning against the cancer through early detection", insrtuctions: "(1)Avoid using lotions, perfumes, or powders before mammography. (2) Patients may be advised to schedule the test at a specific time during their menstrual cycle.", packageIncludes: [test4KHUH, test5KHUH,test6KHUH,test3KHUH,test7KHUH], packageExpiry: DateComponents(calendar: Calendar.current, year: 2023, month: 6, day: 30), facility: sampleFacilities[3])
 
-        static var package2KHUH = Packages(name: "Women Wellness Screening", cost: "210", describtion: "This package is designed to seek guidelines about preventive measures and to review essentials of woman's reproductive health.", insrtuctions: "Avoid strenuous exercise and alcohol consumption 24 hours before the appointment.", packageIncludes: [test4KHUH, test8KHUH, test7KHUH,], packageExpiry: DateComponents(calendar: Calendar.current, year: 2023, month: 6, day: 30), facility: sampleFacilities[3])
+        static var package2KHUH = Packages(name: "Women Wellness Screening", cost: "210", describtion: "This package is designed to seek guidelines about preventive measures and to review essentials of woman's reproductive health.", insrtuctions: "Avoid strenuous exercise and alcohol consumption 24 hours before the appointment.", packageIncludes: [test4KHUH, test8KHUH, test7KHUH], packageExpiry: DateComponents(calendar: Calendar.current, year: 2023, month: 6, day: 30), facility: sampleFacilities[3])
     
     
     //Packages for Bahrain Lab
@@ -494,7 +494,7 @@ class AppData {
     static var packages: [Packages] = [package1H, package2H, package1S, package2S, package1Shifa,package2Shifa,package1BHlab,package2BHlab,package1Blos,package2Blos,package1KHUH,package2KHUH,package1Thy,package2Thy,package1Kindi,package2Kindi,package1Naf,package2Naf,package1Ast,package2Ast,package1Res,package2Res,package1Ray,package2Ray,package1bhSp,package2bhSp,package1Exp,package2Exp,package1Amal,package2Amal]
 
     // Combined array of all tests and packages.
-    static var allTestsPackages: [Service] = [test1H,test2H, test3H,test4H,test5H, test6H,test7H, test8H,test1S, test2S, test3S, test4S, test5S,test6S,test1Shifa, test2Shifa, test3Shifa, test4Shifa,test5Shifa,test6Shifa,test1BHlab,test2BHlab,test3BHlab,test4BHlab,test5BHlab,test1Blos,test2Blos,test3Blos,test4Blos,test5Blos,test6Blos,test1KHUH,test2KHUH,test3KHUH,test4KHUH,test5KHUH,test6KHUH, test7KHUH,test8KHUH,test9KHUH,test10KHUH,test1Thy,test2Thy,test3Thy,test4Thy,test5Thy,test6Thy,test7Thy,test1Kindi,test2Kindi,test3Kindi,test4Kindi,test5Kindi,test6Kindi,test6Kindi,test1Naf,test2Naf,test3Naf,test4Naf,test5Naf,test6Naf,test7Naf,test8Naf,test9Naf,test1Ast,test2Ast,test3Ast,test4Ast,test5Ast,test6Ast,test7Ast,test8Ast,test9Ast,test1Res,test2Res,test3Res,test4Res,test5Res,test6Res,test7Res,test8Res,test1Ray,test2Ray,test3Ray,test4Ray,test5Ray,test6Ray,test7Ray,test8Ray,test9Ray,test1bhSp,test2bhSp,test3bhSp,test4bhSp,test5bhSp,test6bhSp,test7bhSp,test1Exp,test2Exp,test3Exp,test4Exp,test5Exp,test6Exp,test7Exp,test1Amal,test2Amal,test3Amal,test4Amal,test5Amal,test6Amal,test7Amal,package1H, package2H,package1S, package2S, package1Shifa,package2Shifa,package1BHlab,package2BHlab,package1Blos,package2Blos,package1KHUH,package2KHUH,package1Thy,package2Thy,package1Kindi,package2Kindi, package1Naf,package2Naf,package1Ast,package2Ast,package1Res,package2Res,package1Ray,package2Ray,package1bhSp,package2bhSp,package1Exp,package2Exp,package1Amal,package2Amal]
+    static var allTestsPackages: [Service] = [test1H,test2H, test3H,test4H,test5H, test6H,test7H, test8H,test1S, test2S, test3S, test4S, test5S,test6S,test1Shifa, test2Shifa, test3Shifa, test4Shifa,test5Shifa,test6Shifa,test1BHlab,test2BHlab,test3BHlab,test4BHlab,test5BHlab,test1Blos,test2Blos,test3Blos,test4Blos,test5Blos,test6Blos,test1KHUH,test2KHUH,test3KHUH,test4KHUH,test5KHUH,test6KHUH, test7KHUH,test8KHUH,test9KHUH,test10KHUH,test1Thy,test2Thy,test3Thy,test4Thy,test5Thy,test6Thy,test7Thy,test1Kindi,test2Kindi,test3Kindi,test4Kindi,test5Kindi,test6Kindi,test7Kindi,test1Naf,test2Naf,test3Naf,test4Naf,test5Naf,test6Naf,test7Naf,test8Naf,test9Naf,test1Ast,test2Ast,test3Ast,test4Ast,test5Ast,test6Ast,test7Ast,test8Ast,test9Ast,test1Res,test2Res,test3Res,test4Res,test5Res,test6Res,test7Res,test8Res,test1Ray,test2Ray,test3Ray,test4Ray,test5Ray,test6Ray,test7Ray,test8Ray,test9Ray,test1bhSp,test2bhSp,test3bhSp,test4bhSp,test5bhSp,test6bhSp,test7bhSp,test1Exp,test2Exp,test3Exp,test4Exp,test5Exp,test6Exp,test7Exp,test1Amal,test2Amal,test3Amal,test4Amal,test5Amal,test6Amal,test7Amal,package1H, package2H,package1S, package2S, package1Shifa,package2Shifa,package1BHlab,package2BHlab,package1Blos,package2Blos,package1KHUH,package2KHUH,package1Thy,package2Thy,package1Kindi,package2Kindi, package1Naf,package2Naf,package1Ast,package2Ast,package1Res,package2Res,package1Ray,package2Ray,package1bhSp,package2bhSp,package1Exp,package2Exp,package1Amal,package2Amal]
     
     
     //bookings Dummy Data
