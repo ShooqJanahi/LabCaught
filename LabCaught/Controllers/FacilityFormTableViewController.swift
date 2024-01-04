@@ -32,7 +32,7 @@ class FacilityFormTableViewController: UITableViewController {
     
         var currentFacilityType: FacilityType = .hospital
     
-    var selectedImage: UIImage?
+        var selectedImage: UIImage?
  
 
         var username: String = ""
@@ -89,6 +89,8 @@ class FacilityFormTableViewController: UITableViewController {
                 self?.facilityLogo.image = image
             }
         }
+        loadImage(from: facility.logoImageName, into: facilityLogo)
+
         
                 // Set the segmented control for facility type
                 facilityTypeSC.selectedSegmentIndex = facility.facilityType == .hospital ? 0 : 1
@@ -125,13 +127,8 @@ class FacilityFormTableViewController: UITableViewController {
         let username = facilityUsernameTextField.text ?? ""
         let password = facilityPasswordTextField.text ?? ""
         let name = facilityNameTextField.text ?? ""
-        let phoneNumberText = facilityPhoneNumberTextField.text ?? ""
         let location = facilityLocationTextField.text ?? ""
-        let isOpen24Hours = isAlwaysOpenSwitch.isOn
-        let facilityType = facilityTypeSC.selectedSegmentIndex == 0 ? FacilityType.hospital : FacilityType.lab
-        let openingTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: openingTimeDP.date)
-        let closingTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: closingTimeDP.date)
-        let logoImageName = facility?.logoImageName
+  
         
         
         
@@ -146,30 +143,29 @@ class FacilityFormTableViewController: UITableViewController {
 
        
         
-        // Check if a new image was selected for upload
         if let imageToUpload = selectedImage {
                 uploadImage(imageToUpload) { [weak self] (url) in
                     guard let self = self, let logoUrl = url else {
                         self?.presentAlert(title: "Upload Failed", message: "Failed to upload image.")
                         return
                     }
-                    // Now we have the new logo URL
-                    self.loadImage(from: logoUrl, into: self.facilityLogo)
+
+                    // Store the image URL in Firebase Database
+                    if let facilityUsername = self.facility?.username {
+                        self.storeImageUrl(logoUrl, forFacility: facilityUsername)
+                    }
+
+                    // Proceed with creating or updating the facility
                     self.createOrUpdateFacility(with: logoUrl) {
-                        // Call finalizeFacilityUpdate after the facility has been created/updated
                         self.finalizeFacilityUpdate()
                     }
                 }
             } else {
                 // If no new image, use existing logo URL
                 createOrUpdateFacility(with: facility?.logoImageName) {
-                    // Call finalizeFacilityUpdate after the facility has been created/updated
                     self.finalizeFacilityUpdate()
                 }
             }
-            
-            
-            
     
             
     }
@@ -205,16 +201,15 @@ class FacilityFormTableViewController: UITableViewController {
 
                 AppData.editFacility(facility: facility)
                 
+                
             } else {
                 // Create a new Facility object
                 
                 let newFacility = Facility(username: username, password: password, phoneNumber: phoneNumberInt, name: name, location: location, isOpen24Hours: isOpen24Hours, openingTime: openingTimeComponents, closingTime: closingTimeComponents, facilityType: facilityType, logoImageName: logoUrl ?? "defaultLogo.jpeg")
                 
                 AppData.addFacility(facility: newFacility)
-                
             }
-            completion()
-            
+        completion()
         }
     
     private func finalizeFacilityUpdate() {
@@ -224,93 +219,81 @@ class FacilityFormTableViewController: UITableViewController {
         navigationController?.popViewController(animated: true)
     }
 
+    
+    
+    // MARK: - Firebase URL Storage
+    func storeImageUrl(_ url: String, forFacility username: String) {
+        // Firebase Database reference
+        let ref = Database.database().reference()
+        ref.child("facilities").child(username).child("logoUrl").setValue(url)
+    }
+
+       // MARK: - Firebase URL Retrieval
+    func fetchImageUrl(forFacility username: String, completion: @escaping (_ url: String?) -> Void) {
+        let ref = Database.database().reference()
+        ref.child("facilities").child(username).child("logoUrl").observeSingleEvent(of: .value) { snapshot in
+            guard let url = snapshot.value as? String else {
+                completion(nil)
+                return
+            }
+            completion(url)
+        }
+    }
+
+       // MARK: - Load and Display Image
+       func loadImage(from url: String, into imageView: UIImageView) {
+           guard let imageURL = URL(string: url) else {
+               print("Invalid image URL")
+               return
+           }
+
+           URLSession.shared.dataTask(with: imageURL) { data, response, error in
+               guard let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                     let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                     let data = data, error == nil,
+                     let image = UIImage(data: data) else {
+                   print("Error fetching image: \(error?.localizedDescription ?? "")")
+                   return
+               }
+
+               DispatchQueue.main.async {
+                   imageView.image = image
+               }
+           }.resume()
+       }
     // MARK: - Image Upload to Firebase Storage
     func uploadImage(_ image: UIImage, completion: @escaping (_ url: String?) -> Void) {
-        
-        // Convert the image to data and determine the file extension
-            let imageData: Data
-            let fileExtension: String
+        guard let imageData = image.jpegData(compressionQuality: 0.8) else {
+            print("Could not get JPEG representation of UIImage")
+            completion(nil)
+            return
+        }
 
-            if let jpegData = image.jpegData(compressionQuality: 0.8) {
-                imageData = jpegData
-                fileExtension = "jpg"
-            } else if let pngData = image.pngData() {
-                imageData = pngData
-                fileExtension = "png"
-            } else {
-                print("Unsupported image format")
+        // Create a reference to the Firebase Storage location
+        let storageRef = Storage.storage().reference().child("images/\(UUID().uuidString).jpg")
+
+        // Upload the image data
+        storageRef.putData(imageData, metadata: nil) { metadata, error in
+            guard let _ = metadata else {
+                print("Error during image upload: \(error?.localizedDescription ?? "")")
                 completion(nil)
                 return
             }
 
-            // Define the file name with the appropriate file extension
-            let fileName = "images/\(UUID().uuidString).\(fileExtension)"
-            let storageRef = Storage.storage().reference().child(fileName)
-
-            // Start the upload task
-            let uploadTask = storageRef.putData(imageData, metadata: nil) { metadata, error in
-                guard let _ = metadata else {
-                    // Handle any errors
-                    print("Error during image upload: \(String(describing: error))")
+            // Retrieve the download URL
+            storageRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    print("Error retrieving download URL")
                     completion(nil)
                     return
                 }
-
-                // Once the image has been uploaded, retrieve its download URL
-                storageRef.downloadURL { url, error in
-                    guard let downloadURL = url else {
-                        // Handle any errors in retrieving the download URL
-                        print("Error retrieving download URL: \(String(describing: error))")
-                        completion(nil)
-                        return
-                    }
-                    completion(downloadURL.absoluteString)
-                }
-            }
-
-    }
-    
-    func fetchImage(withName imageName: String, completion: @escaping (UIImage?) -> Void) {
-        let storageRef = Storage.storage().reference()
-
-        // Try fetching .jpg first, then .jpeg if that fails
-        storageRef.child("images/\(imageName).jpg").downloadURL { (url, error) in
-            if let url = url {
-                // Download image using URL...
-            } else {
-                // Try with .jpeg extension...
-                storageRef.child("images/\(imageName).jpeg").downloadURL { (url, error) in
-                    if let url = url {
-                        // Download image using URL...
-                    } else {
-                        print("Error fetching image: \(String(describing: error))")
-                        completion(nil)
-                    }
-                }
+                // Pass the direct HTTP URL string back to the completion handler
+                completion(downloadURL.absoluteString)
             }
         }
     }
+
     
-    func loadImage(from url: String, into imageView: UIImageView) {
-        guard let imageURL = URL(string: url) else {
-            print("Invalid image URL: \(url)")
-            return
-        }
-
-        URLSession.shared.dataTask(with: imageURL) { data, response, error in
-            guard let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                  let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                  let data = data, error == nil,
-                  let image = UIImage(data: data) else {
-                print("Error fetching image: \(String(describing: error))")
-                return
-            }
-
-            DispatchQueue.main.async {
-                imageView.image = image
-            }
-        }.resume()
-    }
     
     @objc func facilityLogoTapped(_ sender: UITapGestureRecognizer) {
         let imagePicker = UIImagePickerController()

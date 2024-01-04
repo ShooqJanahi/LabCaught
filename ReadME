@@ -12,3 +12,14 @@ Description: New users can register by entering their personal information in th
 Changes Since Design Document:
 The registration text fields were changed to a basic format for simplicity.
 The terms and conditions checkbox was replaced with a switch for ease of use, and this switch was placed at the bottom of the form for better UI flow.
+
+
+Admin 
+Shaikha Mohamed 202001432
+View/Delete :
+Description: user can view hospital and labs, also have the ability to delete a facility.
+Changes Since Design Document: i removed in xcode since i did not need it, another change is i removed the search and sort. also the segmented control placement, i placed it in tab bar.
+
+Add/Edit
+Description: user can add facility and edit exsisting facility.
+Changes Since Design Document:  one change is i added a segmented control to select the facility type. another change is the placement of the title. Another change is the placement of the image view it was at the end and now its at the top. 
