@@ -6,14 +6,16 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class PatientHomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var locationLbl: UILabel!
-    @IBOutlet weak var specializationLbl: UILabel!
+    @IBOutlet weak var closeingLbl: UILabel!
     @IBOutlet weak var openingLbl: UILabel!
+    @IBOutlet var specializationLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     var facility: Facility?
@@ -46,8 +48,40 @@ class PatientHomeViewController: UIViewController, UITableViewDelegate, UITableV
         nameLbl.text = facility.name
         locationLbl.text = facility.location
         specializationLbl.text = facility.facilityType.description
-        //openingLbl.text = facility.openingTime.description//wrong
-        //imageView.image = facility.logoImageName
+        
+        let calendar = Calendar.current
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        
+        let opendate = calendar.date(from: facility.openingTime)
+        var timeString = dateFormatter.string(from: opendate!)
+        openingLbl.text = timeString
+        
+        let closedate = calendar.date(from: facility.openingTime)
+        timeString = dateFormatter.string(from: closedate!)
+        closeingLbl.text = timeString
+        
+        //imageView.image = UIImage //UIImage(named: facility.logoImageName)
+        
+//        let storageRef = Storage.storage().reference(withPath: facility.logoImageName)
+//
+//        storageRef.downloadURL { (url, error) in
+//            if let error = error {
+//                // Handle any errors
+//                print("Error downloading image: \(error)")
+//                return
+//            }
+//            if let url = url {
+//                // Download the image using URLSession
+//                URLSession.shared.dataTask(with: url) { data, response, error in
+//                    if let data = data {
+//                        DispatchQueue.main.async {
+//                            self.imageView.image = UIImage(data: data)
+//                        }
+//                    }
+//                }.resume()
+            }
+        }
     }
     
     

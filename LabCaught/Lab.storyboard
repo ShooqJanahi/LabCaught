@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1s8-Tp-gzE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1s8-Tp-gzE">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -442,6 +443,7 @@
                                 <segment title="Completed"/>
                                 <segment title="Cancelled"/>
                             </segments>
+                            <color key="selectedSegmentTintColor" red="0.29411764705882354" green="0.32156862745098036" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="segmentChange:" destination="SRl-qH-FzS" eventType="valueChanged" id="Jwn-P2-hyD"/>
                             </connections>
@@ -477,6 +479,7 @@
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbC-13-11X">
                                                             <rect key="frame" x="0.0" y="0.0" width="179" height="34.666666666666664"/>
+                                                            <color key="tintColor" red="0.29411764705882354" green="0.32156862745098036" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="filled" title="Cancel"/>
                                                             <connections>
@@ -485,6 +488,7 @@
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ml0-ie-nMe">
                                                             <rect key="frame" x="194" y="0.0" width="179" height="34.666666666666664"/>
+                                                            <color key="tintColor" red="0.29372879860000001" green="0.31993350390000003" blue="0.49419140820000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="filled" title="Completed"/>
                                                             <connections>
@@ -511,6 +515,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APPOINTMENT .........." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skl-je-8rq">
                                                     <rect key="frame" x="30" y="11.000000000000002" width="333" height="26.666666666666671"/>
+                                                    <color key="tintColor" red="0.29411764705882354" green="0.32156862745098036" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                                                     <color key="textColor" systemColor="systemIndigoColor"/>
                                                     <nil key="highlightedColor"/>
