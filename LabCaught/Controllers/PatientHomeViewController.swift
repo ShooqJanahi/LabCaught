@@ -80,8 +80,8 @@ class PatientHomeViewController: UIViewController, UITableViewDelegate, UITableV
 //                        }
 //                    }
 //                }.resume()
-            }
-        }
+//            }
+//        }
     }
     
     
