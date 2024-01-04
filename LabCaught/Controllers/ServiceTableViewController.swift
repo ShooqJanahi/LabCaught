@@ -50,10 +50,7 @@ class ServiceTableViewController: UITableViewController {
     
     
     @IBAction func updateDisplayedServices(_ sender: UISegmentedControl) {
-        /*guard let selectedSegment = ServiceSegment(rawValue: sender.selectedSegmentIndex) else { return }
-        updateDisplayedServices(segment: selectedSegment)*/
-        
-        lastSelectedSegmentIndex = sender.selectedSegmentIndex
+            lastSelectedSegmentIndex = sender.selectedSegmentIndex
             guard let selectedSegment = ServiceSegment(rawValue: sender.selectedSegmentIndex) else { return }
             updateDisplayedServices(segment: selectedSegment)
     }
@@ -82,7 +79,6 @@ class ServiceTableViewController: UITableViewController {
 
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        
         return true
     }
 
@@ -144,24 +140,6 @@ class ServiceTableViewController: UITableViewController {
             Utility.switchToStoryboard(named: "Main")
         }
     }
-    
-    
-    
-    private func performLogout() {
-
-            if let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginTableViewControllerID") as? LoginTableViewController {
-                // Present or set as root view controller
-                self.present(loginViewController, animated: true)
-
-                // Alternatively, you can pop to the root view controller if it's a login screen
-                // self.navigationController?.popToRootViewController(animated: true)
-
-                // Or if you are using a navigation controller, you can do something like this:
-                 //navigationController?.setViewControllers([loginViewController], animated: true)
-            }
-        }
-
-
     
     
     /*override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

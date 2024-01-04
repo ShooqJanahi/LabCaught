@@ -462,9 +462,9 @@ class AppData {
     static var package2Exp = Packages(name: "Thyroid and Nutrition Profile", cost: "30", describtion: "Evaluates thyroid health and essential vitamin levels for overall wellness.", insrtuctions: "Fast for 8-10 hours before the Thyroid Function Test. No fasting required for Vitamin D and B12 tests.", packageIncludes: [test4Exp,test5Exp,test6Exp], packageExpiry: DateComponents(calendar: Calendar.current, year: 2024, month: 4, day: 4), facility: sampleFacilities[13])
     
     //Packages for AlAmal Hospital
-    static var package1Amal = Packages(name: "Balanced Health Check", cost: "40 BHD", describtion: "A general health assessment covering blood health, liver function, and vitamin levels.", insrtuctions: "Fast for 8-12 hours for the liver function test. No fasting required for CBC and Vitamin B12 Test.", packageIncludes: [test1Amal,test2Amal,test3Amal], packageExpiry: DateComponents(calendar: Calendar.current, year: 2025, month: 3, day: 13), facility: sampleFacilities[14])
+    static var package1Amal = Packages(name: "Balanced Health Check", cost: "40", describtion: "A general health assessment covering blood health, liver function, and vitamin levels.", insrtuctions: "Fast for 8-12 hours for the liver function test. No fasting required for CBC and Vitamin B12 Test.", packageIncludes: [test1Amal,test2Amal,test3Amal], packageExpiry: DateComponents(calendar: Calendar.current, year: 2025, month: 3, day: 13), facility: sampleFacilities[14])
 
-    static var package2Amal = Packages(name: "Cardio Wellness Profile", cost: "30 BHD", describtion: "Focuses on cardiovascular and glucose level assessment.", insrtuctions: "Fast for 12 hours prior to both tests.", packageIncludes: [test4Amal,test5Amal], packageExpiry: DateComponents(calendar: Calendar.current, year: 2024, month: 6, day: 2), facility: sampleFacilities[14])
+    static var package2Amal = Packages(name: "Cardio Wellness Profile", cost: "30", describtion: "Focuses on cardiovascular and glucose level assessment.", insrtuctions: "Fast for 12 hours prior to both tests.", packageIncludes: [test4Amal,test5Amal], packageExpiry: DateComponents(calendar: Calendar.current, year: 2024, month: 6, day: 2), facility: sampleFacilities[14])
 
 
 

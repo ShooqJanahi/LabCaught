@@ -20,7 +20,6 @@ class ServiceFormTableViewController: UITableViewController, TestSelectionViewCo
         
         // Update the label with the names of the selected tests
         testsList.text = selectedTests.map { $0.name }.joined(separator: ", ")
-        updateSaveBtnState()
     }
     
     
@@ -83,9 +82,7 @@ class ServiceFormTableViewController: UITableViewController, TestSelectionViewCo
         super.viewDidLoad()
         serviceTypeChanged(serviceTypeSC)
         updateViews()
-        
-        updateSaveBtnState()
-        
+                
         descriptionTxt.delegate = self
         instructionsTxt.delegate = self
         
@@ -101,8 +98,6 @@ class ServiceFormTableViewController: UITableViewController, TestSelectionViewCo
         testsList.numberOfLines = 0
         testsList.adjustsFontSizeToFitWidth = true
         testsList.minimumScaleFactor = 0.5
-        
-
     }
     
     func updateViews() {
@@ -141,7 +136,6 @@ class ServiceFormTableViewController: UITableViewController, TestSelectionViewCo
         }
         // reload table view to reflect changes
         tableView.reloadData()
-        updateSaveBtnState()
     }
     
     
@@ -167,7 +161,6 @@ class ServiceFormTableViewController: UITableViewController, TestSelectionViewCo
                     presentAlert(withTitle: "Missing Expiry Date", message: "Please choose an expiry date for the package.")
                     return
                 }
-                updateSaveBtnState()
             }
             
             // Create a new service or update an existing one
@@ -286,11 +279,6 @@ private func presentAlert(withTitle title: String, message: String) {
             destinationVC.delegate = self
         }
     }
-
-    
-
-
-    
         
         /*
          // Override to support conditional editing of the table view.
