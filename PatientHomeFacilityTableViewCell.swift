@@ -25,7 +25,7 @@ class PatientHomeFacilityTableViewCell: UITableViewCell {
         // Setting the facility label to the name of the facility providing the service.
         facilityLbl.text = service.facility.name
         // Setting the price label to the cost of the service.
-        priceLbl.text = service.cost
+        priceLbl.text = service.cost + " BHD"
     }
 
 }
