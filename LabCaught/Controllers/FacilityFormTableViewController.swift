@@ -156,6 +156,7 @@ class FacilityFormTableViewController: UITableViewController {
         let openingTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: openingTimeDP.date)
         let closingTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: closingTimeDP.date)
         let logoImageName = "defaultLogo" // Replace with your logic to get the image name or URL
+        
         //let currentLogoImageName = self.facility?.logoImageName
         
         

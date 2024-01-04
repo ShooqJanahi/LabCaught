@@ -11,11 +11,9 @@ class HosptalLabTableViewController: UITableViewController {
     
     var facilities: [Facility] = AppData.facilites.filter{ $0.facilityType == .hospital }
     
-    
     @IBOutlet weak var facilityTypeSC: UISegmentedControl!
     
-    
-    //var facility: Facility?
+
     
     func filterFacilities() {
         if facilityTypeSC.selectedSegmentIndex == 0 { //0 is for hospitals
@@ -34,9 +32,8 @@ class HosptalLabTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //super.viewDidLoad()
         filterFacilities()
-        //AppData.loadFacilities()
+        
         //show hospitals by default
         if let segmentedControl = self.navigationItem.titleView as? UISegmentedControl {
             segmentedControl.selectedSegmentIndex = 0
@@ -108,24 +105,6 @@ class HosptalLabTableViewController: UITableViewController {
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         filterFacilities()
     }
-    /*
-     @IBSegueAction func editFacility(_ coder: NSCoder, sender: Any?) -> FacilityFormTableViewController? {
-     
-     // Determine which facility was selected
-     guard let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) else {
-     return nil
-     }
-     
-     // Retrieve the selected facility
-     let selectedFacility = AppData.sampleFacilities[indexPath.row]
-     
-     // Create the FacilityFormTableViewController with the selected facility
-     let editViewController = FacilityFormTableViewController(coder: coder, facility: selectedFacility)
-     
-     return editViewController
-     
-     }
-     */
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
