@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class Service {
+class Service: Codable {
     var name: String
     var cost: String
     var describtion: String

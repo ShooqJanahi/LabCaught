@@ -544,23 +544,23 @@ class AppData {
     
     
     // Load initial data or settings.
-    static func load() {
-        // Load all data from file or initial settings
-        if bookings.isEmpty {
-            bookings = sampleBookings
-        }
-        if facilites.isEmpty {
-            facilites = sampleFacilities
-        }
-        if services.isEmpty {
-            services = allTestsPackages
-        }
-        if patient.isEmpty{
-            patient = samplePatients
-        }
-        // Load other user data if necessary
-        loadFromFile()
-    }
+//    static func load() {
+//        // Load all data from file or initial settings
+//        if bookings.isEmpty {
+//            bookings = sampleBookings
+//        }
+//        if facilites.isEmpty {
+//            facilites = sampleFacilities
+//        }
+//        if services.isEmpty {
+//            services = allTestsPackages
+//        }
+//        if patient.isEmpty{
+//            patient = samplePatients
+//        }
+//        // Load other user data if necessary
+//        loadFromFile()
+//    }
     
     //don't touch this (this is for saving registerd user information
      // Function to add a new user to the patient array and save it.
@@ -602,11 +602,11 @@ class AppData {
     }
     
     // Save patient data to UserDefaults.
-    static func saveToFile() {
-        if let encoded = try? JSONEncoder().encode(patient) {
-            UserDefaults.standard.set(encoded, forKey: "SavedPatients")
-        }
-    }
+//    static func saveToFile() {
+//        if let encoded = try? JSONEncoder().encode(patient) {
+//            UserDefaults.standard.set(encoded, forKey: "SavedPatients")
+//        }
+//    }
     //don't touch this (this is to save registerd user information)
     
     

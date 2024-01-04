@@ -12,7 +12,7 @@ enum statusType : String,Codable{
 }
 import Foundation
 //it should be there
-class booking: Equatable{
+class booking: Equatable, Codable{
     static func == (lhs: booking, rhs: booking) -> Bool {
         lhs.patient == rhs.patient && lhs.booking_date == rhs.booking_date
     }
