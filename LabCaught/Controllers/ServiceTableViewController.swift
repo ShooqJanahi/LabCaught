@@ -141,7 +141,7 @@ class ServiceTableViewController: UITableViewController {
     
     @IBAction func logOutToMainScreen(_ sender: Any) {
         Alerts.showLogoutConfirmation(on: self) {
-        self.performLogout()
+            Utility.switchToStoryboard(named: "Main")
         }
     }
     

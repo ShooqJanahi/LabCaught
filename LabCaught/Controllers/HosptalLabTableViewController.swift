@@ -135,43 +135,10 @@ class HosptalLabTableViewController: UITableViewController {
     }
     
     
-    //logout
-    @objc func handleLogout() {
-        // Present confirmation alert
-        let alert = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { _ in
-            //self.logoutUser()
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
-    /*
-    
     @IBAction func switchToLoginScreen(_ sender: UIBarButtonItem) {
-        // Instantiate the Main storyboard by name
-           let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-
-           // Ensure the identifier is the same as what's set in the storyboard
-           let storyboardID = "LoginTableViewController"
-
-           // Check if the storyboard contains a view controller with the specified identifier
-           guard mainStoryboard.instantiateViewController(withIdentifier: storyboardID) is LoginTableViewController else {
-               print("Storyboard doesn't contain a view controller with identifier '\(storyboardID)'")
-               return
-           }
-
-           // Instantiate the LoginTableViewController from the Main storyboard
-           let loginViewController = mainStoryboard.instantiateViewController(withIdentifier: storyboardID)
-
-           // If using a navigation controller, pop to the root view controller
-           if let navigator = navigationController {
-               navigator.popToRootViewController(animated: false)
-               navigator.pushViewController(loginViewController, animated: true)
-           } else {
-               // Present the LoginTableViewController modally
-               present(loginViewController, animated: true, completion: nil)
-           }
-        
+        Alerts.showLogoutConfirmation(on: self) {
+            Utility.switchToStoryboard(named: "Main")
+        }
     }
-    */
+    
 }
