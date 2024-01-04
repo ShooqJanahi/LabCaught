@@ -68,14 +68,21 @@ class RegistrationTableViewController: UITableViewController {
         
         
         // Check if the username is already in use
-        Alerts.showUsernameInUseAlertIfNecessary(for: UserNameTextField.text ?? "", on: self, isUsernameInUse: {
-            AppData.isUsernameInUse(username: UserNameTextField.text ?? "")
-        }, retryHandler: {
-            // Logic to handle the retry for username
-            self.UserNameTextField.text = ""
-            self.UserNameTextField.becomeFirstResponder()
-        })
+            let usernameInUse = AppData.patient.contains { $0.username == UserNameTextField.text } ||
+                                AppData.facilites.contains { $0.username == UserNameTextField.text } ||
+                                AppData.admins.contains { $0.username == UserNameTextField.text } ||
+                                AppData.samplePatients.contains { $0.username == UserNameTextField.text }
+
         
+        
+        if usernameInUse {
+               // Show alert if username is already in use
+               Alerts.showAlertWithRetry(on: self, title: "Username Error", message: "Username already in use", retryHandler: { [weak self] in
+                   self?.UserNameTextField.text = ""
+                   self?.UserNameTextField.becomeFirstResponder()
+               })
+               return
+           }
         
         // Check if the password is strong.
         guard Utility.isPasswordStrong(password) else {
@@ -138,13 +145,22 @@ class RegistrationTableViewController: UITableViewController {
         
         
       
-        // All checks passed - add the user and navigate back.
-            AppData.addUser(username: userName, password: password, phoneNumber: Int(phoneNumber) ?? 0, firstName: firstName, lastName: lastName, dob: dobComponents, cpr: Int(cpr) ?? 0)
-                
-                // Navigate back to the login screen
-                DispatchQueue.main.async { [weak self] in
-                    self?.navigationController?.popViewController(animated: true)
-          }
+        // All checks passed - add the user
+        AppData.addUser(username: userName, password: password, phoneNumber: Int(phoneNumber) ?? 0, firstName: firstName, lastName: lastName, dob: dobComponents, cpr: Int(cpr) ?? 0)
+
+        // Show a confirmation alert for successful registration
+        let registrationSuccessAlert = UIAlertController(title: "Registration Successful", message: "You have successfully registered. Please log in.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            // Navigate back to the login screen
+            self?.navigationController?.popViewController(animated: true)
+        }
+
+        registrationSuccessAlert.addAction(okAction)
+        DispatchQueue.main.async {
+            self.present(registrationSuccessAlert, animated: true, completion: nil)
+        }
+        
+        
       }
    
     }
