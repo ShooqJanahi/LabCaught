@@ -148,7 +148,7 @@ class AppData {
                                         openingTime: DateComponents(hour: 7, minute: 0),
                                         closingTime: DateComponents(hour: 22, minute: 0),
                                         facilityType: .lab,
-                                        logoImageName: "BlossomMedical.png")
+                                        logoImageName: "BlossomMedical .png")
         
         static var Facility10 = Facility(username: "AsterClinic",
                                         password: "123Ac",

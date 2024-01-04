@@ -1,4 +1,6 @@
 import Foundation
+import FirebaseStorage
+import UIKit
 
 // Enum to specify the type of facility (hospital or lab).
 enum FacilityType: String, Codable, Equatable{
@@ -18,6 +20,7 @@ enum FacilityType: String, Codable, Equatable{
 
 // Facility class inherits from User and adds specific properties and methods that are desigend for a facility.
 class Facility: User{
+    
     // Properties that are specific to the Facility class.
     var name: String
     var location: String
@@ -26,7 +29,22 @@ class Facility: User{
     var closingTime: DateComponents
     var facilityType: FacilityType
     var logoImageName: String // Name of the image file or URL as a string
+    
 
+
+    func fetchLogoImage(completion: @escaping (UIImage?) -> Void) {
+            let storageRef = Storage.storage().reference().child("images/\(logoImageName)")
+            storageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        print("Error downloading image: \(error)")
+                        completion(nil)
+                    } else if let data = data {
+                        completion(UIImage(data: data))
+                    }
+                }
+            }
+        }
    
     // It initializes both Facility-specific and inherited User properties.
     init(username: String, password: String, phoneNumber: Int, name: String, location: String, isOpen24Hours: Bool, openingTime: DateComponents, closingTime: DateComponents, facilityType: FacilityType, logoImageName: String) {
