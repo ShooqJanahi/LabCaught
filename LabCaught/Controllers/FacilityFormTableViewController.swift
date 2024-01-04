@@ -32,6 +32,7 @@ class FacilityFormTableViewController: UITableViewController {
         var currentFacilityType: FacilityType = .hospital
     
         var selectedImage: UIImage?
+        var currentLogoImageName: String?
     
 
         var username: String = ""
@@ -83,10 +84,19 @@ class FacilityFormTableViewController: UITableViewController {
                 openingTimeDP.date = createDate(from: facility.openingTime) ?? Date()
                 closingTimeDP.date = createDate(from: facility.closingTime) ?? Date()
 
+                currentLogoImageName = facility.logoImageName
         
                 // Set the segmented control for facility type
                 facilityTypeSC.selectedSegmentIndex = facility.facilityType == .hospital ? 0 : 1
 
+        // Determine the image URL to use
+                let imageUrlToUse: String
+                if let selectedImage = facilityLogo.image, selectedImage != UIImage(named: "defaultLogo"), let newImageUrl = // Your method to get the new image URL {
+                    imageUrlToUse = newImageUrl
+                } else {
+                    // No new image is selected, use the original image URL
+                    imageUrlToUse = originalLogoImageName ?? "defaultLogo.jpg"
+                }
                 
             // Load the image from Firebase Storage
             let storageRef = Storage.storage().reference().child("images/\(facility.logoImageName)")
@@ -164,6 +174,7 @@ class FacilityFormTableViewController: UITableViewController {
         let facilityType = facilityTypeSC.selectedSegmentIndex == 0 ? FacilityType.hospital : FacilityType.lab
         let openingTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: openingTimeDP.date)
         let closingTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: closingTimeDP.date)
+        let logoImageName = currentLogoImageName
         //let logoImageName = "defaultLogo.jpg"
         
         
@@ -192,19 +203,7 @@ class FacilityFormTableViewController: UITableViewController {
                             // No new image URL, use the existing one from the facility being edited
                             imageUrlToUse = self.facility?.logoImageName ?? "defaultLogo.jpg"
                         }
-                /*
-                let imageUrlToUse: String
-                        if let newImageUrl = newImageUrl, !newImageUrl.isEmpty {
-                            // Use the new image URL if a new image has been uploaded
-                            imageUrlToUse = newImageUrl
-                        } else if let existingImageUrl = self.facility?.logoImageName, !existingImageUrl.isEmpty {
-                            // Use the existing image URL if no new image is uploaded
-                            imageUrlToUse = existingImageUrl
-                        } else {
-                            // Default to a generic image if no existing image URL is found
-                            imageUrlToUse = "defaultLogo.jpg"
-                        }
-*/
+                
                 if let existingFacility = self.facility {
                     // Update existing facility
                     // Directly update properties of the existing facility
