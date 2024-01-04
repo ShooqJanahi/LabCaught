@@ -127,5 +127,12 @@ class patientBookingTableViewController: UITableViewController {
 
         }
     }
+    
+    @IBAction func logOutToMain(_ sender: Any) {
+        Alerts.showLogoutConfirmation(on: self) {
+            Utility.switchToStoryboard(named: "Main")
+        }
+    }
+    
 
 }
