@@ -47,7 +47,27 @@ class AppData {
         
         Patient(username: "maryams", password: "1234", phoneNumber: 39993999, firstName: "Maryam", lastName: "Salah", DOB: DateComponents(calendar: Calendar.current, year: 2003, month: 11, day:22), CPR: 031100000),
         
-        Patient(username: "fatimaa", password: "3143", phoneNumber: 38883888, firstName: "Fatima", lastName: "Ali", DOB: DateComponents(calendar: Calendar.current, year: 2003, month: 05, day:09), CPR: 030500000)
+        Patient(username: "fatimaa", password: "3143", phoneNumber: 38883888, firstName: "Fatima", lastName: "Ali", DOB: DateComponents(calendar: Calendar.current, year: 2003, month: 05, day:09), CPR: 030500000),
+        
+        Patient(username: "khalidk", password: "password1", phoneNumber: 12345678, firstName: "Khalid", lastName: "Khan", DOB: DateComponents(calendar: Calendar.current, year: 2004, month: 7, day:15), CPR: 040715000),
+        
+            Patient(username: "nooran", password: "pass123", phoneNumber: 98765432, firstName: "Noor", lastName: "Alam", DOB: DateComponents(calendar: Calendar.current, year: 2001, month: 3, day:21), CPR: 010321000),
+        
+        Patient(username: "Nasser", password: "passwordN", phoneNumber: 55511111, firstName: "Nasser", lastName: "Al-Something", DOB: DateComponents(calendar: Calendar.current, year: 2001, month: 6, day:15), CPR: 010615001),
+        
+           Patient(username: "Hessa", password: "passwordH", phoneNumber: 55522222, firstName: "Hessa", lastName: "Al-Another", DOB: DateComponents(calendar: Calendar.current, year: 2002, month: 7, day:20), CPR: 020720002),
+        
+           Patient(username: "Jan", password: "passwordJ", phoneNumber: 55533333, firstName: "Jan", lastName: "Doe", DOB: DateComponents(calendar: Calendar.current, year: 2000, month: 1, day:10), CPR: 000110003),
+        
+           Patient(username: "Kendall", password: "passwordK", phoneNumber: 55544444, firstName: "Kendall", lastName: "Jenner", DOB: DateComponents(calendar: Calendar.current, year: 1999, month: 11, day:11), CPR: 991111004),
+        
+           Patient(username: "Selena", password: "passwordS", phoneNumber: 55555555, firstName: "Selena", lastName: "Gomez", DOB: DateComponents(calendar: Calendar.current, year: 1998, month: 7, day:22), CPR: 980722005),
+        
+           Patient(username: "Taylor", password: "passwordT", phoneNumber: 55566666, firstName: "Taylor", lastName: "Swift", DOB: DateComponents(calendar: Calendar.current, year: 1989, month: 12, day:13), CPR: 891213006),
+        
+           Patient(username: "Hamad", password: "passwordHm", phoneNumber: 55577777, firstName: "Hamad", lastName: "Al-Hamad", DOB: DateComponents(calendar: Calendar.current, year: 2003, month: 3, day:5), CPR: 030305007),
+        
+           Patient(username: "Issa", password: "passwordI", phoneNumber: 55588888, firstName: "Issa", lastName: "Al-Issa", DOB: DateComponents(calendar: Calendar.current, year: 1997, month: 5, day:25), CPR: 970525008)
     ]
     
     
@@ -484,7 +504,33 @@ class AppData {
         booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:22), patient: samplePatients[4], medicalService: tests[0]),
         booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:23), patient: samplePatients[2], medicalService: tests[2]),
             booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:24), patient: samplePatients[1], medicalService: tests[3]),
-            booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:25), patient: samplePatients[0], medicalService: tests[4])
+            booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:25), patient: samplePatients[0], medicalService: tests[4]),
+        booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day: 26), patient: samplePatients[0], medicalService: packages[0]),
+        
+           booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day: 27), patient: samplePatients[1], medicalService: packages[1]),
+        
+           booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day: 28), patient: samplePatients[2], medicalService: packages[2]),
+        
+        booking(booking_date: DateComponents(calendar: Calendar.current, year: 2024, month: 1, day: 5), patient: samplePatients[0], medicalService: tests[0]),
+        
+        booking(booking_date: DateComponents(calendar: Calendar.current, year: 2024, month: 1, day: 6), patient: samplePatients[1], medicalService: tests[1]),
+        
+        booking(booking_date: DateComponents(calendar: Calendar.current, year: 2024, month: 1, day: 7), patient: samplePatients[2], medicalService: tests[2]),
+        
+        booking(booking_date: DateComponents(calendar: Calendar.current, year: 2024, month: 1, day: 8), patient: samplePatients[3], medicalService: tests[3]),
+        
+        booking(booking_date: DateComponents(calendar: Calendar.current, year: 2024, month: 1, day: 9), patient: samplePatients[4], medicalService: tests[4]),
+        
+        booking(booking_date: DateComponents(calendar: Calendar.current, year: 2024, month: 1, day: 10), patient: samplePatients[5], medicalService: packages[0]),
+        
+        booking(booking_date: DateComponents(calendar: Calendar.current, year: 2024, month: 1, day: 11), patient: samplePatients[6], medicalService: packages[1]),
+        
+        booking(booking_date: DateComponents(calendar: Calendar.current, year: 2024, month: 1, day: 12), patient: samplePatients[7], medicalService: packages[2]),
+        
+        booking(booking_date: DateComponents(calendar: Calendar.current, year: 2024, month: 1, day: 13), patient: samplePatients[8], medicalService: packages[3]),
+        
+        booking(booking_date: DateComponents(calendar: Calendar.current, year: 2024, month: 1, day: 14), patient: samplePatients[9], medicalService: packages[4])
+
             
         ]
     
