@@ -30,7 +30,17 @@ class viewBookingTableViewController: UITableViewController {
         super.viewDidLoad()
         
         updateView()
-
+        checkBtn()
+    }
+    
+    func checkBtn(){
+        guard let stat = selectedTest?.status else {
+            return
+        }
+        
+        if(stat != .upcoming){
+            cancelling.isHidden = true
+        }
     }
 
     // MARK: - Table view data source
@@ -102,6 +112,7 @@ class viewBookingTableViewController: UITableViewController {
                 self.stlabel.textColor = UIColor.red
                 self.stlabel.text = "Cancelled"
                 print("Booking cancelled")
+                self.cancelling.isEnabled = false;
             } else {
                 print("Booking not found in AppData.bookings")
             }
@@ -111,6 +122,7 @@ class viewBookingTableViewController: UITableViewController {
         }
     }
     
+    @IBOutlet weak var cancelling: UIBarButtonItem!
     
 
     override func numberOfSections(in tableView: UITableView) -> Int {

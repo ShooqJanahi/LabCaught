@@ -470,6 +470,7 @@
                         <outlet property="Packagecell" destination="NtQ-OE-QPj" id="Pdi-jv-n0Q"/>
                         <outlet property="Placelet" destination="JOl-3x-jGf" id="Fdw-X9-Ggd"/>
                         <outlet property="Pricelet" destination="L48-8a-KIF" id="CuL-s9-3CH"/>
+                        <outlet property="cancelling" destination="tj6-7n-hXc" id="2MW-2g-ASL"/>
                         <outlet property="dateLabel" destination="rYB-3e-PLz" id="tZq-Hi-Nzp"/>
                         <outlet property="descriptlet" destination="RWh-nf-ZuO" id="iko-pD-947"/>
                         <outlet property="instructionLabel" destination="j98-Hy-NWJ" id="nib-gY-Fo6"/>
@@ -486,7 +487,7 @@
         <scene sceneID="IVw-JQ-9lq">
             <objects>
                 <navigationController id="Zik-Rl-S1S" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Booking History" selectedImage="book" catalog="system" id="ega-c4-PwA"/>
+                    <tabBarItem key="tabBarItem" title="Booking History" image="book" catalog="system" selectedImage="book" id="ega-c4-PwA"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WCo-8e-5sj">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
