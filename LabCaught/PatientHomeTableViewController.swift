@@ -154,5 +154,10 @@ class PatientHomeTableViewController: UITableViewController, UISearchControllerD
         }
         return PatientHomeViewController(coder: coder, facility: choosenFacility)
     }
-
+    @IBAction func logPutToMain(_ sender: Any) {
+        Alerts.showLogoutConfirmation(on: self) {
+            Utility.switchToStoryboard(named: "Main")
+        }
+    }
+    
 }

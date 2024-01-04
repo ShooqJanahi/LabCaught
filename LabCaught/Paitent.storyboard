@@ -89,6 +89,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="3lm-Og-gAR">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" image="rectangle.portrait.and.arrow.forward" catalog="system" id="HRr-MD-Nxy">
+                            <connections>
+                                <action selector="logOutToMain:" destination="VMt-OS-IjR" id="d9w-39-5gk"/>
+                            </connections>
+                        </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="L80-I4-wnC">
                             <rect key="frame" x="66.666666666666686" y="6" width="260" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1145,7 +1150,13 @@
                             <outlet property="delegate" destination="znS-yW-YuV" id="ca5-4j-YCq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Search" id="gLf-nK-yzW"/>
+                    <navigationItem key="navigationItem" title="Search" id="gLf-nK-yzW">
+                        <barButtonItem key="leftBarButtonItem" image="rectangle.portrait.and.arrow.forward" catalog="system" id="BWK-yP-bya">
+                            <connections>
+                                <action selector="logPutToMain:" destination="znS-yW-YuV" id="QIY-u3-2vJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RcQ-DN-NXv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
