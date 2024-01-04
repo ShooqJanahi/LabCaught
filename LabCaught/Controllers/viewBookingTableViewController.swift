@@ -10,6 +10,7 @@ import UIKit
 class viewBookingTableViewController: UITableViewController {
 
 
+    @IBOutlet weak var stlabel: UILabel!
     
     @IBOutlet weak var Datelet: UIView!
     
@@ -65,8 +66,53 @@ class viewBookingTableViewController: UITableViewController {
                 list += "\(tests.name)\n"
             }
             packageinclude.text = list
-        }}
+            
+            
+        }
+     
+        if selectedTest.status == .upcoming{
+            stlabel.textColor = UIColor.orange
+       
+            stlabel.text = "Active"
+         //   stlabel.layer.cornerRadius = 10
+         //   stlabel.layer.masksToBounds = true
+        } else if selectedTest.status == .completed{
+            stlabel.textColor = UIColor.green
+          
+         
+            stlabel.text = "Completed"
+            stlabel.layer.cornerRadius = 5
+            stlabel.layer.masksToBounds = true
+        }else{
+            stlabel.textColor = UIColor.red
+          
+         
+            stlabel.text = "Cancelled"
+        }
+    }
+
+        
+    @IBAction func cancelbtn(_ sender: Any) {
+        confirmation(title: "Confirm Cancellation", message: "Do you want to confirm cancelling this booking"){
+            guard let test = self.selectedTest else{
+                return
+            }
+            if let index = AppData.bookings.firstIndex(where: { $0 === test }) {
+                AppData.bookings[index].status = .cancelled
+                self.stlabel.textColor = UIColor.red
+                self.stlabel.text = "Cancelled"
+                print("Booking cancelled")
+            } else {
+                print("Booking not found in AppData.bookings")
+            }
+
+           
+            
+        }
+    }
     
+    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -81,6 +127,8 @@ class viewBookingTableViewController: UITableViewController {
   
         
     }
+    @IBOutlet weak var stauslabel: UILabel!
+    
     //var bookings: [Booking?] = AppData.bookings
  
  /*

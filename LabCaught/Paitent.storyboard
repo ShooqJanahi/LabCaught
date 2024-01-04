@@ -464,7 +464,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Booking History" id="qYM-Tg-fcv">
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="tj6-7n-hXc"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="tj6-7n-hXc">
+                            <connections>
+                                <action selector="cancelbtn:" destination="rQf-2k-zgl" id="2fT-4B-fsf"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="Datelet" destination="a1e-Ay-yEc" id="Cci-Hb-wm4"/>
@@ -477,6 +481,7 @@
                         <outlet property="instructionLabel" destination="j98-Hy-NWJ" id="nib-gY-Fo6"/>
                         <outlet property="instructlet" destination="HzH-VI-JZF" id="eDh-Bz-p2h"/>
                         <outlet property="packageinclude" destination="xH7-rr-ypM" id="TRX-Ax-P7h"/>
+                        <outlet property="stlabel" destination="gFw-8d-oNb" id="Q6K-h5-je7"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZMp-8T-ce7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
