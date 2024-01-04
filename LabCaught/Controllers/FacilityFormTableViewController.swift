@@ -150,14 +150,14 @@ class FacilityFormTableViewController: UITableViewController {
                         return
                     }
 
-                    // Use facility's username as an identifier to store the URL
+                    // Store the image URL in Firebase Database
                     if let facilityUsername = self.facility?.username {
                         self.storeImageUrl(logoUrl, forFacility: facilityUsername)
-                        self.createOrUpdateFacility(with: logoUrl) {
-                            self.finalizeFacilityUpdate()
-                        }
-                    } else {
-                        // Handle the case where username is nil
+                    }
+
+                    // Proceed with creating or updating the facility
+                    self.createOrUpdateFacility(with: logoUrl) {
+                        self.finalizeFacilityUpdate()
                     }
                 }
             } else {
@@ -166,9 +166,6 @@ class FacilityFormTableViewController: UITableViewController {
                     self.finalizeFacilityUpdate()
                 }
             }
-            
-            
-            
     
             
     }
@@ -222,45 +219,19 @@ class FacilityFormTableViewController: UITableViewController {
         navigationController?.popViewController(animated: true)
     }
 
-    // MARK: - Image Upload to Firebase Storage
-    func uploadImage(_ image: UIImage, completion: @escaping (_ url: String?) -> Void) {
-            // Convert image to data and decide file extension
-            guard let imageData = image.jpegData(compressionQuality: 0.8) else {
-                print("Could not get JPEG representation of UIImage")
-                return
-            }
-
-            let storageRef = Storage.storage().reference().child("images/\(UUID().uuidString).jpg")
-
-            storageRef.putData(imageData, metadata: nil) { metadata, error in
-                guard let _ = metadata else {
-                    print("Error during image upload: \(error?.localizedDescription ?? "")")
-                    completion(nil)
-                    return
-                }
-
-                storageRef.downloadURL { url, error in
-                    guard let downloadURL = url else {
-                        print("Error retrieving download URL")
-                        completion(nil)
-                        return
-                    }
-                    completion(downloadURL.absoluteString)
-                }
-            }
-        }
+    
     
     // MARK: - Firebase URL Storage
     func storeImageUrl(_ url: String, forFacility username: String) {
         // Firebase Database reference
         let ref = Database.database().reference()
-        ref.child("facilities").child(username).child("imageUrl").setValue(url)
+        ref.child("facilities").child(username).child("logoUrl").setValue(url)
     }
 
        // MARK: - Firebase URL Retrieval
     func fetchImageUrl(forFacility username: String, completion: @escaping (_ url: String?) -> Void) {
         let ref = Database.database().reference()
-        ref.child("facilities").child(username).child("imageUrl").observeSingleEvent(of: .value) { snapshot in
+        ref.child("facilities").child(username).child("logoUrl").observeSingleEvent(of: .value) { snapshot in
             guard let url = snapshot.value as? String else {
                 completion(nil)
                 return
@@ -290,6 +261,37 @@ class FacilityFormTableViewController: UITableViewController {
                }
            }.resume()
        }
+    // MARK: - Image Upload to Firebase Storage
+    func uploadImage(_ image: UIImage, completion: @escaping (_ url: String?) -> Void) {
+        guard let imageData = image.jpegData(compressionQuality: 0.8) else {
+            print("Could not get JPEG representation of UIImage")
+            completion(nil)
+            return
+        }
+
+        // Create a reference to the Firebase Storage location
+        let storageRef = Storage.storage().reference().child("images/\(UUID().uuidString).jpg")
+
+        // Upload the image data
+        storageRef.putData(imageData, metadata: nil) { metadata, error in
+            guard let _ = metadata else {
+                print("Error during image upload: \(error?.localizedDescription ?? "")")
+                completion(nil)
+                return
+            }
+
+            // Retrieve the download URL
+            storageRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    print("Error retrieving download URL")
+                    completion(nil)
+                    return
+                }
+                // Pass the direct HTTP URL string back to the completion handler
+                completion(downloadURL.absoluteString)
+            }
+        }
+    }
 
     
     
