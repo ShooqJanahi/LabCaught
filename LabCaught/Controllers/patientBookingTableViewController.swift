@@ -80,7 +80,16 @@ class patientBookingTableViewController: UITableViewController {
         cell.Date.text = "\(day)-\(month)-\(year)"
         cell.testName.text = book.medicalService.name
         cell.labName.text = book.medicalService.facility.name
-        
+        if(book.status == .upcoming){
+            cell.status.textColor = UIColor.orange
+            cell.status.text = "Upcoming"
+        } else if(book.status == .cancelled){
+            cell.status.textColor = UIColor.red
+            cell.status.text = "Cancelled"
+        } else if(book.status == .completed){
+            cell.status.textColor = UIColor.green
+            cell.status.text = "Completed"
+        }
       
         // Configure the cell...
 
