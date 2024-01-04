@@ -81,5 +81,12 @@ class LabBookingsTableViewController: UITableViewController {
     // Action handler for unwinding the segue to return to the bookings page
     @IBAction func unwindToLabBookingPage(segue: UIStoryboardSegue) {
     }
-
+    
+    
+    @IBAction func logOutToMain(_ sender: Any) {
+        Alerts.showLogoutConfirmation(on: self) {
+            Utility.switchToStoryboard(named: "Main")
+        }
+    }
+    
 }

@@ -175,7 +175,7 @@ class bookableViewController: UITableViewController {
             return
         }
         NameLabel.text = test.name
-        CostLabel.text = test.cost
+        CostLabel.text = test.cost + " BHD"
         InstructionLabel.text = test.insrtuctions
         DescribtionLabel.text = test.describtion
         if test is Test {

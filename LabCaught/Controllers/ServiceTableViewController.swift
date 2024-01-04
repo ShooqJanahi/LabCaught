@@ -140,22 +140,4 @@ class ServiceTableViewController: UITableViewController {
             Utility.switchToStoryboard(named: "Main")
         }
     }
-    
-    
-    
-    private func performLogout() {
-
-            if let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginTableViewControllerID") as? LoginTableViewController {
-                // Present or set as root view controller
-                self.present(loginViewController, animated: true)
-
-                // Alternatively, you can pop to the root view controller if it's a login screen
-                // self.navigationController?.popToRootViewController(animated: true)
-
-                // Or if you are using a navigation controller, you can do something like this:
-                 //navigationController?.setViewControllers([loginViewController], animated: true)
-            }
-        }
-
-
 }

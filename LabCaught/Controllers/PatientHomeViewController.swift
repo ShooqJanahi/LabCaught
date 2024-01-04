@@ -63,25 +63,11 @@ class PatientHomeViewController: UIViewController, UITableViewDelegate, UITableV
         
         //imageView.image = UIImage //UIImage(named: facility.logoImageName)
         
-//        let storageRef = Storage.storage().reference(withPath: facility.logoImageName)
-//
-//        storageRef.downloadURL { (url, error) in
-//            if let error = error {
-//                // Handle any errors
-//                print("Error downloading image: \(error)")
-//                return
-//            }
-//            if let url = url {
-//                // Download the image using URLSession
-//                URLSession.shared.dataTask(with: url) { data, response, error in
-//                    if let data = data {
-//                        DispatchQueue.main.async {
-//                            self.imageView.image = UIImage(data: data)
-//                        }
-//                    }
-//                }.resume()
-//            }
-//        }
+        facility.fetchLogoImage { [weak self] image in
+            DispatchQueue.main.async {
+                self?.imageView.image = image
+            }
+        }
     }
     
     

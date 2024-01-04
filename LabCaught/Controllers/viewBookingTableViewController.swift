@@ -46,7 +46,7 @@ class viewBookingTableViewController: UITableViewController {
                 return
             }
             dateLabel.text = "booking date: \(day)-\(month)-\(year) "
-            Pricelet.text = selectedTest.medicalService.cost
+            Pricelet.text = selectedTest.medicalService.cost + " BHD"
             instructionLabel.text = selectedTest.medicalService.insrtuctions
             descriptlet.text = selectedTest.medicalService.describtion
             
@@ -57,7 +57,7 @@ class viewBookingTableViewController: UITableViewController {
                 return
             }
             dateLabel.text = "booking date: \(day)-\(month)-\(year) "
-            Pricelet.text = selectedTest.medicalService.cost
+            Pricelet.text = selectedTest.medicalService.cost + " BHD"
             instructionLabel.text = selectedTest.medicalService.insrtuctions
             descriptlet.text = selectedTest.medicalService.describtion
             let selectedPackage = selectedTest.medicalService as! Packages

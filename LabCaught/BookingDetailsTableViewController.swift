@@ -126,7 +126,12 @@ class BookingDetailsTableViewController: UITableViewController {
         }
         // Set booking details in the UI
         if let bookingDate = booking?.booking_date {
-            bookingDateLbl.text = "\(bookingDate)"
+            let calendar = Calendar.current
+            let date = calendar.date(from: bookingDate)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yyyy"
+            let dateString = dateFormatter.string(from: date!)
+            bookingDateLbl.text = dateString
         }
         
         if let testPackageName = booking?.medicalService.name {
@@ -134,7 +139,7 @@ class BookingDetailsTableViewController: UITableViewController {
         }
         
         if let price = booking?.medicalService.cost {
-            priceLbl.text = price
+            priceLbl.text = price + " BHD"
         }
         
         if let instructions = booking?.medicalService.insrtuctions {

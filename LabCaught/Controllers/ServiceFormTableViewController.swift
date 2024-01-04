@@ -216,13 +216,6 @@ class ServiceFormTableViewController: UITableViewController {
         //tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
     }
     
-    
-    
-    @IBAction func textFieldEditingChanged(_ sender: Any) {
-        
-    }
-    
-    
     @IBAction func serviceTypeChanged(_ sender: UISegmentedControl) {
         currentServiceType = sender.selectedSegmentIndex == 0 ? .test : .package
         tableView.reloadData()
