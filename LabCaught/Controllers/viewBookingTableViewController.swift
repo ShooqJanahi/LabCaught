@@ -50,9 +50,23 @@ class viewBookingTableViewController: UITableViewController {
             descriptlet.text = selectedTest.medicalService.describtion
             
         }else {
-            
-        }
-    }
+            NameLet.text = selectedTest.medicalService.name
+            Placelet.text = selectedTest.medicalService.facility.location
+            guard let month = selectedTest.booking_date.month, let day = selectedTest.booking_date.day , let year = selectedTest.booking_date.year else{
+                return
+            }
+            dateLabel.text = "booking date: \(day)-\(month)-\(year) "
+            Pricelet.text = selectedTest.medicalService.cost
+            instructionLabel.text = selectedTest.medicalService.insrtuctions
+            descriptlet.text = selectedTest.medicalService.describtion
+            let selectedPackage = selectedTest.medicalService as! Packages
+            var list = ""
+            for tests in selectedPackage.packageIncludes{
+                list += "\(tests.name)\n"
+            }
+            packageinclude.text = list
+        }}
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1

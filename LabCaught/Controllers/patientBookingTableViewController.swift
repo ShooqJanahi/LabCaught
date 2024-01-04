@@ -8,18 +8,14 @@
 import UIKit
 
 class patientBookingTableViewController: UITableViewController {
-
+    var patientUsing : Patient?
+    var loggedInUsername = AppData.getLoggedInUsername()
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     func categorizeBookings() {
-        upcomingBookings = listOfBookings.filter{
-            $0.status == .upcoming
-        }
-        completedBookings = listOfBookings.filter{
-            $0.status == .completed
-        }
-        cancelledBookings = listOfBookings.filter{
-            $0.status == .cancelled
-        }
+        listOfBookings = AppData.bookings
+        upcomingBookings = listOfBookings.filter { $0.patient.username == loggedInUsername && $0.status == .upcoming }
+        completedBookings = listOfBookings.filter { $0.patient.username == loggedInUsername && $0.status == .completed }
+        cancelledBookings = listOfBookings.filter { $0.patient.username == loggedInUsername && $0.status == .cancelled }
     }
 
     
@@ -91,10 +87,17 @@ class patientBookingTableViewController: UITableViewController {
         return cell
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? viewBookingTableViewController, let selected = tableView.indexPathForSelectedRow{
-            destination.selectedTest = bookings[selected.row]
+            if let destination = segue.destination as? viewBookingTableViewController, let selected = tableView.indexPathForSelectedRow {
+                let selectedBooking: booking
+                switch selectedSegement {
+                case 0: selectedBooking = upcomingBookings[selected.row]
+                case 1: selectedBooking = completedBookings[selected.row]
+                case 2: selectedBooking = cancelledBookings[selected.row]
+                default: return // Or handle invalid segment
+                }
+                destination.selectedTest = selectedBooking
+            }
         }
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         categorizeBookings()
@@ -102,31 +105,32 @@ class patientBookingTableViewController: UITableViewController {
     }
   
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            confirmation(title: "Confirm Deletion", message: "do you want to delete this record, if it is active, it will lead to automatic cancellation"){
-                let bookingToRemove : booking
-                switch self.selectedSegement{
-                case 0: bookingToRemove = self.upcomingBookings[indexPath.row]
-                    self.upcomingBookings.remove(at: indexPath.row)
-                case 1: bookingToRemove = self.completedBookings[indexPath.row]
-                    self.completedBookings.remove(at: indexPath.row)
-                case 2: bookingToRemove = self.cancelledBookings[indexPath.row]
-                    self.completedBookings.remove(at: indexPath.row)
-                default:
-                    return
+     
+            if editingStyle == .delete {
+                // Delete the row from the data source
+                confirmation(title: "Confirm Deletion", message: "Do you want to delete this record? If it is active, it will lead to automatic cancellation") {
+                    let bookingToRemove: booking
+                    switch self.selectedSegement {
+                    case 0: bookingToRemove = self.upcomingBookings[indexPath.row]
+                            self.upcomingBookings.remove(at: indexPath.row)
+                    case 1: bookingToRemove = self.completedBookings[indexPath.row]
+                            self.completedBookings.remove(at: indexPath.row)
+                    case 2: bookingToRemove = self.cancelledBookings[indexPath.row]
+                            self.cancelledBookings.remove(at: indexPath.row)
+                    default: return
+                    }
+
+                    if let index = AppData.bookings.firstIndex(where: { $0 == bookingToRemove }) {
+                        AppData.bookings.remove(at: index)
+                    }
+                    
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                    self.categorizeBookings() // Refresh the categorized bookings
                 }
-                if let index = AppData.bookings.firstIndex(where: {$0.patient == bookingToRemove.patient && $0.booking_date == bookingToRemove.booking_date}){
-                    AppData.bookings.remove(at: index)
-                    self.listOfBookings.remove(at: index)
-                }
-                self.categorizeBookings()
-                tableView.deleteRows(at: [indexPath], with: .fade)
             }
-            
 
         }
-    }
+    
     
     @IBAction func logOutToMain(_ sender: Any) {
         Alerts.showLogoutConfirmation(on: self) {
