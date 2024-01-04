@@ -16,6 +16,19 @@ class LabBookingsTableViewCell: UITableViewCell {
     func configure(booking: booking){
         CPRLbl.text = "\(booking.patient.CPR)"
         testNameLbl.text = booking.medicalService.name
-        bookingDateLbl.text = "\(booking.booking_date)"
+        
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "dd-MM-yyyy"
+//        let dateString = dateFormatter.string(from: booking.booking_date)
+//        bookingDateLbl.text = dateString
+        
+        
+        let calendar = Calendar.current
+        let date = calendar.date(from: booking.booking_date)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        let dateString = dateFormatter.string(from: date!)
+        bookingDateLbl.text = dateString
+        
     }
 }

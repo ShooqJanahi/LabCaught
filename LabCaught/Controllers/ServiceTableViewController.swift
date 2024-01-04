@@ -142,37 +142,20 @@ class ServiceTableViewController: UITableViewController {
     }
     
     
-    /*override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "editSegue", sender: self)
-    }*/
-
-
     
-    
+    private func performLogout() {
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+            if let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginTableViewControllerID") as? LoginTableViewController {
+                // Present or set as root view controller
+                self.present(loginViewController, animated: true)
 
-    }
-    */
+                // Alternatively, you can pop to the root view controller if it's a login screen
+                // self.navigationController?.popToRootViewController(animated: true)
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
+                // Or if you are using a navigation controller, you can do something like this:
+                 //navigationController?.setViewControllers([loginViewController], animated: true)
+            }
+        }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
