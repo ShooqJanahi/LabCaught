@@ -89,15 +89,7 @@ class FacilityFormTableViewController: UITableViewController {
                 // Set the segmented control for facility type
                 facilityTypeSC.selectedSegmentIndex = facility.facilityType == .hospital ? 0 : 1
 
-        // Determine the image URL to use
-                let imageUrlToUse: String
-                if let selectedImage = facilityLogo.image, selectedImage != UIImage(named: "defaultLogo"), let newImageUrl = // Your method to get the new image URL {
-                    imageUrlToUse = newImageUrl
-                } else {
-                    // No new image is selected, use the original image URL
-                    imageUrlToUse = originalLogoImageName ?? "defaultLogo.jpg"
-                }
-                
+        
             // Load the image from Firebase Storage
             let storageRef = Storage.storage().reference().child("images/\(facility.logoImageName)")
             storageRef.getData(maxSize: 1 * 1024 * 1024) { [weak self] data, error in
