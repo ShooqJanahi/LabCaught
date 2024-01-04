@@ -28,6 +28,22 @@ class Alerts {
         return trimmedPhoneNumber.count == 8 && trimmedPhoneNumber.allSatisfy { $0.isNumber }
     }
     
+    //to show alert with the option to register
+    static func showAlertWithOptionToRegister(on viewController: UIViewController, title: String, message: String, registerHandler: @escaping () -> Void) {
+           let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+           let registerAction = UIAlertAction(title: "Register", style: .default) { _ in
+               registerHandler()
+           }
+           let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+
+           alert.addAction(registerAction)
+           alert.addAction(cancelAction)
+           DispatchQueue.main.async {
+               viewController.present(alert, animated: true, completion: nil)
+           }
+       }
+    
+    
     // Method to validate a CPR number format.
     func isCPRCorrect(_ cpr: String) -> Bool {
         let trimmedCpr = cpr.trimmingCharacters(in: .whitespacesAndNewlines)

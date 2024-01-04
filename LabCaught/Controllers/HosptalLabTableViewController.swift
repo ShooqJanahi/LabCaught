@@ -11,11 +11,9 @@ class HosptalLabTableViewController: UITableViewController {
     
     var facilities: [Facility] = AppData.facilites.filter{ $0.facilityType == .hospital }
     
-    
     @IBOutlet weak var facilityTypeSC: UISegmentedControl!
     
-    
-    //var facility: Facility?
+
     
     func filterFacilities() {
         if facilityTypeSC.selectedSegmentIndex == 0 { //0 is for hospitals
@@ -34,9 +32,8 @@ class HosptalLabTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //super.viewDidLoad()
         filterFacilities()
-        //AppData.loadFacilities()
+        
         //show hospitals by default
         if let segmentedControl = self.navigationItem.titleView as? UISegmentedControl {
             segmentedControl.selectedSegmentIndex = 0
@@ -108,24 +105,6 @@ class HosptalLabTableViewController: UITableViewController {
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         filterFacilities()
     }
-    /*
-     @IBSegueAction func editFacility(_ coder: NSCoder, sender: Any?) -> FacilityFormTableViewController? {
-     
-     // Determine which facility was selected
-     guard let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) else {
-     return nil
-     }
-     
-     // Retrieve the selected facility
-     let selectedFacility = AppData.sampleFacilities[indexPath.row]
-     
-     // Create the FacilityFormTableViewController with the selected facility
-     let editViewController = FacilityFormTableViewController(coder: coder, facility: selectedFacility)
-     
-     return editViewController
-     
-     }
-     */
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -135,44 +114,10 @@ class HosptalLabTableViewController: UITableViewController {
     }
     
     
-    //logout
-    /*
-    @objc func handleLogout() {
-        // Present confirmation alert
-        let alert = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { _ in
-            //self.logoutUser()
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
-    
-    
     @IBAction func switchToLoginScreen(_ sender: UIBarButtonItem) {
-        // Instantiate the Main storyboard by name
-           let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-
-           // Ensure the identifier is the same as what's set in the storyboard
-           let storyboardID = "LoginTableViewController"
-
-           // Check if the storyboard contains a view controller with the specified identifier
-           guard mainStoryboard.instantiateViewController(withIdentifier: storyboardID) is LoginTableViewController else {
-               print("Storyboard doesn't contain a view controller with identifier '\(storyboardID)'")
-               return
-           }
-
-           // Instantiate the LoginTableViewController from the Main storyboard
-           let loginViewController = mainStoryboard.instantiateViewController(withIdentifier: storyboardID)
-
-           // If using a navigation controller, pop to the root view controller
-           if let navigator = navigationController {
-               navigator.popToRootViewController(animated: false)
-               navigator.pushViewController(loginViewController, animated: true)
-           } else {
-               // Present the LoginTableViewController modally
-               present(loginViewController, animated: true, completion: nil)
-           }
-        
+        Alerts.showLogoutConfirmation(on: self) {
+            Utility.switchToStoryboard(named: "Main")
+        }
     }
-    */
+    
 }
