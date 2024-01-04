@@ -481,8 +481,12 @@ class AppData {
     static var sampleBookings = [
         booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:22), patient: samplePatients[3], medicalService: tests[1]),
         
-        booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:22), patient: samplePatients[4], medicalService: tests[0])
-    ]
+        booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:22), patient: samplePatients[4], medicalService: tests[0]),
+        booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:23), patient: samplePatients[2], medicalService: tests[2]),
+            booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:24), patient: samplePatients[1], medicalService: tests[3]),
+            booking(booking_date: DateComponents(calendar: Calendar.current, year: 2023, month: 12, day:25), patient: samplePatients[0], medicalService: tests[4])
+            
+        ]
     
     // Method to check if a username is already in use.
     static func isUsernameInUse(username: String) -> Bool {
