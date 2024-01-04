@@ -59,7 +59,7 @@ class LoginTableViewController: UITableViewController {
             // Determine the user type and switch to the appropriate storyboard.
             if AppData.patient.contains(where: { patient in patient.username == username }) ||
                 AppData.samplePatients.contains(where: { samplePatient in samplePatient.username == username }) {
-                Utility.switchToStoryboard(named: "PatientHome")
+                Utility.switchToStoryboard(named: "Paitent")
             } else if AppData.facilites.contains(where: { facility in facility.username == username }) {
                 Utility.switchToStoryboard(named: "Lab")
             } else if AppData.admins.contains(where: { admin in admin.username == username }) {

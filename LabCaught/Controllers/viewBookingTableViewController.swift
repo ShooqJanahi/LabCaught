@@ -10,6 +10,7 @@ import UIKit
 class viewBookingTableViewController: UITableViewController {
 
 
+    @IBOutlet weak var stlabel: UILabel!
     
     @IBOutlet weak var Datelet: UIView!
     
@@ -30,11 +31,6 @@ class viewBookingTableViewController: UITableViewController {
         
         updateView()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -55,9 +51,68 @@ class viewBookingTableViewController: UITableViewController {
             descriptlet.text = selectedTest.medicalService.describtion
             
         }else {
+            NameLet.text = selectedTest.medicalService.name
+            Placelet.text = selectedTest.medicalService.facility.location
+            guard let month = selectedTest.booking_date.month, let day = selectedTest.booking_date.day , let year = selectedTest.booking_date.year else{
+                return
+            }
+            dateLabel.text = "booking date: \(day)-\(month)-\(year) "
+            Pricelet.text = selectedTest.medicalService.cost
+            instructionLabel.text = selectedTest.medicalService.insrtuctions
+            descriptlet.text = selectedTest.medicalService.describtion
+            let selectedPackage = selectedTest.medicalService as! Packages
+            var list = ""
+            for tests in selectedPackage.packageIncludes{
+                list += "\(tests.name)\n"
+            }
+            packageinclude.text = list
+            
+            
+        }
+     
+        if selectedTest.status == .upcoming{
+            stlabel.textColor = UIColor.orange
+       
+            stlabel.text = "Active"
+         //   stlabel.layer.cornerRadius = 10
+         //   stlabel.layer.masksToBounds = true
+        } else if selectedTest.status == .completed{
+            stlabel.textColor = UIColor.green
+          
+         
+            stlabel.text = "Completed"
+            stlabel.layer.cornerRadius = 5
+            stlabel.layer.masksToBounds = true
+        }else{
+            stlabel.textColor = UIColor.red
+          
+         
+            stlabel.text = "Cancelled"
+        }
+    }
+
+        
+    @IBAction func cancelbtn(_ sender: Any) {
+        confirmation(title: "Confirm Cancellation", message: "Do you want to confirm cancelling this booking"){
+            guard let test = self.selectedTest else{
+                return
+            }
+            if let index = AppData.bookings.firstIndex(where: { $0 === test }) {
+                AppData.bookings[index].status = .cancelled
+                self.stlabel.textColor = UIColor.red
+                self.stlabel.text = "Cancelled"
+                print("Booking cancelled")
+            } else {
+                print("Booking not found in AppData.bookings")
+            }
+
+           
             
         }
     }
+    
+    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -72,6 +127,8 @@ class viewBookingTableViewController: UITableViewController {
   
         
     }
+    @IBOutlet weak var stauslabel: UILabel!
+    
     //var bookings: [Booking?] = AppData.bookings
  
  /*

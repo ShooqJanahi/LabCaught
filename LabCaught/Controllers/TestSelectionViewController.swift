@@ -23,18 +23,6 @@ class TestSelectionViewController: UITableViewController {
             tableView.allowsMultipleSelection = true
         }
 
-        override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return tests.count
-        }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TestCell", for: indexPath)
-        let test = tests[indexPath.row]
-        cell.textLabel?.text = test.name
-        cell.accessoryType = selectedIndexPaths.contains(indexPath) ? .checkmark : .none
-        return cell
-    }
-
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let selectedIndex = selectedIndexPaths.firstIndex(of: indexPath) {

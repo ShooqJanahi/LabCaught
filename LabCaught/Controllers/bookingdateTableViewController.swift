@@ -8,6 +8,7 @@
 import UIKit
 
 class bookableViewController: UITableViewController {
+    @IBOutlet weak var db1: UIDatePicker!
     
     //declare elements
     @IBOutlet weak var testCell: UITableViewCell!
@@ -66,6 +67,38 @@ class bookableViewController: UITableViewController {
 
     private func handleBookingConfirmed() {
         // Add your booking confirmation logic here
+        var patientusing: Patient?
+        guard let service = test else {
+            return
+        }
+        let user1 = findLoggedInUser()
+        print("booking added")
+        let selectedDate = db1.date
+        let calendar = Calendar.current
+        let dateComponents = calendar.dateComponents([.year, .month, .day], from: selectedDate)
+
+        patientusing = user1
+        guard let user2 = patientusing else{
+            return
+        }
+        let booking1 = booking(booking_date: dateComponents, patient: user2, medicalService: service)
+        AppData.sampleBookings.append(booking1)
+        AppData.bookings.append(booking1)
+        print("booking added")
+    }
+    
+    func findLoggedInUser() -> Patient? {
+        // Retrieve the saved username
+        guard let savedUsername = AppData.getLoggedInUsername() else {
+            return nil
+        }
+
+        // Search in patients
+        if let patient = AppData.samplePatients.first(where: { $0.username == savedUsername }) {
+            return patient
+        }
+
+        return nil
     }
 
     // Call this method when the user initiates the booking process

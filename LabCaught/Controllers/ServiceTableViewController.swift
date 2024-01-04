@@ -50,10 +50,7 @@ class ServiceTableViewController: UITableViewController {
     
     
     @IBAction func updateDisplayedServices(_ sender: UISegmentedControl) {
-        /*guard let selectedSegment = ServiceSegment(rawValue: sender.selectedSegmentIndex) else { return }
-        updateDisplayedServices(segment: selectedSegment)*/
-        
-        lastSelectedSegmentIndex = sender.selectedSegmentIndex
+            lastSelectedSegmentIndex = sender.selectedSegmentIndex
             guard let selectedSegment = ServiceSegment(rawValue: sender.selectedSegmentIndex) else { return }
             updateDisplayedServices(segment: selectedSegment)
     }
@@ -82,7 +79,6 @@ class ServiceTableViewController: UITableViewController {
 
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        
         return true
     }
 
@@ -161,40 +157,5 @@ class ServiceTableViewController: UITableViewController {
             }
         }
 
-
-    
-    
-    /*override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "editSegue", sender: self)
-    }*/
-
-
-    
-    
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
