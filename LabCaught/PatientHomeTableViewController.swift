@@ -74,24 +74,24 @@ class PatientHomeTableViewController: UITableViewController, UISearchControllerD
             }
         }
         else {
-            // Resets items if no search term is present
+            // If no search term, reset items to original list
             filterItems()
         }
-        tableView.reloadData()
+        tableView.reloadData() // Reload table view with filtered data
     }
     
     // Updates the items based on the selected scope button
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        filterItems()
-        tableView.reloadData()
+        filterItems() // Filter items based on the selected scope
+        tableView.reloadData() // Reload table view with filtered data
     }
     
     // Filters items based on the selected scope button
     func filterItems() {
         switch self.search.searchBar.selectedScopeButtonIndex {
-            case 0: // All
-                items = appDataItems
-            case 1: // Labs
+            case 0: // All facilites
+                items = appDataItems // Show all items
+            case 1: // Show only labs
                 items = appDataItems.compactMap { item in
                     if let item = item as? Facility {
                         if item.facilityType == .lab {
@@ -101,7 +101,7 @@ class PatientHomeTableViewController: UITableViewController, UISearchControllerD
                     return nil
                 }
                 
-            case 2: // Hospitals
+            case 2: // Show only hospitals
                 items = appDataItems.compactMap { item in
                     if let item = item as? Facility {
                         if item.facilityType == .hospital {
@@ -137,7 +137,7 @@ class PatientHomeTableViewController: UITableViewController, UISearchControllerD
         
         let item = items[indexPath.row]
         
-        cell.configure(item: item)
+        cell.configure(item: item) // Configure the cell with facility data
 
         return cell
     }
