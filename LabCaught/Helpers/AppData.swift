@@ -32,22 +32,6 @@ class AppData {
         static func getLoggedInUsername() -> String? {
             return UserDefaults.standard.string(forKey: "LoggedInUsername")
         }
-    //Extra Code
-//    // Function to save facility data to UserDefaults.
-//    static func saveFacilities() {
-//        if let encodedData = try? JSONEncoder().encode(sampleFacilities) {
-//            UserDefaults.standard.set(encodedData, forKey: "facilities")
-//        }
-//    }
-//
-//    // Function to load facility data from UserDefaults.
-//    static func loadFacilities() {
-//        if let savedFacilities = UserDefaults.standard.object(forKey: "facilities") as? Data {
-//            if let decodedFacilities = try? JSONDecoder().decode([Facility].self, from: savedFacilities) {
-//                sampleFacilities = decodedFacilities
-//            }
-//        }
-//    }
     
     
     // Method to check if a username is already in use.
@@ -87,18 +71,6 @@ class AppData {
         }
         return false
     }
-    
-    //this for the registered patient
-    // Load data from UserDefaults
-    //nada
-//    static func loadFromFile() {
-//        if let savedPatients = UserDefaults.standard.object(forKey: "SavedPatients") as? Data {
-//            if let decodedPatients = try? JSONDecoder().decode([Patient].self, from: savedPatients) {
-//                patient = decodedPatients
-//            }
-//        }
-//        
-//    }
     
     
     // Call this method when you want to initialize your app data.
@@ -155,7 +127,6 @@ extension AppData {
             
         }
         AppData.facilites.remove(at: index)
-        print("deleting")
         saveToFile()
         
     }

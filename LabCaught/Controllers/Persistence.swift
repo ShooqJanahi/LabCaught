@@ -12,21 +12,6 @@
 import Foundation
 extension AppData {
     
-    // Save patient data to UserDefaults.
-    //    static func saveToFile() {
-    //        if let encoded = try? JSONEncoder().encode(patient) {
-    //            UserDefaults.standard.set(encoded, forKey: "SavedPatients")
-    //        }
-    //    }
-    
-    
-    
-    //        static var users = [User]()
-    //        static var bookings = [Booking]()
-    //        static var services = [Service]()
-    
-    
-    
      enum FileName: String {
         case patients, facilities, bookings, tests, package
     }
@@ -38,37 +23,27 @@ extension AppData {
     }
     
     static func load(){
-        print("working1")
         loadUsers(fileName: .facilities)
-        print("working12")
         loadUsers(fileName: .patients)
-        print("working13")
         loadServices(fileName: .tests)
-        print("working14")
         loadServices(fileName: .package)
-        print("working15")
         loadBookings()
         
         if bookings.isEmpty {
             bookings = sampleBookings
-            print("working2")
         }
         if facilites.isEmpty {
             facilites = sampleFacilities
-            print("working3")
         }
         if services.isEmpty {
             services = allTestsPackages
-            print("working4")
         }
         if patient.isEmpty{
             patient = samplePatients
-            print("working5")
         }
     }
     
     static func saveToFile(){
-        print("Saving")
         saveUsers(fileName: .facilities)
         saveUsers(fileName: .patients)
         saveServices(fileName: .tests)
@@ -82,15 +57,12 @@ extension AppData {
             if fileName == .patients {
                 let patients : [Patient] = patient
                 if !patients.isEmpty {
-                    print("not empty")
                     let encodedPatients = try encoder.encode(patients)
                     try encodedPatients.write(to: archiveURL(fileName: .patients))
-                    print("patient save")
                 }
             } else {
                 let facilites: [Facility] = facilites
                 if !facilites.isEmpty {
-                    print("facility not empty")
                     let encodedFacilites = try encoder.encode(facilites)
                     try encodedFacilites.write(to: archiveURL(fileName: .facilities))
                 }
@@ -110,8 +82,6 @@ extension AppData {
             if fileName == .patients {
                 decodedPatient = try decoder.decode([Patient].self, from: data)
                 patient.append(contentsOf: decodedPatient)
-                print("patient load")
-                print(patient.count)
             } else {
                 decodedFacility = try decoder.decode([Facility].self, from: data)
                 facilites.append(contentsOf: decodedFacility)
@@ -170,45 +140,20 @@ extension AppData {
         catch {
             print("Error encoding data: \(error)")
         }
-        print("saving booking is working")
     }
     
     static func loadBookings() {
-     let url = archiveURL(fileName: .bookings)
-     guard let data = try? Data(contentsOf: url) else { return }
-     do {
-     let decoder = PropertyListDecoder()
-     var decodedBookings : [booking] = []
-     decodedBookings = try decoder.decode([booking].self, from: data)
-     bookings.append(contentsOf: decodedBookings)
-     }catch {
-     print("Error decoding data: \(error)")
-     }
-     }
+        let url = archiveURL(fileName: .bookings)
+        guard let data = try? Data(contentsOf: url) else { return }
+        do {
+            let decoder = PropertyListDecoder()
+            var decodedBookings : [booking] = []
+            decodedBookings = try decoder.decode([booking].self, from: data)
+            bookings.append(contentsOf: decodedBookings)
+        }catch {
+            print("Error decoding data: \(error)")
+        }
+    }
      
-     
-    //   fileprivate static func loadBookings() {
-    // FileName
-
 }
-    
-    
-    //    static func loadBookings() {
-    //        let url = archiveURL(fileName: .bookings)
-    //        guard let data = try? Data(contentsOf: url) else {
-    //            print("Could not find bookings data.")
-    //            return
-    //        }
-    //        do {
-    //            let decoder = PropertyListDecoder()
-    //            let decodedBookings = try decoder.decode([booking].self, from: data)
-    //            bookings.append(contentsOf: decodedBookings)
-    //        } catch {
-    //            print("Error decoding bookings data: \(error)")
-    //        }
-    //    }
-    
-    
-    
-    
 

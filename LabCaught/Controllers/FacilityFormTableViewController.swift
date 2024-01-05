@@ -291,6 +291,7 @@ class FacilityFormTableViewController: UITableViewController {
                 completion(downloadURL.absoluteString)
             }
         }
+        print("done uploading")
     }
 
     
