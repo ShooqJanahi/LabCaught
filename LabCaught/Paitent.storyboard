@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Q3R-qL-JjX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Q3R-qL-JjX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -811,6 +811,7 @@
                         <outlet property="InstructionLabel" destination="NT3-8T-fdO" id="ABK-cs-kVm"/>
                         <outlet property="NameLabel" destination="bQ2-x0-ZyE" id="i2B-Y3-t47"/>
                         <outlet property="db1" destination="F3W-JC-BL0" id="cVm-sw-4nh"/>
+                        <outlet property="location" destination="QBL-QD-kYQ" id="z6n-Qu-Aev"/>
                         <outlet property="testCell" destination="mWM-s1-owK" id="ird-Zb-Mqf"/>
                         <outlet property="testsInclueLabel" destination="8NS-UQ-vo1" id="G3V-iV-xs9"/>
                     </connections>

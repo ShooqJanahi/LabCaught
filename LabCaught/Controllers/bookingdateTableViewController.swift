@@ -10,6 +10,7 @@ import UIKit
 class bookableViewController: UITableViewController {
     @IBOutlet weak var db1: UIDatePicker!
     
+    @IBOutlet weak var location: UILabel!
     //declare elements
     @IBOutlet weak var testCell: UITableViewCell!
     var test : Service?
@@ -175,6 +176,7 @@ class bookableViewController: UITableViewController {
         guard let test = test else {
             return
         }
+        location.text = test.facility.location
         NameLabel.text = test.name
         CostLabel.text = test.cost + " BHD"
         InstructionLabel.text = test.insrtuctions
