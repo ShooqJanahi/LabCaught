@@ -167,7 +167,7 @@ class FacilityFormTableViewController: UITableViewController {
                 }
             }
     
-            
+        AppData.saveToFile()
     }
     
     private func createOrUpdateFacility(with logoUrl: String?, completion: @escaping () -> Void) {
@@ -213,7 +213,7 @@ class FacilityFormTableViewController: UITableViewController {
         }
     
     private func finalizeFacilityUpdate() {
-        AppData.saveFacilities()
+        //AppData.saveFacilities()
         refreshFacilityList()
         print("Navigating back after facility update")
         navigationController?.popViewController(animated: true)

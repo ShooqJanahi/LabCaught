@@ -114,6 +114,8 @@ class ServiceTableViewController: UITableViewController {
 
             // Present the alert
             self.present(alert, animated: true)
+            
+            AppData.saveToFile()
         }
     }
 

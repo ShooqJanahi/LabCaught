@@ -175,6 +175,8 @@ class ServiceFormTableViewController: UITableViewController {
 
             // Dismiss the current view controller to return to the list view
             navigationController?.popViewController(animated: true)
+        
+        AppData.saveToFile()
     }
     
     

@@ -29,6 +29,7 @@
 		8D1E8A012B3B2CD5001193E2 /* DatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1E8A002B3B2CD5001193E2 /* DatePickerTableViewCell.swift */; };
 		8D33AABA2B30D317004CC0EF /* bookingdateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D33AAB92B30D317004CC0EF /* bookingdateTableViewController.swift */; };
 		8D33AABE2B30D604004CC0EF /* BookInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D33AABD2B30D604004CC0EF /* BookInfoTableViewCell.swift */; };
+		8D40B9352B47F63000126803 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D40B9342B47F63000126803 /* SampleData.swift */; };
 		C3956A272B3307CD0040EE00 /* Facility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3956A262B3307CD0040EE00 /* Facility.swift */; };
 		C3EC311F2B31AE0100AEF765 /* calenderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EC311E2B31AE0100AEF765 /* calenderTableViewCell.swift */; };
 		C3EC31212B31C8D400AEF765 /* BookingDetailsConfirmedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EC31202B31C8D400AEF765 /* BookingDetailsConfirmedTableViewCell.swift */; };
@@ -84,6 +85,7 @@
 		8D1E8A002B3B2CD5001193E2 /* DatePickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTableViewCell.swift; sourceTree = "<group>"; };
 		8D33AAB92B30D317004CC0EF /* bookingdateTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookingdateTableViewController.swift; sourceTree = "<group>"; };
 		8D33AABD2B30D604004CC0EF /* BookInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoTableViewCell.swift; sourceTree = "<group>"; };
+		8D40B9342B47F63000126803 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		C3956A262B3307CD0040EE00 /* Facility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Facility.swift; sourceTree = "<group>"; };
 		C3EC311E2B31AE0100AEF765 /* calenderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calenderTableViewCell.swift; sourceTree = "<group>"; };
 		C3EC31202B31C8D400AEF765 /* BookingDetailsConfirmedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingDetailsConfirmedTableViewCell.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				4F3710952B473DC500DE2608 /* Persistence.swift */,
 				F0DBA5392B25DC2100EE7B28 /* Alerts.swift */,
 				4FB49A2B2B31FEAA00977E36 /* AppData.swift */,
+				8D40B9342B47F63000126803 /* SampleData.swift */,
 				F01B13C72B32E8DF006619E1 /* Utility.swift */,
 				C68F8AEC2B46DB5900FE1759 /* FirebaseStorageService.swift */,
 			);
@@ -327,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59E5BFF42B3359DE004C0D10 /* ServiceTableViewController.swift in Sources */,
+				8D40B9352B47F63000126803 /* SampleData.swift in Sources */,
 				F0711C1A2B46F37200745669 /* SelectTestsTableViewController.swift in Sources */,
 				592208E12B31E164006673DD /* Service.swift in Sources */,
 				C65104622B387046008F95D6 /* FacilityFormTableViewController.swift in Sources */,

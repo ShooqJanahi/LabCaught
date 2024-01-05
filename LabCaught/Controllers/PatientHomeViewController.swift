@@ -40,6 +40,7 @@ class PatientHomeViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        tableView.dataSource = self
     }
     
     func updateViews() {
@@ -68,6 +69,33 @@ class PatientHomeViewController: UIViewController, UITableViewDelegate, UITableV
                 self?.imageView.image = image
             }
         }
+    }
+    
+    
+    @IBAction func sortBtn(_ sender: Any) {
+        let actionSheetController = UIAlertController(title: "Sort by:", message: nil, preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        let ZtoA = UIAlertAction(title: "Z-A", style: .default) { action in
+            self.filteredServices.sort { $0.name > $1.name }
+            self.tableView.reloadData()
+        }
+        let AtoZ = UIAlertAction(title: "A-Z", style: .default) { action in
+            self.filteredServices.sort { $0.name < $1.name }
+            self.tableView.reloadData()
+        }
+        
+        // Add actions to actionSheetController
+        actionSheetController.addAction(cancelAction)
+        actionSheetController.addAction(AtoZ)
+        actionSheetController.addAction(ZtoA)
+        
+        // barButtonItem will be deprecated change it later
+        actionSheetController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
+        
+        self.present(actionSheetController, animated: true, completion: nil)
+        
     }
     
     

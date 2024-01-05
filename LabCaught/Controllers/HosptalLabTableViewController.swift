@@ -87,7 +87,7 @@ class HosptalLabTableViewController: UITableViewController {
                 self.facilities.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 
-                
+                AppData.saveToFile()
             }
         }
     }

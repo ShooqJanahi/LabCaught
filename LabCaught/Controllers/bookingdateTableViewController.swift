@@ -85,6 +85,7 @@ class bookableViewController: UITableViewController {
         AppData.sampleBookings.append(booking1)
         AppData.bookings.append(booking1)
         print("booking added")
+        AppData.saveToFile()
     }
     
     func findLoggedInUser() -> Patient? {
@@ -94,7 +95,7 @@ class bookableViewController: UITableViewController {
         }
 
         // Search in patients
-        if let patient = AppData.samplePatients.first(where: { $0.username == savedUsername }) {
+        if let patient = AppData.patient.first(where: { $0.username == savedUsername }) {
             return patient
         }
 

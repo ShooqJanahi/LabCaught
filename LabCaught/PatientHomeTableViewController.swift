@@ -43,6 +43,32 @@ class PatientHomeTableViewController: UITableViewController, UISearchControllerD
         tableView.reloadData()
     }
     
+    @IBAction func sortBtn(_ sender: Any) {
+        let actionSheetController = UIAlertController(title: "Sort by:", message: nil, preferredStyle: .actionSheet)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+
+            let ZtoA = UIAlertAction(title: "Z-A", style: .default) { action in
+                self.items.sort { ($0 as? Facility)!.name > ($1 as? Facility)!.name }
+                self.tableView.reloadData()
+            }
+            let AtoZ = UIAlertAction(title: "A-Z", style: .default) { action in
+                self.items.sort { ($0 as? Facility)!.name < ($1 as? Facility)!.name }
+                self.tableView.reloadData()
+            }
+            
+            // Add actions to actionSheetController
+            actionSheetController.addAction(cancelAction)
+            actionSheetController.addAction(AtoZ)
+            actionSheetController.addAction(ZtoA)
+            
+            // barButtonItem will be deprecated change it later
+            actionSheetController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
+            
+            self.present(actionSheetController, animated: true, completion: nil)
+    }
+    
+    
     // Updates the search results based on the search bar text and selected scope
     func updateSearchResults(for search: UISearchController) {
         
