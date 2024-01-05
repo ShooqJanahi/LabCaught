@@ -7,8 +7,8 @@
 enum statusType : String,Codable{
     case
     upcoming = "Upcoming",
-    completed = "Completed",
-    cancelled = "Cancelled"
+    completed = "completed",
+    cancelled = "cancelled"
 }
 import Foundation
 //it should be there

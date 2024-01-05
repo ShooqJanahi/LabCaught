@@ -109,6 +109,7 @@ class viewBookingTableViewController: UITableViewController {
             }
             if let index = AppData.bookings.firstIndex(where: { $0 === test }) {
                 AppData.bookings[index].status = .cancelled
+                AppData.saveBookings()
                 self.stlabel.textColor = UIColor.red
                 self.stlabel.text = "Cancelled"
                 print("Booking cancelled")
