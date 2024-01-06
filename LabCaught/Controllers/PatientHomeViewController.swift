@@ -58,7 +58,7 @@ class PatientHomeViewController: UIViewController, UITableViewDelegate, UITableV
         var timeString = dateFormatter.string(from: opendate!)
         openingLbl.text = timeString
         
-        let closedate = calendar.date(from: facility.openingTime)
+        let closedate = calendar.date(from: facility.closingTime)
         timeString = dateFormatter.string(from: closedate!)
         closeingLbl.text = timeString
         
